@@ -1,0 +1,1 @@
+¡Bienvenidos a mis apuntes de Informática! Utiliza el menú de la izquierda para navegar.

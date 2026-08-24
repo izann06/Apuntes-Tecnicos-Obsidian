@@ -1,0 +1,63 @@
+
+<style>
+h2.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+table{width:100%;border-collapse:collapse;font-size:13px;font-family:var(--font-sans)}
+th{background:var(--color-background-secondary);color:var(--color-text-secondary);font-weight:500;padding:8px 10px;border-bottom:0.5px solid var(--color-border-secondary);text-align:center}
+td{padding:7px 10px;border-bottom:0.5px solid var(--color-border-tertiary);text-align:center;color:var(--color-text-primary)}
+tr:last-child td{border-bottom:none}
+td:first-child,td:nth-child(2){color:var(--color-text-secondary)}
+.uno{color:#1D9E75;font-weight:500}
+.cero{color:#888780}
+.nombre{text-align:left;font-weight:500;color:var(--color-text-primary)}
+.desc{text-align:left;font-size:12px;color:var(--color-text-secondary);max-width:220px}
+.seccion{background:var(--color-background-tertiary);color:var(--color-text-secondary);font-size:11px;font-weight:500;letter-spacing:.04em;padding:5px 10px;text-align:left}
+</style>
+<h2 class="sr-only">Tabla de verdad de las 7 puertas lógicas básicas con todas las combinaciones de entradas</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Puerta</th>
+      <th>A</th><th>B</th>
+      <th>Salida</th>
+      <th style="text-align:left">Regla en español</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="seccion" colspan="5">NOT — 1 entrada, invierte</td></tr>
+    <tr><td class="nombre" rowspan="2">NOT</td><td>0</td><td>—</td><td class="uno">1</td><td class="desc" rowspan="2">Devuelve lo contrario siempre</td></tr>
+    <tr><td>1</td><td>—</td><td class="cero">0</td></tr>
+
+    <tr><td class="seccion" colspan="5">AND / NAND — solo activan cuando los dos están activos</td></tr>
+    <tr><td class="nombre" rowspan="4">AND</td><td>0</td><td>0</td><td class="cero">0</td><td class="desc" rowspan="4">Solo 1 si ambas entradas son 1</td></tr>
+    <tr><td>0</td><td>1</td><td class="cero">0</td></tr>
+    <tr><td>1</td><td>0</td><td class="cero">0</td></tr>
+    <tr><td>1</td><td>1</td><td class="uno">1</td></tr>
+
+    <tr><td class="nombre" rowspan="4">NAND</td><td>0</td><td>0</td><td class="uno">1</td><td class="desc" rowspan="4">AND al revés. Solo 0 si ambas son 1</td></tr>
+    <tr><td>0</td><td>1</td><td class="uno">1</td></tr>
+    <tr><td>1</td><td>0</td><td class="uno">1</td></tr>
+    <tr><td>1</td><td>1</td><td class="cero">0</td></tr>
+
+    <tr><td class="seccion" colspan="5">OR / NOR — basta con que una esté activa</td></tr>
+    <tr><td class="nombre" rowspan="4">OR</td><td>0</td><td>0</td><td class="cero">0</td><td class="desc" rowspan="4">1 si al menos una entrada es 1</td></tr>
+    <tr><td>0</td><td>1</td><td class="uno">1</td></tr>
+    <tr><td>1</td><td>0</td><td class="uno">1</td></tr>
+    <tr><td>1</td><td>1</td><td class="uno">1</td></tr>
+
+    <tr><td class="nombre" rowspan="4">NOR</td><td>0</td><td>0</td><td class="uno">1</td><td class="desc" rowspan="4">OR al revés. Solo 1 si ambas son 0</td></tr>
+    <tr><td>0</td><td>1</td><td class="cero">0</td></tr>
+    <tr><td>1</td><td>0</td><td class="cero">0</td></tr>
+    <tr><td>1</td><td>1</td><td class="cero">0</td></tr>
+
+    <tr><td class="seccion" colspan="5">XOR / XNOR — detectan si son diferentes o iguales</td></tr>
+    <tr><td class="nombre" rowspan="4">XOR</td><td>0</td><td>0</td><td class="cero">0</td><td class="desc" rowspan="4">1 solo si las entradas son distintas</td></tr>
+    <tr><td>0</td><td>1</td><td class="uno">1</td></tr>
+    <tr><td>1</td><td>0</td><td class="uno">1</td></tr>
+    <tr><td>1</td><td>1</td><td class="cero">0</td></tr>
+
+    <tr><td class="nombre" rowspan="4">XNOR</td><td>0</td><td>0</td><td class="uno">1</td><td class="desc" rowspan="4">1 solo si las entradas son iguales</td></tr>
+    <tr><td>0</td><td>1</td><td class="cero">0</td></tr>
+    <tr><td>1</td><td>0</td><td class="cero">0</td></tr>
+    <tr><td>1</td><td>1</td><td class="uno">1</td></tr>
+  </tbody>
+</table>

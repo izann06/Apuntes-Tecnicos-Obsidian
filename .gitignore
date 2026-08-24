@@ -1,0 +1,13 @@
+# Ignorar carpetas ocultas de configuración (plugins de Obsidian, agentes, etc.)
+.*
+# PERO permitir que se suba la configuración de GitHub y este mismo archivo
+!.github/
+!.gitignore
+
+# Ignorar las carpetas personales que NO quieres subir a GitHub
+/App_Estudio/
+/Gym/
+/Libros/
+/MisCosas/
+/Proyecto_Monopoly/
+/copilot/

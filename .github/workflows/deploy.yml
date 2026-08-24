@@ -1,0 +1,81 @@
+name: Deploy Quartz site to GitHub Pages
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Obsidian Vault
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: vault
+
+      - name: Checkout Quartz
+        uses: actions/checkout@v4
+        with:
+          repository: jackyzha0/quartz
+          ref: v4
+          path: quartz
+
+      - name: Copy notes to Quartz
+        run: |
+          rm -rf quartz/content/*
+          
+          # Copiamos la carpeta de Informática a la carpeta de contenido
+          cp -r vault/Informática quartz/content/
+          
+          # IMPORTANTÍSIMO: Copiamos el index.md a la raíz para que sea la portada real
+          if [ -f "vault/Informática/index.md" ]; then
+            cp "vault/Informática/index.md" quartz/content/index.md
+          fi
+          
+          # Copiamos la carpeta de imágenes para que los enlaces no se rompan
+          if [ -d "vault/Imagenes (No hacer caso)" ]; then
+            cp -r "vault/Imagenes (No hacer caso)" quartz/content/
+          fi
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build Quartz
+        working-directory: ./quartz
+        run: |
+          npm ci
+          
+          # Desactivar imágenes OG comentando el plugin que causa el error
+          node -e "const fs = require('fs'); let cfg = fs.readFileSync('quartz.config.ts', 'utf8'); cfg = cfg.replace('Plugin.CustomOgImages(),', '// Plugin.CustomOgImages(),'); fs.writeFileSync('quartz.config.ts', cfg);"
+          
+          # Añadimos los archivos al git de Quartz temporalmente para que no de error al buscar las fechas
+          git config user.email "bot@ejemplo.com"
+          git config user.name "Bot"
+          git add .
+          git commit -m "Archivos listos para compilar"
+          npx quartz build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: quartz/public
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
