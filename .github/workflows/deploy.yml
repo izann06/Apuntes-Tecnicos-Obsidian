@@ -1,8 +1,8 @@
-name: Deploy Quartz site to GitHub Pages
+name: Deploy Quartz site to GitHub Pages # Nombre del flujo, que aparece en GitHub.
 on:
   push:
     branches:
-      - main
+      - main # Rama que se ejecuta cuando hago push.
 permissions:
   contents: read
   pages: write
@@ -10,9 +10,9 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: false
-jobs:
+jobs: #
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # Sistema operativo que se usa para compilar. No es recomendable poner -latest
     steps:
       - name: Checkout Obsidian Vault
         uses: actions/checkout@v4
