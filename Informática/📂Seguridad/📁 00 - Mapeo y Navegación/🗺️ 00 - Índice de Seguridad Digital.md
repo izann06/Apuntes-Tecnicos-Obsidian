@@ -60,5 +60,35 @@
 
 ---
 
+## 🟤 Nivel 7 — Hábitos, Descargas y USBs
+
+| Nota | Descripción |
+| ---- | ----------- |
+| [[07.1 - Descargas Seguras y Extensiones Ocultas]] | El peligro de instaladores intermediarios y la trampa de las extensiones ocultas en Windows. |
+| [[07.2 - Amenazas USB BadUSB y USB Killer]] | Por qué un USB no es solo memoria y cómo puede destruir o hackear tu equipo en segundos. |
+| [[07.3 - Copias de Seguridad (Backups) y la Regla 3-2-1]] | La única protección real ante fallos de hardware, Ransomware y borrados accidentales. |
+
+---
+
+## ⚫ Nivel 8 — Dinero, Sim Swap y Límites Profesionales
+
+| Nota | Descripción |
+| ---- | ----------- |
+| [[08.1 - Estafas Financieras Comprobantes Falsos y Fideicomisos de Confianza]] | Ingeniería social financiera, comprobantes falsos y la estafa de la app clon. |
+| [[08.2 - Sim Swap y el Código de Gestión]] | El secuestro de tu número móvil y cómo el PIN de operadora es tu única defensa real. |
+| [[08.3 - Separación Digital Vida Personal vs Laboral]] | El principio de compartimentación de daños para proteger tu identidad y tu trabajo. |
+
+---
+
+## ⚪ Nivel 9 — Mitigación, Antivirus y Recuperación de Datos
+
+| Nota                                                     | Descripción                                                                                          |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [[09.1 - Qué Hacer si ya te Hackearon Cerrando Puertas]] | Protocolo de emergencia, detección de señales silenciosas y reglas de reenvío ocultas.               |
+| [[09.2 - Antivirus El Guardián Solitario y sus Límites]] | Por qué un antivirus no es infalible frente a ataques modernos y el hábito del Threat Hunting.       |
+| [[09.3 - Recuperación de Datos Lógica vs Física]]        | La diferencia técnica entre borrado lógico y físico, y cuándo acudir a un laboratorio especializado. |
+
+---
+
 > [!tip] Recomendación de estudio
 > Sigue los niveles en orden. Cada uno construye sobre el anterior y las notas contienen enlaces internos que conectan conceptos entre sí.
