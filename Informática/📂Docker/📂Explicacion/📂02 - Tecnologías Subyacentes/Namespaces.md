@@ -1,7 +1,7 @@
 # 🔒 Namespaces (Aislamiento: Lo que el contenedor puede ver)
 
 > [!info] Navegación
-> ◀ [[Introducción al Mundo Docker]] · ▶ [[Cgroups]]
+> ◀ [[🐳Introducción al Mundo Docker]] · ▶ [[Cgroups]]
 > 📂 Sección: **02 - Tecnologías Subyacentes** · Ver también: [[Cgroups]] · [[Union Filesystems]]
 
 ---
@@ -248,4 +248,4 @@ ls -la /proc/$PID/ns/
 ---
 
 > [!info] Navegación
-> ◀ [[Introducción al Mundo Docker]] · ▶ [[Cgroups]]
+> ◀ [[🐳Introducción al Mundo Docker]] · ▶ [[Cgroups]]

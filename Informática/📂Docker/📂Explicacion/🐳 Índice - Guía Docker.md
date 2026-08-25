@@ -11,7 +11,7 @@
 
 | # | Sección | Archivos |
 |---|---|---|
-| 01 | **Introducción al Mundo Docker** | [[Introducción al Mundo Docker]] |
+| 01 | **Introducción al Mundo Docker** | [[🐳Introducción al Mundo Docker]] |
 | 02 | **Tecnologías Subyacentes** | [[Namespaces]] · [[Cgroups]] · [[Union Filesystems]] |
 | 03 | **Instalación y Setup** | [[Instalación y Setup]] |
 

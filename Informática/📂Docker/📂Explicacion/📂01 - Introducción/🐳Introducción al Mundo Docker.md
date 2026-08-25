@@ -1,10 +1,8 @@
-# 🐳 Introducción al Mundo Docker
 
 > [!info] Navegación
 > ◀ [[🐳 Índice - Guía Docker]] · ▶ [[Namespaces]]
 
 ---
-
 ## ¿Qué son los contenedores y por qué los necesitamos?
 
 ### El problema: "En mi máquina sí funciona" 🤷‍♂️
