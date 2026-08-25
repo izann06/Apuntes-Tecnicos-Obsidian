@@ -46,7 +46,9 @@ Este proyecto utiliza un sistema de integración y despliegue continuo (CI/CD) c
 3. Un **GitHub Action** entra en juego de fondo, compila el sitio web estático utilizando **Quartz v4**, ajusta la configuración al vuelo y lo despliega públicamente usando **GitHub Pages**.
 
 ## 🌐 Visita la Web
-Puedes ver la versión interactiva, renderizada y navegable de todos estos apuntes visitando el enlace del entorno de **GitHub Pages** (disponible en la sección de *Environments* a la derecha de este repositorio).
+Puedes ver la versión interactiva, renderizada y navegable de todos estos apuntes visitando el enlace del entorno de **GitHub Pages** (disponible en la sección de *Deployments* a la derecha de este repositorio).
+
+También puedes acceder desde aqui: https://izann06.github.io/Apuntes-Tecnicos-Obsidian/
 
 ---
 *Repositorio creado con esfuerzo, mucha curiosidad y ganas de aprender.* 🚀
