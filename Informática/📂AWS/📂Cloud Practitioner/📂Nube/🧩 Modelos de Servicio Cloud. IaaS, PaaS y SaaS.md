@@ -16,7 +16,7 @@ Te alquilan los cimientos y las paredes vacías. Tú tienes que poner los mueble
 
 * **🚗 Otro ejemplo (Coche de alquiler):** Te dan el coche, pero tú tienes que conducir, echar gasolina y no chocarte.
 
-*  **Ejemplos Reales:** AWS(EC2), Azure, Google Cloud.
+* **Ejemplos Reales:** AWS(EC2), Azure, Google Cloud.
 
 ---
 
@@ -30,7 +30,7 @@ Te alquilan el entorno listo para que tú solo te centres en tu trabajo principa
 
 * **🚗 Otro ejemplo (Taxi / Uber):** Tú dices a dónde quieres ir (tu código/datos), pero el taxista (proveedor) conduce y se encarga de la gasolina y el mantenimiento del coche.
 
-*  **Ejemplos Reales:** GitHub, Shopify, Firebase, AWS (RDS, Lambda).
+* **Ejemplos Reales:** GitHub, Shopify, Firebase, AWS (RDS, Lambda).
 
 ---
 
@@ -50,11 +50,11 @@ Te alquilan el producto final terminado. No gestionas ni los servidores, ni el s
 
 ## 📊 Tabla Comparativa para el Examen
 
-| Modelo   | ¿Qué gestionas TÚ?                        | ¿Qué gestiona AWS?                 | Nivel de Control | Ejemplo AWS     |
+| Modelo | ¿Qué gestionas TÚ? | ¿Qué gestiona AWS? | Nivel de Control | Ejemplo AWS |
 | :------- | :---------------------------------------- | :--------------------------------- | :--------------- | :-------------- |
-| **IaaS** | SO, Datos, Aplicaciones, Red              | Hardware, Servidores físicos       | 🔴 Alto          | EC2, S3         |
-| **PaaS** | Datos, Aplicaciones                       | Hardware, SO, Entorno de ejecución | 🟡 Medio         | RDS, Lambda     |
-| **SaaS** | ¡Nada! Solo la configuración de tu cuenta | Todo (Hardware, SO, App completa)  | 🟢 Bajo          | WorkMail, Gmail |
+| **IaaS** | SO, Datos, Aplicaciones, Red | Hardware, Servidores físicos | 🔴 Alto | EC2, S3 |
+| **PaaS** | Datos, Aplicaciones | Hardware, SO, Entorno de ejecución | 🟡 Medio | RDS, Lambda |
+| **SaaS** | ¡Nada! Solo la configuración de tu cuenta | Todo (Hardware, SO, App completa) | 🟢 Bajo | WorkMail, Gmail |
 
 ---
 

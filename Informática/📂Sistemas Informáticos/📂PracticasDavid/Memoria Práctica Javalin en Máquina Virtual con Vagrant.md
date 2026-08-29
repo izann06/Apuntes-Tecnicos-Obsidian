@@ -1,15 +1,15 @@
 ## **1. Objetivo de la práctica**
 
 - Configurar una máquina virtual Ubuntu mediante Vagrant.
-    
+ 
 - Instalar herramientas necesarias: Git, Maven, JDK.
-    
+ 
 - Descargar y ejecutar un proyecto REST con Javalin.
-    
+ 
 - Hacer accesibles los servicios desde el host (Windows).
-    
+ 
 - Documentar problemas y soluciones durante el proceso.
-    
+ 
 
 
 
@@ -34,7 +34,7 @@ Despues hacemos:
 ![[Memoria Práctica Javalin en Máquina Virtual con Vagrant-4.png]]
 
 - **Causa:** Vagrant no podía conectarse por SSH porque la VM no levantaba correctamente la red host-only.
-    
+ 
 - Esto pasaba aunque la VM pareciera arrancar; el problema real era la **configuración de red**. Se debe a que definí una IP para la VM `192.168.1.33` que **ya estaba en uso** por otra red de VirtualBox, adaptador de Wi-Fi o incluso otra VM.
 
 - Este conflicto impedía que la VM pudiera comunicarse con el host correctamente y provocaba el timeout de SSH.A si que añadí otra IP la 192.168.56.33
@@ -48,12 +48,12 @@ En el vagrantFile puse `virtualbox__intnet: false` que solo evita crear una red 
 ![[Memoria Práctica Javalin en Máquina Virtual con Vagrant-2.png]]
 
 y entonces me dió error:
-    
+ 
 
 `fatal: repository 'https://github.com/.../javalin_basico/' not found`
 
 **Solución:** Clonar **todo el repositorio** desde la raíz:
-    
+ 
 
 `git clone https://github.com/davidscientistcom/Curso25_26.git`
 
@@ -65,7 +65,7 @@ y entonces me dió error:
 
 ## **4. Compilación y ejecución del proyecto**
 
-Entraste en la VM con:    
+Entraste en la VM con: 
 
 `vagrant ssh
 
@@ -86,9 +86,9 @@ Después hice:
 
 Me dio **Error**,Maven no sabía qué clase `Main` ejecutar:
 
-`The parameters 'mainClass' ... are missing or invalid`
+`The parameters 'mainClass'... are missing or invalid`
 
-**Solución:** Indicar explícitamente la clase principal:    
+**Solución:** Indicar explícitamente la clase principal: 
 
 `mvn compile exec:java -Dexec.mainClass="Main"`
 
@@ -104,9 +104,9 @@ Inicialmente Javalin arrancaba en localhost:
 ![[Memoria Práctica Javalin en Máquina Virtual con Vagrant-8.png]]
 
 **Problema:** No se podía acceder desde el host (Windows).
-    
+ 
 **Solución:** Cambiar a escuchar todas las interfaces:
-    
+ 
 
 ![[Memoria Práctica Javalin en Máquina Virtual con Vagrant-7.png]]
 
@@ -115,12 +115,12 @@ Inicialmente Javalin arrancaba en localhost:
 ## **6. Prueba de los endpoints**
 
 - Comprobación dentro de la VM:
-    
+ 
 
 `curl http://localhost:7001/users`
 
 - Comprobación desde el host (Windows):
-    
+ 
 
 `http://192.168.56.33:7001/users`
 
@@ -134,12 +134,12 @@ Al hacer `curl`, aparecía:
 
 **Causa:** Javalin necesita una librería para convertir objetos Java a JSON (Jackson).
 
-**Solución:** Añadir manualmente dependencia en `pom.xml`:    
+**Solución:** Añadir manualmente dependencia en `pom.xml`: 
 
 ![[Memoria Práctica Javalin en Máquina Virtual con Vagrant-14.png]]
 
 Entonces recompilas y ejecutas de nuevo:
 
-`mvn clean package mvn compile exec:java -Dexec.mainClass="Main"`    
+`mvn clean package mvn compile exec:java -Dexec.mainClass="Main"` 
 
 

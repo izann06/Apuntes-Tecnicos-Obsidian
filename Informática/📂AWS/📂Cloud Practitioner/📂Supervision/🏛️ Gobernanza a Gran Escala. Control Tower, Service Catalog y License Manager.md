@@ -14,9 +14,10 @@ Si **AWS Organizations** es la estructura (las carpetas), **AWS Control Tower** 
 
 * **Los Guardarrailes (Guardrails / Controles):** Es su característica principal. Son reglas obligatorias. 
 
-    * *Preventivos:* Evitan que hagas algo mal (ej. "Nadie puede apagar CloudTrail en ninguna cuenta").
-    * *Detectivos:* Te avisan si algo se desconfigura (ej. "Avisar si alguien crea un disco sin cifrar").
-    
+ * *Preventivos:* Evitan que hagas algo mal (ej. "Nadie puede apagar CloudTrail en ninguna cuenta").
+
+ * *Detectivos:* Te avisan si algo se desconfigura (ej. "Avisar si alguien crea un disco sin cifrar").
+ 
 * **Panel Central:** Te da un resumen visual para ver qué cuentas cumplen las reglas y cuáles no.
 
 ---

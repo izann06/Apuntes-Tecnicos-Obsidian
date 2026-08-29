@@ -8,11 +8,11 @@
 
 AWS Organizations organiza tus cuentas como si fuera el organigrama de una empresa:
 
-1.  **La Raíz (Root):** Es el nivel más alto. Contiene la **Cuenta Principal (Management Account)**. Esta es la cuenta que "paga la factura" y desde donde los administradores supremos dictan las reglas.
+1. **La Raíz (Root):** Es el nivel más alto. Contiene la **Cuenta Principal (Management Account)**. Esta es la cuenta que "paga la factura" y desde donde los administradores supremos dictan las reglas.
 
-2.  **Unidades Organizativas (OUs):** Son como las "carpetas" o los "departamentos" de tu empresa. Puedes tener una OU llamada `Finanzas`, otra `Desarrollo` y otra `Producción`. Las OUs pueden contener otras OUs anidadas dentro de ellas.
+2. **Unidades Organizativas (OUs):** Son como las "carpetas" o los "departamentos" de tu empresa. Puedes tener una OU llamada `Finanzas`, otra `Desarrollo` y otra `Producción`. Las OUs pueden contener otras OUs anidadas dentro de ellas.
 
-3.  **Cuentas Miembro (Member Accounts):** Son las cuentas de AWS individuales reales donde viven los servidores y las bases de datos. Se meten dentro de las OUs correspondientes.
+3. **Cuentas Miembro (Member Accounts):** Son las cuentas de AWS individuales reales donde viven los servidores y las bases de datos. Se meten dentro de las OUs correspondientes.
 
 ---
 
@@ -36,18 +36,20 @@ Presta mucha atención a esto, porque es una trampa clásica de examen y la dife
 * **El Poder de la SCP:** Si aplicas una SCP a la OU de "Desarrollo" que dice *"DENEGAR el uso de bases de datos RDS"*, **nadie** dentro de esa OU podrá crear una RDS. Ni siquiera el Usuario Raíz de esa cuenta, ni el Administrador de esa cuenta. La SCP es la ley suprema y anula cualquier política de IAM interna.
 
 > [!warning] 🚨 IAM Policies vs. SCPs (Clave de Examen)
+>
 > * Las **Políticas de IAM** se aplican a **Usuarios, Grupos y Roles** específicos dentro de una sola cuenta (Ej. "Darle permiso a Juan").
+>
 > * Las **SCPs** se aplican a **Cuentas o OUs enteras** desde arriba (Ej. "Nadie en la cuenta de Finanzas puede apagar CloudTrail"). Las SCP **NO** se pueden aplicar directamente a usuarios de IAM individuales.
 
 ---
 
 ## 🎯 Casos de Uso Típicos
 
-1.  **Aislamiento de Recursos:** Si el equipo de pruebas rompe un servidor, al estar en una cuenta separada, no afecta en absoluto a la cuenta de Producción.
+1. **Aislamiento de Recursos:** Si el equipo de pruebas rompe un servidor, al estar en una cuenta separada, no afecta en absoluto a la cuenta de Producción.
 
-2.  **Automatización:** Permite crear nuevas cuentas de AWS de forma programática (mediante código o API) en segundos cuando llega un equipo nuevo a la empresa.
+2. **Automatización:** Permite crear nuevas cuentas de AWS de forma programática (mediante código o API) en segundos cuando llega un equipo nuevo a la empresa.
 
-3.  **Límites de Seguridad Estrictos:** Asegurar que ciertas cuentas (ej. las que procesan datos médicos o financieros) no puedan usar servicios de AWS que no estén aprobados por el equipo legal.
+3. **Límites de Seguridad Estrictos:** Asegurar que ciertas cuentas (ej. las que procesan datos médicos o financieros) no puedan usar servicios de AWS que no estén aprobados por el equipo legal.
 
 ---
 

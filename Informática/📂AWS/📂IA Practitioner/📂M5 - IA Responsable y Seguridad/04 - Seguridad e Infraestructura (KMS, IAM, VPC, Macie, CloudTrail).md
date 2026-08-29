@@ -1,6 +1,7 @@
 ﻿# 04 — Seguridad e Infraestructura: KMS, IAM, VPC, Macie y CloudTrail
 
-**Tags:** #kms #iam #vpc #macie #cloudtrail #seguridad #cifrado #ia #m5-seguridad
+**Tags:** #kms #iam #vpc #macie #cloudtrail #seguridad #cifrado #ia
+ #m5-seguridad
 **Módulo:** [[00 - Índice Módulo 5]] | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
 > [!quote] Principio fundamental
@@ -12,35 +13,35 @@
 
 ```mermaid
 graph TB
-    subgraph "CIFRADO"
-        KMS["🔑 AWS KMS\nCifrado en reposo"]
-        TLS["🔒 TLS 1.2+\nCifrado en tránsito"]
-    end
-    
-    subgraph "ACCESO Y AUTENTICACIÓN"
-        IAM["👤 AWS IAM\nQuién puede hacer qué"]
-    end
-    
-    subgraph "AISLAMIENTO DE RED"
-        VPC["🌐 Amazon VPC\nRed privada virtual"]
-        PL["🔗 VPC Endpoints\n(PrivateLink)\nSin pasar por internet"]
-    end
-    
-    subgraph "DETECCIÓN Y AUDITORÍA"
-        MACIE["🔍 Amazon Macie\nDetección de PII en S3"]
-        CT["📋 AWS CloudTrail\nAuditoría de llamadas API"]
-    end
-    
-    subgraph "TU APLICACIÓN DE IA"
-        APP["🤖 Bedrock /\nSageMaker /\nServicios IA"]
-    end
-    
-    KMS & TLS --> APP
-    IAM --> APP
-    VPC & PL --> APP
-    MACIE & CT --> APP
-    
-    style APP fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
+ subgraph "CIFRADO"
+ KMS["🔑 AWS KMS\nCifrado en reposo"]
+ TLS["🔒 TLS 1.2+\nCifrado en tránsito"]
+ end
+ 
+ subgraph "ACCESO Y AUTENTICACIÓN"
+ IAM["👤 AWS IAM\nQuién puede hacer qué"]
+ end
+ 
+ subgraph "AISLAMIENTO DE RED"
+ VPC["🌐 Amazon VPC\nRed privada virtual"]
+ PL["🔗 VPC Endpoints\n(PrivateLink)\nSin pasar por internet"]
+ end
+ 
+ subgraph "DETECCIÓN Y AUDITORÍA"
+ MACIE["🔍 Amazon Macie\nDetección de PII en S3"]
+ CT["📋 AWS CloudTrail\nAuditoría de llamadas API"]
+ end
+ 
+ subgraph "TU APLICACIÓN DE IA"
+ APP["🤖 Bedrock /\nSageMaker /\nServicios IA"]
+ end
+ 
+ KMS & TLS --> APP
+ IAM --> APP
+ VPC & PL --> APP
+ MACIE & CT --> APP
+ 
+ style APP fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
 ```
 
 ---
@@ -69,8 +70,11 @@ graph TB
 | **AWS Glue** | Datos procesados en ETL |
 
 > [!tip] KMS para el examen
+>
 > - **Cifrado en reposo** → **KMS**
+>
 > - **Customer Managed Keys** → Cuando el cliente necesita controlar sus propias claves (compliance estricto)
+>
 > - KMS aplica a datos **almacenados**, no a datos en movimiento (eso es TLS)
 
 ---
@@ -81,12 +85,17 @@ graph TB
 > **TLS (Transport Layer Security)** es el protocolo que cifra los datos **en movimiento** entre tu aplicación y los servicios de AWS.
 
 **AWS garantiza TLS 1.2+ en todos sus servicios de IA:**
+
 - Llamadas a la API de Bedrock
+
 - Transferencias de datos a/desde S3
+
 - Comunicaciones entre servicios internos de AWS
 
 > [!tip] Regla simple
+>
 > - Datos almacenados en S3, BD... → **KMS** (en reposo)
+>
 > - Datos viajando por la red → **TLS** (en tránsito)
 
 ---
@@ -104,19 +113,19 @@ graph TB
 // Política IAM — Principio de Menor Privilegio para Bedrock
 // Solo permite invocar el modelo Claude 3 Haiku. Nada más.
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AllowBedrockInvokeOnlyHaiku",
-      "Effect": "Allow",
-      "Action": [
-        "bedrock:InvokeModel"
-      ],
-      "Resource": [
-        "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-haiku-20240307-v1:0"
-      ]
-    }
-  ]
+ "Version": "2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowBedrockInvokeOnlyHaiku",
+ "Effect": "Allow",
+ "Action": [
+ "bedrock:InvokeModel"
+ ],
+ "Resource": [
+ "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-haiku-20240307-v1:0"
+ ]
+ }
+ ]
 }
 ```
 
@@ -144,16 +153,16 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Sin VPC Endpoint — Inseguro"
-        A1["🏭 VPC\nTu aplicación"] -->|"Tráfico pasa\npor internet\npúblico 🌍"| B1["☁️ Amazon Bedrock\n/ SageMaker"]
-    end
-    
-    subgraph "Con VPC Endpoint — Seguro"
-        A2["🏭 VPC\nTu aplicación"] -->|"Tráfico en red\nprivada AWS 🔒\n(sin exposición\na internet)"| E["🔗 VPC Endpoint\n(PrivateLink)"]
-        E --> B2["☁️ Amazon Bedrock\n/ SageMaker"]
-    end
-    
-    style E fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
+ subgraph "Sin VPC Endpoint — Inseguro"
+ A1["🏭 VPC\nTu aplicación"] -->|"Tráfico pasa\npor internet\npúblico 🌍"| B1["☁️ Amazon Bedrock\n/ SageMaker"]
+ end
+ 
+ subgraph "Con VPC Endpoint — Seguro"
+ A2["🏭 VPC\nTu aplicación"] -->|"Tráfico en red\nprivada AWS 🔒\n(sin exposición\na internet)"| E["🔗 VPC Endpoint\n(PrivateLink)"]
+ E --> B2["☁️ Amazon Bedrock\n/ SageMaker"]
+ end
+ 
+ style E fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
 ```
 
 ### Aplicación en IA
@@ -189,21 +198,27 @@ graph LR
 
 ```mermaid
 flowchart LR
-    A["📁 S3 Bucket\ncon datos de\nentrenamiento ML"] --> M["🔍 Amazon Macie\n(escaneo continuo)"]
-    M --> B{"¿PII\nencontrada?"}
-    B -->|"Sí"| C["🚨 Alerta en\nSecurity Hub +\nEventBridge"]
-    B -->|"No"| D["✅ Dataset limpio\npara entrenamiento"]
-    C --> E["🔒 Acción automática:\nRestringir acceso +\nNotificar al equipo"]
+ A["📁 S3 Bucket\ncon datos de\nentrenamiento ML"] --> M["🔍 Amazon Macie\n(escaneo continuo)"]
+ M --> B{"¿PII\nencontrada?"}
+ B -->|"Sí"| C["🚨 Alerta en\nSecurity Hub +\nEventBridge"]
+ B -->|"No"| D["✅ Dataset limpio\npara entrenamiento"]
+ C --> E["🔒 Acción automática:\nRestringir acceso +\nNotificar al equipo"]
 ```
 
 **Casos de uso específicos para IA:**
+
 - Escanear datasets antes de usarlos para entrenamiento ML
+
 - Detectar si alguien subió datos de producción con PII a un bucket de desarrollo
+
 - Cumplimiento GDPR: asegurar que los datos de entrenamiento no contienen PII sin consentimiento
 
 > [!warning] Macie vs Comprehend para PII
+>
 > - **Amazon Macie** → Detecta PII en **archivos almacenados en S3** (análisis offline)
+>
 > - **Amazon Comprehend** → Detecta PII en **texto procesado en tiempo real** (análisis de strings)
+>
 > - **Bedrock Guardrails** → Detecta/redacta PII en **prompts y respuestas en tiempo real**
 
 ---
@@ -227,24 +242,28 @@ flowchart LR
 
 ```mermaid
 sequenceDiagram
-    participant APP as 🖥️ Aplicación
-    participant BED as 🧠 Bedrock
-    participant CT as 📋 CloudTrail
-    participant CW as 🔔 CloudWatch
-    participant SEC as 👮 Equipo Seguridad
+ participant APP as 🖥️ Aplicación
+ participant BED as 🧠 Bedrock
+ participant CT as 📋 CloudTrail
+ participant CW as 🔔 CloudWatch
+ participant SEC as 👮 Equipo Seguridad
 
-    APP->>BED: InvokeModel (prompt con PII accidentalmente)
-    BED->>CT: Registra: {user, model, timestamp, input_tokens}
-    CT->>CW: Evento de CloudTrail procesado
-    CW->>SEC: Alarma: "Usuario no autorizado invocó Bedrock"
-    SEC->>SEC: Investiga el incidente con el log completo
+ APP->>BED: InvokeModel (prompt con PII accidentalmente)
+ BED->>CT: Registra: {user, model, timestamp, input_tokens}
+ CT->>CW: Evento de CloudTrail procesado
+ CW->>SEC: Alarma: "Usuario no autorizado invocó Bedrock"
+ SEC->>SEC: Investiga el incidente con el log completo
 ```
 
 > [!tip] CloudTrail para el examen
 > Si el escenario dice:
+>
 > - "Auditar quién invocó modelos de Bedrock" → **CloudTrail**
+>
 > - "Investigar un incidente de acceso no autorizado" → **CloudTrail**
+>
 > - "Compliance: demostrar que nadie accedió a datos sensibles sin autorización" → **CloudTrail**
+>
 > - "Alertar en tiempo real cuando alguien hace una llamada sospechosa" → **CloudTrail + CloudWatch Events**
 
 ---

@@ -12,12 +12,12 @@ Simular la persistencia de datos para pruebas rápidas.
 
 ---
 
-#  Cómo funciona y por qué no se ve nada en el navegador
+# Cómo funciona y por qué no se ve nada en el navegador
 
 Javalin **no genera páginas web automáticamente**.
-    
+ 
 Si abres `http://localhost:7000/` en un navegador, no verás la lista de usuarios ni un formulario, porque tu servidor **solo responde JSON a peticiones HTTP**.
-    
+ 
 Para “ver” los datos debes hacer peticiones de la siguiente manera:
 
 Tenemos 4 métodos que nos ayudan a hacer el CRUD para los datos, con esto podemos crear,obtener,actualizar y borrar.
@@ -57,31 +57,33 @@ Para put y para delete tenemos que acceder si o si con algun atributo lo mejor e
 
 ---
 
-##  `Main.java` – Servidor y endpoints
+## `Main.java` – Servidor y endpoints
 
 ![[Rest-1.png]]
+
 - **Gson**: Se utiliza para convertir entre **JSON y objetos Java**.
-    
-    - Ejemplo: `ctx.body()` devuelve un JSON, `gson.fromJson(...)` lo convierte en un objeto `User`.
-        
+ 
+ - Ejemplo: `ctx.body()` devuelve un JSON, `gson.fromJson(...)` lo convierte en un objeto `User`.
+ 
 - **Random**: Genera IDs aleatorios para simular la creación de usuarios.
-    
+ 
 - Es **la clase principal** que arranca el servidor y contiene todos los endpoints del CRUD.
 
 - **Crea el servidor Javalin** en el puerto `7000`.
-    
+ 
 - Define **5 rutas** que corresponden a un CRUD completo de usuarios:
 
 
 
 
 ![[Rest-4.png]]
+
 - Recibe el JSON del **body** de la petición POST y lo convierte a un objeto `User`.
-    
+ 
 - Genera un **ID aleatorio** para simular la creación.
-    
+ 
 - Devuelve un JSON con `status`, `usuario` y `idAsignado`.
-    
+ 
 - **No guarda el usuario** en memoria, solo simula la respuesta.
 
 
@@ -89,10 +91,11 @@ Para put y para delete tenemos que acceder si o si con algun atributo lo mejor e
 
 
 ![[Rest-5.png]]
+
 - Devuelve una **lista de usuarios simulados**.
-    
+ 
 - Cada GET siempre devuelve los mismos usuarios “mock” (`Ana` y `Luis`).
-    
+ 
 - Este método **no refleja los usuarios creados con POST**, porque no se guardan en memoria.
 
 
@@ -101,10 +104,11 @@ Para put y para delete tenemos que acceder si o si con algun atributo lo mejor e
 
 
 ![[Rest-6.png]]
+
 - Recoge el **ID** de la URL (`{id}`).
-    
+ 
 - Devuelve un **usuario simulado** usando ese ID.
-    
+ 
 - Siempre crea un usuario al vuelo con `name = "Usuario Simulado {id}"` y email similar.
 
 
@@ -116,9 +120,9 @@ Para put y para delete tenemos que acceder si o si con algun atributo lo mejor e
 
 
 - Recibe el **ID** en la URL y el JSON con el nuevo usuario.
-    
+ 
 - No modifica nada en memoria; solo devuelve un mensaje indicando el “nuevo nombre”.
-    
+ 
 - Simula un PUT sin persistencia real.
 
 
@@ -127,19 +131,20 @@ Para put y para delete tenemos que acceder si o si con algun atributo lo mejor e
 
 
 ![[Rest-8.png]]
+
 - Recibe el **ID** de la URL.
-    
+ 
 - Simula la eliminación devolviendo un JSON con `status` y `id`.
-    
+ 
 - **No elimina ningún usuario**, porque no hay almacenamiento real.
-    
+ 
 
 ---
 
 # Resumen de cómo probar en **==CMD==**
 
 1. **Crear usuario:**
-    
+ 
 
 `curl -X POST http://localhost:7000/users -H "Content-Type: application/json" -d "{\"name\":\"Carlos\",\"email\":\"carlos@gmail.com\"}"`
 
@@ -147,7 +152,7 @@ Para put y para delete tenemos que acceder si o si con algun atributo lo mejor e
 ![[Rest-9.png]]
 
 2. **Ver todos los usuarios:**
-    
+ 
 
 `curl http://localhost:7000/users`
 
@@ -155,13 +160,14 @@ Para put y para delete tenemos que acceder si o si con algun atributo lo mejor e
 ![[Rest-10.png]]
 
 3. **Ver un usuario por ID:**
-    
+ 
 
 `curl http://localhost:7000/users/123`
 
 **Resultado:**
 
 ![[Rest-11.png]]
+
 4. **Actualizar usuario:**
 
 `curl -X PUT http://localhost:7000/users/123 -H "Content-Type: application/json" -d "{\"name\":\"Nuevo Nombre\",\"email\":\"nuevo@mail.com\"}"`
@@ -171,7 +177,7 @@ Para put y para delete tenemos que acceder si o si con algun atributo lo mejor e
 ![[Rest-12.png]]
 
 5. **Eliminar usuario:**
-    
+ 
 
 `curl -X DELETE http://localhost:7000/users/123`
 

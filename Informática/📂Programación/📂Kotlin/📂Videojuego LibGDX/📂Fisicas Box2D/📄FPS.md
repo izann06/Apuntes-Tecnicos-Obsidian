@@ -27,10 +27,10 @@ La solución es el **accumulator**.
 
 
 ```kotlin
-accumulator += delta.coerceAtMost(0.25f)  // acumulas tiempo real
-while (accumulator >= TIME_STEP) {         // mientras haya tiempo pendiente
-    world.step(TIME_STEP, 6, 2)            // avanzas en trozos exactos de 1/60s
-    accumulator -= TIME_STEP               // descontamos ese trozo
+accumulator += delta.coerceAtMost(0.25f) // acumulas tiempo real
+while (accumulator >= TIME_STEP) { // mientras haya tiempo pendiente
+ world.step(TIME_STEP, 6, 2) // avanzas en trozos exactos de 1/60s
+ accumulator -= TIME_STEP // descontamos ese trozo
 }
 ```
 

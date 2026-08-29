@@ -40,11 +40,11 @@ La forma más fácil de memorizar los planes es por su caso de uso ideal y su ti
 
 * **Ventajas Clave:** 
 
-    * Acceso **telefónico directo** al soporte.
-    
-    * Se desbloquea el conjunto **completo** de comprobaciones de AWS Trusted Advisor.
-    
-    * Acceso al equipo de Administración de Eventos de Infraestructura (por una tarifa extra), ideal si vas a lanzar un producto nuevo y esperas un pico masivo de tráfico.
+ * Acceso **telefónico directo** al soporte.
+ 
+ * Se desbloquea el conjunto **completo** de comprobaciones de AWS Trusted Advisor.
+ 
+ * Acceso al equipo de Administración de Eventos de Infraestructura (por una tarifa extra), ideal si vas a lanzar un producto nuevo y esperas un pico masivo de tráfico.
 
 ### 4. Soporte Enterprise On-Ramp
 

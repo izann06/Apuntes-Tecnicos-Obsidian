@@ -15,29 +15,29 @@ En Kotlin, una `interface` es un contrato. Aquí no escribimos código lógico, 
 ### Desglose línea a línea:
 
 - **`@GET("posts")`**:
-    
-    - Indica que usaremos el verbo HTTP **GET** (leer datos).
-        
-    - **"posts"** es el _endpoint_. Se pegará al final de la URL base.
-        
+ 
+ - Indica que usaremos el verbo HTTP **GET** (leer datos).
+ 
+ - **"posts"** es el _endpoint_. Se pegará al final de la URL base.
+ 
 - **`suspend`**:
-    
-    - Palabra clave de **Corutinas**. OBLIGATORIA para que la petición se haga en segundo plano y no congele la app.
-        
+ 
+ - Palabra clave de **Corutinas**. OBLIGATORIA para que la petición se haga en segundo plano y no congele la app.
+ 
 - **`Response<...>`**:
-    
-    - Es el envoltorio de Retrofit. Dentro vendrá:
-        
-        - El código de estado (ej. 200, 404).
-            
-        - El cuerpo (`body`) con los datos.
-            
-        - Los mensajes de error si los hay.
-            
+ 
+ - Es el envoltorio de Retrofit. Dentro vendrá:
+ 
+ - El código de estado (ej. 200, 404).
+ 
+ - El cuerpo (`body`) con los datos.
+ 
+ - Los mensajes de error si los hay.
+ 
 - **`@Path("id")`**:
-    
-    - Se usa para URLs dinámicas. Sustituye la parte `{id}` de la URL por el valor de la variable `id` (Entero).
-        
+ 
+ - Se usa para URLs dinámicas. Sustituye la parte `{id}` de la URL por el valor de la variable `id` (Entero).
+ 
 
 ---
 
@@ -54,19 +54,19 @@ Esto se debe a que no queremos crear 100 conexiones a internet, queremos una sol
 ### Desglose de la configuración:
 
 - **`object`**: Convierte la clase en un Singleton estático. Se puede acceder desde cualquier sitio escribiendo `RetrofitClient.apiService`.
-    
+ 
 - **`by lazy`**: Esto es muy eficiente. Significa que la conexión no se crea en cuanto abres la app, sino **solo la primera vez que la necesites**.
-    
+ 
 - **`Retrofit.Builder()`**: Es el constructor. Aquí empezamos a configurar el "camión" que traerá los datos.
-    
+ 
 - **`.baseUrl(BASE_URL)`**: Le decimos a dónde tiene que ir.
-    
+ 
 - **`.addConverterFactory(GsonConverterFactory.create())`**: Esta línea es vital. Le estás instalando el **traductor**. Le dices: "Cuando descargues el texto JSON, usa la librería **GSON** para convertirlo automáticamente en mis clases `Post` de Kotlin". Sin esto, recibirías texto plano y tendrías que trocearlo tú a mano.
-    
+ 
 - **`.build()`**: Cierra la configuración y crea el objeto Retrofit.
-    
+ 
 - **`.create(ApiService::class.java)`**: Aquí es donde ocurre la unión. Retrofit coge tu **interfaz** (que solo tiene nombres de funciones) y genera el código real que hace las llamadas a internet.
-        
+ 
 
 ---
 

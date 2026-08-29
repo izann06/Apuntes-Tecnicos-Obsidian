@@ -22,11 +22,11 @@ CloudWatch no es una sola herramienta, es un conjunto de 4 características que 
 
 * **Las Acciones:** Lo verdaderamente poderoso de las alarmas es lo que hacen cuando se disparan. Pueden:
 
-    * Enviar un correo o SMS al administrador usando **Amazon SNS**.
-    
-    * Activar **Amazon EC2 Auto Scaling** (ej. *"Si la CPU supera el 80% durante 5 minutos, enciende dos servidores nuevos"*).
-    
-    * Reiniciar o recuperar una instancia EC2 bloqueada.
+ * Enviar un correo o SMS al administrador usando **Amazon SNS**.
+ 
+ * Activar **Amazon EC2 Auto Scaling** (ej. *"Si la CPU supera el 80% durante 5 minutos, enciende dos servidores nuevos"*).
+ 
+ * Reiniciar o recuperar una instancia EC2 bloqueada.
 
 ### 3. Paneles (Dashboards)
 
@@ -54,7 +54,7 @@ En el examen rara vez te preguntan por CloudWatch de forma aislada. Te lo pregun
 
 4. **La Reacción (Acción Automática):** La alarma avisa a **Amazon SNS** para que envíe un SMS al móvil del gerente.
 
-    * La alarma avisa a **EC2 Auto Scaling** para que lance 3 servidores nuevos inmediatamente para ayudar a soportar el tráfico.
+ * La alarma avisa a **EC2 Auto Scaling** para que lance 3 servidores nuevos inmediatamente para ayudar a soportar el tráfico.
 
 ---
 

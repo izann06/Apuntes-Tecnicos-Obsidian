@@ -1,6 +1,7 @@
 ﻿# 05 — Amazon Q: Developer, Business y QuickSight
 
-**Tags:** #amazon-q #q-developer #q-business #q-quicksight #ia #m4-bedrock
+**Tags:** #amazon-q #q-developer #q-business #q-quicksight #ia
+ #m4-bedrock
 **Módulo:** [[00 - Índice Módulo 4]] | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
 > [!warning] ⚠️ Confusión habitual en el examen
@@ -12,22 +13,22 @@
 
 ```mermaid
 mindmap
-  root((Amazon Q))
-    Q Developer
-      Asistente de programación
-      IDE plugins
-      Similar a GitHub Copilot
-      Genera, explica y depura código
-    Q Business
-      Asistente empresarial
-      Conectado a fuentes de datos propias
-      Similar a un ChatGPT privado
-      Control de acceso por roles
-    Q in QuickSight
-      Asistente de BI
-      Consultas en lenguaje natural
-      Genera gráficos desde texto
-      Solo dentro de QuickSight
+ root((Amazon Q))
+ Q Developer
+ Asistente de programación
+ IDE plugins
+ Similar a GitHub Copilot
+ Genera, explica y depura código
+ Q Business
+ Asistente empresarial
+ Conectado a fuentes de datos propias
+ Similar a un ChatGPT privado
+ Control de acceso por roles
+ Q in QuickSight
+ Asistente de BI
+ Consultas en lenguaje natural
+ Genera gráficos desde texto
+ Solo dentro de QuickSight
 ```
 
 ---
@@ -85,18 +86,18 @@ mindmap
 
 ```mermaid
 graph LR
-    A["👤 Empleado A\n(Departamento Legal)"] -->|"Pregunta"| Q[Amazon Q Business]
-    B["👤 Empleado B\n(Departamento Marketing)"] -->|"Pregunta"| Q
-    
-    Q --> C{"Verifica permisos\ndel usuario en\nlas fuentes de datos"}
-    
-    C -->|"Empleado A\ntiene acceso a:"| D["📁 Contratos legales\n📋 Políticas legales"]
-    C -->|"Empleado B\ntiene acceso a:"| E["📊 Datos de campañas\n🎨 Assets de marketing"]
-    
-    D --> F["✅ Responde con\ndatos legales\n(no ve marketing)"]
-    E --> G["✅ Responde con\ndatos de marketing\n(no ve legal)"]
-    
-    style Q fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
+ A["👤 Empleado A\n(Departamento Legal)"] -->|"Pregunta"| Q[Amazon Q Business]
+ B["👤 Empleado B\n(Departamento Marketing)"] -->|"Pregunta"| Q
+ 
+ Q --> C{"Verifica permisos\ndel usuario en\nlas fuentes de datos"}
+ 
+ C -->|"Empleado A\ntiene acceso a:"| D["📁 Contratos legales\n📋 Políticas legales"]
+ C -->|"Empleado B\ntiene acceso a:"| E["📊 Datos de campañas\n🎨 Assets de marketing"]
+ 
+ D --> F["✅ Responde con\ndatos legales\n(no ve marketing)"]
+ E --> G["✅ Responde con\ndatos de marketing\n(no ve legal)"]
+ 
+ style Q fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
 ```
 
 **Esta integración con los permisos existentes (ACLs) de las fuentes de datos es la diferencia clave de Q Business respecto a un ChatGPT corporativo genérico.**

@@ -43,31 +43,35 @@
 
 ```
 Introducción ──► Tecnologías Subyacentes ──► Instalación
-                  (Namespaces, Cgroups,        │
-                   Union FS)                   ▼
-                                          CLI Básica
-                                     (Imágenes, Contenedores,
-                                          Redes)
-                                              │
-                            ┌─────────────────┼─────────────────┐
-                            ▼                 ▼                 ▼
-                      Persistencia      Dockerfiles        Registries
-                     (Volumes, Binds)  (Build, Cache)     (Hub, Tags)
-                            │                 │                 │
-                            └─────────────────┼─────────────────┘
-                                              ▼
-                                       Docker Compose
-                                              │
-                                    ┌─────────┴─────────┐
-                                    ▼                   ▼
-                              Seguridad            Dev Experience
-                            (Runtime, Redes)      (Hot Reload, DX)
+ (Namespaces, Cgroups, │
+ Union FS) ▼
+ CLI Básica
+ (Imágenes, Contenedores,
+ Redes)
+ │
+ ┌─────────────────┼─────────────────┐
+ ▼ ▼ ▼
+ Persistencia Dockerfiles Registries
+ (Volumes, Binds) (Build, Cache) (Hub, Tags)
+ │ │ │
+ └─────────────────┼─────────────────┘
+ ▼
+ Docker Compose
+ │
+ ┌─────────┴─────────┐
+ ▼ ▼
+ Seguridad Dev Experience
+ (Runtime, Redes) (Hot Reload, DX)
 ```
 
 ---
 
 > [!tip] ¿Cómo usar esta guía?
+>
 > - Si eres **principiante total**: Sigue el orden numérico (01 → 10).
+>
 > - Si ya conoces Docker y quieres **profundizar**: Ve directo a la sección que necesites.
+>
 > - Si buscas una **referencia rápida de comandos**: Consulta [[Imágenes en Docker]], [[Contenedores en Docker]] y [[Redes en Docker]].
+>
 > - Si quieres **montar un proyecto con Compose**: Ve directo a [[Docker Compose]].

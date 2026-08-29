@@ -33,10 +33,10 @@ Defines la forma geométrica. `PolygonShape` es un tipo predefinido de Box2D. `s
 
 ```kotlin
 val fixtureDef = FixtureDef().apply {
-    this.shape = shape
-    density    = 1f
-    friction   = 0.5f
-    restitution = 0f
+ this.shape = shape
+ density = 1f
+ friction = 0.5f
+ restitution = 0f
 }
 ```
 
@@ -63,21 +63,21 @@ Tienes razón, nadie escribe todo eso para cada pared. Eso sería una locura. Lo
 ```kotlin
 // defines la función UNA vez
 fun crearCajaEstatica(world: World, x: Float, y: Float, 
-                      ancho: Float, alto: Float): Body {
-    val body = world.body {           // DSL de ktx, recuerda
-        position.set(x + ancho/2f, y + alto/2f)
-        box(halfWidth = ancho/2f, halfHeight = alto/2f) {
-            friction = 0.8f
-        }
-    }
-    return body
+ ancho: Float, alto: Float): Body {
+ val body = world.body { // DSL de ktx, recuerda
+ position.set(x + ancho/2f, y + alto/2f)
+ box(halfWidth = ancho/2f, halfHeight = alto/2f) {
+ friction = 0.8f
+ }
+ }
+ return body
 }
 
 // y luego para crear CUALQUIER pared o plataforma:
-crearCajaEstatica(world, 0f,  0f, 20f, 0.5f)   // suelo
-crearCajaEstatica(world, 0f,  0f, 0.5f, 10f)   // pared izquierda
-crearCajaEstatica(world, 5f,  3f, 3f,  0.5f)   // plataforma flotante
-crearCajaEstatica(world, 10f, 5f, 2f,  0.5f)   // otra plataforma
+crearCajaEstatica(world, 0f, 0f, 20f, 0.5f) // suelo
+crearCajaEstatica(world, 0f, 0f, 0.5f, 10f) // pared izquierda
+crearCajaEstatica(world, 5f, 3f, 3f, 0.5f) // plataforma flotante
+crearCajaEstatica(world, 10f, 5f, 2f, 0.5f) // otra plataforma
 ```
 
 Una línea por objeto. El trabajo repetitivo está encapsulado en la función. Esto es exactamente lo que hace el código de tu temario, solo que ahora sabes por qué está estructurado así.

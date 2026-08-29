@@ -8,9 +8,9 @@
 En el examen te pondrán casos de uso donde las herramientas en línea (como AWS DataSync) no sirven. Debes elegir la Familia Snow si se cumple alguna de estas condiciones:
 
 1. **Limitaciones extremas de red:** Tienes una conexión a Internet muy lenta y subir los datos tardaría meses o años.
-    
+ 
 2. **Ubicaciones remotas:** Estás en un barco, una plataforma petrolífera, una mina o un entorno militar donde no hay conexión a Internet o es intermitente.
-    
+ 
 3. **Escala masiva:** Tienes docenas de Petabytes o Exabytes de datos.
 
 ## 🧰 2. El Protagonista: AWS Snowball Edge (Storage Optimized)
@@ -18,30 +18,30 @@ En el examen te pondrán casos de uso donde las herramientas en línea (como AWS
 Es el dispositivo físico de AWS más preguntado en el examen para migraciones offline estándar. Es como un disco duro externo gigante, blindado y con inteligencia propia.
 
 - **¿Qué es?** Un dispositivo físico seguro y robusto (soporta golpes, agua y manipulaciones) que AWS te envía por paquetería.
-    
+ 
 - **Storage Optimized (Optimizado para almacenamiento):** Esta versión específica incluye unidades NVMe de altísimo rendimiento, lo que te permite transferir **Gigabytes de datos por segundo** desde tus servidores locales hacia el dispositivo.
-    
+ 
 - **Proceso de migración:**
-    
-    1. Lo pides desde la consola de AWS.
-        
-    2. Te llega por mensajería.
-        
-    3. Lo conectas a tu red local y copias los Petabytes de datos súper rápido.
-        
-    4. La etiqueta de envío de tinta electrónica se actualiza sola y se lo devuelves a AWS.
-        
-    5. AWS lo enchufa en su centro de datos y vuelca tu información en **Amazon S3**.
-        
+ 
+ 1. Lo pides desde la consola de AWS.
+ 
+ 2. Te llega por mensajería.
+ 
+ 3. Lo conectas a tu red local y copias los Petabytes de datos súper rápido.
+ 
+ 4. La etiqueta de envío de tinta electrónica se actualiza sola y se lo devuelves a AWS.
+ 
+ 5. AWS lo enchufa en su centro de datos y vuelca tu información en **Amazon S3**.
+ 
 
 ## 💻 3. El Superpoder Oculto: Computación Periférica (Edge Computing)
 
 ¡Ojo con esto para el examen! La palabra "Edge" (Borde/Periferia) en su nombre no es casualidad.
 
 - **El Problema:** Tienes un barco de investigación en el Ártico grabando datos de los glaciares. No tienes Internet para procesar esos datos en los servidores de AWS.
-    
+ 
 - **La Solución:** Los dispositivos Snowball Edge **tienen capacidad de cómputo**. Puedes ejecutar pequeñas instancias de Amazon EC2 o funciones Lambda directamente _dentro_ de la caja física de Snowball mientras está en el barco. Filtra y procesa los datos en el lugar, y cuando el barco llega a puerto, envías el dispositivo a AWS con el trabajo ya hecho.
-    
+ 
 
 ## 🎯 Chuleta Rápida para el Examen
 

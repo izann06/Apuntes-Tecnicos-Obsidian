@@ -11,20 +11,23 @@
 
 Estas tres áreas se centran en las capacidades empresariales, las personas y los procesos corporativos. No tocan código ni servidores.
 
-* ==**Empresas (Business):**==  
+* ==**Empresas (Business):**== 
+
 * **Objetivo:** Asegurar que la tecnología sirve para ganar más dinero o mejorar el producto. Crean el "Caso de Negocio".
 
-    * **Roles típicos:** Gerentes comerciales, Directores Financieros (CFO), Propietarios de presupuesto.
-    
+ * **Roles típicos:** Gerentes comerciales, Directores Financieros (CFO), Propietarios de presupuesto.
+ 
 * ==**Personas (People):**== 
+
 * **Objetivo:** Gestión del cambio. Asegurarse de que los empleados no se asusten con la nueva tecnología, organizar cursos de formación y contratar nuevos talentos en la nube.
 
-    * **Roles típicos:** Recursos Humanos (RRHH), Gestores de personal, Formadores.
-    
+ * **Roles típicos:** Recursos Humanos (RRHH), Gestores de personal, Formadores.
+ 
 * ==**Gobernanza (Governance):**== 
+
 * **Objetivo:** Alinear la estrategia de TI con la de la empresa, medir el retorno de la inversión (ROI) y asegurar que se minimizan los riesgos corporativos.
 
-    * **Roles típicos:** Director de Información (CIO), Arquitectos empresariales, Gerentes de programas.
+ * **Roles típicos:** Director de Información (CIO), Arquitectos empresariales, Gerentes de programas.
 
 ---
 
@@ -32,20 +35,23 @@ Estas tres áreas se centran en las capacidades empresariales, las personas y lo
 
 Estas tres áreas son el territorio de los ingenieros, los arquitectos y los administradores de sistemas.
 
-* ==**Plataforma (Platform):**==  
+* ==**Plataforma (Platform):**== 
+
 * **Objetivo:** Diseñar cómo va a ser la infraestructura en la nube. Son los que dibujan los planos arquitectónicos y deciden qué servicios de AWS usar para reemplazar los servidores locales.
 
-    * **Roles típicos:** Director de Tecnología (CTO), Arquitectos de Soluciones, Gerentes de TI.
-    
+ * **Roles típicos:** Director de Tecnología (CTO), Arquitectos de Soluciones, Gerentes de TI.
+ 
 * ==**Seguridad (Security):**== 
+
 * **Objetivo:** Garantizar que los datos no se filtren, configurar controles de acceso, cumplir con las auditorías y asegurar la visibilidad del entorno.
 
-    * **Roles típicos:** Director de Seguridad de la Información (CISO), Analistas de ciberseguridad.
-    
+ * **Roles típicos:** Director de Seguridad de la Información (CISO), Analistas de ciberseguridad.
+ 
 * ==**Operaciones (Operations):**== 
+
 * **Objetivo:** El día a día. Asegurarse de que el sistema sigue encendido, funciona bien, responde a los incidentes y gestiona las copias de seguridad o recuperaciones ante desastres.
 
-    * **Roles típicos:** Gerentes de operaciones de TI, Soporte técnico (Help Desk).
+ * **Roles típicos:** Gerentes de operaciones de TI, Soporte técnico (Help Desk).
 
 ---
 

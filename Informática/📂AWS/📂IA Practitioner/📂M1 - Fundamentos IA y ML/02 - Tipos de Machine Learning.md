@@ -1,4 +1,5 @@
-﻿**Tags:** #ml #supervisado #no-supervisado #refuerzo #ia #m1-fundamentos
+﻿**Tags:** #ml #supervisado #no-supervisado #refuerzo #ia
+ #m1-fundamentos
 
 > [!quote] Concepto fundamental
 > Los tres paradigmas de ML se diferencian por **qué información recibe el modelo durante el entrenamiento**. Esta distinción determina qué tipo de problemas puede resolver cada uno.
@@ -9,14 +10,14 @@
 
 ```mermaid
 graph LR
-    A["📊 Datos de\nEntrenamiento"] --> B{"¿Tienen\netiquetas?"}
-    B -->|"Sí ✅"| C["🎯 Supervisado\nClasificación / Regresión"]
-    B -->|"No ❌"| D["🔍 No Supervisado\nClustering / Anomalías"]
-    B -->|"Solo recompensa 🏆"| E["🎮 Por Refuerzo\nDecisiones secuenciales"]
+ A["📊 Datos de\nEntrenamiento"] --> B{"¿Tienen\netiquetas?"}
+ B -->|"Sí ✅"| C["🎯 Supervisado\nClasificación / Regresión"]
+ B -->|"No ❌"| D["🔍 No Supervisado\nClustering / Anomalías"]
+ B -->|"Solo recompensa 🏆"| E["🎮 Por Refuerzo\nDecisiones secuenciales"]
 
-    style C fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
-    style D fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
-    style E fill:#2d0d37,stroke:#b04aed,color:#e8b8f5
+ style C fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
+ style D fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
+ style E fill:#2d0d37,stroke:#b04aed,color:#e8b8f5
 ```
 
 ---
@@ -44,8 +45,11 @@ La salida es una **categoría discreta** (una clase de entre varias). El modelo 
 | **Multi-etiqueta (Varias a la vez)** | Un artículo es de: [Deportes, Opinión] | Clasificación de artículos |
 
 > [!example] Escenarios de clasificación para el examen
+>
 > - Detectar si una transacción bancaria es **fraude o no** → Clasificación binaria
+>
 > - Clasificar el **sentimiento** de una reseña → Clasificación multiclase
+>
 > - Diagnosticar si una imagen médica muestra **qué enfermedad** → Clasificación multiclase
 
 #### 📈 Regresión
@@ -61,7 +65,9 @@ La salida es un **valor numérico continuo**. En lugar de meter algo en una "caj
 | Predicción de ventas del próximo trimestre | 45,320 unidades |
 
 > [!example] Escenarios de regresión para el examen
+>
 > - Estimar el **precio de venta** de un inmueble → Regresión
+>
 > - Predecir cuántas unidades de stock serán necesarias → Regresión (usa también Amazon Forecast)
 
 ---
@@ -101,7 +107,9 @@ El modelo recibe datos **sin etiquetas** (sin las respuestas correctas). Le deci
 - **Uso típico:** Prevención de fraude, detección de fallos inminentes en maquinaria.
 
 > [!example] Escenarios no supervisados para el examen
+>
 > - Una empresa tiene datos de clientes **sin clasificar** y quiere agruparlos por comportamiento de compra → **Clustering** (No Supervisado)
+>
 > - Detectar transacciones bancarias **inusuales** sin tener ejemplos previos de fraude → **Detección de Anomalías**
 
 > [!tip] Truco de examen — Sin etiquetas = No supervisado
@@ -120,24 +128,26 @@ Un **agente** (el modelo/programa) aprende a tomar decisiones interactuando con 
 **Metáfora 2: IA jugando a Super Mario Bros.** 
 
 - El **Agente** es Mario. 
+
 - El **Entorno** es el nivel del juego. 
+
 - Al principio, Mario no sabe jugar. Pulsa botones al azar. Si cae por un agujero recibe un castigo (-100 puntos y Game Over). Si salta sobre un enemigo recibe un premio (+100 puntos). Tras morir millones de veces (iteraciones), la IA descubre la secuencia exacta de botones que tiene que pulsar (su nueva **Política**) para pasarse el nivel lo más rápido posible maximizando la puntuación final.
 
 ### Componentes del Reinforcement Learning
 
 ```mermaid
 sequenceDiagram
-    participant A as 🤖 Agente
-    participant E as 🌍 Entorno
+ participant A as 🤖 Agente
+ participant E as 🌍 Entorno
 
-    A->>E: Observa Estado (s_t)
-    A->>E: Ejecuta Acción (a_t)
-    E->>A: Nuevo Estado (s_t+1)
-    E->>A: Recompensa (r_t)
-    Note over A: Actualiza política π<br/>para maximizar Σr futura
-    loop Millones de iteraciones
-        A->>E: Siguiente acción mejorada
-    end
+ A->>E: Observa Estado (s_t)
+ A->>E: Ejecuta Acción (a_t)
+ E->>A: Nuevo Estado (s_t+1)
+ E->>A: Recompensa (r_t)
+ Note over A: Actualiza política π<br/>para maximizar Σr futura
+ loop Millones de iteraciones
+ A->>E: Siguiente acción mejorada
+ end
 ```
 
 | Componente | Definición | Ejemplo (juego Go) |
@@ -152,15 +162,22 @@ sequenceDiagram
 ### Casos de Uso del Reinforcement Learning
 
 > [!example] RL en la práctica
+>
 > - **AlphaGo / AlphaZero (DeepMind):** Aprendió a jugar Go y ajedrez siendo su propio rival, superando a campeones mundiales.
+>
 > - **Robótica:** Un brazo robótico aprende a coger objetos frágiles sin romperlos.
+>
 > - **RLHF — Reinforcement Learning from Human Feedback:** La técnica clave para alinear LLMs con preferencias humanas. Así se entrenó ChatGPT/InstructGPT. **¡Clave para el examen!**
+>
 > - **Optimización de rutas:** Un agente de logística aprende a optimizar rutas de reparto.
 
 > [!warning] RLHF — Concepto clave del examen
 > **RLHF** combina:
+>
 > 1. **Supervised Fine-tuning** en ejemplos demostrados por humanos.
+>
 > 2. **Reward Model** entrenado con preferencias humanas (qué respuesta es mejor).
+>
 > 3. **RL (PPO)** para optimizar el LLM según ese Reward Model.
 > Si el examen pregunta cómo se alinean los LLMs con valores humanos → **RLHF**.
 

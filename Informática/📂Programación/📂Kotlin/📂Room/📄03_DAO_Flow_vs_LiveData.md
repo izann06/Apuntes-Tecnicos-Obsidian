@@ -11,9 +11,9 @@ El **DAO** (_Data Access Object_) es la interfaz donde definimos cómo interactu
 ### A. Flow vs LiveData
 
 - **Flow (Recomendado para Compose):** Es parte de las corrutinas de Kotlin. Es más moderno, potente y fácil de manipular con operadores.Usamos este.
-    
+ 
 - **LiveData:** Es la herramienta clásica de Android. Es más sencilla pero está siendo desplazada por Flow en aplicaciones modernas con Jetpack Compose.
-    
+ 
 
 ### B. `@Transaction`
 
@@ -31,5 +31,5 @@ Fíjate en `:idSuper`. Los dos puntos le dicen a ROOM: "Busca la variable que te
 En el `@Insert` usamos `onConflict = OnConflictStrategy.REPLACE`.
 
 - **¿Qué hace?** Si intentas insertar un superhéroe con el ID 7 y ya existe uno con ese ID, ROOM borrará el viejo y pondrá el nuevo.
-    
+ 
 - **Ventaja:** Esto nos permite usar la función de "Insertar" también para "Actualizar", ahorrándonos crear una función `@Update`.

@@ -4,15 +4,15 @@
 El **`synchronized`** se usa en el método `processBid` porque varios clientes van a usar ese método a la vez. Como se va a enviar un objeto `Bid` y el servidor tiene que procesarlo, si no aplicamos el `synchronized`, los valores de los atributos se podrían corromper o perder por el camino. Lo que hace este modificador es obligar a los hilos a entrar **uno por uno**.
 
 - **Ejemplo de la "Libreta del Subastador":** Imagina que el precio actual es **1000€**.
-    
-    1. El **Jugador A** puja **1200€** y el **Jugador B** puja **1300€** casi al mismo tiempo.
-        
-    2. Sin `synchronized`, ambos hilos ven que 1000€ es el precio actual y los dos creen que su puja es válida.
-        
-    3. El Jugador B escribe en la libreta: "Líder B con 1300€".
-        
-    4. Pero el Jugador A, que ya había pasado la validación, escribe encima justo después: "Líder A con 1200€". **Resultado:** El ganador acaba siendo el que ofreció menos dinero porque su hilo terminó un poco después. El `synchronized` evita esto haciendo que hagan cola.
-        
+ 
+ 1. El **Jugador A** puja **1200€** y el **Jugador B** puja **1300€** casi al mismo tiempo.
+ 
+ 2. Sin `synchronized`, ambos hilos ven que 1000€ es el precio actual y los dos creen que su puja es válida.
+ 
+ 3. El Jugador B escribe en la libreta: "Líder B con 1300€".
+ 
+ 4. Pero el Jugador A, que ya había pasado la validación, escribe encima justo después: "Líder A con 1200€". **Resultado:** El ganador acaba siendo el que ofreció menos dinero porque su hilo terminó un poco después. El `synchronized` evita esto haciendo que hagan cola.
+ 
 
 ---
 

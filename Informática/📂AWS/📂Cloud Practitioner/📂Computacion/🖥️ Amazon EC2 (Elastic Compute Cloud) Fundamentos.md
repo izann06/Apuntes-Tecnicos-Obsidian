@@ -12,7 +12,9 @@ Hay una comparación directa que es fundamental para entender por qué existe EC
 Si tienes que montar un servidor físico tradicional en tu empresa:
 
 * Debes comprar el hardware por adelantado y esperar a que te lo entreguen.
+
 * Tienes que gestionar la instalación y la configuración manualmente.
+
 * Es un proceso caro, que consume mucho tiempo y es muy inflexible frente a los cambios de demanda.
 
 ![[🖥️ Amazon EC2 (Elastic Compute Cloud) Fundamentos.png]]
@@ -22,7 +24,9 @@ Si tienes que montar un servidor físico tradicional en tu empresa:
 EC2 resuelve esos problemas ofreciendo máquinas virtuales (instancias) bajo demanda:
 
 * Es mucho más rápido, flexible y rentable para empezar.
+
 * Puedes iniciar, escalar (aumentar/reducir recursos) y terminar servidores en cuestión de minutos según tus necesidades.
+
 * Solo pagas por el uso activo; es decir, solo se te cobra por las instancias en ejecución, no por las que están detenidas o terminadas.
 
 ![[🖥️ Amazon EC2 (Elastic Compute Cloud) Fundamentos-1.png]]

@@ -11,9 +11,13 @@ Cuando ocurre un desastre (por ejemplo, alguien borró la base de datos de produ
 Cada evento registrado en CloudTrail te da esta información detallada:
 
 * **¿Quién?** (El usuario IAM o el Rol exacto que ejecutó la acción).
+
 * **¿Qué?** (La acción de la API, ej. `TerminateInstances` o `DeleteTable`).
+
 * **¿Cuándo?** (La marca de tiempo exacta).
+
 * **¿Desde dónde?** (La dirección IP de origen).
+
 * **¿Cuál fue el resultado?** (¿Se permitió la acción o se denegó por falta de permisos?).
 
 *Dato:* CloudTrail guarda automáticamente los últimos **90 días** de eventos de administración de forma totalmente **gratuita** en la consola.

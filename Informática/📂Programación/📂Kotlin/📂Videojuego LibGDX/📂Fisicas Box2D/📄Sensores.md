@@ -1,9 +1,9 @@
 - Un **Cuerpo normal** (como el suelo) es un muro de ladrillos. Si corres hacia él, te chocas y te paras.
-    
+ 
 - Un **Sensor** (como una moneda) es un láser de seguridad. Si corres hacia él, lo atraviesas como si nada, pero hace saltar una alarma.
-    
+ 
 - El **ContactListener** es el guardia de seguridad que está mirando las cámaras. Cuando ve que cruzas el láser, avisa por el walkie-talkie.
-    
+ 
 
 Vamos a ver cómo se escribe esto en código paso a paso, usando monedas de ejemplo.
 
@@ -15,14 +15,14 @@ Cuando creamos la moneda en `Moneda.kt`, le decimos a Box2D dos cosas vitales: _
 
 ```Kotlin
 val body: Body = world.body {
-    // 1. Posición de la moneda
-    position.set(x, y) 
-    
-    // 2. Le damos forma de círculo
-    circle(radius = 0.3f) {
-        isSensor = true      // <--- ¡MAGIA! Esto hace que el jugador la atraviese.
-        userData = "moneda"  // <--- Le ponemos una etiqueta con su nombre.
-    }
+ // 1. Posición de la moneda
+ position.set(x, y) 
+ 
+ // 2. Le damos forma de círculo
+ circle(radius = 0.3f) {
+ isSensor = true // <--- ¡MAGIA! Esto hace que el jugador la atraviese.
+ userData = "moneda" // <--- Le ponemos una etiqueta con su nombre.
+ }
 }
 ```
 
@@ -36,25 +36,25 @@ En el archivo `WorldManager.kt`, creamos al guardia. Su trabajo es estar callado
 
 ```Kotlin
 override fun beginContact(contact: Contact) {
-    // El guardia mira las etiquetas de las dos cosas que han chocado
-    val etiquetaA = contact.fixtureA.userData as? String
-    val etiquetaB = contact.fixtureB.userData as? String
+ // El guardia mira las etiquetas de las dos cosas que han chocado
+ val etiquetaA = contact.fixtureA.userData as? String
+ val etiquetaB = contact.fixtureB.userData as? String
 
-    // El guardia se pregunta: "¿Ha chocado el jugador con una moneda?"
-    // (Box2D no sabe quién es A y quién es B, así que comprobamos las dos opciones)
-    
-    val chocaJugador = (etiquetaA == "jugador" && etiquetaB == "moneda")
-    val chocaAlReves = (etiquetaB == "jugador" && etiquetaA == "moneda")
+ // El guardia se pregunta: "¿Ha chocado el jugador con una moneda?"
+ // (Box2D no sabe quién es A y quién es B, así que comprobamos las dos opciones)
+ 
+ val chocaJugador = (etiquetaA == "jugador" && etiquetaB == "moneda")
+ val chocaAlReves = (etiquetaB == "jugador" && etiquetaA == "moneda")
 
-    if (chocaJugador || chocaAlReves) {
-        // ¡BINGO! El jugador ha tocado una moneda.
-        
-        // Ahora tenemos que averiguar cuál de los dos es el cuerpo de la moneda
-        // para apuntarlo en una lista de "monedas a destruir".
-        val cuerpoMoneda = if (etiquetaA == "moneda") contact.fixtureA.body else contact.fixtureB.body
-        
-        monedasARecoger.add(cuerpoMoneda) 
-    }
+ if (chocaJugador || chocaAlReves) {
+ // ¡BINGO! El jugador ha tocado una moneda.
+ 
+ // Ahora tenemos que averiguar cuál de los dos es el cuerpo de la moneda
+ // para apuntarlo en una lista de "monedas a destruir".
+ val cuerpoMoneda = if (etiquetaA == "moneda") contact.fixtureA.body else contact.fixtureB.body
+ 
+ monedasARecoger.add(cuerpoMoneda) 
+ }
 }
 ```
 
@@ -76,12 +76,12 @@ Luego, en `GameScreen.kt` (fuera de la física), el juego lee esa libreta, borra
 val recogidas = worldManager.monedasARecoger.toList()
 
 recogidas.forEach { bodyMoneda ->
-    // 1. Destruimos el cuerpo físico
-    worldManager.world.destroyBody(bodyMoneda)
-    // 2. Sumamos un punto
-    game.monedasRecogidas++
-    // 3. ¡Din, din! Sonido de moneda
-    sfxMoneda.play()
+ // 1. Destruimos el cuerpo físico
+ worldManager.world.destroyBody(bodyMoneda)
+ // 2. Sumamos un punto
+ game.monedasRecogidas++
+ // 3. ¡Din, din! Sonido de moneda
+ sfxMoneda.play()
 }
 // 4. Limpiamos la libreta
 worldManager.monedasARecoger.clear()

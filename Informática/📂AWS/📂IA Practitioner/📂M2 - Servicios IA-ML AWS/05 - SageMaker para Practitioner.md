@@ -10,22 +10,22 @@
 
 ```mermaid
 graph TD
-    subgraph "🏗️ DESARROLLO"
-        DW["🔧 Data Wrangler\nPreparación de datos\n(Fase 2-3 del Lifecycle)"]
-        CL["🔍 Clarify\nDetección de sesgo\nExplicabilidad\n(Fase 3-5)"]
-        JS["🚀 JumpStart\nModelos preentrenados\nFine-tuning rápido\n(Fase 4)"]
-        CA["🎨 Canvas\nML sin código\n(Todo el lifecycle)"]
-    end
+ subgraph "🏗️ DESARROLLO"
+ DW["🔧 Data Wrangler\nPreparación de datos\n(Fase 2-3 del Lifecycle)"]
+ CL["🔍 Clarify\nDetección de sesgo\nExplicabilidad\n(Fase 3-5)"]
+ JS["🚀 JumpStart\nModelos preentrenados\nFine-tuning rápido\n(Fase 4)"]
+ CA["🎨 Canvas\nML sin código\n(Todo el lifecycle)"]
+ end
 
-    subgraph "🚀 PRODUCCIÓN"
-        MM["📡 Model Monitor\nMonitorización continua\nDetección de drift\n(Fase 6)"]
-    end
+ subgraph "🚀 PRODUCCIÓN"
+ MM["📡 Model Monitor\nMonitorización continua\nDetección de drift\n(Fase 6)"]
+ end
 
-    style DW fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
-    style CL fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
-    style JS fill:#2d0d37,stroke:#b04aed,color:#e8b8f5
-    style CA fill:#372d0d,stroke:#edba4a,color:#f5e8b8
-    style MM fill:#4a0d0d,stroke:#ed4a4a,color:#ffd0d0
+ style DW fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
+ style CL fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
+ style JS fill:#2d0d37,stroke:#b04aed,color:#e8b8f5
+ style CA fill:#372d0d,stroke:#edba4a,color:#f5e8b8
+ style MM fill:#4a0d0d,stroke:#ed4a4a,color:#ffd0d0
 ```
 
 ---
@@ -80,9 +80,13 @@ Una vez que has creado tu modelo de IA y lo estás usando en la vida real (en pr
 ## 💡 Resumen rápido
 
 - **¿Datos sin código?** → Data Wrangler
+
 - **¿Sesgos y explicar el "por qué"?** → Clarify
+
 - **¿Modelos preentrenados rápido?** → JumpStart
+
 - **¿IA para analistas (sin programar nada)?** → Canvas
+
 - **¿Vigilar en producción que no falle?** → Model Monitor
 
 ---

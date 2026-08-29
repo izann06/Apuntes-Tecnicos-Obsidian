@@ -14,9 +14,12 @@ Ya hablamos de ella cuando explicamos el **VGW (Virtual Private Gateway)**. A di
 * **La Analogía:** Es un pasadizo blindado que conecta el edificio de tu empresa en Madrid directamente con tu restaurante en AWS. Cualquier empleado que esté dentro del edificio en Madrid puede cruzar el túnel automáticamente.
 
 * **¿Cuándo usarlo?**
-    * Tienes una oficina con 50 empleados y todos necesitan acceder a la base de datos de AWS. No vas a instalar *Client VPN* en 50 ordenadores individuales; configuras una *Site-to-Site VPN* en el router principal de la oficina y listo.
-    * Necesitas una conexión segura rápida de configurar (se hace en minutos) y económica.
-    * *Nota:* Como viaja por Internet, si hay mucho tráfico global, la conexión puede sufrir pequeñas ralentizaciones (latencia variable).
+
+ * Tienes una oficina con 50 empleados y todos necesitan acceder a la base de datos de AWS. No vas a instalar *Client VPN* en 50 ordenadores individuales; configuras una *Site-to-Site VPN* en el router principal de la oficina y listo.
+
+ * Necesitas una conexión segura rápida de configurar (se hace en minutos) y económica.
+
+ * *Nota:* Como viaja por Internet, si hay mucho tráfico global, la conexión puede sufrir pequeñas ralentizaciones (latencia variable).
 
 ---
 
@@ -33,8 +36,10 @@ Este concepto es nuevo, muy elegante y fundamental para la seguridad moderna.
 * **La Analogía:** Es como un sistema de **tubos neumáticos de correos** interno del edificio. Si tu restaurante (VPC) necesita pedir servilletas al proveedor (Amazon S3), no abres la puerta principal, no sales a la calle ni usas furgonetas. Metes el pedido en el tubo neumático interno del edificio y llega al instante y de forma 100% privada.
 
 * **¿Cuándo usarlo?**
-    * Tienes una arquitectura con estrictas normas de seguridad (ej. sector bancario) donde está **prohibido** que los datos viajen por el Internet público.
-    * Tienes recursos en subredes privadas que necesitan consumir otros servicios de AWS o aplicaciones SaaS (Software as a Service) de terceros.
+
+ * Tienes una arquitectura con estrictas normas de seguridad (ej. sector bancario) donde está **prohibido** que los datos viajen por el Internet público.
+
+ * Tienes recursos en subredes privadas que necesitan consumir otros servicios de AWS o aplicaciones SaaS (Software as a Service) de terceros.
 
 ---
 
@@ -47,10 +52,14 @@ Es el hermano mayor, rico y musculoso de la *Site-to-Site VPN*.
 * **La Analogía:** Es construir una **autopista subterránea privada y asfaltada** que va desde tu sede hasta AWS. Solo tú tienes las llaves. No hay semáforos, no hay otros coches y la velocidad es bestial y siempre constante.
 
 * **¿Cuándo usarlo?**
-    * Trabajas con un volumen de datos gigantesco (ej. moviendo Terabytes de vídeos diarios o datos sísmicos) que colapsarían una conexión normal de Internet.
-    * Necesitas una **latencia ultrabaja y constante**. En una VPN por Internet la velocidad varía según el día; con Direct Connect, siempre es la misma porque el cable es tuyo.
-    * Quieres reducir los costes de transferencia de datos a largo plazo (AWS cobra menos por los datos que salen a través de Direct Connect que por los que salen a través de Internet).
-    * *Nota:* Tarda semanas o meses en instalarse (hay que llamar a operarios de telecomunicaciones) y es costoso.
+
+ * Trabajas con un volumen de datos gigantesco (ej. moviendo Terabytes de vídeos diarios o datos sísmicos) que colapsarían una conexión normal de Internet.
+
+ * Necesitas una **latencia ultrabaja y constante**. En una VPN por Internet la velocidad varía según el día; con Direct Connect, siempre es la misma porque el cable es tuyo.
+
+ * Quieres reducir los costes de transferencia de datos a largo plazo (AWS cobra menos por los datos que salen a través de Direct Connect que por los que salen a través de Internet).
+
+ * *Nota:* Tarda semanas o meses en instalarse (hay que llamar a operarios de telecomunicaciones) y es costoso.
 
 ---
 

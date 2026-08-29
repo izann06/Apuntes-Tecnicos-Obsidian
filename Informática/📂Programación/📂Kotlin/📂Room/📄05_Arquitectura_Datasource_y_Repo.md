@@ -23,11 +23,11 @@ Aunque en este ejemplo parezca "código repetido" (porque solo llama al Datasour
 ### Resumen del Flujo de Datos
 
 1. **Base de Datos:** Tiene los datos crudos.
-    
-2. **DAO:** Sabe SQL (`SELECT * ...`).
-    
+ 
+2. **DAO:** Sabe SQL (`SELECT *...`).
+ 
 3. **LocalDatasource:** Abstrae el DAO.
-    
+ 
 4. **Repository:** Centraliza las fuentes de datos.
-    
+ 
 5. **ViewModel:** Pide datos al Repository y los prepara para la UI.

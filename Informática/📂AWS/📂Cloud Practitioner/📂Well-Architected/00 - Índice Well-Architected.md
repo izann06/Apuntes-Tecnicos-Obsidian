@@ -7,4 +7,5 @@
 ## 📄 Apuntes del Módulo
 
 - [[🎯 Servicios Especializados de AWS|🎯 Servicios Especializados de AWS]]
+
 - [[🏛️ Los 6 Pilares y sus Servicios. AWS Well-Architected Framework.|🏛️ Los 6 Pilares y sus Servicios. AWS Well-Architected Framework.]]

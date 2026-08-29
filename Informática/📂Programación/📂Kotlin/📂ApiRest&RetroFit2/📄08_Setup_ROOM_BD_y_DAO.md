@@ -5,11 +5,11 @@ Aquí es donde tu aplicación deja de ser "volátil" (si cierras, pierdes todo) 
 En este archivo configuramos los cimientos de la base de datos local. Necesitamos tres piezas:
 
 1. **Entidad:** La tabla (modificamos el `Post`).
-    
+ 
 2. **DAO:** Las instrucciones SQL (insertar, leer).
-    
+ 
 3. **Database:** La caja fuerte que contiene todo.
-    
+ 
 
 ---
 

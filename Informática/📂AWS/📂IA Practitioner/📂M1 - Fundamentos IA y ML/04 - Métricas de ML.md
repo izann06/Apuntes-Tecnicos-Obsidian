@@ -1,4 +1,5 @@
-﻿**Tags:** #ml #metricas #precision #recall #f1 #rmse #confusion-matrix #ia #m1-fundamentos
+﻿**Tags:** #ml #metricas #precision #recall #f1 #rmse #confusion-matrix #ia
+ #m1-fundamentos
 
 > [!quote] Concepto fundamental
 > Las métricas son el lenguaje con el que medimos el rendimiento de un modelo. Elegir la métrica incorrecta puede llevarte a confiar en un modelo que en realidad falla cuando más importa.
@@ -21,7 +22,9 @@ Antes de calcular cualquier métrica de clasificación, debes dominar la **Matri
 > [!tip] Truco mnemotécnico para la matriz
 > La primera palabra (True/False) indica **si el modelo acertó**.
 > La segunda palabra (Positive/Negative) indica **lo que el modelo predijo**.
+>
 > - True = Acertó | False = Se equivocó
+>
 > - Positive = Dijo SÍ | Negative = Dijo NO
 
 ---
@@ -91,10 +94,10 @@ $$\text{Recall} = \frac{TP}{TP + FN}$$
 > Precision y Recall son **antagónicos**. Si haces el modelo más conservador (que solo diga SÍ cuando está muy seguro), sube la Precision pero baja el Recall. Si lo haces más agresivo (que diga SÍ ante cualquier sospecha), sube el Recall pero baja la Precision.
 > 
 > ```
-> ← Más conservador            Más agresivo →
->    Alta Precision          Alto Recall
->    Menos falsas alarmas    Menos positivos perdidos
->    (pocos FP)              (pocos FN)
+> ← Más conservador Más agresivo →
+> Alta Precision Alto Recall
+> Menos falsas alarmas Menos positivos perdidos
+> (pocos FP) (pocos FN)
 > ```
 
 ---
@@ -108,8 +111,11 @@ $$\text{F1} = 2 \times \frac{Precision \times Recall}{Precision + Recall}$$
 **¿Por qué media armónica y no media aritmética?** La media armónica penaliza más los valores extremos. Si Precision = 1.0 y Recall = 0.0, la media aritmética sería 0.5 (parece aceptable), pero la media armónica (F1) sería 0 (revela que el modelo es inútil).
 
 > [!tip] ¿Cuándo usar F1-Score?
+>
 > - Cuando **tanto FP como FN** son igualmente costosos (quieres equilibrio)
+>
 > - Cuando el dataset está **desbalanceado** y el Accuracy es engañoso
+>
 > - Es la métrica "por defecto" para clasificación con clases desiguales
 
 ---
@@ -121,8 +127,11 @@ $$\text{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}$$
 **¿Qué mide?** El error promedio de predicción en **problemas de Regresión** (salida numérica continua). Está expresado en las **mismas unidades** que la variable objetivo.
 
 **Características clave:**
+
 - Penaliza los **errores grandes** más que los pequeños (por el cuadrado)
+
 - Es sensible a **outliers**
+
 - Un RMSE de 0 sería predicción perfecta
 
 > [!example] Interpretando el RMSE

@@ -7,30 +7,30 @@ Debemos ir al archivo `build.gradle.kts` (Module: App) y añadir las siguientes 
 > [!INFO] ¿Qué hace cada una?
 > 
 > - **Retrofit:** Es el cliente que conecta con la API.
->     
+> 
 > - **Converter GSON:** Es el "traductor". Retrofit descarga JSON, y esta librería lo convierte en objetos Kotlin automáticamente.
->     
+> 
 > - **Corrutinas:** Permiten hacer la llamada en segundo plano (asíncrono) para no congelar la pantalla.
->     
+> 
 > - **ViewModel:** Nos ayuda a mantener los datos vivos aunque giremos la pantalla.
->     
+> 
 
 **Copia estas dependencias:**
 
 ```
 dependencies {
-    // 1. ViewModel (Arquitectura MVVM)
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.3")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.3")
+ // 1. ViewModel (Arquitectura MVVM)
+ implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.3")
+ implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.3")
 
-    // 2. Retrofit2 (El cliente HTTP)
-    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+ // 2. Retrofit2 (El cliente HTTP)
+ implementation("com.squareup.retrofit2:retrofit:3.0.0")
 
-    // 3. Conversor JSON (Gson)
-    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+ // 3. Conversor JSON (Gson)
+ implementation("com.squareup.retrofit2:converter-gson:3.0.0")
 
-    // 4. Corutinas (Para no bloquear la UI)
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
+ // 4. Corutinas (Para no bloquear la UI)
+ implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
 }
 ```
 ![[Pasted image 20260113130556.png]]

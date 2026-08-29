@@ -1,9 +1,9 @@
 
-| Colección | Permite duplicados                     | Orden            | Acceso        |
+| Colección | Permite duplicados | Orden | Acceso |
 | --------- | -------------------------------------- | ---------------- | ------------- |
-| List      | Sí                                     | Sí               | Por índice    |
-| Set       | No                                     | Depende del tipo | No por índice |
-| Map       | Clave única, valor duplicado permitido | Depende del tipo | Por clave     |
+| List | Sí | Sí | Por índice |
+| Set | No | Depende del tipo | No por índice |
+| Map | Clave única, valor duplicado permitido | Depende del tipo | Por clave |
 
 |Colección|Duplicados|Orden|Acceso|Ejemplo|
 |---|---|---|---|---|

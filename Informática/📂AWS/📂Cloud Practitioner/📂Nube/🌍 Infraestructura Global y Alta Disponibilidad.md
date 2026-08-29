@@ -52,7 +52,9 @@ La Alta Disponibilidad no es un servicio que compras, es una **arquitectura (una
 ## 🌡️ La Analogía del Termostato
 
 Imagina el aire acondicionado de tu casa:
+
 * **El fabricante (AWS)** construyó el aparato para que eche aire frío automáticamente.
+
 * **Tú (El Cliente)** tienes que ir al panel y decirle: *"Si la temperatura sube de 25°C, enciéndete. Si baja a 22°C, apágate"*.
 
 En AWS funciona exactamente igual.

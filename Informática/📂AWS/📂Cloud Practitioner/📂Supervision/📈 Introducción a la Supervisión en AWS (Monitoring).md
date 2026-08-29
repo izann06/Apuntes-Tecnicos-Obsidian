@@ -34,11 +34,11 @@ A diferencia de un centro de datos físico donde tienes un número fijo de orden
 
 Para supervisar de manera eficaz, las herramientas de AWS recopilan tres cosas principales:
 
-1.  **Métricas:** Números a lo largo del tiempo (ej. % de CPU, Megabytes de RAM usados, número de visitantes).
+1. **Métricas:** Números a lo largo del tiempo (ej. % de CPU, Megabytes de RAM usados, número de visitantes).
 
-2.  **Registros (Logs):** Archivos de texto detallados que registran eventos específicos (ej. "A las 14:02 el usuario Juan inició sesión con éxito").
+2. **Registros (Logs):** Archivos de texto detallados que registran eventos específicos (ej. "A las 14:02 el usuario Juan inició sesión con éxito").
 
-3.  **Paneles (Dashboards):** Pantallas visuales con gráficos para que los humanos puedan entender las métricas de un solo vistazo.
+3. **Paneles (Dashboards):** Pantallas visuales con gráficos para que los humanos puedan entender las métricas de un solo vistazo.
 
 ---
 

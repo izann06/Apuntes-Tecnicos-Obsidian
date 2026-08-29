@@ -17,7 +17,7 @@ En AWS, debes considerar varios factores para elegir una Región:
 
 *   **Costes:** Los precios de los servicios de AWS varían de una región a otra por la electricidad por ejemplo.
 
----  
+--- 
 ## 🛒 2. Ubicaciones Periféricas / Edge Locations
 
 No puedes instalar servidores gigantes en cada esquina del mundo, pero sí puedes poner puntos de distribución rápidos (Caché) en lugares estratégicos fuera de la región.

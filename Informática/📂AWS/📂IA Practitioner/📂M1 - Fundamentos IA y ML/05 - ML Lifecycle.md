@@ -1,4 +1,5 @@
-﻿**Tags:** #ml #lifecycle #sagemaker #mlops #ia #m1-fundamentos
+﻿**Tags:** #ml #lifecycle #sagemaker #mlops #ia
+ #m1-fundamentos
 
 > [!quote] Concepto fundamental
 > El ML Lifecycle es el proceso iterativo de llevar un proyecto de Machine Learning desde la idea hasta producción, y luego mantenerlo funcionando bien con el tiempo. No es lineal: es un **ciclo** que se repite continuamente.
@@ -9,20 +10,20 @@
 
 ```mermaid
 flowchart LR
-    A["📋 FASE 1\nDefinición\ndel Problema"] --> B["🗄️ FASE 2\nRecopilación y\nPreparación de Datos"]
-    B --> C["🔬 FASE 3\nFeature Engineering\ny Selección"]
-    C --> D["🏋️ FASE 4\nEntrenamiento\ndel Modelo"]
-    D --> E["📏 FASE 5\nEvaluación\ny Ajuste"]
-    E --> F["🚀 FASE 6\nDespliegue e\nInferencia"]
-    F -->|"🔁 Reentrenamiento\nperiódico"| B
-    E -->|"❌ No cumple\nobjetivos"| C
+ A["📋 FASE 1\nDefinición\ndel Problema"] --> B["🗄️ FASE 2\nRecopilación y\nPreparación de Datos"]
+ B --> C["🔬 FASE 3\nFeature Engineering\ny Selección"]
+ C --> D["🏋️ FASE 4\nEntrenamiento\ndel Modelo"]
+ D --> E["📏 FASE 5\nEvaluación\ny Ajuste"]
+ E --> F["🚀 FASE 6\nDespliegue e\nInferencia"]
+ F -->|"🔁 Reentrenamiento\nperiódico"| B
+ E -->|"❌ No cumple\nobjetivos"| C
 
-    style A fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
-    style B fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
-    style C fill:#372d0d,stroke:#edba4a,color:#f5e8b8
-    style D fill:#2d0d37,stroke:#b04aed,color:#e8b8f5
-    style E fill:#1a0d37,stroke:#6a4aed,color:#d8c8f5
-    style F fill:#0d2a37,stroke:#4aaeed,color:#b8e8f5
+ style A fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
+ style B fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
+ style C fill:#372d0d,stroke:#edba4a,color:#f5e8b8
+ style D fill:#2d0d37,stroke:#b04aed,color:#e8b8f5
+ style E fill:#1a0d37,stroke:#6a4aed,color:#d8c8f5
+ style F fill:#0d2a37,stroke:#4aaeed,color:#b8e8f5
 ```
 
 > [!warning] Clave: El Lifecycle es CÍCLICO, no lineal
@@ -37,14 +38,19 @@ flowchart LR
 Antes de tocar ningún dato, debes entender y formular el problema de negocio en términos de ML:
 
 - ¿Es un problema de **clasificación, regresión o clustering**?
+
 - ¿Cuál es el **output** que necesitamos?
+
 - ¿Qué **métrica** definirá el éxito? (Accuracy, RMSE, Recall...)
+
 - ¿Cuáles son las **restricciones** (latencia, coste, interpretabilidad)?
+
 - ¿Tenemos los **datos** necesarios?
 
 ### Herramientas AWS en esta fase
 
 - Discusión de negocio, definición de KPIs
+
 - **AWS Well-Architected Framework** (ML Lens) para guiar la arquitectura
 
 > [!tip] Consejo práctico
@@ -59,14 +65,20 @@ Antes de tocar ningún dato, debes entender y formular el problema de negocio en
 Es la fase más larga en la práctica (puede ser el 70-80% del tiempo real de un proyecto de ML):
 
 - **Recopilar datos** de múltiples fuentes
+
 - **Limpieza:** tratar valores nulos, eliminar duplicados, corregir errores tipográficos
+
 - **Exploración (EDA):** entender distribuciones, correlaciones, outliers
+
 - **División del dataset:** Training set / Validation set / Test set
 
 > [!tip] Regla del 80/10/10
 > Una división típica del dataset:
+>
 > - **80% Training:** Para entrenar el modelo
+>
 > - **10% Validation:** Para ajustar hiperparámetros (sin contaminar el test)
+>
 > - **10% Test:** Para evaluación final honesta (solo se toca al final)
 
 ### Herramientas AWS
@@ -116,8 +128,11 @@ Consiste en 4 pasos principales:
 ### ¿Qué se hace aquí?
 
 - Seleccionar el **algoritmo** (árbol de decisión, red neuronal, transformers...)
+
 - Configurar los **hiperparámetros** iniciales
+
 - Ejecutar el **proceso de entrenamiento** (puede durar horas o días)
+
 - Usar aceleración hardware (GPUs, TPUs, Trainium)
 
 ### Herramientas AWS
@@ -137,9 +152,13 @@ Consiste en 4 pasos principales:
 ### ¿Qué se hace aquí?
 
 - Calcular las **métricas de evaluación** en el conjunto de validación/test
+
 - Detectar **Overfitting/Underfitting**
+
 - **Ajuste de hiperparámetros** (búsqueda en grid, random, bayesiana)
+
 - **Análisis de errores:** ¿En qué casos falla el modelo? ¿Por qué?
+
 - **Explicabilidad:** ¿Por qué el modelo tomó esa decisión?
 
 ### Herramientas AWS
@@ -193,8 +212,11 @@ Este servicio merece mención especial. Es el que detecta cuándo un modelo en p
 | **Feature Attribution Drift** | La importancia de las features ha cambiado | Una feature que era clave ya no importa tanto |
 
 > [!warning] SageMaker Model Monitor vs SageMaker Clarify
+>
 > - **Clarify** → Detecta sesgo **durante el desarrollo** (antes de desplegar).
+>
 > - **Model Monitor** → Detecta drift y degradación **en producción** (después de desplegar).
+>
 > - Son complementarios, no alternativos. En el examen, la fase (desarrollo vs producción) determina cuál elegir.
 
 ---

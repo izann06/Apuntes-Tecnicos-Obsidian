@@ -19,24 +19,24 @@ Cuando Docker crea un contenedor, configura un conjunto de namespaces que le pro
 
 ```
 ┌───────────────────────────────────────────────┐
-│               CONTENEDOR DOCKER               │
-│                                               │
-│  ┌─────────────┐  ┌────────────┐             │
-│  │  Tu App     │  │  Librerías │             │
-│  └─────────────┘  └────────────┘             │
-│                                               │
-│  Aislado por NAMESPACES:                      │
-│  ┌─────┐┌─────┐┌─────┐┌─────┐               │
-│  │ PID ││ NET ││ MNT ││ UTS │               │
-│  └─────┘└─────┘└─────┘└─────┘               │
-│  ┌─────┐┌──────┐┌───────┐                    │
-│  │ IPC ││ USER ││CGROUP │                    │
-│  └─────┘└──────┘└───────┘                    │
+│ CONTENEDOR DOCKER │
+│ │
+│ ┌─────────────┐ ┌────────────┐ │
+│ │ Tu App │ │ Librerías │ │
+│ └─────────────┘ └────────────┘ │
+│ │
+│ Aislado por NAMESPACES: │
+│ ┌─────┐┌─────┐┌─────┐┌─────┐ │
+│ │ PID ││ NET ││ MNT ││ UTS │ │
+│ └─────┘└─────┘└─────┘└─────┘ │
+│ ┌─────┐┌──────┐┌───────┐ │
+│ │ IPC ││ USER ││CGROUP │ │
+│ └─────┘└──────┘└───────┘ │
 └───────────────────────────────────────────────┘
-          │
-          ▼
+ │
+ ▼
 ┌───────────────────────────────────────────────┐
-│            KERNEL DE LINUX                    │
+│ KERNEL DE LINUX │
 └───────────────────────────────────────────────┘
 ```
 
@@ -68,7 +68,9 @@ El namespace PID es quizás el más fácil de entender. Le da a cada contenedor 
 En Linux, el proceso con **PID 1** es el proceso `init`, el "padre de todos los procesos". Es el primer proceso que arranca y el último que termina. Dentro de un contenedor, **tu aplicación** (o el ENTRYPOINT/CMD) se convierte en PID 1. Esto tiene implicaciones importantes:
 
 - PID 1 debe manejar **señales** correctamente (SIGTERM para graceful shutdown).
+
 - Si PID 1 muere, **el contenedor entero se detiene**.
+
 - PID 1 es responsable de "adoptar" procesos huérfanos (reaping zombies).
 
 > [!example] Demostración del namespace PID
@@ -78,16 +80,16 @@ En Linux, el proceso con **PID 1** es el proceso `init`, el "padre de todos los 
 > 
 > # Ver procesos DENTRO del contenedor
 > docker exec mi-nginx ps aux
-> # PID   USER   COMMAND
-> # 1     root   nginx: master process    ← PID 1 dentro del contenedor
-> # 29    nginx  nginx: worker process
-> # 30    nginx  nginx: worker process
+> # PID USER COMMAND
+> # 1 root nginx: master process ← PID 1 dentro del contenedor
+> # 29 nginx nginx: worker process
+> # 30 nginx nginx: worker process
 > 
 > # Ver el MISMO proceso DESDE el host (Linux)
 > ps aux | grep nginx
-> # root  34521  nginx: master process    ← PID 34521 en el host
-> # nginx 34556  nginx: worker process
-> # nginx 34557  nginx: worker process
+> # root 34521 nginx: master process ← PID 34521 en el host
+> # nginx 34556 nginx: worker process
+> # nginx 34557 nginx: worker process
 > ```
 > 
 > El proceso `nginx` es **PID 1** dentro del contenedor (cree que es el proceso principal del "sistema"), pero es **PID 34521** en el host. Esto es el namespace PID en acción.
@@ -108,8 +110,11 @@ En Linux, el proceso con **PID 1** es el proceso `init`, el "padre de todos los 
 El namespace de red es especialmente importante porque define cómo se comunican los contenedores. Cada contenedor obtiene:
 
 - Su propia **interfaz de red** (`eth0`).
+
 - Su propia **dirección IP**.
+
 - Su propia **tabla de enrutamiento**.
+
 - Su propio rango de **puertos** (cada contenedor puede usar el puerto 80 sin conflicto).
 
 ```bash
@@ -126,23 +131,23 @@ ip addr show docker0
 
 ```
 ┌────────────────────────────────────────────────────┐
-│                   HOST                             │
-│                                                    │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐        │
-│  │ Cont. A  │  │ Cont. B  │  │ Cont. C  │        │
-│  │ eth0     │  │ eth0     │  │ eth0     │        │
-│  │172.17.0.2│  │172.17.0.3│  │172.17.0.4│        │
-│  └────┬─────┘  └────┬─────┘  └────┬─────┘        │
-│       │              │              │              │
-│  ┌────┴──────────────┴──────────────┴────┐        │
-│  │          docker0 (Bridge)             │        │
-│  │          172.17.0.1                   │        │
-│  └───────────────────┬───────────────────┘        │
-│                      │                             │
-│  ┌───────────────────┴───────────────────┐        │
-│  │          eth0 (Host NIC)              │        │
-│  │          192.168.1.100                │        │
-│  └───────────────────────────────────────┘        │
+│ HOST │
+│ │
+│ ┌──────────┐ ┌──────────┐ ┌──────────┐ │
+│ │ Cont. A │ │ Cont. B │ │ Cont. C │ │
+│ │ eth0 │ │ eth0 │ │ eth0 │ │
+│ │172.17.0.2│ │172.17.0.3│ │172.17.0.4│ │
+│ └────┬─────┘ └────┬─────┘ └────┬─────┘ │
+│ │ │ │ │
+│ ┌────┴──────────────┴──────────────┴────┐ │
+│ │ docker0 (Bridge) │ │
+│ │ 172.17.0.1 │ │
+│ └───────────────────┬───────────────────┘ │
+│ │ │
+│ ┌───────────────────┴───────────────────┐ │
+│ │ eth0 (Host NIC) │ │
+│ │ 192.168.1.100 │ │
+│ └───────────────────────────────────────┘ │
 └────────────────────────────────────────────────────┘
 ```
 
@@ -158,7 +163,7 @@ El namespace MNT da a cada contenedor su propio **árbol de sistema de archivos*
 ```bash
 # Dentro del contenedor, el sistema de archivos es completamente diferente al del host
 docker exec mi-nginx ls /
-# bin  boot  dev  docker-entrypoint.d  etc  home  lib  ...
+# bin boot dev docker-entrypoint.d etc home lib...
 
 # Este "/" NO es el "/" de tu máquina host
 ```
@@ -172,7 +177,7 @@ El namespace USER permite que los IDs de usuario y grupo sean **diferentes dentr
 ```bash
 # Sin user namespace remapping: root en contenedor = root en host (¡peligroso!)
 docker run --rm ubuntu id
-# uid=0(root) gid=0(root)   ← El proceso es root
+# uid=0(root) gid=0(root) ← El proceso es root
 
 # Con user namespace remapping (configuración avanzada):
 # root dentro del contenedor → usuario sin privilegios en el host

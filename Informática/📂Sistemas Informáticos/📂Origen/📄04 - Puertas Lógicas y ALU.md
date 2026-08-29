@@ -32,19 +32,25 @@ La ALU (Arithmetic Logic Unit) es el componente de la CPU donde ocurren todos lo
 **Aritméticas:**
 
 - Suma (ADD)
+
 - Resta (SUB)
+
 - Multiplicación (en CPUs modernas, hay unidades dedicadas)
+
 - División
 
 **Lógicas (bit a bit):**
 
 - AND, OR, NOT, XOR entre dos números
+
 - Desplazamientos de bits (shift left / shift right, equivalente a multiplicar o dividir por 2)
 
 **Comparaciones:**
 
 - ¿A es igual a B?
+
 - ¿A es mayor que B?
+
 - ¿A es cero?
 
 ### ¿Cómo suma la ALU?
@@ -71,7 +77,7 @@ La Unidad de Control le dice a la ALU qué operación hacer y con qué datos. La
 
 ```
 Transistores → Puertas lógicas → Sumadores y comparadores → ALU → CPU
-(física)        (lógica básica)   (operaciones compuestas)   (cálculo) (procesamiento)
+(física) (lógica básica) (operaciones compuestas) (cálculo) (procesamiento)
 ```
 
 ---

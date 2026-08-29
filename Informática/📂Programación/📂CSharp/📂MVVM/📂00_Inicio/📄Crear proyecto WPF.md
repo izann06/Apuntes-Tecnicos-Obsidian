@@ -20,12 +20,12 @@ Y ejecuta **uno por uno** estos comandos:
 ![[CodigoClaseUser.png]]
 
 
-    
+ 
 ## 🗄️ 3️⃣ Crea tu clase `TaskManagerDbContext`
 
 Importantísimo crear esta clase ya que es la conexión con la base de datos. 
 
-![[ClaseTaskManagerDbContext.png]]     } }`
+![[ClaseTaskManagerDbContext.png]] } }`
 
 ---
 
@@ -41,9 +41,9 @@ Update-Database`
 🧠 Qué hace:
 
 - `Add-Migration crea un script con la tabla `Usuarios`.
-    
+ 
 - `Update-Database` crea **la base de datos Tareas_IMM** y **la tabla Usuarios** automáticamente en SQL Server LocalDB.
-    
+ 
 
 ## 👤 5️⃣ Insertar un usuario
 

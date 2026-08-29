@@ -15,8 +15,8 @@ El transistor es el invento moderno más importante,gracias a el tenemos todo ti
 > 
 > Un magnetrón de 10 centímetros puede escupir **1.000 Vatios (W)** de potencia
 > 
->  El problema es que el magnetrón es digital o calienta al 100% o no calienta 0%, cuando bajas la temperatura por ejemplo 50% lo que hace el magnetrón es básicamente se enciende un tiempo y el otro tiempo se apaga. Con los transistores analógicos si se podría hacer eso.
->  
+> El problema es que el magnetrón es digital o calienta al 100% o no calienta 0%, cuando bajas la temperatura por ejemplo 50% lo que hace el magnetrón es básicamente se enciende un tiempo y el otro tiempo se apaga. Con los transistores analógicos si se podría hacer eso.
+> 
 
 
 ---
@@ -28,7 +28,9 @@ El transistor no tiene inteligencia. No decide nada. Solo responde a la física 
 Tiene tres terminales:
 
 - **Colector / Drenador (Drain)**: por donde entra la corriente principal.
+
 - **Base / Puerta (Gate)**: Es el que decide si pasa la corriente o no;es como una válvula,la llave del grifo.
+
 - **Emisor / Fuente (Source)**: por donde sale la corriente principal.
 
 ![[📄02 - El Transistor.png]]
@@ -45,6 +47,7 @@ Si la **Base** está abierta,la corriente pasa:
 Imagina una manguera de jardín con el pie encima:
 
 - **Pie encima → agua bloqueada**: equivale a no aplicar voltaje a la base → el silicio actúa como aislante → la corriente no pasa → **estado 0**.
+
 - **Pie levantado → agua fluye**: equivale a aplicar un pequeño voltaje a la base → la unión PN del silicio se vuelve conductora → la corriente principal pasa → **estado 1**.
 
 La física exacta: al aplicar voltaje a la base se crea un campo eléctrico que permite a los electrones cruzar la unión PN que normalmente los bloqueaba. No hay palancas, no hay decisiones, solo física de materiales.
@@ -56,6 +59,7 @@ La física exacta: al aplicar voltaje a la base se crea un campo eléctrico que 
 Es una pregunta muy buena. El transistor no interpreta el voltaje que recibe. Simplemente, por la naturaleza del silicio dopado:
 
 - Por debajo de un umbral de voltaje (~0.7V en silicio): aislante → 0.
+
 - Por encima de ese umbral: conductor → 1.
 
 Es tan "tonto" como una esponja que absorbe agua si la metes en un cubo y no absorbe si no lo haces. La esponja no decide, solo responde a la física.
@@ -80,6 +84,7 @@ Los transistores modernos tienen un tamaño de entre 3 y 7 nanómetros (un nanó
 Los GHz (Gigahercios) no miden la velocidad exacta de cada operación, sino la **frecuencia del reloj** del procesador, es decir, cuántas veces por segundo el procesador sincroniza sus operaciones.
 
 - 1 Hercio (Hz) = 1 ciclo por segundo.
+
 - 1 GHz = 1.000.000.000 ciclos por segundo.
 
 En cada ciclo de reloj, el procesador puede ejecutar una o varias instrucciones (dependiendo de la arquitectura). Un procesador a 3.5 GHz está "marcando el ritmo" 3.500 millones de veces cada segundo.
@@ -96,13 +101,13 @@ No necesariamente. Un procesador puede hacer más trabajo por ciclo (más instru
 
 ## Historia y evolución
 
-| Generación | Tecnología              | Tamaño             |
+| Generación | Tecnología | Tamaño |
 | ---------- | ----------------------- | ------------------ |
-| 1947       | Transistor de germanio  | Varios centímetros |
-| 1960s      | Transistor de silicio   | Milímetros         |
-| 1970s      | Circuitos integrados    | Micrómetros        |
-| 1990s      | MOSFET submicrónico     | Cientos de nm      |
-| 2020s      | FinFET, Gate-All-Around | 3-5 nm             |
+| 1947 | Transistor de germanio | Varios centímetros |
+| 1960s | Transistor de silicio | Milímetros |
+| 1970s | Circuitos integrados | Micrómetros |
+| 1990s | MOSFET submicrónico | Cientos de nm |
+| 2020s | FinFET, Gate-All-Around | 3-5 nm |
 
 ---
 

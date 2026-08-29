@@ -42,7 +42,9 @@ Al igual que S3, EFS sabe que no todos los archivos que guardas en esa carpeta c
 ### El Ciclo de Vida en Acción
 
 * *Por defecto:* Si no abres un archivo en **30 días**, EFS lo empuja de *Standard* a *IA*.
+
 * *Por defecto:* Si pasa a no abrirse en **90 días**, lo empuja al trastero de *Archive*.
+
 * Si un día decides abrir ese archivo antiguo, la política dictará si se queda en el trastero o si lo vuelve a subir al estante principal (*Standard*).
 
 ---

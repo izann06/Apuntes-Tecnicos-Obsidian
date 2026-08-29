@@ -18,12 +18,12 @@ Construir un motor de recomendaciones desde cero requiere experiencia profunda e
 
 ```mermaid
 graph LR
-    U["👤 Users Dataset\n─────────────\nuser_id\nedad, género, ciudad\n(atributos opcionales)"] --> P{Amazon\nPersonalize}
-    I["🛍️ Items Dataset\n─────────────\nitem_id\ncategoría, precio, marca\n(atributos opcionales)"] --> P
-    E["📊 Interactions Dataset\n─────────────\nuser_id + item_id\ntimestamp\neventType: click/compra/view\n(¡OBLIGATORIO!)"] --> P
-    P --> R["🎯 Recomendaciones\n─────────────\nTop-N items para user X\nUsers similares a user X\nItems similares a item Y"]
+ U["👤 Users Dataset\n─────────────\nuser_id\nedad, género, ciudad\n(atributos opcionales)"] --> P{Amazon\nPersonalize}
+ I["🛍️ Items Dataset\n─────────────\nitem_id\ncategoría, precio, marca\n(atributos opcionales)"] --> P
+ E["📊 Interactions Dataset\n─────────────\nuser_id + item_id\ntimestamp\neventType: click/compra/view\n(¡OBLIGATORIO!)"] --> P
+ P --> R["🎯 Recomendaciones\n─────────────\nTop-N items para user X\nUsers similares a user X\nItems similares a item Y"]
 
-    style P fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
+ style P fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
 ```
 
 | Dataset | ¿Obligatorio? | Contenido mínimo |
@@ -53,25 +53,29 @@ graph LR
 
 ```mermaid
 sequenceDiagram
-    participant D as 📊 Datos (S3)
-    participant P as 🎯 Personalize
-    participant A as 📱 Aplicación
+ participant D as 📊 Datos (S3)
+ participant P as 🎯 Personalize
+ participant A as 📱 Aplicación
 
-    D->>P: 1. Importar datasets (Users, Items, Interactions)
-    P->>P: 2. Crear Dataset Group
-    P->>P: 3. Entrenar Solution (elige recipe automáticamente)
-    P->>P: 4. Crear Campaign (endpoint de recomendaciones)
-    A->>P: 5. GetRecommendations(user_id="usr_123")
-    P->>A: 6. [item_789, item_234, item_456, ...]
-    A->>P: 7. Registrar evento (click/compra) en tiempo real
-    Note over P: 8. El modelo aprende continuamente<br/>de los nuevos eventos
+ D->>P: 1. Importar datasets (Users, Items, Interactions)
+ P->>P: 2. Crear Dataset Group
+ P->>P: 3. Entrenar Solution (elige recipe automáticamente)
+ P->>P: 4. Crear Campaign (endpoint de recomendaciones)
+ A->>P: 5. GetRecommendations(user_id="usr_123")
+ P->>A: 6. [item_789, item_234, item_456,...]
+ A->>P: 7. Registrar evento (click/compra) en tiempo real
+ Note over P: 8. El modelo aprende continuamente<br/>de los nuevos eventos
 ```
 
 > [!example] Caso de uso real — Plataforma de Streaming
 > Un servicio de streaming tipo Netflix usa Personalize para:
+>
 > - Recomendar películas en la página principal (User Personalization)
+>
 > - Mostrar "Porque viste X, te recomendamos Y" (Similar Items)
+>
 > - Personalizar el orden de los géneros en la portada (Personalized Ranking)
+>
 > - Actualizar las recomendaciones en tiempo real cuando el usuario termina de ver algo
 
 > [!tip] Truco de examen — Personalize
@@ -87,9 +91,13 @@ sequenceDiagram
 ### ¿Qué es una Serie Temporal?
 
 Una serie temporal es cualquier secuencia de valores medidos a lo largo del tiempo:
+
 - Ventas diarias de un producto (últimos 3 años)
+
 - Consumo eléctrico por hora (último año)
+
 - Número de visitas a un sitio web por día (último mes)
+
 - Precio de cierre de una acción (últimos 10 años)
 
 ---
@@ -107,7 +115,7 @@ Una serie temporal es cualquier secuencia de valores medidos a lo largo del tiem
 > Target Time Series:
 > 2024-01-01, producto_A, 245 unidades
 > 2024-01-02, producto_A, 312 unidades
-> ...
+>...
 >
 > Related Time Series (variables externas):
 > 2024-01-01, es_festivo=No, temperatura=12°C, precio_promo=No
@@ -123,14 +131,17 @@ Forecast no solo da un número: devuelve **predicciones probabilísticas** con i
 ```
 Predicción de ventas para producto_A el 2024-03-15:
 
-P10 (percentil 10): 180 unidades  ← Solo 10% de probabilidad de ser menor
-P50 (mediana):      245 unidades  ← Lo más probable
-P90 (percentil 90): 340 unidades  ← Solo 10% de probabilidad de ser mayor
+P10 (percentil 10): 180 unidades ← Solo 10% de probabilidad de ser menor
+P50 (mediana): 245 unidades ← Lo más probable
+P90 (percentil 90): 340 unidades ← Solo 10% de probabilidad de ser mayor
 ```
 
 Esta información es más valiosa que un único número porque permite decisiones informadas:
+
 - **Stock conservador:** usa P50 (normal)
+
 - **Evitar rotura de stock:** usa P90 (alto)
+
 - **Minimizar exceso de inventario:** usa P10 (bajo)
 
 ---
@@ -139,12 +150,12 @@ Esta información es más valiosa que un único número porque permite decisione
 
 ```mermaid
 flowchart LR
-    A["📊 Datos Históricos\n(CSV en S3)"] --> B["Amazon Forecast\nDataset Group"]
-    B --> C["Predictor\n(AutoML: elige el\nmejor algoritmo)"]
-    C --> D["Forecast\n(predicciones generadas)"]
-    D --> E["📊 Dashboard\n(QuickSight)"]
-    D --> F["🔗 API\n(tu aplicación)"]
-    D --> G["📁 Export a S3\n(batch)"]
+ A["📊 Datos Históricos\n(CSV en S3)"] --> B["Amazon Forecast\nDataset Group"]
+ B --> C["Predictor\n(AutoML: elige el\nmejor algoritmo)"]
+ C --> D["Forecast\n(predicciones generadas)"]
+ D --> E["📊 Dashboard\n(QuickSight)"]
+ D --> F["🔗 API\n(tu aplicación)"]
+ D --> G["📁 Export a S3\n(batch)"]
 ```
 
 ---

@@ -16,9 +16,9 @@ Aquí definimos cómo es esa tabla intermedia "invisible" en Java.
 ```Java
 @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
 @JoinTable(
-    name = "libro_autor",                 // Nombre de la tabla intermedia en SQL(ese nombre es de la tabla nueva de Postgresql)
-    joinColumns = @JoinColumn(name = "id_libro"),        // Mi FK
-    inverseJoinColumns = @JoinColumn(name = "id_autor")  // La FK del otro
+ name = "libro_autor", // Nombre de la tabla intermedia en SQL(ese nombre es de la tabla nueva de Postgresql)
+ joinColumns = @JoinColumn(name = "id_libro"), // Mi FK
+ inverseJoinColumns = @JoinColumn(name = "id_autor") // La FK del otro
 )
 private List<Autores> autores = new ArrayList<>();
 ```

@@ -26,11 +26,11 @@
 
 Cualquier empresa que pierda miles de euros por cada minuto que su sistema esté caído es el cliente ideal de este servicio:
 
-1.  **Sanidad (Hospitales):** Si el servidor de un hospital cae, los médicos no pueden ver los historiales de los pacientes. Elastic Disaster Recovery permite replicar los sistemas locales en AWS para cumplir normativas estrictas y nunca perder acceso.
+1. **Sanidad (Hospitales):** Si el servidor de un hospital cae, los médicos no pueden ver los historiales de los pacientes. Elastic Disaster Recovery permite replicar los sistemas locales en AWS para cumplir normativas estrictas y nunca perder acceso.
 
-2.  **Servicios Financieros (Bancos):** El procesamiento de transacciones no puede detenerse nunca. Mantienen la confianza de los clientes y evitan multas millonarias al conmutar rápidamente a la nube si su servidor principal falla.
+2. **Servicios Financieros (Bancos):** El procesamiento de transacciones no puede detenerse nunca. Mantienen la confianza de los clientes y evitan multas millonarias al conmutar rápidamente a la nube si su servidor principal falla.
 
-3.  **Fabricación (Fábricas Globales):** Si el sistema que coordina la cadena de montaje se cae, la fábrica se detiene por completo. AWS mantiene un clon de seguridad que asume el control casi al instante en caso de desastre.
+3. **Fabricación (Fábricas Globales):** Si el sistema que coordina la cadena de montaje se cae, la fábrica se detiene por completo. AWS mantiene un clon de seguridad que asume el control casi al instante en caso de desastre.
 
 ---
 → Volver al índice: [[📂Almacenamiento/00 - Índice Almacenamiento|🪐 Almacenamiento]]

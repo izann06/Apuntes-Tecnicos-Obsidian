@@ -19,10 +19,10 @@ Recuerda la sección de [[Union Filesystems]]: cada contenedor tiene una **capa 
 
 ```
 ┌──────────────────────────────────────┐
-│  Capa de escritura del contenedor    │ ← Aquí se guardan tus cambios
-│  (SE ELIMINA cuando haces docker rm)│ ← ¡¡EFÍMERA!!
+│ Capa de escritura del contenedor │ ← Aquí se guardan tus cambios
+│ (SE ELIMINA cuando haces docker rm)│ ← ¡¡EFÍMERA!!
 ├──────────────────────────────────────┤
-│  Capas de la imagen (solo lectura)   │ ← Estas SIEMPRE están
+│ Capas de la imagen (solo lectura) │ ← Estas SIEMPRE están
 └──────────────────────────────────────┘
 ```
 
@@ -45,10 +45,10 @@ cat /datos.txt
 exit
 
 # 2. El contenedor se detuvo, pero NO se eliminó.
-#    Los datos AÚN existen en la capa de escritura.
+# Los datos AÚN existen en la capa de escritura.
 docker start demo
 docker exec demo cat /datos.txt
-# Datos super importantes  ← ¡Siguen ahí!
+# Datos super importantes ← ¡Siguen ahí!
 
 # 3. Ahora ELIMINAMOS el contenedor
 docker rm -f demo
@@ -63,7 +63,9 @@ docker rm demo
 ```
 
 > [!warning] Detener ≠ Eliminar
+>
 > - `docker stop` → El contenedor se **detiene** pero sigue existiendo. Sus datos en la capa de escritura se conservan. Puedes reiniciarlo con `docker start`.
+>
 > - `docker rm` → El contenedor se **elimina**. La capa de escritura se destruye. Los datos se pierden irrecuperablemente.
 
 ---
@@ -88,31 +90,31 @@ docker rm demo
 Docker ofrece **tres mecanismos** para que los datos sobrevivan al ciclo de vida del contenedor:
 
 ```
-           ┌────────────────────────────────────────┐
-           │          CONTENEDOR DOCKER             │
-           │                                        │
-           │   /app/data  ←──┐     /app/code ←──┐  │
-           │                 │                   │  │
-           │   /app/secrets ←┼───┐               │  │
-           └─────────────────┼───┼───────────────┼──┘
-                             │   │               │
-                    ┌────────┴───┴──┐   ┌────────┴───────┐
-                    │  1. VOLUME    │   │  2. BIND MOUNT │
-                    │  MOUNT        │   │                │
-                    │               │   │  TÚ gestionas  │
-                    │  Docker       │   │  la ubicación  │
-                    │  gestiona     │   │                │
-                    │  la ubicación │   │  ~/mi-proyecto │
-                    │               │   │  /src/...      │
-                    │  /var/lib/    │   └────────────────┘
-                    │  docker/     │
-                    │  volumes/    │   ┌────────────────┐
-                    └──────────────┘   │  3. TMPFS      │
-                                      │  MOUNT          │
-                                      │                 │
-                                      │  En RAM         │
-                                      │  (no persiste)  │
-                                      └─────────────────┘
+ ┌────────────────────────────────────────┐
+ │ CONTENEDOR DOCKER │
+ │ │
+ │ /app/data ←──┐ /app/code ←──┐ │
+ │ │ │ │
+ │ /app/secrets ←┼───┐ │ │
+ └─────────────────┼───┼───────────────┼──┘
+ │ │ │
+ ┌────────┴───┴──┐ ┌────────┴───────┐
+ │ 1. VOLUME │ │ 2. BIND MOUNT │
+ │ MOUNT │ │ │
+ │ │ │ TÚ gestionas │
+ │ Docker │ │ la ubicación │
+ │ gestiona │ │ │
+ │ la ubicación │ │ ~/mi-proyecto │
+ │ │ │ /src/... │
+ │ /var/lib/ │ └────────────────┘
+ │ docker/ │
+ │ volumes/ │ ┌────────────────┐
+ └──────────────┘ │ 3. TMPFS │
+ │ MOUNT │
+ │ │
+ │ En RAM │
+ │ (no persiste) │
+ └─────────────────┘
 ```
 
 | Tipo | ¿Dónde se almacena? | ¿Persiste? | Ideal para |
@@ -130,14 +132,14 @@ Los tmpfs mounts no persisten datos, pero son útiles para información **sensib
 ```bash
 # Montar un directorio en RAM
 docker run -d \
-  --name app-segura \
-  --tmpfs /app/secrets:rw,size=64m \
-  mi-app:latest
+ --name app-segura \
+ --tmpfs /app/secrets:rw,size=64m \
+ mi-app:latest
 
 # O con --mount (más explícito):
 docker run -d \
-  --mount type=tmpfs,target=/app/secrets,tmpfs-size=67108864 \
-  mi-app:latest
+ --mount type=tmpfs,target=/app/secrets,tmpfs-size=67108864 \
+ mi-app:latest
 ```
 
 | Característica | tmpfs Mount |
@@ -153,7 +155,9 @@ docker run -d \
 
 > [!info] Siguiente paso
 > Ahora que entiendes el problema, vamos a ver las dos soluciones principales en detalle:
+>
 > - [[Volume Mounts]] — La solución recomendada para datos persistentes (bases de datos, uploads, etc.)
+>
 > - [[Bind Mounts]] — La solución ideal para desarrollo (código fuente, configuración)
 
 ---

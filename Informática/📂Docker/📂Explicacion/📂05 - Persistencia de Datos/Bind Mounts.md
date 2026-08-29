@@ -35,36 +35,38 @@ Los **Bind Mounts** montan un **directorio o archivo específico de tu máquina*
 ```bash
 # -v /ruta/absoluta/en/host:/ruta/en/contenedor
 docker run -d \
-  -v /home/usuario/mi-proyecto:/app \
-  node:20-alpine npm start
+ -v /home/usuario/mi-proyecto:/app \
+ node:20-alpine npm start
 
 # En Windows (PowerShell):
 docker run -d \
-  -v ${PWD}:/app \
-  node:20-alpine npm start
+ -v ${PWD}:/app \
+ node:20-alpine npm start
 
 # En Linux/Mac:
 docker run -d \
-  -v $(pwd):/app \
-  node:20-alpine npm start
+ -v $(pwd):/app \
+ node:20-alpine npm start
 ```
 
 ### Sintaxis larga (`--mount`) — Más segura
 
 ```bash
 docker run -d \
-  --mount type=bind,source=/home/usuario/mi-proyecto,target=/app \
-  node:20-alpine npm start
+ --mount type=bind,source=/home/usuario/mi-proyecto,target=/app \
+ node:20-alpine npm start
 
 # En PowerShell:
 docker run -d \
-  --mount "type=bind,source=$(pwd),target=/app" \
-  node:20-alpine npm start
+ --mount "type=bind,source=$(pwd),target=/app" \
+ node:20-alpine npm start
 ```
 
 > [!warning] Diferencia crucial entre `-v` y `--mount` con bind mounts
 > Si la ruta del host **no existe**:
+>
 > - `-v` la **crea automáticamente** como un directorio vacío (lo que puede causar errores silenciosos difíciles de depurar).
+>
 > - `--mount` **falla con un error explícito** (más seguro, te avisa del problema).
 > 
 > Por esta razón, Docker recomienda usar `--mount` para bind mounts.
@@ -74,13 +76,13 @@ docker run -d \
 ## ¿Cómo diferenciar un bind mount de un volume en la sintaxis `-v`?
 
 ```bash
-# BIND MOUNT → empieza con / (ruta absoluta) o ./ (ruta relativa)
-docker run -v /home/user/code:/app ...      # Bind mount (ruta absoluta)
-docker run -v $(pwd):/app ...               # Bind mount (pwd = ruta absoluta)
-docker run -v ./src:/app/src ...            # Bind mount (ruta relativa, Docker 23+)
+# BIND MOUNT → empieza con / (ruta absoluta) o./ (ruta relativa)
+docker run -v /home/user/code:/app... # Bind mount (ruta absoluta)
+docker run -v $(pwd):/app... # Bind mount (pwd = ruta absoluta)
+docker run -v./src:/app/src... # Bind mount (ruta relativa, Docker 23+)
 
 # VOLUME → es solo un nombre (sin barras)
-docker run -v mi-volumen:/app/data ...      # Volume (nombre sin /)
+docker run -v mi-volumen:/app/data... # Volume (nombre sin /)
 ```
 
 ---
@@ -92,20 +94,20 @@ docker run -v mi-volumen:/app/data ...      # Volume (nombre sin /)
 > # Supongamos que tienes un proyecto en ~/mi-api/
 > # Estructura:
 > # ~/mi-api/
-> #   ├── package.json
-> #   ├── package-lock.json
-> #   ├── src/
-> #   │   └── index.js
-> #   └── .env
+> # ├── package.json
+> # ├── package-lock.json
+> # ├── src/
+> # │ └── index.js
+> # └──.env
 > 
 > # Ejecutar el contenedor con tu código montado
 > docker run -it \
->   --name dev-api \
->   -p 3000:3000 \
->   -v $(pwd):/app \
->   -w /app \
->   node:20-alpine \
->   sh -c "npm install && npm run dev"
+> --name dev-api \
+> -p 3000:3000 \
+> -v $(pwd):/app \
+> -w /app \
+> node:20-alpine \
+> sh -c "npm install && npm run dev"
 > 
 > # Ahora, si editas ~/mi-api/src/index.js en VS Code,
 > # el cambio se refleja INSTANTÁNEAMENTE dentro del contenedor.
@@ -124,26 +126,30 @@ Puedes montar archivos o directorios como **solo lectura** para que el contenedo
 ```bash
 # Montar configuración como solo lectura
 docker run -d \
-  --name web-server \
-  -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro \
-  -v $(pwd)/html:/usr/share/nginx/html:ro \
-  -p 80:80 \
-  nginx
+ --name web-server \
+ -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro \
+ -v $(pwd)/html:/usr/share/nginx/html:ro \
+ -p 80:80 \
+ nginx
 
 # Con --mount:
 docker run -d \
-  --mount type=bind,source=$(pwd)/nginx.conf,target=/etc/nginx/nginx.conf,readonly \
-  -p 80:80 \
-  nginx
+ --mount type=bind,source=$(pwd)/nginx.conf,target=/etc/nginx/nginx.conf,readonly \
+ -p 80:80 \
+ nginx
 
 # El contenedor puede LEER los archivos pero NO modificarlos.
 # Intentar escribir dará: "Read-only file system"
 ```
 
 > [!tip] Cuándo usar solo lectura
+>
 > - **Archivos de configuración**: nginx.conf, my.cnf, etc.
+>
 > - **Certificados SSL**: Los certificados no deben ser modificables.
+>
 > - **Scripts de inicialización**: Scripts que se ejecutan al arrancar el contenedor.
+>
 > - **Código fuente en producción**: Si no necesitas que el contenedor modifique tu código.
 
 ---
@@ -155,18 +161,18 @@ No solo puedes montar directorios completos, también puedes montar **archivos i
 ```bash
 # Montar un solo archivo de configuración
 docker run -d \
-  -v $(pwd)/mi-config.json:/app/config/settings.json:ro \
-  mi-app
+ -v $(pwd)/mi-config.json:/app/config/settings.json:ro \
+ mi-app
 
 # Montar el socket de Docker (para Docker-in-Docker o herramientas de gestión)
 docker run -d \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  portainer/portainer-ce
+ -v /var/run/docker.sock:/var/run/docker.sock \
+ portainer/portainer-ce
 
 # Montar el archivo /etc/hosts
 docker run -d \
-  -v /etc/hosts:/etc/hosts:ro \
-  mi-app
+ -v /etc/hosts:/etc/hosts:ro \
+ mi-app
 ```
 
 > [!warning] Montar archivos individuales: Cuidado
@@ -200,9 +206,9 @@ docker run -u $(id -u):$(id -g) -v $(pwd):/app node:20-alpine touch /app/archivo
 
 # Solución: Excluir directorios pesados usando volúmenes anónimos
 docker run -d \
-  -v $(pwd):/app \
-  -v /app/node_modules \
-  node:20-alpine npm start
+ -v $(pwd):/app \
+ -v /app/node_modules \
+ node:20-alpine npm start
 
 # El truco: -v /app/node_modules (sin ruta host) crea un volumen anónimo
 # que "oculta" el node_modules del bind mount, evitando la sincronización
@@ -217,7 +223,7 @@ docker run -d \
 
 # Ejemplo: La imagen nginx tiene archivos en /usr/share/nginx/html
 docker run -d -v $(pwd)/mi-html:/usr/share/nginx/html nginx
-# Solo se verán los archivos de ./mi-html, no los que traía la imagen
+# Solo se verán los archivos de./mi-html, no los que traía la imagen
 ```
 
 > [!info] Diferencia con Volumes

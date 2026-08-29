@@ -12,9 +12,11 @@
 
 * **Prácticas recomendadas:**
 
-    1.  Ponle una contraseña larguísima y guárdala bajo llave.
-    2.  **Activa siempre la MFA (Autenticación Multifactor):** Exigir un código del móvil además de la contraseña.
-    3.  **¡NO LO USES NUNCA para tareas diarias!** Créate a ti mismo un usuario IAM de Administrador para el día a día, y guarda el Usuario Raíz solo para emergencias o cambios de facturación extremos.
+ 1. Ponle una contraseña larguísima y guárdala bajo llave.
+
+ 2. **Activa siempre la MFA (Autenticación Multifactor):** Exigir un código del móvil además de la contraseña.
+
+ 3. **¡NO LO USES NUNCA para tareas diarias!** Créate a ti mismo un usuario IAM de Administrador para el día a día, y guarda el Usuario Raíz solo para emergencias o cambios de facturación extremos.
 
 ---
 
@@ -40,11 +42,11 @@ Dentro del servicio IAM, configuras el acceso diario usando estos 4 elementos:
 
 * Tienen 3 partes principales:
 
-    * **Efecto (Effect):** ¿Permitir o Denegar? (*Allow / Deny*).
-    
-    * **Acción (Action):** ¿Qué llamada a la API quieres hacer? (ej. `s3:GetObject` para descargar archivos).
-    
-    * **Recurso (Resource):** ¿Sobre qué objeto exacto? (ej. Solo sobre el bucket llamado "datos-rrhh").
+ * **Efecto (Effect):** ¿Permitir o Denegar? (*Allow / Deny*).
+ 
+ * **Acción (Action):** ¿Qué llamada a la API quieres hacer? (ej. `s3:GetObject` para descargar archivos).
+ 
+ * **Recurso (Resource):** ¿Sobre qué objeto exacto? (ej. Solo sobre el bucket llamado "datos-rrhh").
 
 ### D. Roles de IAM 
 
@@ -54,9 +56,9 @@ Dentro del servicio IAM, configuras el acceso diario usando estos 4 elementos:
 
 * **Casos de Uso:**
 
-    * **Para Máquinas (EC2):** Si un servidor EC2 necesita leer una base de datos, no le creas un usuario con contraseña (porque alguien podría robarla del código). Le asignas un Rol y el EC2 asume el permiso mágicamente por detrás.
-    
-    * **Para Federar Usuarios Externos:** Si tu empresa ya usa Microsoft Active Directory para que los empleados enciendan su ordenador, pueden usar esas mismas credenciales para entrar a AWS asumiendo un Rol temporal, sin tener que crearles un "Usuario IAM" nuevo.
+ * **Para Máquinas (EC2):** Si un servidor EC2 necesita leer una base de datos, no le creas un usuario con contraseña (porque alguien podría robarla del código). Le asignas un Rol y el EC2 asume el permiso mágicamente por detrás.
+ 
+ * **Para Federar Usuarios Externos:** Si tu empresa ya usa Microsoft Active Directory para que los empleados enciendan su ordenador, pueden usar esas mismas credenciales para entrar a AWS asumiendo un Rol temporal, sin tener que crearles un "Usuario IAM" nuevo.
 
 
 

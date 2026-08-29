@@ -83,11 +83,11 @@ Vamos a resolver el mismo ejercicio con ambas tecnologías para que vet la difer
 **Ejercicio:**
 
 1. Crear una carpeta llamada "MiCarpeta".
-    
+ 
 2. Dentro, crear un archivo llamado "secreto.txt".
-    
+ 
 3. Mostrar la ruta absoluta del archivo.
-    
+ 
 
 ### Opción A: Código con Java IO (Clásico)
 
@@ -98,34 +98,34 @@ import java.io.File;
 import java.io.IOException;
 
 public class EjemploIO {
-    public static void main(String[] args) {
-        // 1. Definir la carpeta y el archivo
-        File carpeta = new File("MiCarpeta");
-        File archivo = new File(carpeta, "secreto.txt");
+ public static void main(String[] args) {
+ // 1. Definir la carpeta y el archivo
+ File carpeta = new File("MiCarpeta");
+ File archivo = new File(carpeta, "secreto.txt");
 
-        // 2. Crear carpeta
-        if (!carpeta.exists()) {
-            if (carpeta.mkdir()) {
-                System.out.println("Carpeta creada (IO).");
-            } else {
-                System.out.println("Error al crear carpeta.");
-            }
-        }
+ // 2. Crear carpeta
+ if (!carpeta.exists()) {
+ if (carpeta.mkdir()) {
+ System.out.println("Carpeta creada (IO).");
+ } else {
+ System.out.println("Error al crear carpeta.");
+ }
+ }
 
-        // 3. Crear archivo
-        try {
-            if (archivo.createNewFile()) {
-                System.out.println("Archivo creado (IO).");
-            } else {
-                System.out.println("El archivo ya existía.");
-            }
-            // 4. Mostrar ruta
-            System.out.println("Ruta: " + archivo.getAbsolutePath());
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+ // 3. Crear archivo
+ try {
+ if (archivo.createNewFile()) {
+ System.out.println("Archivo creado (IO).");
+ } else {
+ System.out.println("El archivo ya existía.");
+ }
+ // 4. Mostrar ruta
+ System.out.println("Ruta: " + archivo.getAbsolutePath());
+ 
+ } catch (IOException e) {
+ e.printStackTrace();
+ }
+ }
 }
 ```
 
@@ -140,34 +140,34 @@ import java.nio.file.Paths;
 import java.io.IOException;
 
 public class EjemploNIO {
-    public static void main(String[] args) {
-        // 1. Definir las Rutas (Path)
-        Path rutaCarpeta = Paths.get("MiCarpeta");
-        Path rutaArchivo = rutaCarpeta.resolve("secreto.txt"); // Une las rutas
+ public static void main(String[] args) {
+ // 1. Definir las Rutas (Path)
+ Path rutaCarpeta = Paths.get("MiCarpeta");
+ Path rutaArchivo = rutaCarpeta.resolve("secreto.txt"); // Une las rutas
 
-        try {
-            // 2. Crear carpeta (crea directorios padres si hace falta automáticamente)
-            if (Files.notExists(rutaCarpeta)) {
-                Files.createDirectories(rutaCarpeta);
-                System.out.println("Carpeta creada (NIO).");
-            }
+ try {
+ // 2. Crear carpeta (crea directorios padres si hace falta automáticamente)
+ if (Files.notExists(rutaCarpeta)) {
+ Files.createDirectories(rutaCarpeta);
+ System.out.println("Carpeta creada (NIO).");
+ }
 
-            // 3. Crear archivo
-            if (Files.notExists(rutaArchivo)) {
-                Files.createFile(rutaArchivo);
-                System.out.println("Archivo creado (NIO).");
-            } else {
-                System.out.println("El archivo ya existía.");
-            }
+ // 3. Crear archivo
+ if (Files.notExists(rutaArchivo)) {
+ Files.createFile(rutaArchivo);
+ System.out.println("Archivo creado (NIO).");
+ } else {
+ System.out.println("El archivo ya existía.");
+ }
 
-            // 4. Mostrar ruta (toAbsolutePath devuelve Path, hay que pasar a String)
-            System.out.println("Ruta: " + rutaArchivo.toAbsolutePath().toString());
+ // 4. Mostrar ruta (toAbsolutePath devuelve Path, hay que pasar a String)
+ System.out.println("Ruta: " + rutaArchivo.toAbsolutePath().toString());
 
-        } catch (IOException e) {
-            // NIO lanza excepciones más detalladas si falla algo
-            e.printStackTrace();
-        }
-    }
+ } catch (IOException e) {
+ // NIO lanza excepciones más detalladas si falla algo
+ e.printStackTrace();
+ }
+ }
 }
 ```
 

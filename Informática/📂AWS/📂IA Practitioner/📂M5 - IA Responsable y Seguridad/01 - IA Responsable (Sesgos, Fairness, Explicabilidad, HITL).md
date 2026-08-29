@@ -12,31 +12,31 @@
 
 ```mermaid
 mindmap
-  root((IA\nResponsable))
-    Fairness
-      Sin discriminación
-      Tratamiento equitativo
-      Auditoría de sesgos
-    Explicabilidad
-      Transparencia
-      Por qué tomó esa decisión
-      Confianza del usuario
-    Privacidad
-      Protección de datos personales
-      Minimización de datos
-      GDPR, CCPA
-    Robustez
-      Fiabilidad ante adversarios
-      Resistencia a ataques
-      Comportamiento predecible
-    Seguridad
-      Sin usos dañinos
-      Control de acceso
-      Auditoría
-    Human-in-the-Loop
-      Supervisión humana
-      Corrección de errores
-      Responsabilidad humana
+ root((IA\nResponsable))
+ Fairness
+ Sin discriminación
+ Tratamiento equitativo
+ Auditoría de sesgos
+ Explicabilidad
+ Transparencia
+ Por qué tomó esa decisión
+ Confianza del usuario
+ Privacidad
+ Protección de datos personales
+ Minimización de datos
+ GDPR, CCPA
+ Robustez
+ Fiabilidad ante adversarios
+ Resistencia a ataques
+ Comportamiento predecible
+ Seguridad
+ Sin usos dañinos
+ Control de acceso
+ Auditoría
+ Human-in-the-Loop
+ Supervisión humana
+ Corrección de errores
+ Responsabilidad humana
 ```
 
 ---
@@ -100,8 +100,11 @@ Un modelo de scoring de CVs entrenado con datos de contratación de los últimos
 
 > [!tip] SageMaker Clarify para Fairness
 > **SageMaker Clarify** calcula automáticamente métricas de fairness como:
+>
 > - **Class Imbalance (CI):** Desequilibrio de clases en el dataset
+>
 > - **DPL (Difference in Positive Proportions in Labels):** Diferencia en proporciones de resultados positivos entre grupos
+>
 > - **Conditional Demographic Disparity (CDD):** Disparidad condicionada a otras variables
 
 ---
@@ -114,8 +117,11 @@ Un modelo de scoring de CVs entrenado con datos de contratación de los últimos
 ### ¿Por Qué Importa la Explicabilidad?
 
 - **Legal/Compliance:** El GDPR europeo establece el "derecho a explicación" cuando una decisión automatizada afecta significativamente a una persona
+
 - **Confianza:** Los usuarios y reguladores necesitan entender las decisiones para confiar en el sistema
+
 - **Depuración:** Los ingenieros necesitan saber por qué falla el modelo para corregirlo
+
 - **Detección de sesgo:** La explicabilidad revela si el modelo usa atributos injustos
 
 ### Herramienta: SHAP (SHapley Additive exPlanations)
@@ -127,12 +133,12 @@ Predicción del modelo: "Crédito DENEGADO" para cliente ID-8821
 
 Contribución de cada feature a la decisión:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Feature                  SHAP Value    Efecto
+Feature SHAP Value Efecto
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ratio_deuda_ingresos: 0.72  → -0.45   ↓ Empuja a DENEGAR
-historial_impagos: 2        → -0.31   ↓ Empuja a DENEGAR  
-tiempo_empleo: 8 meses      → -0.18   ↓ Empuja a DENEGAR
-ingresos_anuales: €28k      → +0.12   ↑ Empuja a APROBAR
+ratio_deuda_ingresos: 0.72 → -0.45 ↓ Empuja a DENEGAR
+historial_impagos: 2 → -0.31 ↓ Empuja a DENEGAR 
+tiempo_empleo: 8 meses → -0.18 ↓ Empuja a DENEGAR
+ingresos_anuales: €28k → +0.12 ↑ Empuja a APROBAR
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Suma de contribuciones: -0.82 → DENEGADO
 ```

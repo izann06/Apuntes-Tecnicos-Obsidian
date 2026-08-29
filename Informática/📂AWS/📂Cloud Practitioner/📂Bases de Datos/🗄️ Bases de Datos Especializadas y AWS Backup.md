@@ -27,8 +27,9 @@
 
 * **Casos de Uso:** * Redes Sociales (Sugerencias de "Personas que quizás conozcas").
 
-    * Motores de Recomendación ("Los clientes que compraron esto también compraron...").
-    * Detección de Fraude (Ver si una tarjeta de crédito está vinculada a 50 cuentas falsas).
+ * Motores de Recomendación ("Los clientes que compraron esto también compraron...").
+
+ * Detección de Fraude (Ver si una tarjeta de crédito está vinculada a 50 cuentas falsas).
 
 ---
 
@@ -42,9 +43,11 @@
 
 * **Beneficios Clave:**
 
-    * Unifica todos los procesos de backup fragmentados.
-    * Permite la **Copia entre Regiones** (puedes decirle que envíe automáticamente una copia de tus servidores de Madrid a Tokio en caso de desastre).
-    * Te genera informes de auditoría instantáneos para demostrar a los reguladores que estás cumpliendo la ley.
+ * Unifica todos los procesos de backup fragmentados.
+
+ * Permite la **Copia entre Regiones** (puedes decirle que envíe automáticamente una copia de tus servidores de Madrid a Tokio en caso de desastre).
+
+ * Te genera informes de auditoría instantáneos para demostrar a los reguladores que estás cumpliendo la ley.
 
 ---
 

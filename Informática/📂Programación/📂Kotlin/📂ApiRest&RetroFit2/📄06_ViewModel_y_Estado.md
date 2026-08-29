@@ -5,11 +5,11 @@ El **ViewModel** es la capa que sobrevive a los cambios de configuración (como 
 Para que una app sea profesional, el ViewModel debe informar a la UI de tres cosas mediante `StateFlow`:
 
 1. **`posts`**: La lista de datos (lo que queremos mostrar).
-    
+ 
 2. **`loading`**: Un booleano. Si es `true`, la UI muestra una rueda de carga.
-    
+ 
 3. **`error`**: Un mensaje de texto. Si no es `null`, la UI muestra el error.
-    
+ 
 
 ---
 
@@ -28,9 +28,9 @@ Las llamadas a internet son **asíncronas**. No podemos hacerlas en el "hilo pri
 ### B. `MutableStateFlow` vs `StateFlow`
 
 - **`_posts` (Mutable):** Solo el ViewModel puede cambiar los datos (es la parte "privada" del estado).
-    
+ 
 - **`posts` (Público):** La UI solo puede "escuchar" o leer. No puede modificar la lista directamente. Esto se llama **encapsulamiento**.
-    
+ 
 
 ### C. El bloque `finally`
 
@@ -41,11 +41,11 @@ Es muy importante. El código dentro de `finally` se ejecuta **siempre**, tanto 
 ## 4. Flujo de datos en el ViewModel `fecthPosts()`
 
 1. **Inicio:** `loading = true`, `error = null`.
-    
+ 
 2. **Llamada:** Se pide `repository.getPosts()`.
-    
+ 
 3. **Resultado A (Éxito):** Se actualiza `_posts` con los datos.
-    
+ 
 4. **Resultado B (Fallo):** Se actualiza `_error` con el mensaje.
-    
+ 
 5. **Fin:** `loading = false`.

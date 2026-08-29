@@ -1,6 +1,7 @@
 ﻿# 01 — AWS Trainium vs AWS Inferentia
 
-**Tags:** #trainium #inferentia #hardware #chips #aceleradores #ia #m6-hardware
+**Tags:** #trainium #inferentia #hardware #chips #aceleradores #ia
+ #m6-hardware
 **Módulo:** M6 - Hardware AWS | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
 > [!quote] Contexto
@@ -38,9 +39,13 @@
 ### ¿Por Qué el Entrenamiento Necesita un Chip Especial?
 
 El entrenamiento de un LLM grande implica:
+
 - Calcular gradientes para **billones de parámetros**
+
 - Actualizar esos parámetros **millones de veces**
+
 - Hacerlo distribuido en **miles de chips simultáneamente**
+
 - Durante **semanas o meses**
 
 Las GPUs estándar (NVIDIA A100, H100) son excelentes pero muy caras. Trainium ofrece el mismo rendimiento a menor coste para esta carga específica.
@@ -66,9 +71,13 @@ Las GPUs estándar (NVIDIA A100, H100) son excelentes pero muy caras. Trainium o
 ### ¿Por Qué la Inferencia Necesita un Chip Diferente?
 
 La inferencia (usar un modelo ya entrenado) tiene un perfil de carga muy diferente al entrenamiento:
+
 - **Muchas peticiones pequeñas** (vs. pocas operaciones masivas en training)
+
 - **Latencia crítica** (el usuario espera la respuesta)
+
 - **Alto paralelismo** (miles de usuarios simultáneos)
+
 - **Sin gradientes** (solo forward pass, no backpropagation)
 
 Inferentia está diseñado específicamente para este patrón: muchas peticiones pequeñas, rápidas y baratas.
@@ -94,20 +103,20 @@ Inferentia está diseñado específicamente para este patrón: muchas peticiones
 
 ```mermaid
 flowchart LR
-    A["📋 Definición"] --> B["🗄️ Datos"]
-    B --> C["🔬 Features"]
-    C --> D["🏋️ Entrenamiento"]
-    D --> E["📏 Evaluación"]
-    E --> F["🚀 Inferencia\nen Producción"]
-    
-    T["⚡ AWS Trainium\n(Trn1 instances)\n'Aquí entrenas el modelo'"]
-    I["⚡ AWS Inferentia\n(Inf1/Inf2 instances)\n'Aquí sirves el modelo'"]
-    
-    D -.->|"Usa"| T
-    F -.->|"Usa"| I
-    
-    style T fill:#372d0d,stroke:#edba4a,color:#f5e8b8
-    style I fill:#0d2d37,stroke:#4aeded,color:#b8f5f5
+ A["📋 Definición"] --> B["🗄️ Datos"]
+ B --> C["🔬 Features"]
+ C --> D["🏋️ Entrenamiento"]
+ D --> E["📏 Evaluación"]
+ E --> F["🚀 Inferencia\nen Producción"]
+ 
+ T["⚡ AWS Trainium\n(Trn1 instances)\n'Aquí entrenas el modelo'"]
+ I["⚡ AWS Inferentia\n(Inf1/Inf2 instances)\n'Aquí sirves el modelo'"]
+ 
+ D -.->|"Usa"| T
+ F -.->|"Usa"| I
+ 
+ style T fill:#372d0d,stroke:#edba4a,color:#f5e8b8
+ style I fill:#0d2d37,stroke:#4aeded,color:#b8f5f5
 ```
 
 ---
@@ -118,12 +127,12 @@ Tanto Trainium como Inferentia requieren el **AWS Neuron SDK** para ejecutar mod
 
 ```
 Modelo PyTorch/TensorFlow
-         ↓
-  AWS Neuron SDK
-  (compilación y optimización)
-         ↓
-  Trainium o Inferentia
-  (ejecución optimizada)
+ ↓
+ AWS Neuron SDK
+ (compilación y optimización)
+ ↓
+ Trainium o Inferentia
+ (ejecución optimizada)
 ```
 
 El SDK compilar el modelo al formato nativo del chip, aplicando optimizaciones específicas para el hardware de AWS.

@@ -1,4 +1,5 @@
-﻿**Tags:** #inferencia #temperature #top-p #top-k #max-tokens #ia #m3-genai
+﻿**Tags:** #inferencia #temperature #top-p #top-k #max-tokens #ia
+ #m3-genai
 
 > [!quote] Concepto
 > Los parámetros de inferencia son los **controles** que tienes sobre cómo el LLM genera sus respuestas. Son como los mandos de un estudio de grabación: los mismos músicos (el modelo), pero el sonido final depende de cómo los ajustes.
@@ -17,9 +18,13 @@ Para entenderlo bien vamos con un prompt de ejemplo:
 La IA calcula las probabilidades matemáticas (Base) de la siguiente palabra:
 
 - "perro" → 60%
+
 - "gato" → 30%
+
 - "pájaro" → 5%
+
 - "hámster" → 3%
+
 - "dragón" → 2%
 
 ¿Qué hace **Temperature**? **Deforma (escala) estos porcentajes** antes de elegir:
@@ -38,10 +43,10 @@ La IA calcula las probabilidades matemáticas (Base) de la siguiente palabra:
 | **> 1.0** | Muy creativo / caótico. Puede perder coherencia | Brainstorming extremo, experimentación artística |
 
 > [!tip] 🔥❄️ Mnemotécnico de Temperature
-> **🥶 Frío (T ≈ 0) = Aburrido = Predecible = Factual**  
+> **🥶 Frío (T ≈ 0) = Aburrido = Predecible = Factual** 
 > **🔥 Caliente (T ≈ 1+) = Creativo = Caótico = Artístico**
 >
-> Si el examen dice "respuestas consistentes y predecibles" → **Temperature baja**  
+> Si el examen dice "respuestas consistentes y predecibles" → **Temperature baja** 
 > Si dice "respuestas creativas y variadas" → **Temperature alta**
 
 ---
@@ -58,7 +63,9 @@ Volvamos a las probabilidades base de nuestro prompt: "perro" (60%), "gato" (30%
 Imagina que **Top-P (0.90 o 90%)** es un portero de discoteca que solo deja entrar palabras sumando sus porcentajes hasta llenar el 90% del aforo:
 
 1. Entra "perro" (60%). *Llevamos 60% del aforo.*
+
 2. Entra "gato" (30%). *60% + 30% = 90% del aforo.*
+
 3. **¡LÍMITE ALCANZADO!** El portero cierra la puerta.
 
 - **Resultado:** "pájaro", "hámster" y "dragón" son eliminados por completo (pasan al 0%). 
@@ -87,11 +94,11 @@ Imagina que **Top-P (0.90 o 90%)** es un portero de discoteca que solo deja entr
 
 ```
 Ejemplo con los 5 tokens más probables:
-"Madrid"    → 50%
+"Madrid" → 50%
 "Barcelona" → 20%
-"Sevilla"   → 10%
-"Valencia"  → 10%
-"Bilbao"    → 3%
+"Sevilla" → 10%
+"Valencia" → 10%
+"Bilbao" → 3%
 
 Top-K = 3: considera siempre {Madrid, Barcelona, Sevilla} (los 3 más probables)
 
@@ -114,7 +121,9 @@ Top-P = 0.90: considera {Madrid, Barcelona, Sevilla, Valencia} (los que suman �
 ### Comportamiento
 
 - Si el modelo completa su respuesta **antes** de llegar al límite → para naturalmente.
+
 - Si el modelo llegaría al límite **antes** de terminar → la respuesta se corta abruptamente.
+
 - El coste de salida está directamente relacionado con los tokens generados.
 
 > [!warning] Max Tokens ≠ Context Window
@@ -135,7 +144,7 @@ Top-P = 0.90: considera {Madrid, Barcelona, Sevilla, Valencia} (los que suman �
 
 ```python
 # Ejemplo 1: Generar solo hasta la primera pregunta en un cuestionario
-stop_sequences=["2."]  # Para cuando empieza la segunda pregunta
+stop_sequences=["2."] # Para cuando empieza la segunda pregunta
 
 # Ejemplo 2: Diálogo — evitar que el modelo adopte el rol del humano
 stop_sequences=["Usuario:", "Human:", "User:"]
@@ -151,7 +160,7 @@ stop_sequences=["```"]
 > Estás construyendo un generador de preguntas de examen. Quieres una pregunta por llamada. Configuras:
 > ```json
 > {
->   "stop_sequences": ["2.", "Pregunta 2"]
+> "stop_sequences": ["2.", "Pregunta 2"]
 > }
 > ```
 > El modelo genera la pregunta 1 y para exactamente cuando va a empezar la 2.

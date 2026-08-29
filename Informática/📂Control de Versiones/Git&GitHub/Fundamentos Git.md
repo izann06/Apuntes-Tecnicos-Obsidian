@@ -10,9 +10,9 @@ Si Git (Terminal) no te muestra ningún mensaje, significa que ha funcionado. G
 Este comando crea un nuevo repositorio Git en la carpeta donde estás trabajando. 
 
 - Imagina que estás empezando un proyecto y quieres que Git lleve un control de los cambios. 
-    
+ 
 - Al usar git init, Git crea una carpeta oculta llamada .git donde guarda toda la información del proyecto (historial, configuración, etc.) 
-    
+ 
 
 📌 Ejemplo: 
 
@@ -28,9 +28,9 @@ Ahora, esa carpeta es un repositorio Git. 
 Cuando creas un repositorio, Git crea una rama principal. Esa rama antes se llamaba master, pero ahora por temas de inclusión y estándar moderno se llama main. 
 
 - main y master son lo mismo: la rama principal del proyecto. 
-    
+ 
 - Puedes cambiar el nombre si quieres, pero por defecto hoy en día se usa main. 
-    
+ 
   
 
 ## ✅ **git status**
@@ -38,21 +38,21 @@ Cuando creas un repositorio, Git crea una rama principal. Esa rama antes se lla
 Este comando te dice el estado actual del repositorio. 
 
 - Te muestra qué archivos han cambiado. 
-    
+ 
 - Cuáles están listos para guardar (staged). 
-    
+ 
 - Cuáles no han sido añadidos todavía. 
-      
+   
 
-## ✅ **git add / git add .**
+## ✅ **git add / git add.**
 
 Sirve para decirle a Git qué archivos quieres guardar en el próximo commit. 
 
 - Git no guarda todo automáticamente. 
-    
+ 
 - Solo guarda lo que tú agregues con git add. 
 
-- Con git add . guardas todos los archivos que se hayan modificado y quieras guardar.
+- Con git add. guardas todos los archivos que se hayan modificado y quieras guardar.
 
   
 
@@ -61,9 +61,9 @@ Sirve para decirle a Git qué archivos quieres guardar en el próximo commit.
 Guarda los archivos añadidos (git add) en el historial de Git. 
 
 - Es como tomar una foto del estado actual de los archivos. 
-    
+ 
 - Cada vez que haces commit, estás creando un punto de guardado. 
-    
+ 
 
   
 
@@ -97,7 +97,7 @@ Ahora archivo.txt ya no está listo para hacer commit. 
 Muestra el historial de commits realizados en el proyecto. 
 
 - Puedes ver quién hizo el cambio, cuándo, y el mensaje de cada commit. 
-    
+ 
 
 📌 Ejemplo: 
 
@@ -131,7 +131,7 @@ Si hay ramas y merges, las líneas (*, |, /) muestran cómo se conectan los�
 
   
 
-## **✅ git checkout -- .** 
+## **✅ git checkout --.** 
 
 Este comando descarta todos los cambios hechos en los archivos y los deja como estaban en el último commit. 
 
@@ -150,11 +150,11 @@ Todos los archivos se restauran al último commit. 
 Una rama en Git es como una línea paralela de trabajo. 
 
 - Sirve para hacer cambios sin afectar la versión principal. 
-    
+ 
 - Por ejemplo, puedes trabajar en una nueva función en una rama aparte y luego unirla a la rama principal (main). 
-    
+ 
 - Git crea una rama principal automáticamente llamada main (o master). 
-    
+ 
 
 📌 Ejemplo real: Estás en main, creas una rama login-feature, haces cambios ahí, y cuando todo está listo la unes a main. 
 
@@ -183,7 +183,7 @@ El * indica en qué rama estás. 
 Cambia el nombre de una rama. 
 
 - Este comando renombra la rama master a main. 
-    
+ 
 
 📌 Ejemplo: 
 
@@ -204,7 +204,7 @@ Le dice a Git que, a partir de ahora, cuando crees un repositorio con git ini
 Abre el archivo de configuración global de Git en un editor de texto. 
 
 - Aquí puedes ver o cambiar cosas como tu nombre, email, la rama principal por defecto, etc. 
-    
+ 
 
 📌 Útil si quieres revisar o editar tus configuraciones. 
 
@@ -215,9 +215,9 @@ Abre el archivo de configuración global de Git en un editor de texto. 
 Este comando hace dos cosas al mismo tiempo: 
 
 1. -a: agrega automáticamente los archivos modificados (pero no los nuevos). 
-    
+ 
 2. -m: guarda el commit con un mensaje. 
-    
+ 
 
 📌 Solo funciona con archivos que ya han sido añadidos alguna vez con git add. 
 
@@ -230,11 +230,11 @@ git commit -am "Corregí errores de ortografía" 
 Muestra el estado del repositorio, pero de forma resumida (en una sola línea por archivo). 
 
 - Útil para ver rápidamente qué cambió. 
-    
+ 
 - Usa códigos de dos letras: 
-    
+ 
 
-|   |   |
+| | |
 |---|---|
 |Código|Significado|
 |??|Archivo nuevo, sin seguir|
@@ -257,7 +257,7 @@ Este comando crea un alias personalizado para escribir menos. 
 🔧 ¿Qué hace? 
 
 - Define tree como un atajo para log --graph --pretty=oneline. 
-    
+ 
 
 📌 A partir de ahora puedes usar: 
 
@@ -278,11 +278,11 @@ Es un archivo de texto que le dice a **Git qué archivos o carpetas debe ignora
 🔹 ¿Para qué sirve? 
 
 - Evitar subir archivos innecesarios (ej: temporales, logs, cachés). 
-    
+ 
 - Proteger archivos privados o sensibles (ej: contraseñas, llaves API). 
-    
+ 
 - Mantener el repo limpio y liviano. 
-    
+ 
 
   
 
@@ -303,11 +303,11 @@ Ejemplo: 
 🔹 Importante 
 
 - Git solo ignorará archivos nuevos. 
-    
+ 
 - Si un archivo ya fue añadido al repo antes (git add y git commit), aunque lo pongas en .gitignore, seguirá en el historial. 
-    
+ 
 -  👉 Para quitarlo del repo pero mantenerlo en tu PC usarías: 
-    
+ 
 
 git rm --cached archivo  
 

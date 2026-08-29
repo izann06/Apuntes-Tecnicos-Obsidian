@@ -5,7 +5,7 @@ El **ViewModel** es el intermediario. Su responsabilidad es conectar la UI con e
 A diferencia de un ViewModel normal, aquí heredamos de **`AndroidViewModel`**.
 
 - **¿Por qué?** Porque necesitamos el `Application` (Contexto) para construir la base de datos con `AppDatabase.getInstance(application)`.
-    
+ 
 
 
 ![[Pasted image 20260114140939.png]]
@@ -28,18 +28,18 @@ A veces necesitamos guardar algo y **esperar** a saber si se ha guardado bien o 
 Para esto usamos **`async`** y **`Deferred`**.
 
 - `launch`: "Lanza y olvida" (Fire and forget).
-    
+ 
 - `async`: "Lanza y devuélveme una promesa de resultado futuro" (`Deferred`).
-    
+ 
 
 ![[Pasted image 20260114141102.png]]
 
 > [!NOTE] Diferencia `launch` vs `async`
 > 
 > - Usa **`launch`** cuando no te importe qué devuelve la función (ej: guardar un log).
->     
+> 
 > - Usa **`async`** cuando necesites el dato de vuelta para seguir trabajando (ej: buscar un usuario por ID y luego mostrar su nombre).
->     
+> 
 
 ---
 

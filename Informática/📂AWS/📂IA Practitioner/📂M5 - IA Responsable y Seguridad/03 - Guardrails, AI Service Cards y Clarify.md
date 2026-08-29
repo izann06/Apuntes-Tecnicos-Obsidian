@@ -1,6 +1,7 @@
 ﻿# 03 — Guardrails, AI Service Cards y SageMaker Clarify
 
-**Tags:** #guardrails #ai-service-cards #clarify #proteccion #filtros #ia #m5-seguridad
+**Tags:** #guardrails #ai-service-cards #clarify #proteccion #filtros #ia
+ #m5-seguridad
 **Módulo:** [[00 - Índice Módulo 5]] | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
 ---
@@ -14,18 +15,18 @@
 
 ```mermaid
 flowchart LR
-    U["👤 Usuario\n(Input)"] -->|"1. Input del usuario"| G1["🛡️ Guardrails\n(Input Filter)"]
-    G1 -->|"2. Si pasa\nlos filtros"| FM["🧠 Foundation\nModel"]
-    FM -->|"3. Respuesta\ngenerada"| G2["🛡️ Guardrails\n(Output Filter)"]
-    G2 -->|"4. Si pasa\nlos filtros"| R["💬 Respuesta\nfinal al usuario"]
-    
-    G1 -->|"Bloqueado"| B1["🚫 Respuesta\npredefinida de rechazo"]
-    G2 -->|"Bloqueado"| B2["🚫 Respuesta\npredefinida de rechazo"]
-    
-    style G1 fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
-    style G2 fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
-    style B1 fill:#4a0d0d,stroke:#ed4a4a,color:#ffd0d0
-    style B2 fill:#4a0d0d,stroke:#ed4a4a,color:#ffd0d0
+ U["👤 Usuario\n(Input)"] -->|"1. Input del usuario"| G1["🛡️ Guardrails\n(Input Filter)"]
+ G1 -->|"2. Si pasa\nlos filtros"| FM["🧠 Foundation\nModel"]
+ FM -->|"3. Respuesta\ngenerada"| G2["🛡️ Guardrails\n(Output Filter)"]
+ G2 -->|"4. Si pasa\nlos filtros"| R["💬 Respuesta\nfinal al usuario"]
+ 
+ G1 -->|"Bloqueado"| B1["🚫 Respuesta\npredefinida de rechazo"]
+ G2 -->|"Bloqueado"| B2["🚫 Respuesta\npredefinida de rechazo"]
+ 
+ style G1 fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
+ style G2 fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
+ style B1 fill:#4a0d0d,stroke:#ed4a4a,color:#ffd0d0
+ style B2 fill:#4a0d0d,stroke:#ed4a4a,color:#ffd0d0
 ```
 
 **Los Guardrails se aplican tanto al INPUT del usuario como al OUTPUT del modelo.** Esto es crítico: un modelo podría generar contenido dañino aunque el prompt fuera inocuo.
@@ -53,16 +54,16 @@ Lista personalizable de **temas específicos** que el asistente nunca debe abord
 
 ```yaml
 denied_topics:
-  - name: "Asesoramiento legal específico"
-    definition: "No proporcionar consejos legales concretos o interpretaciones
-                 de contratos. Referir siempre a un abogado."
-  
-  - name: "Competidores"
-    definition: "No mencionar ni comparar con productos de empresas competidoras.
-                 No hablar de precios ni características de la competencia."
-  
-  - name: "Política"
-    definition: "No tomar posiciones políticas ni recomendar candidatos o partidos."
+ - name: "Asesoramiento legal específico"
+ definition: "No proporcionar consejos legales concretos o interpretaciones
+ de contratos. Referir siempre a un abogado."
+ 
+ - name: "Competidores"
+ definition: "No mencionar ni comparar con productos de empresas competidoras.
+ No hablar de precios ni características de la competencia."
+ 
+ - name: "Política"
+ definition: "No tomar posiciones políticas ni recomendar candidatos o partidos."
 ```
 
 #### 3️⃣ PII Redaction (Protección de Datos Personales)
@@ -81,7 +82,9 @@ Detecta y protege automáticamente **PII (Personally Identifiable Information)**
 | **Fecha de nacimiento** | 15/03/1985 |
 
 **Dos modos de actuación:**
+
 - **Block:** Rechaza la solicitud si contiene PII
+
 - **Anonymize:** Reemplaza la PII por `[NOMBRE]`, `[EMAIL]`, etc., y procesa el texto anonimizado
 
 #### 4️⃣ Grounding (Verificación Factual en RAG)
@@ -92,12 +95,12 @@ Para sistemas RAG, verifica que la respuesta del modelo esté **fundamentada en 
 Contexto RAG: "El precio del producto A es €99"
 
 Respuesta del modelo: "El producto A cuesta €149"
-                              ↓
+ ↓
 Guardrails (Grounding check): BLOQUEADO
 "La respuesta contradice el contexto. Posible alucinación detectada."
 
 Respuesta del modelo: "El producto A cuesta €99"
-                              ↓
+ ↓
 Guardrails (Grounding check): PERMITIDO ✅
 ```
 
@@ -133,13 +136,19 @@ Guardrails (Grounding check): PERMITIDO ✅
 
 > [!example] AI Service Cards disponibles
 > AWS ha publicado AI Service Cards para:
+>
 > - Amazon Rekognition
+>
 > - Amazon Transcribe
+>
 > - Amazon Comprehend
+>
 > - Amazon Polly
+>
 > - Amazon Textract
+>
 > - Amazon Personalize
-> - ... y otros servicios de IA
+> -... y otros servicios de IA
 
 > [!tip] Para el examen — ¿Para qué sirven las AI Service Cards?
 > Si el examen pregunta sobre cómo AWS proporciona **transparencia** sobre sus servicios de IA o cómo documenta las **limitaciones y sesgos** → **AWS AI Service Cards**.
@@ -156,17 +165,17 @@ Guardrails (Grounding check): PERMITIDO ✅
 
 ```mermaid
 graph LR
-    subgraph "ANTES de Producción (Clarify)"
-        A["📊 Dataset"] --> B["🔍 Clarify\nBias Detection"]
-        B --> C["Reporte de sesgo\npre-entrenamiento"]
-        D["🤖 Modelo entrenado"] --> E["🔍 Clarify\nExplainability"]
-        E --> F["SHAP values:\npor qué tomó\ncada decisión"]
-    end
-    
-    subgraph "EN Producción (Guardrails + Model Monitor)"
-        G["Cada petición"] --> H["🛡️ Guardrails\nFiltro tiempo real"]
-        I["🤖 Endpoint"] --> J["📡 Model Monitor\nDrift detection"]
-    end
+ subgraph "ANTES de Producción (Clarify)"
+ A["📊 Dataset"] --> B["🔍 Clarify\nBias Detection"]
+ B --> C["Reporte de sesgo\npre-entrenamiento"]
+ D["🤖 Modelo entrenado"] --> E["🔍 Clarify\nExplainability"]
+ E --> F["SHAP values:\npor qué tomó\ncada decisión"]
+ end
+ 
+ subgraph "EN Producción (Guardrails + Model Monitor)"
+ G["Cada petición"] --> H["🛡️ Guardrails\nFiltro tiempo real"]
+ I["🤖 Endpoint"] --> J["📡 Model Monitor\nDrift detection"]
+ end
 ```
 
 | Herramienta | Fase | Función |

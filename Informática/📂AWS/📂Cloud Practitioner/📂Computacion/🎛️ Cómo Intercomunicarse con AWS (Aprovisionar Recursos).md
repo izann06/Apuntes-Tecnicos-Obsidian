@@ -33,7 +33,7 @@ Es la Terminal en Mac/Linux o CMD en Windows.
 
 Son paquetes de código (librerías) que Amazon te proporciona para que tu propia aplicación hable directamente con AWS.
 
-* **Características:** Ofrece código prefabricado y documentación para lenguajes de programación reales (Java, Python, C++, .NET).
+* **Características:** Ofrece código prefabricado y documentación para lenguajes de programación reales (Java, Python, C++,.NET).
 
 * **El Superpoder:** Permite que *tu código* controle AWS. Por ejemplo, si programas un videojuego, usas el SDK para que, al guardar la partida, el juego hable directamente con la base de datos de AWS.
 
@@ -54,8 +54,11 @@ Vuelvo a insistir en la Responsabilidad Compartida porque es crucial diferenciar
 * Tú te encargas de la **Seguridad EN la nube**. Al ser un servicio "no administrado", AWS te da la máquina en blanco y se lava las manos con el software. 
 
 **Tus obligaciones directas en EC2 incluyen:**
+
 1. Administrar el Sistema Operativo (instalarlo y configurarlo).
+
 2. Aplicar parches de seguridad y actualizaciones de Windows/Linux.
+
 3. Configurar los Firewalls (que en AWS se llaman **Grupos de Seguridad** o *Security Groups*).
 
 ---

@@ -12,8 +12,10 @@ Es el motor principal de la mudanza. Esencialmente, es un servidor de replicaci�
 * **El Superpoder:** La base de datos de origen **permanece completamente operativa** durante la migración. DMS copia los datos en segundo plano y sincroniza cualquier cambio nuevo que ocurra durante el proceso, garantizando un tiempo de inactividad (downtime) casi nulo
 
 * **Casos de uso:** Mover una base de datos local a Amazon RDS o Amazon Aurora.
-    * Replicación continua de datos (mantener dos bases de datos sincronizadas).
-    * Migrar bases de datos del tamaño de un Terabyte a un coste muy bajo.
+
+ * Replicación continua de datos (mantener dos bases de datos sincronizadas).
+
+ * Migrar bases de datos del tamaño de un Terabyte a un coste muy bajo.
 
 ---
 

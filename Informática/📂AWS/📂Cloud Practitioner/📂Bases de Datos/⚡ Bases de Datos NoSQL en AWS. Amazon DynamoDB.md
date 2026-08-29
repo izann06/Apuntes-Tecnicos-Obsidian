@@ -11,10 +11,11 @@
 
 * **La Solución NoSQL (Clave-Valor):** No hay un esquema fijo. Cada registro (Elemento) es independiente.
 
-    * *Elemento 1:* `{ID: 1, Nombre: "Juan", Teléfono: "555-1234"}`
-    * *Elemento 2:* `{ID: 2, Nombre: "Ana", Edad: 30, Color_Favorito: "Azul", Mascotas: ["Perro", "Gato"]}`
-    
-    * *¡Fíjate!* El Elemento 2 tiene datos completamente diferentes al Elemento 1, y ambos viven felices en la misma base de datos.
+ * *Elemento 1:* `{ID: 1, Nombre: "Juan", Teléfono: "555-1234"}`
+
+ * *Elemento 2:* `{ID: 2, Nombre: "Ana", Edad: 30, Color_Favorito: "Azul", Mascotas: ["Perro", "Gato"]}`
+ 
+ * *¡Fíjate!* El Elemento 2 tiene datos completamente diferentes al Elemento 1, y ambos viven felices en la misma base de datos.
 
 ---
 
@@ -24,13 +25,13 @@ Amazon DynamoDB es un servicio de base de datos NoSQL *completamente administrad
 
 ### Los Superpoderes de DynamoDB
 
-1.  **Rendimiento Inferior a 10 Milisegundos:** No importa si tu base de datos tiene 10 megabytes o 100 terabytes. DynamoDB está diseñado para que cualquier búsqueda tarde menos de 10 milisegundos (un solo dígito).
+1. **Rendimiento Inferior a 10 Milisegundos:** No importa si tu base de datos tiene 10 megabytes o 100 terabytes. DynamoDB está diseñado para que cualquier búsqueda tarde menos de 10 milisegundos (un solo dígito).
 
-2.  **Serverless (Sin Servidor):** No hay máquinas EC2 que aprovisionar. No hay sistemas operativos que actualizar. Solo creas una tabla y empiezas a escupirle datos.
+2. **Serverless (Sin Servidor):** No hay máquinas EC2 que aprovisionar. No hay sistemas operativos que actualizar. Solo creas una tabla y empiezas a escupirle datos.
 
-3.  **Escalado Infinito y Automático:** Configuras la *capacidad aprovisionada con escalado automático*. Si de repente tienes un pico de tráfico (como en el Amazon Prime Day, con 146 millones de peticiones *por segundo*), DynamoDB añade potencia por detrás de forma invisible para que la base de datos no se caiga.
+3. **Escalado Infinito y Automático:** Configuras la *capacidad aprovisionada con escalado automático*. Si de repente tienes un pico de tráfico (como en el Amazon Prime Day, con 146 millones de peticiones *por segundo*), DynamoDB añade potencia por detrás de forma invisible para que la base de datos no se caiga.
 
-4.  **Tablas Globales:** Con un par de clics, DynamoDB replica tu base de datos en múltiples Regiones de AWS en todo el mundo. Así, un usuario en Japón lee los datos desde Tokio y un usuario en España lee desde Madrid, logrando una latencia casi nula.
+4. **Tablas Globales:** Con un par de clics, DynamoDB replica tu base de datos en múltiples Regiones de AWS en todo el mundo. Así, un usuario en Japón lee los datos desde Tokio y un usuario en España lee desde Madrid, logrando una latencia casi nula.
 
 ---
 

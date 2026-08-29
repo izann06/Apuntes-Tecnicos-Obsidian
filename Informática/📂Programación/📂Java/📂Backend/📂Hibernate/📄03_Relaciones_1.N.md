@@ -1,9 +1,9 @@
 **Ejemplo:** Un **Autor** escribe muchos **Libros**.
 
 - En la BBDD, la tabla `libros` tiene una columna `codautor` (la clave foránea o FK).
-    
+ 
 - En Java, necesitamos conectar las dos clases.
-    
+ 
 
 ### A. En la clase "Muchos" (Libros) -> La que tiene la FK
 
@@ -11,7 +11,7 @@ Esta es la parte que manda en la base de datos porque tiene la columna física d
 
 ```Java
 @ManyToOne(fetch = FetchType.LAZY) // Muchos libros, un autor
-@JoinColumn(name = "codautor")     // Así se llama la columna FK en la tabla SQL(Postgresql)
+@JoinColumn(name = "codautor") // Así se llama la columna FK en la tabla SQL(Postgresql)
 private Autores autores;
 ```
 

@@ -8,11 +8,11 @@
 
 Es la fuente oficial y de referencia sobre el estado operativo de la nube de AWS. Te envía tres tipos de alertas principales para que puedas tomar medidas proactivas:
 
-1.  **Eventos de servicio (Incidentes):** Averías, interrupciones o problemas de rendimiento actuales en la infraestructura general de AWS.
+1. **Eventos de servicio (Incidentes):** Averías, interrupciones o problemas de rendimiento actuales en la infraestructura general de AWS.
 
-2.  **Cambios planificados (Mantenimiento):** Avisos con antelación de que Amazon va a realizar tareas de mantenimiento en el hardware físico donde se alojan tus máquinas, permitiéndote prepararte o migrar recursos temporalmente.
+2. **Cambios planificados (Mantenimiento):** Avisos con antelación de que Amazon va a realizar tareas de mantenimiento en el hardware físico donde se alojan tus máquinas, permitiéndote prepararte o migrar recursos temporalmente.
 
-3.  **Notificaciones de la cuenta:** Alertas específicas de seguridad, vulnerabilidades o problemas administrativos vinculados a tu cuenta.
+3. **Notificaciones de la cuenta:** Alertas específicas de seguridad, vulnerabilidades o problemas administrativos vinculados a tu cuenta.
 
 ---
 

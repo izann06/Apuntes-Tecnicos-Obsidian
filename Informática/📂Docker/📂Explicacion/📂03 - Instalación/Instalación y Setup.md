@@ -59,7 +59,7 @@ docker compose version
 ```bash
 # Opción 1: Descarga directa
 # Ir a https://www.docker.com/products/docker-desktop/
-# Descargar el .dmg (Apple Silicon o Intel según tu Mac)
+# Descargar el.dmg (Apple Silicon o Intel según tu Mac)
 
 # Opción 2: Con Homebrew
 brew install --cask docker
@@ -76,11 +76,11 @@ docker compose version
 # En Linux, Docker Desktop es OPCIONAL. Puedes instalar solo Docker Engine.
 # Si quieres Docker Desktop (GUI):
 
-# 1. Descargar el paquete .deb desde:
+# 1. Descargar el paquete.deb desde:
 # https://docs.docker.com/desktop/install/linux/
 
 # 2. Instalar:
-sudo apt-get install ./docker-desktop-<version>-amd64.deb
+sudo apt-get install./docker-desktop-<version>-amd64.deb
 ```
 
 ---
@@ -102,39 +102,39 @@ sudo apt-get remove docker docker-engine docker.io containerd runc
 # ============================================
 sudo apt-get update
 sudo apt-get install -y \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
+ ca-certificates \
+ curl \
+ gnupg \
+ lsb-release
 
 # ============================================
 # Paso 3: Añadir la clave GPG oficial de Docker
 # ============================================
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
-    sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+ sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
 # ============================================
 # Paso 4: Configurar el repositorio
 # ============================================
 echo \
-  "deb [arch=$(dpkg --print-architecture) \
-  signed-by=/etc/apt/keyrings/docker.gpg] \
-  https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+ "deb [arch=$(dpkg --print-architecture) \
+ signed-by=/etc/apt/keyrings/docker.gpg] \
+ https://download.docker.com/linux/ubuntu \
+ $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+ sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 # ============================================
 # Paso 5: Instalar Docker Engine + Compose Plugin
 # ============================================
 sudo apt-get update
 sudo apt-get install -y \
-    docker-ce \
-    docker-ce-cli \
-    containerd.io \
-    docker-buildx-plugin \
-    docker-compose-plugin
+ docker-ce \
+ docker-ce-cli \
+ containerd.io \
+ docker-buildx-plugin \
+ docker-compose-plugin
 
 # ============================================
 # Paso 6: Verificar la instalación
@@ -147,19 +147,19 @@ sudo docker run hello-world
 ```bash
 # Eliminar versiones antiguas
 sudo yum remove docker docker-client docker-client-latest \
-    docker-common docker-latest docker-latest-logrotate \
-    docker-logrotate docker-engine
+ docker-common docker-latest docker-latest-logrotate \
+ docker-logrotate docker-engine
 
 # Instalar utilidades
 sudo yum install -y yum-utils
 
 # Añadir repositorio de Docker
 sudo yum-config-manager --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
+ https://download.docker.com/linux/centos/docker-ce.repo
 
 # Instalar Docker
 sudo yum install -y docker-ce docker-ce-cli containerd.io \
-    docker-buildx-plugin docker-compose-plugin
+ docker-buildx-plugin docker-compose-plugin
 
 # Iniciar y habilitar el servicio
 sudo systemctl start docker
@@ -203,12 +203,12 @@ docker --version
 # Información completa del sistema Docker
 docker info
 # Client: Docker Engine - Community
-#  Version: 27.x.x
+# Version: 27.x.x
 # Server:
-#  Storage Driver: overlay2
-#  Cgroup Driver: systemd
-#  Cgroup Version: 2
-#  ...
+# Storage Driver: overlay2
+# Cgroup Driver: systemd
+# Cgroup Version: 2
+#...
 
 # Ejecutar el contenedor de prueba
 docker run hello-world
@@ -222,8 +222,8 @@ docker compose version
 # (Opcional) Ejecutar un contenedor interactivo
 docker run -it --rm ubuntu bash
 # Dentro del contenedor:
-cat /etc/os-release   # Verás que estás en Ubuntu
-exit                   # Salir del contenedor
+cat /etc/os-release # Verás que estás en Ubuntu
+exit # Salir del contenedor
 ```
 
 ---

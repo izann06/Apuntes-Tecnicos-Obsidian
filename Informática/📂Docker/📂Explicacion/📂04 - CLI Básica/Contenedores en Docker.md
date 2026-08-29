@@ -11,13 +11,13 @@
 Un contenedor es una **instancia en ejecución** de una [[Imágenes en Docker|imagen]]. Si la imagen es la receta, el contenedor es el plato servido. Puedes crear múltiples contenedores a partir de la misma imagen, y cada uno tendrá su propio **estado**, su propia **capa de escritura** y su propio **aislamiento** (gracias a los [[Namespaces]] y [[Cgroups]]).
 
 ```
-                    docker run
+ docker run
 IMAGEN ──────────────────────────────► CONTENEDOR
-(inmutable)                            (en ejecución, con estado)
-                    docker run
-       ──────────────────────────────► CONTENEDOR 2
-                    docker run         (misma imagen, instancia diferente)
-       ──────────────────────────────► CONTENEDOR 3
+(inmutable) (en ejecución, con estado)
+ docker run
+ ──────────────────────────────► CONTENEDOR 2
+ docker run (misma imagen, instancia diferente)
+ ──────────────────────────────► CONTENEDOR 3
 ```
 
 ---
@@ -40,7 +40,7 @@ docker run [OPCIONES] <imagen> [COMANDO] [ARGUMENTOS]
 | `-p` | `--publish` | **Mapear puertos** host:contenedor | `docker run -p 8080:80 nginx` |
 | `--name` | `--name` | Asignar un **nombre** al contenedor | `docker run --name mi-web nginx` |
 | `-e` | `--env` | Establecer **variable de entorno** | `docker run -e DB_HOST=localhost nginx` |
-| `--env-file` | `--env-file` | Cargar variables desde un **archivo** | `docker run --env-file .env nginx` |
+| `--env-file` | `--env-file` | Cargar variables desde un **archivo** | `docker run --env-file.env nginx` |
 | `-v` | `--volume` | Montar un **volumen** o bind mount | `docker run -v datos:/app/data nginx` |
 | `--rm` | `--rm` | **Eliminar** el contenedor al detenerse | `docker run --rm nginx` |
 | `--network` | `--network` | Conectar a una **red** específica | `docker run --network mi-red nginx` |
@@ -74,37 +74,37 @@ docker run -it --rm ubuntu:22.04 bash
 
 ```bash
 docker run -d \
-  --name mi-postgres \
-  -p 5432:5432 \
-  -e POSTGRES_USER=admin \
-  -e POSTGRES_PASSWORD=secreto123 \
-  -e POSTGRES_DB=mi_aplicacion \
-  -v pgdata:/var/lib/postgresql/data \
-  postgres:16-alpine
+ --name mi-postgres \
+ -p 5432:5432 \
+ -e POSTGRES_USER=admin \
+ -e POSTGRES_PASSWORD=secreto123 \
+ -e POSTGRES_DB=mi_aplicacion \
+ -v pgdata:/var/lib/postgresql/data \
+ postgres:16-alpine
 ```
 
 #### 4. Contenedor Node.js con bind mount para desarrollo
 
 ```bash
 docker run -it \
-  --name mi-node \
-  -p 3000:3000 \
-  -v $(pwd):/app \
-  -w /app \
-  node:20-alpine \
-  npm start
+ --name mi-node \
+ -p 3000:3000 \
+ -v $(pwd):/app \
+ -w /app \
+ node:20-alpine \
+ npm start
 ```
 
 #### 5. Contenedor con límites de recursos y política de reinicio
 
 ```bash
 docker run -d \
-  --name produccion \
-  --restart=unless-stopped \
-  --memory="512m" \
-  --cpus="1.5" \
-  -p 80:80 \
-  mi-api:v2.0.0
+ --name produccion \
+ --restart=unless-stopped \
+ --memory="512m" \
+ --cpus="1.5" \
+ -p 80:80 \
+ mi-api:v2.0.0
 ```
 
 ---
@@ -115,14 +115,17 @@ docker run -d \
 > El formato es `-p <PUERTO_HOST>:<PUERTO_CONTENEDOR>`:
 > ```
 > -p 8080:80
->     │     │
->     │     └── Puerto DENTRO del contenedor (donde la app escucha)
->     └──────── Puerto en TU MÁQUINA (por donde accedes desde el navegador)
+> │ │
+> │ └── Puerto DENTRO del contenedor (donde la app escucha)
+> └──────── Puerto en TU MÁQUINA (por donde accedes desde el navegador)
 > ```
 > 
 > Si escribes `-p 8080:80`, significa:
+>
 > - La app dentro del contenedor escucha en el puerto **80**.
+>
 > - Tú accedes desde tu navegador en `http://localhost:8080`.
+>
 > - Docker **redirige** el tráfico del puerto 8080 de tu máquina al puerto 80 del contenedor.
 
 ```bash
@@ -160,8 +163,8 @@ docker run -d -p 80 nginx
 docker ps
 
 # Resultado:
-# CONTAINER ID   IMAGE   COMMAND                  CREATED          STATUS          PORTS                  NAMES
-# a1b2c3d4e5f6   nginx   "/docker-entrypoint.…"   10 minutes ago   Up 10 minutes   0.0.0.0:8080->80/tcp   mi-nginx
+# CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+# a1b2c3d4e5f6 nginx "/docker-entrypoint.…" 10 minutes ago Up 10 minutes 0.0.0.0:8080->80/tcp mi-nginx
 
 # Ver TODOS los contenedores (incluidos los detenidos)
 docker ps -a
@@ -173,16 +176,16 @@ docker ps -q
 docker ps -aq
 
 # Filtrar contenedores
-docker ps --filter "name=mi-nginx"           # Por nombre
-docker ps --filter "status=exited"           # Por estado
-docker ps -a --filter "ancestor=nginx"       # Por imagen base
-docker ps --filter "label=environment=prod"  # Por etiqueta
+docker ps --filter "name=mi-nginx" # Por nombre
+docker ps --filter "status=exited" # Por estado
+docker ps -a --filter "ancestor=nginx" # Por imagen base
+docker ps --filter "label=environment=prod" # Por etiqueta
 
 # Formato personalizado (útil para scripts)
 docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
-# NAMES        STATUS          PORTS
-# mi-nginx     Up 10 minutes   0.0.0.0:8080->80/tcp
-# mi-postgres  Up 5 minutes    0.0.0.0:5432->5432/tcp
+# NAMES STATUS PORTS
+# mi-nginx Up 10 minutes 0.0.0.0:8080->80/tcp
+# mi-postgres Up 5 minutes 0.0.0.0:5432->5432/tcp
 
 # Ver tamaño de disco de cada contenedor
 docker ps -s
@@ -213,7 +216,9 @@ docker kill mi-nginx
 ```
 
 > [!info] SIGTERM vs SIGKILL
+>
 > - `docker stop` envía primero **SIGTERM** (señal educada: "por favor, termina"). La aplicación puede capturar esta señal y hacer un **graceful shutdown** (cerrar conexiones, guardar datos, etc.). Si no termina en el timeout (default 10s), Docker envía **SIGKILL** (muerte instantánea).
+>
 > - `docker kill` envía **SIGKILL** directamente, sin dar oportunidad de limpieza.
 > 
 > **Siempre usa `docker stop`** excepto cuando el contenedor está totalmente colgado.
@@ -281,10 +286,10 @@ docker exec -d mi-nginx touch /tmp/archivo-creado
 > docker exec -it mi-db psql -U postgres
 > 
 > # Ahora estás en psql:
-> postgres=# \l           -- Listar bases de datos
-> postgres=# \dt          -- Listar tablas
+> postgres=# \l -- Listar bases de datos
+> postgres=# \dt -- Listar tablas
 > postgres=# SELECT * FROM usuarios LIMIT 10;
-> postgres=# \q           -- Salir
+> postgres=# \q -- Salir
 > ```
 
 ---
@@ -307,7 +312,7 @@ docker logs -t mi-nginx
 
 # Ver logs desde una fecha/hora específica
 docker logs --since "2024-01-15T10:00:00" mi-nginx
-docker logs --since "30m" mi-nginx    # Últimos 30 minutos
+docker logs --since "30m" mi-nginx # Últimos 30 minutos
 
 # Hasta una fecha/hora específica
 docker logs --until "2024-01-15T11:00:00" mi-nginx
@@ -326,22 +331,22 @@ docker logs -f -t --tail 100 mi-nginx
 ```bash
 # Ver estadísticas de recursos en TIEMPO REAL
 docker stats
-# CONTAINER ID   NAME        CPU %   MEM USAGE / LIMIT     MEM %   NET I/O
-# a1b2c3d4       mi-nginx    0.01%   5.2MiB / 7.77GiB      0.07%   1.45kB / 0B
-# b2c3d4e5       mi-postgres 0.15%   42.1MiB / 7.77GiB     0.53%   2.3kB / 1.1kB
+# CONTAINER ID NAME CPU % MEM USAGE / LIMIT MEM % NET I/O
+# a1b2c3d4 mi-nginx 0.01% 5.2MiB / 7.77GiB 0.07% 1.45kB / 0B
+# b2c3d4e5 mi-postgres 0.15% 42.1MiB / 7.77GiB 0.53% 2.3kB / 1.1kB
 
 # Estadísticas de un solo contenedor (sin streaming)
 docker stats --no-stream mi-nginx
 
 # Ver cambios en el sistema de archivos del contenedor
 docker diff mi-nginx
-# C /var       ← Changed (modificado)
-# A /var/log/nginx/access.log   ← Added (añadido)
-# D /tmp/file  ← Deleted (eliminado)
+# C /var ← Changed (modificado)
+# A /var/log/nginx/access.log ← Added (añadido)
+# D /tmp/file ← Deleted (eliminado)
 
 # Copiar archivos entre host y contenedor
-docker cp mi-nginx:/etc/nginx/nginx.conf ./nginx.conf    # Contenedor → Host
-docker cp ./mi-config.conf mi-nginx:/etc/nginx/conf.d/   # Host → Contenedor
+docker cp mi-nginx:/etc/nginx/nginx.conf./nginx.conf # Contenedor → Host
+docker cp./mi-config.conf mi-nginx:/etc/nginx/conf.d/ # Host → Contenedor
 
 # Ver los puertos mapeados
 docker port mi-nginx
@@ -359,13 +364,13 @@ docker top mi-nginx
 
 # Esperar a que un contenedor termine y obtener su exit code
 docker wait mi-trabajo-batch
-# 0  ← Exit code (0 = éxito)
+# 0 ← Exit code (0 = éxito)
 
 # Inspeccionar un contenedor (JSON con toda la información)
 docker inspect mi-nginx
 
 # Ver solo la IP del contenedor
-docker inspect mi-nginx --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+docker inspect mi-nginx --format='{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
 # 172.17.0.2
 
 # Ver el estado actual
@@ -378,19 +383,19 @@ docker inspect mi-nginx --format='{{.State.Status}}'
 ## Ciclo de vida completo de un contenedor
 
 ```
-  docker create        docker start         docker stop         docker rm
-  (crear sin           (arrancar)           (detener)           (eliminar)
-   ejecutar)
-       │                    │                    │                   │
-       ▼                    ▼                    ▼                   ▼
-   ┌────────┐          ┌─────────┐          ┌─────────┐        ┌────────┐
-   │CREATED │ ──────►  │ RUNNING │ ──────►  │ STOPPED │ ────► │REMOVED │
-   └────────┘          └─────────┘          └─────────┘        └────────┘
-                            │                    ▲
-                            │   docker restart   │
-                            └────────────────────┘
+ docker create docker start docker stop docker rm
+ (crear sin (arrancar) (detener) (eliminar)
+ ejecutar)
+ │ │ │ │
+ ▼ ▼ ▼ ▼
+ ┌────────┐ ┌─────────┐ ┌─────────┐ ┌────────┐
+ │CREATED │ ──────► │ RUNNING │ ──────► │ STOPPED │ ────► │REMOVED │
+ └────────┘ └─────────┘ └─────────┘ └────────┘
+ │ ▲
+ │ docker restart │
+ └────────────────────┘
 
-   docker run = docker create + docker start (todo en uno)
+ docker run = docker create + docker start (todo en uno)
 ```
 
 ---
@@ -425,7 +430,7 @@ docker system prune -a --volumes
 | `docker logs` | Ver registros | `docker logs -f --tail 100 mi-nginx` |
 | `docker stats` | Monitorear recursos | `docker stats` |
 | `docker inspect` | Información detallada | `docker inspect mi-nginx` |
-| `docker cp` | Copiar archivos | `docker cp cont:/path ./local` |
+| `docker cp` | Copiar archivos | `docker cp cont:/path./local` |
 | `docker diff` | Ver cambios en filesystem | `docker diff mi-nginx` |
 | `docker top` | Ver procesos | `docker top mi-nginx` |
 

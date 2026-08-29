@@ -8,13 +8,13 @@
 
 Para no perderte en el examen, visualiza la Inteligencia Artificial como un juego de muñecas rusas donde cada concepto está metido dentro de otro:
 
-1.  **Inteligencia Artificial (IA):** El concepto general (máquinas imitando tareas humanas).
+1. **Inteligencia Artificial (IA):** El concepto general (máquinas imitando tareas humanas).
 
-2.  **Machine Learning (ML):** El subconjunto donde las máquinas encuentran patrones en datos históricos de forma matemática.
+2. **Machine Learning (ML):** El subconjunto donde las máquinas encuentran patrones en datos históricos de forma matemática.
 
-3.  **Deep Learning (DL / Aprendizaje Profundo):** Un subconjunto avanzado del ML. Aquí los modelos se entrenan utilizando **Redes Neuronales Artificiales** que imitan el cerebro humano. Los datos pasan por múltiples capas de funciones matemáticas secuenciales hasta generar el modelo final. Permite resolver problemas hipercomplejos como la visión artificial.
+3. **Deep Learning (DL / Aprendizaje Profundo):** Un subconjunto avanzado del ML. Aquí los modelos se entrenan utilizando **Redes Neuronales Artificiales** que imitan el cerebro humano. Los datos pasan por múltiples capas de funciones matemáticas secuenciales hasta generar el modelo final. Permite resolver problemas hipercomplejos como la visión artificial.
 
-4.  **IA Generativa:** Un tipo específico de *Deep Learning* enfocado puramente en la creación de nuevo contenido.
+4. **IA Generativa:** Un tipo específico de *Deep Learning* enfocado puramente en la creación de nuevo contenido.
 
 ---
 
@@ -29,16 +29,23 @@ La IA Generativa no empieza desde cero cada vez que le haces una pregunta. Se ap
 * #### Ejemplos de LLMs
 
 - ChatGPT (basado en los modelos GPT de [OpenAI](https://openai.com?utm_source=chatgpt.com))
+
 - [Gemini](https://gemini.google.com?utm_source=chatgpt.com) de [Google](https://google.com?utm_source=chatgpt.com)
+
 - [Claude](https://claude.ai?utm_source=chatgpt.com) de [Anthropic](https://www.anthropic.com?utm_source=chatgpt.com)
+
 - [Llama](https://www.llama.com?utm_source=chatgpt.com) de [Meta](https://about.meta.com?utm_source=chatgpt.com)
 
 ### Ejemplos de Modelos Fundacionales (no solo texto)
 
 - [GPT-5 series (OpenAI)](https://openai.com?utm_source=chatgpt.com) – texto, imágenes y otras modalidades.
+
 - [Gemini 2.x](https://gemini.google.com?utm_source=chatgpt.com) – multimodal (texto, imágenes, audio, vídeo).
+
 - [Claude models](https://www.anthropic.com?utm_source=chatgpt.com) – principalmente lenguaje y análisis de documentos.
+
 - [Stable Diffusion](https://stability.ai?utm_source=chatgpt.com) – generación de imágenes.
+
 - [DALL·E](https://openai.com?utm_source=chatgpt.com) – generación de imágenes a partir de texto.
 
 ---

@@ -45,9 +45,11 @@ Amazon FSx no es un solo sistema, es un "paraguas" que cubre 4 opciones diferent
 
 ## 🌟 Beneficios Generales
 
-1.  **Infraestructura Administrada:** Tú no instalas Windows ni actualizas el antivirus del servidor; AWS gestiona los parches y las copias de seguridad por debajo.
-2.  **Integración Transparente:** Las aplicaciones de tu empresa no notan que están en la nube; para ellas, es exactamente el mismo disco duro que tenían en la oficina física.
-3.  **Rentable:** Tiene opciones de organización por niveles (mueve los archivos que no usas a "estantes" más baratos automáticamente, como hace S3).
+1. **Infraestructura Administrada:** Tú no instalas Windows ni actualizas el antivirus del servidor; AWS gestiona los parches y las copias de seguridad por debajo.
+
+2. **Integración Transparente:** Las aplicaciones de tu empresa no notan que están en la nube; para ellas, es exactamente el mismo disco duro que tenían en la oficina física.
+
+3. **Rentable:** Tiene opciones de organización por niveles (mueve los archivos que no usas a "estantes" más baratos automáticamente, como hace S3).
 
 ---
 → Volver al índice: [[📂Almacenamiento/00 - Índice Almacenamiento|🪐 Almacenamiento]]

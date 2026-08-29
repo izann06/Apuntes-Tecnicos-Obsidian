@@ -15,33 +15,33 @@ Si necesitas un Firewall avanzado, un panel de Inteligencia de Negocios o un mod
 
 * **Las Ventajas:**
 
-    * **Despliegue Rápido:** Puedes instalar software complejo en tus instancias EC2 con un par de clics mediante las AMIs (Imágenes de Máquina de Amazon) preconfiguradas del Marketplace.
-    
-    * **Modelos de Precios Flexibles:** Puedes pagar por horas (pago por uso), por suscripción anual o usar software gratuito de código abierto.
-    
-    * **Facturación Consolidada (¡Muy Importante!):** Cuando compras software en AWS Marketplace, no tienes que darle tu tarjeta de crédito al proveedor externo. **El coste de esa licencia de software se añade automáticamente a tu factura normal de AWS**.
+ * **Despliegue Rápido:** Puedes instalar software complejo en tus instancias EC2 con un par de clics mediante las AMIs (Imágenes de Máquina de Amazon) preconfiguradas del Marketplace.
+ 
+ * **Modelos de Precios Flexibles:** Puedes pagar por horas (pago por uso), por suscripción anual o usar software gratuito de código abierto.
+ 
+ * **Facturación Consolidada (¡Muy Importante!):** Cuando compras software en AWS Marketplace, no tienes que darle tu tarjeta de crédito al proveedor externo. **El coste de esa licencia de software se añade automáticamente a tu factura normal de AWS**.
 
 * **Que hay:**
 
 	**Software como servicio (SaaS):**
-    
-    - Aplicaciones empresariales, como herramientas de administración de proyectos
-        
-    - Herramientas de marketing, como las plataformas de interacción con clientes
-        
-    - Herramientas de colaboración, como los servicios de intercambio de archivos
-        
-    
-    **Machine learning (ML) e IA:**
-    
-    - Modelos prediseñados para el reconocimiento de imágenes, el procesamiento del lenguaje natural y más
-        
-    - Algoritmos de ML para entrenar modelos personalizados
-        
-    
-    **Datos y análisis:**
-    
-    - Plataformas de inteligencia empresarial para visualización e informes
+ 
+ - Aplicaciones empresariales, como herramientas de administración de proyectos
+ 
+ - Herramientas de marketing, como las plataformas de interacción con clientes
+ 
+ - Herramientas de colaboración, como los servicios de intercambio de archivos
+ 
+ 
+ **Machine learning (ML) e IA:**
+ 
+ - Modelos prediseñados para el reconocimiento de imágenes, el procesamiento del lenguaje natural y más
+ 
+ - Algoritmos de ML para entrenar modelos personalizados
+ 
+ 
+ **Datos y análisis:**
+ 
+ - Plataformas de inteligencia empresarial para visualización e informes
 
 
 ---
@@ -56,9 +56,11 @@ Si el Marketplace es para descargar programas, la APN es para "contratar humanos
 
 * **Convertirse en un Partner:** Si tu empresa de informática decide unirse a la APN para vender sus servicios, AWS le otorga beneficios como:
 
-    * Acceso a fondos de financiación y créditos para pruebas.
-    * Formación técnica exclusiva y certificaciones.
-    * Invitaciones a eventos y talleres de networking.
+ * Acceso a fondos de financiación y créditos para pruebas.
+
+ * Formación técnica exclusiva y certificaciones.
+
+ * Invitaciones a eventos y talleres de networking.
 
 ---
 

@@ -29,7 +29,9 @@ Tú eres el inquilino del apartamento. Amazon te da una puerta blindada, pero **
 Según tu esquema, tú SIEMPRE eres responsable de:
 
 * **Tus Datos:** Absolutamente todo lo que subes. (Los datos del cliente).
+
 * **Cifrado del lado del cliente:** Si decides enviar datos cifrados o en texto plano.
+
 * **Tus Contraseñas (IAM):** Quién tiene acceso a qué. 
 
 > **Ejemplo de examen:** Si un hacker borra tus fotos porque tu contraseña de AWS era "123456", es culpa tuya. AWS no gestiona tus contraseñas.
@@ -42,15 +44,22 @@ Aquí es donde el examen te pone las trampas. Esta capa cambia dependiendo de qu
 
 ### Caso A: Usas IaaS (Infraestructura como Servicio) - Ej. Amazon EC2
 Si alquilas un servidor virtual "en blanco" (EC2):
+
 * **TÚ** tienes que instalar las actualizaciones de Windows o Linux (Sistema Operativo).
+
 * **TÚ** tienes que configurar el Firewall (Security Groups).
+
 * *Es como alquilar un coche: tú echas la gasolina y tú lo conduces.*
 
 ### Caso B: Usas PaaS/SaaS (Servicios Gestionados) - Ej. Amazon RDS o S3
 Si alquilas una base de datos ya montada (RDS):
+
 * **AWS** se encarga de actualizar el sistema operativo por ti.
+
 * **AWS** parchea el motor de la base de datos (Ej. actualizar MySQL a la última versión).
+
 * Tú **SOLO** te encargas de tus datos y de quién puede entrar (IAM).
+
 * *Es como ir en taxi: el taxista (AWS) conduce y le echa gasolina, tú solo le dices a dónde ir.*
 
 ---

@@ -73,13 +73,18 @@ Respuesta del modelo: "Neutro"
 ```
 
 **Por qué funciona mejor que Zero-shot:**
+
 - Los ejemplos **muestran el formato exacto** de respuesta esperado
+
 - Definen implícitamente el **criterio de clasificación** de tu empresa
+
 - El modelo puede aprender patrones muy específicos del dominio
 
 > [!tip] Cuándo usar Few-shot vs Fine-tuning
 > Si necesitas **personalizar el comportamiento** del modelo:
+>
 > - **¿Tienes < 100 ejemplos o no quieres coste de entrenamiento?** → Few-shot
+>
 > - **¿Tienes > 1.000 ejemplos y quieres consistencia permanente?** → Fine-tuning
 
 ---
@@ -105,9 +110,9 @@ Prompt CON Chain-of-Thought:
 Respuesta:
 "Paso 1: Juan tiene 15 manzanas.
  Paso 2: Da 1/3 a María → 15 × (1/3) = 5 manzanas para María.
-         Le quedan a Juan: 15 - 5 = 10 manzanas.
+ Le quedan a Juan: 15 - 5 = 10 manzanas.
  Paso 3: Da la mitad de lo que le queda a Pedro → 10 / 2 = 5 para Pedro.
-         Le quedan a Juan: 10 - 5 = 5 manzanas.
+ Le quedan a Juan: 10 - 5 = 5 manzanas.
  Respuesta final: Juan se queda con 5 manzanas."
 ```
 
@@ -138,29 +143,34 @@ Respuesta:
 
 ```mermaid
 sequenceDiagram
-    participant U as 👤 Usuario
-    participant O as 🔧 Orquestador
-    participant V as 🗃️ Vector DB
-    participant E as 🔢 Embedding Model
-    participant L as 🧠 LLM
+ participant U as 👤 Usuario
+ participant O as 🔧 Orquestador
+ participant V as 🗃️ Vector DB
+ participant E as 🔢 Embedding Model
+ participant L as 🧠 LLM
 
-    U->>O: "¿Cuál es nuestra política de devoluciones?"
-    O->>E: Convierte pregunta en embedding
-    E->>O: Vector de la pregunta
-    O->>V: Búsqueda ANN por similitud
-    V->>O: Top-3 chunks relevantes del manual
-    O->>O: Construye prompt aumentado:<br/>"Usando el siguiente contexto:<br/>[chunk1] [chunk2] [chunk3]<br/>Responde: ¿Cuál es la política...?"
-    O->>L: Prompt aumentado
-    L->>U: "Según nuestra política vigente,<br/>los clientes tienen 30 días para..."
+ U->>O: "¿Cuál es nuestra política de devoluciones?"
+ O->>E: Convierte pregunta en embedding
+ E->>O: Vector de la pregunta
+ O->>V: Búsqueda ANN por similitud
+ V->>O: Top-3 chunks relevantes del manual
+ O->>O: Construye prompt aumentado:<br/>"Usando el siguiente contexto:<br/>[chunk1] [chunk2] [chunk3]<br/>Responde: ¿Cuál es la política...?"
+ O->>L: Prompt aumentado
+ L->>U: "Según nuestra política vigente,<br/>los clientes tienen 30 días para..."
 ```
 
 ### Cuándo Usar RAG (Regla de Oro)
 
 > [!tip] RAG es la respuesta cuando...
+>
 > - El modelo necesita saber cosas que ocurrieron **después** de su fecha de corte de entrenamiento
+>
 > - Necesitas dar respuestas sobre **documentos internos privados** (manuales, políticas, contratos)
+>
 > - Quieres que el modelo **cite sus fuentes** (grounding)
+>
 > - Necesitas que el modelo **no invente** respuestas sobre datos factuales específicos
+>
 > - El conocimiento **cambia frecuentemente** (precios, normativas, inventario)
 
 ---
@@ -174,10 +184,10 @@ sequenceDiagram
 
 ```
 Foundation Model Original:
-[Pesos W1, W2, W3, ..., Wn] ← Resultado del pre-training masivo
+[Pesos W1, W2, W3,..., Wn] ← Resultado del pre-training masivo
 
 Después del Fine-tuning con tus datos:
-[Pesos W1', W2', W3', ..., Wn'] ← Ligeramente modificados para tu dominio
+[Pesos W1', W2', W3',..., Wn'] ← Ligeramente modificados para tu dominio
 ```
 
 **El fine-tuning modifica los pesos**, a diferencia de RAG y Prompt Engineering que solo cambian el input.
@@ -198,9 +208,13 @@ Después del Fine-tuning con tus datos:
 ### Cuándo Usar Fine-tuning (NO RAG)
 
 > [!warning] Fine-tuning es para COMPORTAMIENTO, no para CONOCIMIENTO
+>
 > - ✅ **Sí usa fine-tuning cuando:** Quieres cambiar el **estilo o tono** (responder siempre en formato JSON, usar el tono de voz de tu marca)
+>
 > - ✅ **Sí usa fine-tuning cuando:** Quieres enseñar una **habilidad nueva** (clasificar tickets de soporte en categorías propias muy específicas)
+>
 > - ❌ **No uses fine-tuning para:** Darle al modelo información actualizada → usa **RAG**
+>
 > - ❌ **No uses fine-tuning para:** Proporcionar documentos contextuales → usa **RAG**
 
 ---
@@ -221,6 +235,7 @@ Después del Fine-tuning con tus datos:
 | **Tiempo total** | 6-18 meses (datos + entrenamiento + evaluación + alineamiento) |
 
 **¿Quién hace esto en la práctica?**
+
 - Anthropic (Claude), Meta (Llama), Google (Gemini), Amazon (Titan), Mistral AI
 
 **Para el 99.9% de empresas:** No tiene sentido económico. Siempre es mejor partir de un FM existente y adaptarlo.
@@ -234,21 +249,21 @@ Después del Fine-tuning con tus datos:
 
 ```mermaid
 flowchart TD
-    A["¿Qué necesitas?"] --> B{"¿El modelo necesita\nconocimiento actualizado\no de datos privados?"}
-    B -->|"Sí"| C["✅ RAG\n(Knowledge Bases for Bedrock)"]
-    B -->|"No"| D{"¿Las respuestas actuales\nson funcionales pero\nnecesitan mejorarse?"}
-    D -->|"Sí"| E["✅ Prompt Engineering\n(Zero-shot, Few-shot, CoT)"]
-    D -->|"No: el estilo/capacidad\nnecesita cambiar"| F{"¿Tienes >1.000 ejemplos\netiquetados y presupuesto?"}
-    F -->|"No"| E
-    F -->|"Sí"| G["✅ Fine-tuning\n(LoRA, SFT en Bedrock)"]
-    G --> H{"¿Ningún FM existente\nse adapta al dominio?"}
-    H -->|"No: hay FMs útiles"| G
-    H -->|"Sí: dominio totalmente inédito"| I["⚠️ Pre-training\nfrom Scratch\n(casi nunca aplicable)"]
+ A["¿Qué necesitas?"] --> B{"¿El modelo necesita\nconocimiento actualizado\no de datos privados?"}
+ B -->|"Sí"| C["✅ RAG\n(Knowledge Bases for Bedrock)"]
+ B -->|"No"| D{"¿Las respuestas actuales\nson funcionales pero\nnecesitan mejorarse?"}
+ D -->|"Sí"| E["✅ Prompt Engineering\n(Zero-shot, Few-shot, CoT)"]
+ D -->|"No: el estilo/capacidad\nnecesita cambiar"| F{"¿Tienes >1.000 ejemplos\netiquetados y presupuesto?"}
+ F -->|"No"| E
+ F -->|"Sí"| G["✅ Fine-tuning\n(LoRA, SFT en Bedrock)"]
+ G --> H{"¿Ningún FM existente\nse adapta al dominio?"}
+ H -->|"No: hay FMs útiles"| G
+ H -->|"Sí: dominio totalmente inédito"| I["⚠️ Pre-training\nfrom Scratch\n(casi nunca aplicable)"]
 
-    style C fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
-    style E fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
-    style G fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
-    style I fill:#4a2a0d,stroke:#ed8a4a,color:#f5d0b8
+ style C fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
+ style E fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
+ style G fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
+ style I fill:#4a2a0d,stroke:#ed8a4a,color:#f5d0b8
 ```
 
 ---

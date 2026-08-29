@@ -7,11 +7,11 @@ Antes de hacer el view, debemos configurar el proyecto para que el App.xaml sepa
 Es el punto de entrada de la aplicación. Por defecto, Visual Studio busca una ventana llamada `MainWindow.xaml` en la raíz del proyecto. Como nosotros seguimos el patrón MVVM y hemos organizado nuestras vistas en una carpeta específica, debemos hacer lo siguiente:
 
 1. **Localiza** el archivo `App.xaml` en la raíz de tu proyecto.
-    
+ 
 2. **Borra** la referencia a `MainWindow.xaml`.
-    
+ 
 3. **Escribe** `StartupUri="View/(Nombre del archivo).xaml"`.
-    
+ 
 
 EJEMPLO:
 
@@ -24,9 +24,9 @@ EJEMPLO:
 Aquí es donde escribes el código XAML. Para que este archivo se comunique con el ViewModel, usamos el **Binding**.
 
 - **¿Qué es el Binding?** Es el enlace que conecta un control (como un `TextBox`) con una propiedad del ViewModel.
-    
+ 
 - **Ejemplo:** Si queremos que un cuadro de texto muestre el nombre del contacto, ponemos: `<TextBox Text="{Binding Nombre}" />`
-    
+ 
 
 ---
 

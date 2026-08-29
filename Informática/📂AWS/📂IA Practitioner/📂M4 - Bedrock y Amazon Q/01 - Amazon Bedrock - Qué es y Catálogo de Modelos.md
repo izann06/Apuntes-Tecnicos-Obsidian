@@ -1,6 +1,7 @@
 ﻿# 01 — Amazon Bedrock: Qué Es y Catálogo de Modelos
 
-**Tags:** #bedrock #foundation-models #serverless #claude #titan #llama #ia #m4-bedrock
+**Tags:** #bedrock #foundation-models #serverless #claude #titan #llama #ia
+ #m4-bedrock
 **Módulo:** [[00 - Índice Módulo 4]] | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
 > [!quote] Definición AWS Oficial
@@ -13,36 +14,40 @@
 ### La Propuesta de Valor
 
 Bedrock resuelve el problema fundamental de "quiero usar un LLM potente en mi empresa, pero no quiero:
+
 - ❌ Montar y mantener servidores de GPU
+
 - ❌ Gestionar licencias con múltiples proveedores de IA
+
 - ❌ Preocuparme de que mis datos de clientes se usen para reentrenar los modelos públicos
+
 - ❌ Escribir código diferente para cada proveedor de modelos"
 
 **Bedrock lo soluciona con una única API, serverless, con garantías de privacidad.**
 
 ```mermaid
 graph TB
-    subgraph "Tu Aplicación"
-        A["🖥️ Tu aplicación\n(Python, Java, Node.js...)"]
-    end
-    
-    subgraph "Amazon Bedrock API (única interfaz)"
-        B["🔌 InvokeModel API\nMisma interfaz para todos los modelos"]
-    end
-    
-    subgraph "Proveedores de Modelos"
-        C["Anthropic\nClaude"]
-        D["Meta\nLlama"]
-        E["Amazon\nTitan"]
-        F["Mistral AI"]
-        G["Stability AI"]
-        H["Cohere"]
-    end
-    
-    A --> B
-    B --> C & D & E & F & G & H
-    
-    style B fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
+ subgraph "Tu Aplicación"
+ A["🖥️ Tu aplicación\n(Python, Java, Node.js...)"]
+ end
+ 
+ subgraph "Amazon Bedrock API (única interfaz)"
+ B["🔌 InvokeModel API\nMisma interfaz para todos los modelos"]
+ end
+ 
+ subgraph "Proveedores de Modelos"
+ C["Anthropic\nClaude"]
+ D["Meta\nLlama"]
+ E["Amazon\nTitan"]
+ F["Mistral AI"]
+ G["Stability AI"]
+ H["Cohere"]
+ end
+ 
+ A --> B
+ B --> C & D & E & F & G & H
+ 
+ style B fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
 ```
 
 ### Características Fundamentales de Bedrock
@@ -97,8 +102,11 @@ graph TB
 | **Titan Image Generator G1** | Imágenes | Generar y editar imágenes desde texto |
 
 > [!tip] Titan para el examen
+>
 > - **Titan Embeddings** → la opción nativa de AWS para convertir texto en vectores (RAG)
+>
 > - **Titan Image Generator** → generación de imágenes en Bedrock (usando Difusión)
+>
 > - La familia Titan es la respuesta cuando el examen pide "el modelo **nativo** de AWS en Bedrock"
 
 ---
@@ -142,8 +150,11 @@ graph TB
 Interface visual para explorar y probar modelos sin escribir código. Útil para prototipado rápido.
 
 ### Playgrounds en Bedrock Console
+
 - **Chat Playground:** Conversaciones directas con cualquier modelo
+
 - **Text Playground:** Completado de texto, prompts directos
+
 - **Image Playground:** Generación de imágenes
 
 ### Bedrock Guardrails
@@ -160,27 +171,27 @@ Herramienta para comparar modelos con métricas automáticas o evaluación human
 
 ```mermaid
 mindmap
-  root((Amazon Bedrock\nCasos de Uso))
-    Chat y Asistentes
-      Chatbot de atención al cliente
-      Asistente interno de empresa
-      Q&A sobre documentos
-    Generación de Contenido
-      Redacción de marketing
-      Generación de código
-      Resúmenes automáticos
-    Búsqueda Inteligente
-      RAG con Knowledge Bases
-      Búsqueda semántica
-      FAQ automatizado
-    Automatización
-      Agents para tareas complejas
-      Procesamiento de documentos
-      Clasificación y extracción
-    Creación Visual
-      Generación de imágenes
-      Diseño de assets
-      Prototipado visual
+ root((Amazon Bedrock\nCasos de Uso))
+ Chat y Asistentes
+ Chatbot de atención al cliente
+ Asistente interno de empresa
+ Q&A sobre documentos
+ Generación de Contenido
+ Redacción de marketing
+ Generación de código
+ Resúmenes automáticos
+ Búsqueda Inteligente
+ RAG con Knowledge Bases
+ Búsqueda semántica
+ FAQ automatizado
+ Automatización
+ Agents para tareas complejas
+ Procesamiento de documentos
+ Clasificación y extracción
+ Creación Visual
+ Generación de imágenes
+ Diseño de assets
+ Prototipado visual
 ```
 
 ---

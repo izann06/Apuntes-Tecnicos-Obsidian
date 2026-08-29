@@ -1,4 +1,5 @@
-﻿**Tags:** #tokens #embeddings #vector-db #chunking #rag #pre-training #fine-tuning #ia #m3-genai
+﻿**Tags:** #tokens #embeddings #vector-db #chunking #rag #pre-training #fine-tuning #ia
+ #m3-genai
 
 > [!quote] Contexto Inicial: El Gran Malentendido (RAG NO es entrenar a la IA)
 > Antes de entrar en la parte técnica, hay que entender dónde encaja todo esto en el mundo de la Inteligencia Artificial usando la **Analogía del Estudiante**.
@@ -62,7 +63,9 @@ Ese código de barras no busca coincidencias de palabras exactas, sino que captu
 
 > [!example] Ejemplo de búsqueda por significado
 > Imagina estas dos frases:
+>
 > 1. *"¿Cómo cancelo mi suscripción?"*
+>
 > 2. *"Pasos para dar de baja tu cuenta premium"*
 > 
 > Un buscador antiguo (como buscar en Word) no las relacionaría porque no comparten palabras clave. Sin embargo, al pasarlas por el modelo de Embedding, **sus códigos de barras matemáticos (vectores) son casi idénticos**. El sistema sabe al instante que significan exactamente lo mismo sin importar las palabras usadas.
@@ -104,25 +107,29 @@ A esto se le llama **Búsqueda de Similitud** (o *Nearest Neighbors*), y es lo q
 Vamos a ver cómo funciona todo este flujo en la vida real, paso a paso, cuando un usuario hace una pregunta sobre un documento privado de la empresa.
 
 1. **La Pregunta:** Entras en tu aplicación y escribes: *"¿Qué ocurrió el 2 de mayo en Madrid?"*
+
 2. **Embedding de la pregunta:** Tu pregunta se pasa por la máquina para crearle su propia "pegatina matemática" (Vector).
+
 3. **Búsqueda en el Archivador (Vector DB):** El sistema va al archivador y le dice: *"Dame los 3 recortes (chunks) cuyas pegatinas se parezcan más a la pegatina de mi pregunta"*. Como busca por significado, saca al instante los 3 recortes exactos del manual gigante.
+
 4. **El turno de la IA (El examen a libro abierto):** Ahora llamas a la IA pre-entrenada. Le das tu pregunta y **SOLAMENTE** le pasas esos 3 recortes recuperados como apuntes. 
+
 5. **La Respuesta:** Como son solo 3 recortes, no superamos el límite de tokens (Context Window). La IA lee la pregunta, lee los 3 recortes, usa su inteligencia general, y te redacta una respuesta perfecta basándose estrictamente en tus datos privados, sin memorizarlos ni entrenarse con ellos.
 
 ```mermaid
 flowchart LR
-    A["📚 Manual Gigante\n(Datos privados)"] -->|"1. Tijeras"| B["✂️ Chunking\n(Recortes pequeños)"]
-    B -->|"2. Máquina matemática"| C["🌌 Embeddings\n(Códigos de barras)"]
-    C -->|"3. Guardar"| D["🗃️ Vector DB\n(Archivador inteligente)"]
-    
-    Q["❓ Pregunta del\nusuario"] -->|"4. Embedding\nde la pregunta"| E["🔢 Vector\nde la pregunta"]
-    E -->|"5. Buscar parecidos"| D
-    D -->|"6. Saca los 3\nmejores recortes"| F["📋 Contexto recuperado"]
-    F & Q -->|"7. Pasárselo a la IA"| G["🧠 LLM (Ej: Claude)"]
-    G -->|"8. Lee y responde"| H["💬 Respuesta final"]
-    
-    style G fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
-    style H fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
+ A["📚 Manual Gigante\n(Datos privados)"] -->|"1. Tijeras"| B["✂️ Chunking\n(Recortes pequeños)"]
+ B -->|"2. Máquina matemática"| C["🌌 Embeddings\n(Códigos de barras)"]
+ C -->|"3. Guardar"| D["🗃️ Vector DB\n(Archivador inteligente)"]
+ 
+ Q["❓ Pregunta del\nusuario"] -->|"4. Embedding\nde la pregunta"| E["🔢 Vector\nde la pregunta"]
+ E -->|"5. Buscar parecidos"| D
+ D -->|"6. Saca los 3\nmejores recortes"| F["📋 Contexto recuperado"]
+ F & Q -->|"7. Pasárselo a la IA"| G["🧠 LLM (Ej: Claude)"]
+ G -->|"8. Lee y responde"| H["💬 Respuesta final"]
+ 
+ style G fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
+ style H fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
 ```
 
 > [!tip] Resumen para el Examen

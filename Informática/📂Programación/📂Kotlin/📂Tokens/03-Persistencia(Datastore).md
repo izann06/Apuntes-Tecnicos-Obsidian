@@ -3,10 +3,10 @@ Antes de indagar en esta clase debemos entender que es `datastore`.
 Datastore sirve para guardar datos de forma local en el dispositivo.
 
 - **¿Para qué sirve?** Para guardar pequeñas cantidades de información que deben sobrevivir aunque la app se cierre o el móvil se reinicie (como un **Token de sesión**, el nombre de usuario o ajustes de modo oscuro).
-    
+ 
 - **¿Por qué es mejor?** * **Seguridad:** Se ejecuta fuera del hilo principal (UI thread), por lo que nunca "congela" la pantalla.
-    
-    - **Reactividad:** Utiliza **Flows**, lo que significa que la app "escucha" los cambios en tiempo real. Si borras el token, la app se entera al instante.
+ 
+ - **Reactividad:** Utiliza **Flows**, lo que significa que la app "escucha" los cambios en tiempo real. Si borras el token, la app se entera al instante.
 
 Ahora vamos con la clase de `SessionManager`:
 
@@ -35,16 +35,16 @@ Este es el punto más importante de tu código:
 
 ```Kotlin
 val sessionFlow: Flow<Pair<String?, String?>> = dataStore.data.map { preferences ->
-    preferences[TOKEN_KEY] to preferences[USERNAME_KEY]
+ preferences[TOKEN_KEY] to preferences[USERNAME_KEY]
 }
 ```
 
 - **¿Qué hace?**: Crea un flujo constante de datos.
-    
+ 
 - **El `Pair`**: En lugar de devolver una sola cosa, devolvemos un "pack" de dos: `(token, username)`.
-    
+ 
 - **Reactividad**: Si el token cambia en cualquier parte de la app, cualquier pantalla que esté escuchando este `sessionFlow` se actualizará automáticamente. Es como un grifo que siempre tiene agua fresca.
-    
+ 
 
 ---
 
@@ -54,17 +54,17 @@ Cuando el servidor nos dice que el login es correcto, llamamos a esta función:
 
 ```Kotlin
 suspend fun saveSession(token: String, username: String) {
-    dataStore.edit { preferences -> 
-        preferences[TOKEN_KEY] = token
-        preferences[USERNAME_KEY] = username
-    }
+ dataStore.edit { preferences -> 
+ preferences[TOKEN_KEY] = token
+ preferences[USERNAME_KEY] = username
+ }
 }
 ```
 
 - **`suspend`**: Obligatorio. Escribir en la memoria del móvil lleva tiempo (milisegundos), así que Kotlin suspende la función para no congelar la app.
-    
+ 
 - **`edit`**: Es una transacción segura. O se guardan los dos datos correctamente, o no se guarda ninguno.
-    
+ 
 
 ---
 
@@ -76,10 +76,10 @@ El botón de "Cerrar sesión" llamará a esto:
 
 ```Kotlin
 suspend fun clearSession() {
-    dataStore.edit { 
-        it.remove(TOKEN_KEY)
-        it.remove(USERNAME_KEY)
-    }
+ dataStore.edit { 
+ it.remove(TOKEN_KEY)
+ it.remove(USERNAME_KEY)
+ }
 }
 ```
 

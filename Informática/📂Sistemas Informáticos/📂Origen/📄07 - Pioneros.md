@@ -22,8 +22,11 @@ No es una máquina física. Es un modelo conceptual, como un experimento de pens
 **Componentes:**
 
 - Una **cinta infinita** dividida en casillas, cada una puede contener un símbolo (por ejemplo, 0, 1 o un espacio en blanco).
+
 - Una **cabeza lectora/escritora** que puede leer el símbolo de la casilla actual, borrar o escribir un nuevo símbolo, y moverse una casilla hacia la izquierda o la derecha.
+
 - Un **estado interno** (como la "memoria de corto plazo" de la máquina). La máquina puede estar en distintos estados, y el estado actual junto con el símbolo leído determinan la acción siguiente.
+
 - Una **tabla de reglas** (el "programa"): si estoy en el estado X y leo el símbolo Y, entonces escribe Z, muévete en dirección D y pasa al estado W.
 
 **Ejemplo muy simplificado:**
@@ -33,9 +36,11 @@ Imagina que la cinta tiene el número `1011` (11 en decimal) y queremos sumarle 
 La máquina seguirá reglas como:
 
 - Si lees un 1 y no hay acarreo: escribe 1, avanza, continúa.
+
 - Si lees un 1 y hay acarreo: escribe 0, propaga el acarreo.
+
 - Si lees un 0 y hay acarreo: escribe 1, no hay más acarreo.
-- ...
+-...
 
 Con reglas suficientemente elaboradas, una Máquina de Turing puede sumar, restar, multiplicar, ordenar listas, reproducir texto, ejecutar cualquier algoritmo que puedas imaginar.
 
@@ -71,29 +76,32 @@ Esto significa que cambiar el programa es tan sencillo como cargar números dist
 
 ```
 ┌─────────────────────────────────────────────┐
-│                    CPU                       │
-│  ┌──────────────┐    ┌──────────────────┐   │
-│  │  Unidad de   │    │       ALU        │   │
-│  │   Control    │◄──►│  (cálculos y     │   │
-│  │              │    │   comparaciones) │   │
-│  └──────┬───────┘    └──────────────────┘   │
-│         │                                    │
+│ CPU │
+│ ┌──────────────┐ ┌──────────────────┐ │
+│ │ Unidad de │ │ ALU │ │
+│ │ Control │◄──►│ (cálculos y │ │
+│ │ │ │ comparaciones) │ │
+│ └──────┬───────┘ └──────────────────┘ │
+│ │ │
 └─────────┼──────────────────────────────────-┘
-          │  Bus (canal de datos y direcciones)
-          │
-┌─────────▼────────────┐    ┌────────────────┐
-│       Memoria        │    │  Entrada/Salida │
-│  (programa + datos   │    │  (teclado,      │
-│   en la misma RAM)   │    │   pantalla,     │
-└──────────────────────┘    │   disco...)     │
-                             └────────────────┘
+ │ Bus (canal de datos y direcciones)
+ │
+┌─────────▼────────────┐ ┌────────────────┐
+│ Memoria │ │ Entrada/Salida │
+│ (programa + datos │ │ (teclado, │
+│ en la misma RAM) │ │ pantalla, │
+└──────────────────────┘ │ disco...) │
+ └────────────────┘
 ```
 
 **Los cuatro componentes:**
 
 1. **CPU** (Unidad Central de Procesamiento): contiene la Unidad de Control (que lee y coordina instrucciones) y la ALU (que hace los cálculos).
+
 2. **Memoria**: almacena tanto los datos como el programa. Es donde reside el estado de todo lo que se ejecuta.
+
 3. **Entrada**: teclado, ratón, sensores, disco al leer...
+
 4. **Salida**: pantalla, altavoces, disco al escribir, impresora...
 
 ### ¿Por qué sigue siendo relevante?
@@ -131,7 +139,7 @@ Para comparar: un smartphone moderno de gama media realiza miles de millones de 
 
 No había teclado ni monitor. Programar el ENIAC significaba **reconectar físicamente miles de cables** usando paneles de conexiones similares a las antiguas centralitas telefónicas. Podía llevar días configurarlo para un nuevo problema.
 
-Las seis programadoras principales del ENIAC fueron mujeres matemáticas: Jean Jennings Bartik, Frances Bilas Spence, Kay McNulty Mauchly Antonelli, Marlyn Wescoff Meltzer, Frances Snyder Holberton y Ruth Lichterman Teitelbaum. Fueron contratadas inicialmente como "computadoras humanas" (su trabajo era calcular tablas manualmente) y terminaron siendo las primeras programadoras de un ordenador electrónico de propósito general. Durante décadas su contribución fue prácticamente ignorada.
+Las seis programadoras principales del ENIAC fueron mujeres matemáticas: Jean Jennings Bartik, Frances Bilas Spence, Kay McNulty Mauchly Antonelli, Marlyn Wescoff Meltzer, Frances Snyder Holberton y Ruth Lichterman Teitelbaum. Fueron contratadas inicialmente como "ordenadores humanas" (su trabajo era calcular tablas manualmente) y terminaron siendo las primeras programadoras de un ordenador electrónico de propósito general. Durante décadas su contribución fue prácticamente ignorada.
 
 ### El problema del mantenimiento y los Bugs
 
@@ -144,9 +152,12 @@ Antes de los teclados, los datos se introducían en los ordenadores mediante **t
 **¿Cómo funcionaban?**
 
 1. El programador usaba una máquina perforadora (parecida a una máquina de escribir) para perforar agujeros en posiciones específicas de la tarjeta.
+
 2. Un agujero en una posición = 1 (la corriente del lector pasa a través).
+
 3. Ningún agujero = 0 (el cartón bloquea la corriente).
-4. La tarjeta se introducía en el lector de la computadora, que pasaba un peine de contactos eléctricos por encima.
+
+4. La tarjeta se introducía en el lector de la ordenador, que pasaba un peine de contactos eléctricos por encima.
 
 **El gran problema:** tu programa era literalmente una pila física de tarjetas. Si se caían al suelo y se desordenaban, o si alguien las grapaba por error, el programa quedaba inutilizable. Los programadores marcaban una línea diagonal en el canto de las pilas para poder reordenarlas si se revolvían.
 
@@ -158,9 +169,9 @@ Una tarjeta perforada típica de 80 columnas almacenaba 80 caracteres, es decir,
 
 ```
 Turing (1936): demuestra que una máquina universal puede resolver cualquier problema computable
-                                    ↓
+ ↓
 Von Neumann (1945): diseña la arquitectura para construir esa máquina en hardware real
-                                    ↓
+ ↓
 ENIAC y sucesores: primeras implementaciones físicas de esas ideas teóricas
 ```
 

@@ -8,11 +8,11 @@
 
 Si un sistema físico funciona, no lo rompas. Storage Gateway te permite modernizarte sin cambiar tu forma de trabajar:
 
-1.  **Integración sin problemas:** Tus aplicaciones locales no notan la diferencia. Creen que están guardando archivos en un disco duro normal de la oficina.
+1. **Integración sin problemas:** Tus aplicaciones locales no notan la diferencia. Creen que están guardando archivos en un disco duro normal de la oficina.
 
-2.  **Almacenamiento en caché local:** Guarda los archivos que más usas en el servidor de tu oficina (para que abran al instante), pero manda los archivos viejos y pesados a la nube para no ocupar espacio físico.
+2. **Almacenamiento en caché local:** Guarda los archivos que más usas en el servidor de tu oficina (para que abran al instante), pero manda los archivos viejos y pesados a la nube para no ocupar espacio físico.
 
-3.  **Optimización de costes:** Usas el almacenamiento barato de AWS (como S3 o Glacier) para archivos históricos o copias de seguridad, en lugar de comprar más discos duros físicos.
+3. **Optimización de costes:** Usas el almacenamiento barato de AWS (como S3 o Glacier) para archivos históricos o copias de seguridad, en lugar de comprar más discos duros físicos.
 
 ---
 
@@ -34,9 +34,9 @@ Storage Gateway tiene 3 tipos dependiendo de lo que quieras guardar (Archivos, B
 
 * **Tiene 2 modos de funcionamiento:**
 
-    * *Modo Caché (Cached Volumes):* Los datos reales viven en la nube. Tu oficina solo guarda una copia temporal de lo que más se usa. (Ahorras mucho espacio físico).
-    
-    * *Modo Almacenado (Stored Volumes):* TODO el disco vive en tu oficina físicamente, pero hace una copia de seguridad asíncrona hacia la nube. (Ideal si necesitas que todo el disco esté disponible sin Internet).
+ * *Modo Caché (Cached Volumes):* Los datos reales viven en la nube. Tu oficina solo guarda una copia temporal de lo que más se usa. (Ahorras mucho espacio físico).
+ 
+ * *Modo Almacenado (Stored Volumes):* TODO el disco vive en tu oficina físicamente, pero hace una copia de seguridad asíncrona hacia la nube. (Ideal si necesitas que todo el disco esté disponible sin Internet).
 
 ### 3. Tape Gateway (Para Cintas de Copia de Seguridad)
 
@@ -50,11 +50,11 @@ Storage Gateway tiene 3 tipos dependiendo de lo que quieras guardar (Archivos, B
 
 ## 📊 Chuleta Rápida de Correspondencias
 
-| Lo que usas en tu oficina local   | El tipo de Storage Gateway | Dónde termina en AWS              |
+| Lo que usas en tu oficina local | El tipo de Storage Gateway | Dónde termina en AWS |
 | :-------------------------------- | :------------------------- | :-------------------------------- |
-| **Archivos y Carpetas (NFS/SMB)** | S3 File Gateway            | **Amazon S3** (Objetos)           |
-| **Discos duros (iSCSI)**          | Volume Gateway             | **Amazon EBS** (Snapshots)        |
-| **Software de Cintas magnéticas** | Tape Gateway               | **S3 Glacier** (Cintas Virtuales) |
+| **Archivos y Carpetas (NFS/SMB)** | S3 File Gateway | **Amazon S3** (Objetos) |
+| **Discos duros (iSCSI)** | Volume Gateway | **Amazon EBS** (Snapshots) |
+| **Software de Cintas magnéticas** | Tape Gateway | **S3 Glacier** (Cintas Virtuales) |
 
 ## Explicación para ver la diferencia con usar S3 O EBS
 

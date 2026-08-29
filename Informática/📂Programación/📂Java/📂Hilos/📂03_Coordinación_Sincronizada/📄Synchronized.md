@@ -15,77 +15,77 @@ Aquí tienes un ejemplo de que al usar un método que lee, modifica y escribe el
 
 ## **CLASE CUENTACORRUPTA**
 ```java
-package org.example.Ejercicio2;  
-  
-public class CuentaCorrupta implements Runnable {  
-    // Variable compartida  
-    private int saldo = 0;  
-  
-    @Override  
-    public void run() {  
-        // Cada hilo intenta sumar 1 al saldo  
-        sumarUno();  
-    }  
-  
-    // SIN SYNCHRONIZED: Los hilos se pisan  
-    public void sumarUno() {  
-        // 1. El hilo lee el saldo y lo guarda en una variable local  
-        int copiaSaldo = this.saldo;  
-  
-        // 2. FORZAMOS EL FALLO: El hilo se pausa un milisegundo.  
-        // Esto da tiempo a que otros CIEN hilos lean el MISMO valor de 'saldo' // antes de que este hilo pueda incrementarlo.        
-        try {  
-            Thread.sleep(1);  
-        } catch (InterruptedException e) {}  
-  
-        // 3. Incrementa la copia que leyó al principio  
-        copiaSaldo = copiaSaldo + 1;  
-  
-        // 4. Machaca el saldo real con su copia  
-        this.saldo = copiaSaldo;  
-    }  
-  
-    public int getSaldo() {  
-        return saldo;  
-    }  
+package org.example.Ejercicio2; 
+ 
+public class CuentaCorrupta implements Runnable { 
+ // Variable compartida 
+ private int saldo = 0; 
+ 
+ @Override 
+ public void run() { 
+ // Cada hilo intenta sumar 1 al saldo 
+ sumarUno(); 
+ } 
+ 
+ // SIN SYNCHRONIZED: Los hilos se pisan 
+ public void sumarUno() { 
+ // 1. El hilo lee el saldo y lo guarda en una variable local 
+ int copiaSaldo = this.saldo; 
+ 
+ // 2. FORZAMOS EL FALLO: El hilo se pausa un milisegundo. 
+ // Esto da tiempo a que otros CIEN hilos lean el MISMO valor de 'saldo' // antes de que este hilo pueda incrementarlo. 
+ try { 
+ Thread.sleep(1); 
+ } catch (InterruptedException e) {} 
+ 
+ // 3. Incrementa la copia que leyó al principio 
+ copiaSaldo = copiaSaldo + 1; 
+ 
+ // 4. Machaca el saldo real con su copia 
+ this.saldo = copiaSaldo; 
+ } 
+ 
+ public int getSaldo() { 
+ return saldo; 
+ } 
 }
 
 ```
 
 ## **MAIN**
 ```java
-package org.example.Ejercicio2;  
-  
-public class App {  
-  
-    public static void main(String[] args) throws InterruptedException {  
-  
-        CuentaCorrupta tarea = new CuentaCorrupta();  
-        Thread[] hilos = new Thread[1000];  
-  
-        // 1. Creamos 1000 hilos  
-        for (int i = 0; i < 1000; i++) {  
-            hilos[i] = new Thread(tarea);  
-        }  
-  
-        // 2. Los lanzamos todos a la vez  
-        for (int i = 0; i < 1000; i++) {  
-            hilos[i].start();  
-        }  
-  
-        // 3. Esperamos a que TODOS terminen antes de mirar el saldo  
-        for (int i = 0; i < 1000; i++) {  
-            hilos[i].join();  
-        }  
-  
-        // 4. Resultado final  
-        System.out.println("Resultado esperado: 1000");  
-        System.out.println("Resultado real: " + tarea.getSaldo());  
-  
-        if (tarea.getSaldo() < 1000) {  
-            System.out.println("¡FALLO DETECTADO! Se han perdido actualizaciones por falta de synchronized.");  
-        }  
-    }  
+package org.example.Ejercicio2; 
+ 
+public class App { 
+ 
+ public static void main(String[] args) throws InterruptedException { 
+ 
+ CuentaCorrupta tarea = new CuentaCorrupta(); 
+ Thread[] hilos = new Thread[1000]; 
+ 
+ // 1. Creamos 1000 hilos 
+ for (int i = 0; i < 1000; i++) { 
+ hilos[i] = new Thread(tarea); 
+ } 
+ 
+ // 2. Los lanzamos todos a la vez 
+ for (int i = 0; i < 1000; i++) { 
+ hilos[i].start(); 
+ } 
+ 
+ // 3. Esperamos a que TODOS terminen antes de mirar el saldo 
+ for (int i = 0; i < 1000; i++) { 
+ hilos[i].join(); 
+ } 
+ 
+ // 4. Resultado final 
+ System.out.println("Resultado esperado: 1000"); 
+ System.out.println("Resultado real: " + tarea.getSaldo()); 
+ 
+ if (tarea.getSaldo() < 1000) { 
+ System.out.println("¡FALLO DETECTADO! Se han perdido actualizaciones por falta de synchronized."); 
+ } 
+ } 
 }
 ```
 

@@ -13,9 +13,9 @@ Cierra Android Studio.
 
 Ve a la carpeta de tu proyecto en el explorador de archivos de Windows.
 
-Busca y borra la carpeta oculta llamada .gradle (está en la raíz).
+Busca y borra la carpeta oculta llamada.gradle (está en la raíz).
 
-Busca y borra la carpeta oculta llamada .idea.
+Busca y borra la carpeta oculta llamada.idea.
 
 Tranquilo, no borras tu código, solo la configuración de memoria de Android Studio.
 

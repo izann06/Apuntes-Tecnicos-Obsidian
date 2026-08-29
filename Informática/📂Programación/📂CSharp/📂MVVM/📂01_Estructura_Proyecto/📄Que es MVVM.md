@@ -3,7 +3,9 @@ El patrón de diseño **MVVM** (Model-View-ViewModel). Es el estándar de la ind
 MVVM es una forma de organizar el código dividiéndolo en tres capas independientes.
 
 * View(Vista)
+
 * ViewModel(Lógica)
+
 * Model(Datos)
 
 El esquema del MVVM es el siguiente:

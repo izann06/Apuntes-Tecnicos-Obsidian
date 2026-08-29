@@ -9,11 +9,11 @@ REST significa **Representational State Transfer**.
 > [!NOTE] Analogía del Restaurante 🍽️
 > 
 > - **Tu App (Cliente):** Eres tú sentado en la mesa. Tienes hambre (necesitas datos) pero no puedes entrar a la cocina.
->     
+> 
 > - **La API (Camarero):** Es el intermediario. Toma tu pedido ("Solomillo con patatas y pimiento"), lo lleva a la cocina y te trae la comida.
->     
+> 
 > - **El Servidor (Cocina):** Es donde se preparan y guardan los datos (Base de Datos). Tú nunca ves la cocina, solo recibes lo que el camarero te trae.
->     
+> 
 
 ---
 
@@ -40,17 +40,17 @@ JSON
 
 ```
 {
-  "id": 1,
-  "nombre": "Juan Pérez",
-  "esEstudiante": true,
-  "hobbies": ["Fútbol", "Programación"]
+ "id": 1,
+ "nombre": "Juan Pérez",
+ "esEstudiante": true,
+ "hobbies": ["Fútbol", "Programación"]
 }
 ```
 
 - **Claves:** Van entre comillas (`"nombre"`).
-    
+ 
 - **Valores:** Pueden ser números, texto, booleanos o listas (`[]`).
-    
+ 
 
 ---
 
@@ -61,15 +61,16 @@ Para hacer una petición, necesitamos una dirección web exacta. Se compone de d
 `https://jsonplaceholder.typicode.com/posts/1`
 
 1. **Base URL:** `https://jsonplaceholder.typicode.com/`
-    
-    - Es la dirección del servidor (la casa).
-        
-    - Siempre termina en `/`.
-        
+ 
+ - Es la dirección del servidor (la casa).
+ 
+ - Siempre termina en `/`.
+ 
 2. **Endpoint:** `posts/1`
-    
-    - Es el recurso específico que queremos (la habitación).
-    - En este caso le estamos diciendo que nos envie el post con id = 1.
+ 
+ - Es el recurso específico que queremos (la habitación).
+
+ - En este caso le estamos diciendo que nos envie el post con id = 1.
 
 ---
 
@@ -78,17 +79,17 @@ Para hacer una petición, necesitamos una dirección web exacta. Se compone de d
 Cuando la API responde, nos envía un número para decirnos cómo ha ido la operación.
 
 - 🟢 **200 OK:** Todo salió bien. Aquí tienes tus datos.
-    
+ 
 - 🟢 **201 Created:** Todo bien, he creado lo que me pediste.
-    
+ 
 - 🔴 **400 Bad Request:** Tu petición está mal formulada (te falta un dato).
-    
+ 
 - 🔴 **401 Unauthorized:** No tienes permiso (te falta el token/login).
-    
+ 
 - 🔴 **404 Not Found:** Lo que buscas no existe (URL mal escrita o ID incorrecto).
-    
+ 
 - 🔥 **500 Internal Server Error:** Culpa del servidor (se rompió algo en el back).
-    
+ 
 
 ---
 

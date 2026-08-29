@@ -13,10 +13,12 @@ Si tienes una cantidad gigantesca de datos en tu centro local (o en otra nube) y
 
 * **Características Clave para el examen
 
-    * **Validación de datos:** Comprueba automáticamente que el archivo que llegó a AWS es exactamente idéntico al que salió de tu servidor (integridad).
-    * **Limitación de ancho de banda (Bandwidth limiting):** Puedes programarlo para que copie datos despacio durante el día (para no saturar el Wi-Fi de la oficina) y a máxima velocidad por la noche.
-    * **Cifrado automático:** Protege los datos mientras viajan por la red.
-    
+ * **Validación de datos:** Comprueba automáticamente que el archivo que llegó a AWS es exactamente idéntico al que salió de tu servidor (integridad).
+
+ * **Limitación de ancho de banda (Bandwidth limiting):** Puedes programarlo para que copie datos despacio durante el día (para no saturar el Wi-Fi de la oficina) y a máxima velocidad por la noche.
+
+ * **Cifrado automático:** Protege los datos mientras viajan por la red.
+ 
 * **Casos de Uso:** Migrar archivos de la empresa, archivar datos fríos en S3 Glacier o replicar datos para copias de seguridad rápidas.
 
 ---
@@ -40,11 +42,12 @@ Muchas empresas, bancos y sistemas B2B (Business to Business) tradicionales se i
 * **¿Qué es?** Una conexión de red física y dedicada entre el centro de datos de tu oficina y los centros de datos de AWS.
 
 * **Beneficios para la migración:**
-    * **Bypass de Internet:** Tus datos *no* viajan por el Internet público. Es la forma más privada y segura de mover información corporativa confidencial.
-    
-    * **Ancho de banda estable:** Al ser tu propio cable privado, la velocidad no fluctúa (puedes contratar líneas de 1 Gbps, 10 Gbps o 100 Gbps).
-    
-    * **Ahorro a gran escala:** Reduce drásticamente los costes de transferencia de red si vas a mover cantidades masivas de datos continuamente.
+
+ * **Bypass de Internet:** Tus datos *no* viajan por el Internet público. Es la forma más privada y segura de mover información corporativa confidencial.
+ 
+ * **Ancho de banda estable:** Al ser tu propio cable privado, la velocidad no fluctúa (puedes contratar líneas de 1 Gbps, 10 Gbps o 100 Gbps).
+ 
+ * **Ahorro a gran escala:** Reduce drásticamente los costes de transferencia de red si vas a mover cantidades masivas de datos continuamente.
 
 ---
 

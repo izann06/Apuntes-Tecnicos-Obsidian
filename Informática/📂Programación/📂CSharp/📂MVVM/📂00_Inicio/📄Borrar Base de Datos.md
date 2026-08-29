@@ -6,13 +6,13 @@ Asi que lo que hice fue borrar la base de datos e instaalrla de nuevo ya que no 
 ### 1️⃣ Borrar la base de datos
 
 - Puedes hacerlo desde **SQL Server Management Studio**:
-    
+ 
 - Botón derecho sobre la base de datos:
 
 ![[Práctica01(WPF)Gestor_de_Usuarios_con_SQL_Server-2.png]]
 
 - O desde **Package Manager Console**:
-    
+ 
 `Drop-Database`
 
 _(Este comando borra completamente la base de datos vinculada al DbContext actual)_
@@ -42,7 +42,7 @@ Con tu `DbContext` ya actualizado con `DbSet<User>` y `DbSet<Tarea>`:
 - EF Core detectará todas las tablas (`Usuarios`, `Tareas`, etc.) y generará el script para crearlas.
 
  ![[Práctica01(WPF)Gestor_de_Usuarios_con_SQL_Server-4.png]]
-    
+ 
 
 ---
 
@@ -51,10 +51,10 @@ Con tu `DbContext` ya actualizado con `DbSet<User>` y `DbSet<Tarea>`:
 `Update-Database`
 
 - Esto creará la base de datos desde cero, con todas las tablas que tienes en tu modelo.
-    
+ 
 - EF Core también creará la tabla `__EFMigrationsHistory` para llevar el control de migraciones.
 ![[Práctica01(WPF)Gestor_de_Usuarios_con_SQL_Server-5.png]]
-    
+ 
 
 ---
 

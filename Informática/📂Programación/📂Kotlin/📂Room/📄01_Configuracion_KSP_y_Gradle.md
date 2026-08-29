@@ -7,16 +7,16 @@ Primero, debemos declarar el plugin KSP a nivel global del proyecto.
 > [!WARNING] Versiones La versión de KSP debe coincidir con tu versión de Kotlin.
 > 
 > - Ejemplo del temario: `2.2.0-2.0.2` (significa KSP 2.2.0 para Kotlin 2.0.2).
->     
+> 
 > - Revisa la [GitHub de KSP](https://github.com/google/ksp/releases) si cambias la versión de Kotlin.
->     
+> 
 
 ![[Pasted image 20260114133243.png]]
 
 ```
 plugins {
-    // ... otros plugins
-    id("com.google.devtools.ksp") version "2.2.0-2.0.2" apply false
+ //... otros plugins
+ id("com.google.devtools.ksp") version "2.2.0-2.0.2" apply false
 }
 ```
 
@@ -33,8 +33,8 @@ Al principio del archivo:
 
 ```
 plugins {
-    // ...
-    id("com.google.devtools.ksp")
+ //...
+ id("com.google.devtools.ksp")
 }
 ```
 
@@ -46,17 +46,17 @@ En el bloque `dependencies`. Fíjate que usamos `ksp(...)` en lugar de `implemen
 
 ```
 dependencies {
-    // --- ROOM (Base de Datos) ---
-    implementation("androidx.room:room-runtime:2.7.2")
-    implementation("androidx.room:room-ktx:2.7.2") // Soporte para Corrutinas y Flow
-    ksp("androidx.room:room-compiler:2.7.2")       // El procesador de anotaciones (KSP)
+ // --- ROOM (Base de Datos) ---
+ implementation("androidx.room:room-runtime:2.7.2")
+ implementation("androidx.room:room-ktx:2.7.2") // Soporte para Corrutinas y Flow
+ ksp("androidx.room:room-compiler:2.7.2") // El procesador de anotaciones (KSP)
 
-    // --- LIFECYCLE & VIEWMODEL ---
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.2")
-    
-    // --- NAVEGACIÓN ---
-    implementation("androidx.navigation:navigation-compose:2.9.3")
+ // --- LIFECYCLE & VIEWMODEL ---
+ implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.2")
+ implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.2")
+ 
+ // --- NAVEGACIÓN ---
+ implementation("androidx.navigation:navigation-compose:2.9.3")
 }
 ```
 

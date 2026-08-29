@@ -1,4 +1,5 @@
-﻿**Tags:** #ml #overfitting #underfitting #regularizacion #ia #m1-fundamentos
+﻿**Tags:** #ml #overfitting #underfitting #regularizacion #ia
+ #m1-fundamentos
 
 > [!quote] Concepto fundamental
 > Los dos grandes problemas del ML. Un modelo bien entrenado debe generalizar: rendir bien **tanto en los datos de entrenamiento como en datos nuevos que nunca ha visto**. Overfitting y Underfitting son los dos extremos que hay que evitar.
@@ -9,11 +10,11 @@
 
 La forma más intuitiva de entender estos problemas:
 
-| Problema         | Metáfora del estudiante                                                                                                                                         | ¿Qué le pasa al modelo?                                                              |
+| Problema | Metáfora del estudiante | ¿Qué le pasa al modelo? |
 | :--------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
-| **Underfitting** | No estudió nada. Suspende el examen y también los ejercicios de práctica.                                                                                       | Modelo demasiado **simple** para capturar el patrón real. Falla en todo.             |
-| **Overfitting**  | Memorizó el libro de exámenes pasados de memoria, sin entender. Resuelve perfectamente los exámenes de práctica, pero si cambia una coma en la pregunta, falla. | Modelo demasiado **complejo** que aprendió el ruido del training, no el patrón real. |
-| **✅ Ideal**      | Estudió el temario con comprensión, generalizó los conceptos y puede resolver preguntas nuevas.                                                                 | Modelo con el nivel correcto de complejidad que **generaliza** bien.                 |
+| **Underfitting** | No estudió nada. Suspende el examen y también los ejercicios de práctica. | Modelo demasiado **simple** para capturar el patrón real. Falla en todo. |
+| **Overfitting** | Memorizó el libro de exámenes pasados de memoria, sin entender. Resuelve perfectamente los exámenes de práctica, pero si cambia una coma en la pregunta, falla. | Modelo demasiado **complejo** que aprendió el ruido del training, no el patrón real. |
+| **✅ Ideal** | Estudió el temario con comprensión, generalizó los conceptos y puede resolver preguntas nuevas. | Modelo con el nivel correcto de complejidad que **generaliza** bien. |
 
 ---
 
@@ -21,12 +22,12 @@ La forma más intuitiva de entender estos problemas:
 
 ```mermaid
 graph LR
-    A["🔴 UNDERFITTING\nAlto Error en Train\nAlto Error en Test"] -->|"Más complejidad\nMás datos\nMás epochs"| B["✅ ZONA IDEAL\nBajo Error en Train\nBajo Error en Test"]
-    B -->|"Demasiada complejidad\nPocos datos\nSin regularización"| C["🔴 OVERFITTING\nBajo Error en Train\n🚨 Alto Error en Test"]
+ A["🔴 UNDERFITTING\nAlto Error en Train\nAlto Error en Test"] -->|"Más complejidad\nMás datos\nMás epochs"| B["✅ ZONA IDEAL\nBajo Error en Train\nBajo Error en Test"]
+ B -->|"Demasiada complejidad\nPocos datos\nSin regularización"| C["🔴 OVERFITTING\nBajo Error en Train\n🚨 Alto Error en Test"]
 
-    style A fill:#4a0d0d,stroke:#ed4a4a,color:#ffd0d0
-    style B fill:#0d4a0d,stroke:#4aed4a,color:#d0ffd0
-    style C fill:#4a0d0d,stroke:#ed4a4a,color:#ffd0d0
+ style A fill:#4a0d0d,stroke:#ed4a4a,color:#ffd0d0
+ style B fill:#0d4a0d,stroke:#4aed4a,color:#d0ffd0
+ style C fill:#4a0d0d,stroke:#ed4a4a,color:#ffd0d0
 ```
 
 ---
@@ -44,16 +45,23 @@ El modelo tiene "prejuicios" que le impiden aprender: asume relaciones demasiado
 ### Síntomas (cómo detectarlo)
 
 > [!warning] Señales de Underfitting
+>
 > - **Error alto** en el conjunto de **entrenamiento** (training loss alto).
+>
 > - **Error alto** también en el conjunto de **test**.
+>
 > - Las predicciones son mediocres **en todas partes**, no solo en datos nuevos.
+>
 > - Curvas de aprendizaje que no convergen (el loss no baja).
 
 ### Causas Principales
 
 - Modelo demasiado simple (ej. regresión lineal para un problema no lineal)
+
 - Pocas **features** (variables de entrada)
+
 - Pocas **epochs** de entrenamiento
+
 - **Learning rate** demasiado alto (el modelo da pasos tan grandes que nunca converge)
 
 ### Soluciones
@@ -82,7 +90,9 @@ El modelo es tan sensible a los datos de entrenamiento que varía drásticamente
 
 > [!warning] 🚨 Señal definitiva de Overfitting en el examen
 > Si ves que el modelo tiene:
+>
 > - **98-99% de accuracy en training**
+>
 > - **55-60% de accuracy en test/validation**
 > 
 > → Es **overfitting puro**. La clave diagnóstica es el **abismo entre train accuracy y test accuracy**.
@@ -90,30 +100,40 @@ El modelo es tan sensible a los datos de entrenamiento que varía drásticamente
 ### Causas Principales
 
 - Modelo demasiado complejo (demasiadas capas, demasiados parámetros)
+
 - **Muy pocos datos** de entrenamiento
+
 - **No hay regularización**
+
 - Entrenamiento demasiado largo sin early stopping
 
 ### Soluciones — Las 6 Técnicas que Debes Memorizar
 
-| Técnica                       | Cómo funciona                                                                                                           | Aplicable en                       |
+| Técnica | Cómo funciona | Aplicable en |
 | :---------------------------- | :---------------------------------------------------------------------------------------------------------------------- | :--------------------------------- |
-| **Más datos**                 | Más ejemplos → más difícil memorizar, el modelo generaliza mejor                                                        | Cualquier modelo                   |
-| **Regularización L1 (Lasso)** | Penaliza coeficientes grandes, lleva algunos a exactamente 0 (feature selection implícita)                              | Modelos lineales, redes neuronales |
-| **Regularización L2 (Ridge)** | Penaliza coeficientes grandes, los reduce pero nunca a 0                                                                | Modelos lineales, redes neuronales |
-| **Dropout**                   | Durante el entrenamiento, desactiva neuronas aleatoriamente → el modelo no puede depender de ninguna neurona específica | Redes Neuronales                   |
-| **Early Stopping**            | Detiene el entrenamiento cuando el error de validación empieza a subir aunque el de training siga bajando               | Cualquier modelo iterativo         |
-| **Data Augmentation**         | Genera variaciones artificiales de los datos existentes (rotar imágenes, añadir ruido)                                  | Especialmente en imágenes          |
-| **Cross-Validation (K-Fold)** | Evalúa el modelo en K subconjuntos distintos del dataset para tener una estimación robusta                              | Datasets pequeños                  |
+| **Más datos** | Más ejemplos → más difícil memorizar, el modelo generaliza mejor | Cualquier modelo |
+| **Regularización L1 (Lasso)** | Penaliza coeficientes grandes, lleva algunos a exactamente 0 (feature selection implícita) | Modelos lineales, redes neuronales |
+| **Regularización L2 (Ridge)** | Penaliza coeficientes grandes, los reduce pero nunca a 0 | Modelos lineales, redes neuronales |
+| **Dropout** | Durante el entrenamiento, desactiva neuronas aleatoriamente → el modelo no puede depender de ninguna neurona específica | Redes Neuronales |
+| **Early Stopping** | Detiene el entrenamiento cuando el error de validación empieza a subir aunque el de training siga bajando | Cualquier modelo iterativo |
+| **Data Augmentation** | Genera variaciones artificiales de los datos existentes (rotar imágenes, añadir ruido) | Especialmente en imágenes |
+| **Cross-Validation (K-Fold)** | Evalúa el modelo en K subconjuntos distintos del dataset para tener una estimación robusta | Datasets pequeños |
 
 > [!tip] Truco mnemotécnico para las soluciones de Overfitting
 > **"MÁS DDEC"**:
+>
 > - **M**ás datos
+>
 > - **A**umentar datos (Data Augmentation)
+>
 > - **S**top early (Early Stopping)
+>
 > - **D**ropout
+>
 > - **D**isminuir complejidad del modelo
+>
 > - **E**valuar con Cross-Validation
+>
 > - **C**astigo (Regularización L1/L2)
 
 ---

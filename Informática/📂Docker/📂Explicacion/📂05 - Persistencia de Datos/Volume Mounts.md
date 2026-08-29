@@ -47,10 +47,10 @@ docker volume create mis-datos
 ```bash
 docker volume ls
 
-# DRIVER    VOLUME NAME
-# local     mis-datos
-# local     pgdata
-# local     redis-cache
+# DRIVER VOLUME NAME
+# local mis-datos
+# local pgdata
+# local redis-cache
 ```
 
 ### Inspeccionar un volumen
@@ -59,15 +59,15 @@ docker volume ls
 docker volume inspect mis-datos
 
 # [
-#     {
-#         "CreatedAt": "2024-01-15T10:30:00Z",
-#         "Driver": "local",
-#         "Labels": {},
-#         "Mountpoint": "/var/lib/docker/volumes/mis-datos/_data",  ← Ubicación real
-#         "Name": "mis-datos",
-#         "Options": {},
-#         "Scope": "local"
-#     }
+# {
+# "CreatedAt": "2024-01-15T10:30:00Z",
+# "Driver": "local",
+# "Labels": {},
+# "Mountpoint": "/var/lib/docker/volumes/mis-datos/_data", ← Ubicación real
+# "Name": "mis-datos",
+# "Options": {},
+# "Scope": "local"
+# }
 # ]
 ```
 
@@ -95,20 +95,20 @@ Hay dos sintaxis para montar volúmenes:
 ```bash
 # -v nombre_volumen:ruta_en_contenedor
 docker run -d \
-  --name mi-postgres \
-  -v pgdata:/var/lib/postgresql/data \
-  -e POSTGRES_PASSWORD=secreto \
-  postgres:16-alpine
+ --name mi-postgres \
+ -v pgdata:/var/lib/postgresql/data \
+ -e POSTGRES_PASSWORD=secreto \
+ postgres:16-alpine
 ```
 
 ### Sintaxis larga (`--mount`) — Recomendada por Docker
 
 ```bash
 docker run -d \
-  --name mi-postgres \
-  --mount type=volume,source=pgdata,target=/var/lib/postgresql/data \
-  -e POSTGRES_PASSWORD=secreto \
-  postgres:16-alpine
+ --name mi-postgres \
+ --mount type=volume,source=pgdata,target=/var/lib/postgresql/data \
+ -e POSTGRES_PASSWORD=secreto \
+ postgres:16-alpine
 ```
 
 | Parámetro de `--mount` | Descripción |
@@ -132,14 +132,14 @@ docker run -d \
 > 
 > # 2. Ejecutar PostgreSQL con el volumen montado
 > docker run -d \
->   --name postgres-produccion \
->   -p 5432:5432 \
->   -e POSTGRES_USER=admin \
->   -e POSTGRES_PASSWORD=super_secreto \
->   -e POSTGRES_DB=mi_app_produccion \
->   -v pgdata:/var/lib/postgresql/data \
->   --restart=unless-stopped \
->   postgres:16-alpine
+> --name postgres-produccion \
+> -p 5432:5432 \
+> -e POSTGRES_USER=admin \
+> -e POSTGRES_PASSWORD=super_secreto \
+> -e POSTGRES_DB=mi_app_produccion \
+> -v pgdata:/var/lib/postgresql/data \
+> --restart=unless-stopped \
+> postgres:16-alpine
 > 
 > # 3. Crear datos (conectarse y crear una tabla)
 > docker exec -it postgres-produccion psql -U admin -d mi_app_produccion
@@ -147,10 +147,10 @@ docker run -d \
 > # INSERT INTO usuarios (nombre, email) VALUES ('Ana', 'ana@email.com');
 > # INSERT INTO usuarios (nombre, email) VALUES ('Carlos', 'carlos@email.com');
 > # SELECT * FROM usuarios;
-> #  id | nombre |      email
+> # id | nombre | email
 > # ----+--------+-----------------
-> #   1 | Ana    | ana@email.com
-> #   2 | Carlos | carlos@email.com
+> # 1 | Ana | ana@email.com
+> # 2 | Carlos | carlos@email.com
 > # \q
 > 
 > # 4. DESTRUIR el contenedor completamente
@@ -158,26 +158,26 @@ docker run -d \
 > 
 > # 5. Verificar que el volumen SIGUE existiendo
 > docker volume ls
-> # DRIVER    VOLUME NAME
-> # local     pgdata        ← ¡Sigue ahí!
+> # DRIVER VOLUME NAME
+> # local pgdata ← ¡Sigue ahí!
 > 
 > # 6. Crear un NUEVO contenedor con el MISMO volumen
 > docker run -d \
->   --name postgres-nuevo \
->   -p 5432:5432 \
->   -e POSTGRES_USER=admin \
->   -e POSTGRES_PASSWORD=super_secreto \
->   -e POSTGRES_DB=mi_app_produccion \
->   -v pgdata:/var/lib/postgresql/data \
->   postgres:16-alpine
+> --name postgres-nuevo \
+> -p 5432:5432 \
+> -e POSTGRES_USER=admin \
+> -e POSTGRES_PASSWORD=super_secreto \
+> -e POSTGRES_DB=mi_app_produccion \
+> -v pgdata:/var/lib/postgresql/data \
+> postgres:16-alpine
 > 
 > # 7. ¡Los datos siguen ahí!
 > docker exec -it postgres-nuevo psql -U admin -d mi_app_produccion \
->   -c "SELECT * FROM usuarios;"
-> #  id | nombre |      email
+> -c "SELECT * FROM usuarios;"
+> # id | nombre | email
 > # ----+--------+-----------------
-> #   1 | Ana    | ana@email.com
-> #   2 | Carlos | carlos@email.com
+> # 1 | Ana | ana@email.com
+> # 2 | Carlos | carlos@email.com
 > # ✅ ¡DATOS PRESERVADOS!
 > 
 > # 8. Limpieza
@@ -196,14 +196,14 @@ docker volume create datos-compartidos
 
 # Contenedor que ESCRIBE datos
 docker run -d \
-  --name escritor \
-  -v datos-compartidos:/datos \
-  ubuntu bash -c "while true; do date >> /datos/log.txt; sleep 5; done"
+ --name escritor \
+ -v datos-compartidos:/datos \
+ ubuntu bash -c "while true; do date >> /datos/log.txt; sleep 5; done"
 
 # Contenedor que LEE datos (modo solo lectura)
 docker run -it --rm \
-  -v datos-compartidos:/datos:ro \
-  ubuntu tail -f /datos/log.txt
+ -v datos-compartidos:/datos:ro \
+ ubuntu tail -f /datos/log.txt
 # Verás las fechas apareciendo cada 5 segundos
 
 # Limpieza
@@ -220,14 +220,14 @@ docker rm -f escritor
 ```bash
 # Montar un volumen como solo lectura
 docker run -d \
-  --name lector \
-  -v config-data:/app/config:ro \
-  mi-app
+ --name lector \
+ -v config-data:/app/config:ro \
+ mi-app
 
 # Con --mount
 docker run -d \
-  --mount type=volume,source=config-data,target=/app/config,readonly \
-  mi-app
+ --mount type=volume,source=config-data,target=/app/config,readonly \
+ mi-app
 
 # El contenedor puede LEER los datos pero NO modificarlos
 # Intentar escribir dará error: "Read-only file system"
@@ -244,8 +244,8 @@ Si montas una ruta del contenedor **sin dar un nombre**, Docker crea un **volume
 docker run -d -v /var/lib/datos mi-app
 
 docker volume ls
-# DRIVER    VOLUME NAME
-# local     a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2
+# DRIVER VOLUME NAME
+# local a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2
 
 # Difícil de gestionar → Usa SIEMPRE volúmenes con nombre
 ```
@@ -264,9 +264,9 @@ docker volume ls
 # y lo comprima en un archivo tar
 
 docker run --rm \
-  -v pgdata:/source:ro \
-  -v $(pwd):/backup \
-  ubuntu tar czf /backup/pgdata-backup-$(date +%Y%m%d).tar.gz -C /source .
+ -v pgdata:/source:ro \
+ -v $(pwd):/backup \
+ ubuntu tar czf /backup/pgdata-backup-$(date +%Y%m%d).tar.gz -C /source.
 
 # Resultado: pgdata-backup-20240115.tar.gz en tu directorio actual
 ```
@@ -279,9 +279,9 @@ docker volume create pgdata-restored
 
 # Restaurar los datos
 docker run --rm \
-  -v pgdata-restored:/target \
-  -v $(pwd):/backup:ro \
-  ubuntu tar xzf /backup/pgdata-backup-20240115.tar.gz -C /target
+ -v pgdata-restored:/target \
+ -v $(pwd):/backup:ro \
+ ubuntu tar xzf /backup/pgdata-backup-20240115.tar.gz -C /target
 
 # Ahora puedes usar 'pgdata-restored' en un nuevo contenedor
 ```
@@ -291,9 +291,9 @@ docker run --rm \
 ```bash
 # Copiar todo el contenido de un volumen a otro
 docker run --rm \
-  -v volumen-origen:/from:ro \
-  -v volumen-destino:/to \
-  ubuntu cp -a /from/. /to/
+ -v volumen-origen:/from:ro \
+ -v volumen-destino:/to \
+ ubuntu cp -a /from/. /to/
 ```
 
 ---
@@ -314,11 +314,11 @@ Por defecto, los volúmenes usan el driver `local` (almacenamiento en disco loca
 ```bash
 # Ejemplo: Crear un volumen NFS
 docker volume create \
-  --driver local \
-  --opt type=nfs \
-  --opt o=addr=192.168.1.100,rw \
-  --opt device=:/path/to/share \
-  nfs-volume
+ --driver local \
+ --opt type=nfs \
+ --opt o=addr=192.168.1.100,rw \
+ --opt device=:/path/to/share \
+ nfs-volume
 ```
 
 ---
@@ -332,8 +332,8 @@ docker volume create \
 | `docker volume inspect` | Información detallada | `docker volume inspect pgdata` |
 | `docker volume rm` | Eliminar volumen | `docker volume rm pgdata` |
 | `docker volume prune` | Limpiar sin usar | `docker volume prune` |
-| `-v nombre:/ruta` | Montar al crear contenedor | `docker run -v pgdata:/data ...` |
-| `-v nombre:/ruta:ro` | Montar solo lectura | `docker run -v config:/app:ro ...` |
+| `-v nombre:/ruta` | Montar al crear contenedor | `docker run -v pgdata:/data...` |
+| `-v nombre:/ruta:ro` | Montar solo lectura | `docker run -v config:/app:ro...` |
 
 ---
 

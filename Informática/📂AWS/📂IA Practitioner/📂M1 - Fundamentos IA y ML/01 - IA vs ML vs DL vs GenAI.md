@@ -9,17 +9,17 @@
 
 ```mermaid
 graph TD
-    A["🌍 INTELIGENCIA ARTIFICIAL — IA<br/>Cualquier máquina que imite inteligencia humana"]
-    B["📊 MACHINE LEARNING — ML<br/>Aprende patrones desde datos"]
-    C["🧠 DEEP LEARNING — DL<br/>Redes Neuronales multicapa"]
-    D["✨ IA GENERATIVA — GenAI<br/>Crea contenido nuevo y original"]
+ A["🌍 INTELIGENCIA ARTIFICIAL — IA<br/>Cualquier máquina que imite inteligencia humana"]
+ B["📊 MACHINE LEARNING — ML<br/>Aprende patrones desde datos"]
+ C["🧠 DEEP LEARNING — DL<br/>Redes Neuronales multicapa"]
+ D["✨ IA GENERATIVA — GenAI<br/>Crea contenido nuevo y original"]
 
-    A --> B --> C --> D
+ A --> B --> C --> D
 
-    style A fill:#0d2137,stroke:#4a9eda,color:#b8d9f5,rx:8
-    style B fill:#0d3721,stroke:#4aed8a,color:#b8f5d0,rx:8
-    style C fill:#372d0d,stroke:#edba4a,color:#f5e8b8,rx:8
-    style D fill:#2d0d37,stroke:#b04aed,color:#e8b8f5,rx:8
+ style A fill:#0d2137,stroke:#4a9eda,color:#b8d9f5,rx:8
+ style B fill:#0d3721,stroke:#4aed8a,color:#b8f5d0,rx:8
+ style C fill:#372d0d,stroke:#edba4a,color:#f5e8b8,rx:8
+ style D fill:#2d0d37,stroke:#b04aed,color:#e8b8f5,rx:8
 ```
 
 ---
@@ -62,12 +62,17 @@ graph TD
 **¿Qué aporta?** Una subcategoría de ML que usa **Redes Neuronales Artificiales** (ANN) de muchas capas ("profundas"). Su superpoder: puede extraer características de datos no estructurados **sin que un humano le diga en qué fijarse**.
 
 **La diferencia con ML clásico:**
+
 - En ML tradicional, un humano a veces "extrae features" manualmente (ej. le dice al modelo que mire el color y el peso).
+
 - En DL, el modelo aprende solo qué features importan directamente de los píxeles crudos, las ondas de audio o los caracteres de texto.
 
 > [!example] Ejemplos reales
-> - **Visión por computadora:** Detecta tumores en radiografías analizando píxeles en bruto.
+>
+> - **Visión por ordenador:** Detecta tumores en radiografías analizando píxeles en bruto.
+>
 > - **Reconocimiento de voz:** Transcribe audio a texto procesando ondas de sonido.
+>
 > - **AlphaGo:** Aprendió a jugar Go mediante redes neuronales (el Go tiene más posiciones que átomos en el universo, imposible por fuerza bruta).
 
 ---
@@ -82,10 +87,15 @@ graph TD
 | **GenAI (crea):** | "Genera una foto de un perro verde volando sobre Manhattan" |
 
 **¿Qué permite crear?**
+
 - 📝 Texto: artículos, código, correos, resúmenes
+
 - 🖼️ Imágenes: arte, fotos sintéticas, diseños
+
 - 🎵 Audio: música, voces sintéticas
+
 - 🎬 Vídeo: clips generados desde texto
+
 - 💻 Código: funciones, tests, documentación
 
 > [!tip] Truco de examen — La relación correcta

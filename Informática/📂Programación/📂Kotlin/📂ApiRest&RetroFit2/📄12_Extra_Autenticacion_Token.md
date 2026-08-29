@@ -9,5 +9,5 @@ Para solucionarlo, debemos enviar una **clave especial (Token)** en la **Cabecer
 Imagina que la petición HTTP es una carta:
 
 - **El Body (Cuerpo):** Es la carta que va dentro del sobre (los datos del JSON).
-    
+ 
 - **El Header (Cabecera):** Es lo que escribes fuera del sobre (remite, sello, urgencia). Aquí es donde pegamos nuestro "sello de autorización".

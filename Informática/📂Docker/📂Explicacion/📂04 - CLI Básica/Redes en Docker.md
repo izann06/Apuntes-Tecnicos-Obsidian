@@ -12,8 +12,11 @@ Las redes de Docker definen **cómo se comunican los contenedores entre sí** y 
 
 > [!tip] Analogía: Las redes como edificios y pisos
 > Imagina que los contenedores son oficinas:
+>
 > - Si están en el **mismo edificio** (misma red Docker), pueden llamarse por teléfono interno (por nombre del contenedor).
+>
 > - Si están en **edificios diferentes** (redes diferentes), no se ven entre sí, a menos que establezcas una línea telefónica especial (conectar un contenedor a múltiples redes).
+>
 > - La **recepción del edificio** (el gateway de la red) gestiona las llamadas con el exterior (Internet, tu host).
 
 ---
@@ -36,10 +39,10 @@ Las redes de Docker definen **cómo se comunican los contenedores entre sí** y 
 docker network ls
 
 # Resultado:
-# NETWORK ID     NAME      DRIVER    SCOPE
-# a1b2c3d4e5f6   bridge    bridge    local    ← Red por defecto
-# b2c3d4e5f6a7   host      host      local    ← Red del host
-# c3d4e5f6a7b8   none      null      local    ← Sin red
+# NETWORK ID NAME DRIVER SCOPE
+# a1b2c3d4e5f6 bridge bridge local ← Red por defecto
+# b2c3d4e5f6a7 host host local ← Red del host
+# c3d4e5f6a7b8 none null local ← Sin red
 ```
 
 Docker crea automáticamente tres redes al instalarse: `bridge`, `host` y `none`.
@@ -70,17 +73,17 @@ docker network create mi-red
 
 # Crear una red con configuración específica
 docker network create \
-  --driver bridge \
-  --subnet 172.20.0.0/16 \
-  --gateway 172.20.0.1 \
-  --ip-range 172.20.240.0/20 \
-  mi-red-configurada
+ --driver bridge \
+ --subnet 172.20.0.0/16 \
+ --gateway 172.20.0.1 \
+ --ip-range 172.20.240.0/20 \
+ mi-red-configurada
 
 # Crear una red con etiquetas
 docker network create \
-  --label environment=development \
-  --label project=tienda \
-  dev-network
+ --label environment=development \
+ --label project=tienda \
+ dev-network
 ```
 
 ---
@@ -128,19 +131,19 @@ docker network inspect app-network
 
 # Resultado (resumido):
 # [
-#     {
-#         "Name": "app-network",
-#         "Driver": "bridge",
-#         "IPAM": {
-#             "Config": [
-#                 { "Subnet": "172.20.0.0/16", "Gateway": "172.20.0.1" }
-#             ]
-#         },
-#         "Containers": {
-#             "abc123": { "Name": "backend",  "IPv4Address": "172.20.0.2/16" },
-#             "def456": { "Name": "database", "IPv4Address": "172.20.0.3/16" }
-#         }
-#     }
+# {
+# "Name": "app-network",
+# "Driver": "bridge",
+# "IPAM": {
+# "Config": [
+# { "Subnet": "172.20.0.0/16", "Gateway": "172.20.0.1" }
+# ]
+# },
+# "Containers": {
+# "abc123": { "Name": "backend", "IPv4Address": "172.20.0.2/16" },
+# "def456": { "Name": "database", "IPv4Address": "172.20.0.3/16" }
+# }
+# }
 # ]
 ```
 
@@ -155,21 +158,21 @@ docker network inspect app-network
 
 ```
 ┌─────────────────────────────────────────┐
-│          Red personalizada              │
-│                                         │
-│  "api" ──────► DNS Docker ──────► "db"  │
-│  172.20.0.2    resuelve nombre   172.20.0.3
-│                                         │
-│  La API se conecta a "db:5432"          │
-│  Docker traduce "db" → 172.20.0.3       │
+│ Red personalizada │
+│ │
+│ "api" ──────► DNS Docker ──────► "db" │
+│ 172.20.0.2 resuelve nombre 172.20.0.3
+│ │
+│ La API se conecta a "db:5432" │
+│ Docker traduce "db" → 172.20.0.3 │
 └─────────────────────────────────────────┘
 ```
 
 ```bash
 # La aplicación usa el NOMBRE del contenedor como hostname:
 # postgresql://admin:secreto@database:5432/mi_app
-#                              ^^^^^^^^
-#                              Nombre del contenedor = hostname DNS
+# ^^^^^^^^
+# Nombre del contenedor = hostname DNS
 ```
 
 ---
@@ -183,24 +186,24 @@ docker network inspect app-network
 > 
 > # 2. Ejecutar MySQL
 > docker run -d \
->   --name mysql-db \
->   --network tienda-network \
->   -e MYSQL_ROOT_PASSWORD=root123 \
->   -e MYSQL_DATABASE=tienda \
->   -v mysql-data:/var/lib/mysql \
->   mysql:8.0
+> --name mysql-db \
+> --network tienda-network \
+> -e MYSQL_ROOT_PASSWORD=root123 \
+> -e MYSQL_DATABASE=tienda \
+> -v mysql-data:/var/lib/mysql \
+> mysql:8.0
 > 
 > # 3. Ejecutar la API (conectándose a MySQL por NOMBRE)
 > docker run -d \
->   --name api-tienda \
->   --network tienda-network \
->   -p 3000:3000 \
->   -e DB_HOST=mysql-db \
->   -e DB_PORT=3306 \
->   -e DB_NAME=tienda \
->   -e DB_USER=root \
->   -e DB_PASSWORD=root123 \
->   mi-api-tienda:latest
+> --name api-tienda \
+> --network tienda-network \
+> -p 3000:3000 \
+> -e DB_HOST=mysql-db \
+> -e DB_PORT=3306 \
+> -e DB_NAME=tienda \
+> -e DB_USER=root \
+> -e DB_PASSWORD=root123 \
+> mi-api-tienda:latest
 > 
 > # 4. Verificar la conexión desde la API
 > docker exec api-tienda ping mysql-db
@@ -209,10 +212,10 @@ docker network inspect app-network
 > 
 > # 5. Verificar conectividad DNS
 > docker exec api-tienda nslookup mysql-db
-> # Server:   127.0.0.11  ← DNS interno de Docker
-> # Address:  127.0.0.11#53
-> # Name:     mysql-db
-> # Address:  172.20.0.2
+> # Server: 127.0.0.11 ← DNS interno de Docker
+> # Address: 127.0.0.11#53
+> # Name: mysql-db
+> # Address: 172.20.0.2
 > ```
 
 ---
@@ -229,10 +232,15 @@ docker run -d --network host nginx
 ```
 
 > [!warning] Consideraciones de la red host
+>
 > - Solo funciona en **Linux**. En Docker Desktop (Mac/Windows), la red `host` se comporta como bridge porque Docker corre en una VM.
+>
 > - **Sin aislamiento de red**: El contenedor ve todas las interfaces de red del host.
+>
 > - **Sin mapeo de puertos**: Si la app escucha en el puerto 80, usa directamente el puerto 80 del host.
+>
 > - **Mejor rendimiento**: Elimina la capa de NAT (Network Address Translation).
+>
 > - **Riesgo**: El contenedor puede interferir con servicios del host.
 
 ---
@@ -246,7 +254,7 @@ docker run -d --network none mi-procesamiento-batch
 # Solo tiene la interfaz lo (127.0.0.1)
 docker exec mi-procesamiento-batch ip addr
 # 1: lo: <LOOPBACK,UP,LOWER_UP>
-#     inet 127.0.0.1/8 scope host lo
+# inet 127.0.0.1/8 scope host lo
 ```
 
 Útil para contenedores que procesan datos locales y **no deben** tener acceso a la red por seguridad.

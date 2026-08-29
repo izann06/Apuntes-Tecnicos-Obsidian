@@ -47,9 +47,9 @@ docker run -d --name app-cpu --cpus="1.5" nginx
 docker run -d --cpus="0.5" mi-app
 
 # En una máquina de 8 CPUs, esto significa:
-# --cpus="1.0"  → El contenedor usa como máximo el 12.5% del total
-# --cpus="4.0"  → El contenedor usa como máximo el 50% del total
-# --cpus="8.0"  → El contenedor puede usar toda la CPU disponible
+# --cpus="1.0" → El contenedor usa como máximo el 12.5% del total
+# --cpus="4.0" → El contenedor usa como máximo el 50% del total
+# --cpus="8.0" → El contenedor puede usar toda la CPU disponible
 ```
 
 ### `--cpu-shares` — Prioridad relativa (peso)
@@ -75,7 +75,7 @@ docker run -d --name baja-prioridad --cpu-shares=512 mi-app-secundaria
 docker run -d --cpuset-cpus="0,1" mi-app
 
 # Rango de CPUs
-docker run -d --cpuset-cpus="0-3" mi-app  # CPUs 0, 1, 2 y 3
+docker run -d --cpuset-cpus="0-3" mi-app # CPUs 0, 1, 2 y 3
 ```
 
 ---
@@ -89,8 +89,8 @@ docker run -d --cpuset-cpus="0-3" mi-app  # CPUs 0, 1, 2 y 3
 docker run -d --name app-limitada --memory="512m" nginx
 
 # Otras unidades:
-# --memory="1g"     → 1 GB
-# --memory="256m"   → 256 MB
+# --memory="1g" → 1 GB
+# --memory="256m" → 256 MB
 # --memory="100000k" → ~100 MB
 ```
 
@@ -123,15 +123,15 @@ docker run -d --memory="512m" --memory-reservation="256m" mi-app
 ```bash
 # Ejecutar un contenedor con máximo 512 MB de RAM y 1 CPU
 docker run -d \
-  --name app-limitada \
-  --memory="512m" \
-  --cpus="1.0" \
-  nginx
+ --name app-limitada \
+ --memory="512m" \
+ --cpus="1.0" \
+ nginx
 
 # Ver los límites aplicados en tiempo real
 docker stats app-limitada
-# CONTAINER ID   NAME           CPU %   MEM USAGE / LIMIT   MEM %
-# a1b2c3d4       app-limitada   0.00%   5.2MiB / 512MiB     1.02%
+# CONTAINER ID NAME CPU % MEM USAGE / LIMIT MEM %
+# a1b2c3d4 app-limitada 0.00% 5.2MiB / 512MiB 1.02%
 ```
 
 ---
@@ -139,7 +139,9 @@ docker stats app-limitada
 ## ¿Qué pasa si un contenedor excede sus límites?
 
 > [!warning] Comportamiento al exceder límites
+>
 > - **Si excede la RAM**: El kernel de Linux activa el **OOM Killer** (Out Of Memory Killer) y **mata el contenedor**. Verás un exit code `137` (128 + señal 9 SIGKILL).
+>
 > - **Si excede la CPU**: El contenedor simplemente se **ralentiza** (throttling). No se mata, pero sus procesos se ejecutan más lento.
 
 ### Detectar un OOM Kill
@@ -147,11 +149,11 @@ docker stats app-limitada
 ```bash
 # Verificar si un contenedor murió por OOM
 docker inspect app-limitada --format='{{.State.OOMKilled}}'
-# true  ← El OOM Killer lo mató
+# true ← El OOM Killer lo mató
 
 # El exit code será 137
 docker inspect app-limitada --format='{{.State.ExitCode}}'
-# 137  ← 128 + 9 (SIGKILL)
+# 137 ← 128 + 9 (SIGKILL)
 ```
 
 ### Simulación: Contenedor hambriento de recursos
@@ -159,17 +161,17 @@ docker inspect app-limitada --format='{{.State.ExitCode}}'
 ```bash
 # Crear un contenedor que intenta consumir 1 GB de RAM, pero limitado a 256 MB
 docker run -d \
-  --name stress-test \
-  --memory="256m" \
-  polinux/stress \
-  stress --vm 1 --vm-bytes 1G --timeout 60s
+ --name stress-test \
+ --memory="256m" \
+ polinux/stress \
+ stress --vm 1 --vm-bytes 1G --timeout 60s
 
 # Observar en tiempo real cómo Docker lo gestiona
 docker stats stress-test
 
 # El contenedor será MATADO por el OOM Killer
 docker inspect stress-test --format='{{.State.ExitCode}}'
-# 137  ← Código de salida = 128 + 9 (SIGKILL por OOM)
+# 137 ← Código de salida = 128 + 9 (SIGKILL por OOM)
 ```
 
 ---
@@ -179,15 +181,15 @@ docker inspect stress-test --format='{{.State.ExitCode}}'
 ```bash
 # Limitar velocidad de escritura a 10 MB/s en el dispositivo /dev/sda
 docker run -d \
-  --device-write-bps /dev/sda:10mb \
-  --device-read-bps /dev/sda:10mb \
-  mi-app
+ --device-write-bps /dev/sda:10mb \
+ --device-read-bps /dev/sda:10mb \
+ mi-app
 
 # Limitar IOPS (operaciones de I/O por segundo)
 docker run -d \
-  --device-write-iops /dev/sda:100 \
-  --device-read-iops /dev/sda:100 \
-  mi-app
+ --device-write-iops /dev/sda:100 \
+ --device-read-iops /dev/sda:100 \
+ mi-app
 ```
 
 ---
@@ -209,11 +211,11 @@ docker run -d --pids-limit=100 mi-app
 > 
 > # ✅ Bueno (con límites definidos)
 > docker run -d \
->   --memory="512m" \
->   --cpus="1.0" \
->   --pids-limit=100 \
->   --restart=unless-stopped \
->   mi-app
+> --memory="512m" \
+> --cpus="1.0" \
+> --pids-limit=100 \
+> --restart=unless-stopped \
+> mi-app
 > ```
 
 ---
@@ -231,8 +233,8 @@ docker run -d --pids-limit=100 mi-app
 ```bash
 # Verificar qué versión de cgroups usa tu sistema
 stat -fc %T /sys/fs/cgroup/
-# cgroup2fs  → cgroups v2
-# tmpfs      → cgroups v1
+# cgroup2fs → cgroups v2
+# tmpfs → cgroups v1
 
 # Verificar en Docker
 docker info | grep "Cgroup"

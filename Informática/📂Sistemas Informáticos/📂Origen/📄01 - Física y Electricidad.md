@@ -39,6 +39,7 @@ El silicio es el segundo elemento más abundante en la corteza terrestre (princi
 Este proceso de tratamiento se llama **dopado**: se introducen impurezas (átomos de otros elementos como fósforo o boro) en la red cristalina del silicio para modificar su comportamiento eléctrico.
 
 - **Silicio tipo N**: dopado con fósforo → tiene electrones "de sobra" → conduce mejor.
+
 - **Silicio tipo P**: dopado con boro → le faltan electrones (tiene "huecos") → conduce de otra manera.
 
 Cuando juntas una región tipo N con una tipo P, creas una **unión PN**, que es la base del transistor.

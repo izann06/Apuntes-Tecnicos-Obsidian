@@ -15,8 +15,10 @@
 * **Función Principal:** Analiza el inventario local actual (hardware y licencias de software) y proyecta estimaciones de costes detalladas y realistas en AWS.
 
 * **Beneficios Clave:**
-    * Elimina las conjeturas mostrando múltiples escenarios de migración optimizados para reducir costes.
-    * Identifica oportunidades para reutilizar licencias de software existentes (**BYOL**), disminuyendo el gasto total de adquisición.
+
+ * Elimina las conjeturas mostrando múltiples escenarios de migración optimizados para reducir costes.
+
+ * Identifica oportunidades para reutilizar licencias de software existentes (**BYOL**), disminuyendo el gasto total de adquisición.
 
 ---
 
@@ -49,8 +51,10 @@
 * **Función Principal:** Realiza una replicación continua de los servidores a nivel de bloque. Permite que las operaciones de la empresa sigan funcionando con total normalidad durante la copia.
 
 * **Beneficios Clave:**
-    * **Tiempo mínimo de inactividad (Downtime):** El corte final para pasar a la nube se realiza en cuestión de minutos.
-    * **Modernización en vuelo:** Permite aplicar optimizaciones automáticas a las aplicaciones durante el proceso de migración.
+
+ * **Tiempo mínimo de inactividad (Downtime):** El corte final para pasar a la nube se realiza en cuestión de minutos.
+
+ * **Modernización en vuelo:** Permite aplicar optimizaciones automáticas a las aplicaciones durante el proceso de migración.
 
 ---
 

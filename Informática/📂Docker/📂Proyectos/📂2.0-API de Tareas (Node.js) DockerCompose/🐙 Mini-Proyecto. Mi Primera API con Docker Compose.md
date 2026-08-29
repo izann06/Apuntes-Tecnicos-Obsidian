@@ -9,11 +9,11 @@
 Evolucionar nuestro contenedor individual para que sea gestionado por **Docker Compose**. Esto resuelve tres problemas principales:
 
 1. Dejar de escribir comandos de terminal larguísimos y guardarlo todo en un archivo (`IaC`).
-    
+ 
 2. Sincronizar nuestro código en tiempo real usando **Volúmenes** (sin tener que reconstruir la imagen en cada cambio).
-    
+ 
 3. Entender y dominar la comunicación de red y los puertos entre el PC físico y el contenedor.
-    
+ 
 
 ## 🛠️ Archivos Necesarios
 
@@ -27,12 +27,12 @@ Un servidor HTTP básico en Node.js, esta vez configurado para escuchar en el pu
 const http = require('http');
 
 const server = http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('En este proyecto estoy usando Docker Compose y sincroniza mi código en tiempo real.\n');
+ res.writeHead(200, { 'Content-Type': 'text/plain' });
+ res.end('En este proyecto estoy usando Docker Compose y sincroniza mi código en tiempo real.\n');
 });
 
 server.listen(3000, () => {
-    console.log('Server running on port 3000');
+ console.log('Server running on port 3000');
 });
 ```
 
@@ -43,7 +43,7 @@ Mantenemos la misma receta, pero actualizando el puerto expuesto para que coinci
 ```Dockerfile
 FROM node:20-alpine
 WORKDIR /app
-COPY server.js .
+COPY server.js.
 EXPOSE 3000
 CMD ["node", "server.js"]
 ```
@@ -55,23 +55,23 @@ Este archivo reemplaza al comando `docker run`. Aquí definimos los servicios, l
 ```YAML
 services: #Aquí se definen todos los contenedores que quieres usar
 
-  mi-api-node: #Nombre inventado para este contenedor
-  
-    build: . #Le dice a docker que busque un Dockerfile en esta misma carpeta y construya la imagen
-    
-    ports: #Enlaza los puertos
-      - "3001:3000" #Desde el 3001 de mi PC hasta el 3000 del contenedor
-        
-    volumes:
-      - .:/app #Sincroniza mi carpeta actual con la del contenedor
-        
-    restart: always #Siempre que reinicie mi PC o Docker, se iniciará automáticamente
-    
+ mi-api-node: #Nombre inventado para este contenedor
+ 
+ build:. #Le dice a docker que busque un Dockerfile en esta misma carpeta y construya la imagen
+ 
+ ports: #Enlaza los puertos
+ - "3001:3000" #Desde el 3001 de mi PC hasta el 3000 del contenedor
+ 
+ volumes:
+ -.:/app #Sincroniza mi carpeta actual con la del contenedor
+ 
+ restart: always #Siempre que reinicie mi PC o Docker, se iniciará automáticamente
+ 
 ```
 
 ## 💡 Conceptos Clave (Resolución de Dudas)
 
-> [!tip] La magia de los Volúmenes (`volumes: - .:/app`) 
+> [!tip] La magia de los Volúmenes (`volumes: -.:/app`) 
 > **¿Qué hace?** Crea un túnel directo entre la carpeta de nuestro PC (`.`) y la carpeta interna del contenedor (`/app`).
 > 
 > **¿Para qué sirve?** Si ahora modificas `server.js` y guardas, el archivo se actualiza mágicamente dentro del contenedor. Ya no necesitas hacer un `docker build` cada vez que programas algo nuevo.
@@ -79,9 +79,9 @@ services: #Aquí se definen todos los contenedores que quieres usar
 > [!warning] La Regla de Oro de los Puertos (Izquierda vs Derecha) Cuando mapeamos puertos en Compose (`"3001:3000"`), siempre seguimos la regla: **`TU_PC : CONTENEDOR`**.
 > 
 > - **Derecha (Contenedor - 3000):** Es el puerto donde vive tu código. Siempre tiene que coincidir con el puerto que pusiste en el `server.js` (`server.listen(3000)`). Los puertos de los contenedores son reutilizables infinitas veces porque son cajas aisladas.
->     
+> 
 > - **Izquierda (Tu PC - 3001):** Es la puerta real de tu ordenador por donde vas a entrar desde el navegador (`http://localhost:3001`). Puedes inventarte el número que quieras (8080, 4000, 9999), siempre que esté libre en tu PC.
->     
+> 
 
 ## 💻 Comandos del Día a Día
 

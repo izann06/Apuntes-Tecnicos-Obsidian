@@ -3,11 +3,11 @@ Aqui se encuentran 2 clases:
 **LoginRequest:** Es el paquete que nosotros enviamos.Contiene `User` y `Password`.
 
 ```Kotlin
-data class LoginRequest(  
-    @SerializedName("usuario")  
-    val user: String,  
-    @SerializedName("password")  
-    val password: String  
+data class LoginRequest( 
+ @SerializedName("usuario") 
+ val user: String, 
+ @SerializedName("password") 
+ val password: String 
 )
 ```
 
@@ -17,20 +17,20 @@ data class LoginRequest(
 **LoginResponse:** Es el paquete que el servidor nos devuelve.Contiene `ok`, `token` `message`.
 
 - `ok`: Un booleano para saber si fue bien.
-    
+ 
 - `token`: La llave que contiene nuestra información y usaremos en futuras peticiones, para no tener que iniciar sesión, sino que entraremos directamente.
-    
+ 
 - `message`: Un texto por si hay algún error (ej: "Contraseña incorrecta").
 
 ```Kotlin
-data class LoginResponse(  
-    @SerializedName("ok")  
-    val ok: Boolean,  
-    @SerializedName("token")  
-    val token: String?,  
-    @SerializedName("message")  
-    val message: String?,  
-    val username: String  
+data class LoginResponse( 
+ @SerializedName("ok") 
+ val ok: Boolean, 
+ @SerializedName("token") 
+ val token: String?, 
+ @SerializedName("message") 
+ val message: String?, 
+ val username: String 
 )
 ```
 
@@ -45,10 +45,10 @@ Si es incorrecto,hay algo mal ya puede ser credenciales,servidor...Hay muchos er
 
 Ahora bien,no he nombrado ninguna vez `username`,no es obligatorio usarlo,en la respuesta de la API ya vemos que no aparece pero si quieres usarlo sirve para esto.
 
-##  ¿Qué cambia realmente en tu app?
+## ¿Qué cambia realmente en tu app?
 
-| **Si dejas el username**                                                        | **Si quitas el username**                                      |
+| **Si dejas el username** | **Si quitas el username** |
 | ------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| Puedes poner "Bienvenido, Izan" en la pantalla de inicio nada más abrir la app. | La app solo sabe que "alguien" ha entrado, pero no su nombre.  |
-| Tienes que gestionar un dato más en el DataStore (un poco más de código).       | El código es más limpio y minimalista. Menos margen de error.  |
-| Útil si el usuario puede cambiar de cuenta a menudo.                            | Solo te importa que el Token sea válido para hacer peticiones. |
+| Puedes poner "Bienvenido, Izan" en la pantalla de inicio nada más abrir la app. | La app solo sabe que "alguien" ha entrado, pero no su nombre. |
+| Tienes que gestionar un dato más en el DataStore (un poco más de código). | El código es más limpio y minimalista. Menos margen de error. |
+| Útil si el usuario puede cambiar de cuenta a menudo. | Solo te importa que el Token sea válido para hacer peticiones. |

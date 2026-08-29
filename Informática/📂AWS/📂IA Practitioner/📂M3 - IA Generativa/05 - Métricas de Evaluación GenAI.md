@@ -21,23 +21,27 @@
 ### Ejemplo de Cálculo de ROUGE-1
 
 ```
-Referencia:  "El gato come pescado fresco"
-Generado:    "El gato ha comido pescado"
+Referencia: "El gato come pescado fresco"
+Generado: "El gato ha comido pescado"
 
 Palabras de referencia: {El, gato, come, pescado, fresco} = 5
 Palabras coincidentes en el generado: {El, gato, pescado} = 3
 
-ROUGE-1 Recall = 3/5 = 0.60  (60% de la referencia fue capturada)
-ROUGE-1 Precision = 3/5 = 0.60  (60% del generado estaba en la referencia)
+ROUGE-1 Recall = 3/5 = 0.60 (60% de la referencia fue capturada)
+ROUGE-1 Precision = 3/5 = 0.60 (60% del generado estaba en la referencia)
 ROUGE-1 F1 = 0.60
 ```
 
 ### Cuándo Usar ROUGE
 
 > [!example] Casos de uso de ROUGE
+>
 > - **Evaluación de sistemas de resumen** (summarization): ¿Capturó el resumen las ideas principales?
+>
 > - **Evaluación de traducción automática** (como métrica secundaria)
+>
 > - **Evaluación de generación de respuestas a preguntas** (Q&A)
+>
 > - Cualquier tarea donde exista un texto de referencia "correcto" con el que comparar
 
 > [!warning] Limitación crítica de ROUGE
@@ -45,9 +49,9 @@ ROUGE-1 F1 = 0.60
 > 
 > ```
 > Referencia: "El coche es veloz"
-> Generado:   "El automóvil es rápido"
-> ROUGE-1 ≈ 0.33  (solo "El" coincide, aunque significan lo mismo)
-> BERTScore ≈ 0.95  (captura que son semánticamente equivalentes)
+> Generado: "El automóvil es rápido"
+> ROUGE-1 ≈ 0.33 (solo "El" coincide, aunque significan lo mismo)
+> BERTScore ≈ 0.95 (captura que son semánticamente equivalentes)
 > ```
 
 ---
@@ -67,8 +71,11 @@ ROUGE-1 F1 = 0.60
 | **Penalización** | No penaliza respuestas cortas | Sí penaliza respuestas demasiado cortas (Brevity Penalty) |
 
 > [!example] Cuándo usar BLEU
+>
 > - Evaluación de sistemas de **traducción automática** (Machine Translation)
+>
 > - Comparar la salida de diferentes modelos de traducción entre sí
+>
 > - Benchmark estándar de NLP para muchas tareas generativas
 
 ---
@@ -82,19 +89,19 @@ ROUGE-1 F1 = 0.60
 
 ```mermaid
 graph LR
-    subgraph "Texto Generado"
-        G1["El"] G2["automóvil"] G3["es"] G4["rápido"]
-    end
-    subgraph "Texto Referencia"
-        R1["El"] R2["coche"] R3["es"] R4["veloz"]
-    end
-    
-    G1 -->|"similitud\n1.00"| R1
-    G2 -->|"similitud\n0.95"| R2
-    G3 -->|"similitud\n1.00"| R3
-    G4 -->|"similitud\n0.93"| R4
+ subgraph "Texto Generado"
+ G1["El"] G2["automóvil"] G3["es"] G4["rápido"]
+ end
+ subgraph "Texto Referencia"
+ R1["El"] R2["coche"] R3["es"] R4["veloz"]
+ end
+ 
+ G1 -->|"similitud\n1.00"| R1
+ G2 -->|"similitud\n0.95"| R2
+ G3 -->|"similitud\n1.00"| R3
+ G4 -->|"similitud\n0.93"| R4
 
-    Note["BERTScore F1 ≈ 0.97\n¡Captura que son equivalentes!"]
+ Note["BERTScore F1 ≈ 0.97\n¡Captura que son equivalentes!"]
 ```
 
 ### Por Qué BERTScore es Superior a ROUGE/BLEU
@@ -108,8 +115,11 @@ graph LR
 | Coste computacional | Bajo | Medio (necesita BERT) |
 
 > [!tip] Cuándo usar BERTScore vs ROUGE
+>
 > - Si quieres evaluar si el **significado** se preserva → **BERTScore**
+>
 > - Si quieres evaluar si las **palabras clave específicas** aparecen → **ROUGE**
+>
 > - En la práctica, se usan **juntas** como métricas complementarias
 
 ---
@@ -123,16 +133,16 @@ graph LR
 
 ```mermaid
 sequenceDiagram
-    participant U as 📝 Prompt Original
-    participant E as 🤖 LLM Evaluado
-    participant J as ⚖️ LLM Juez (Claude/GPT-4)
-    participant R as 📊 Resultado
+ participant U as 📝 Prompt Original
+ participant E as 🤖 LLM Evaluado
+ participant J as ⚖️ LLM Juez (Claude/GPT-4)
+ participant R as 📊 Resultado
 
-    U->>E: "Explica qué es el overfitting"
-    E->>J: Respuesta generada por el LLM evaluado
-    U->>J: Prompt original (para contexto)
-    J->>J: Evalúa según criterios:<br/>• Corrección factual<br/>• Coherencia<br/>• Completitud<br/>• Seguimiento de instrucciones
-    J->>R: Puntuación 1-5 + Justificación escrita
+ U->>E: "Explica qué es el overfitting"
+ E->>J: Respuesta generada por el LLM evaluado
+ U->>J: Prompt original (para contexto)
+ J->>J: Evalúa según criterios:<br/>• Corrección factual<br/>• Coherencia<br/>• Completitud<br/>• Seguimiento de instrucciones
+ J->>R: Puntuación 1-5 + Justificación escrita
 ```
 
 ### Criterios de Evaluación Típicos
@@ -156,8 +166,11 @@ sequenceDiagram
 
 > [!tip] LLM-as-a-Judge en Amazon Bedrock
 > **Bedrock Model Evaluation** soporta evaluación automática usando un LLM como juez. Es la solución AWS para evaluar calidad de modelos sin revisión humana. Si el examen pregunta:
+>
 > - "Evaluar automáticamente la calidad de respuestas de un chatbot sin revisión humana" → **LLM-as-a-Judge / Bedrock Model Evaluation**
+>
 > - "Evaluar la calidad de resúmenes automáticos" → **ROUGE**
+>
 > - "Evaluar la similitud semántica entre respuestas" → **BERTScore**
 
 ---

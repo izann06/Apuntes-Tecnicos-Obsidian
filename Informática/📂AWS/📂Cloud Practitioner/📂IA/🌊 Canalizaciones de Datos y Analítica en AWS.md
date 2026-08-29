@@ -26,11 +26,11 @@ Mover los datos desde los sensores, aplicaciones o bases de datos hacia la nube.
 
 * **Amazon Kinesis Data Streams (Tiempo Real Puro):** Captura de forma continua terabytes de datos por segundo con una latencia de milisegundos. Admite que múltiples aplicaciones consuman el mismo flujo a la vez.
 
-    * *Caso de uso de examen:* Analizar las tendencias del mercado de valores al instante para tomar decisiones bancarias inmediatas.
-    
+ * *Caso de uso de examen:* Analizar las tendencias del mercado de valores al instante para tomar decisiones bancarias inmediatas.
+ 
 * **Amazon Data Firehose (Casi Tiempo Real / ETL de transmisión):** Recopila los datos y los empaqueta automáticamente para enviarlos directamente a su destino (como S3 o Redshift) en cuestión de segundos. No requiere gestionar servidores.
 
-    * *Caso de uso de examen:* Recopilar registros de miles de dispositivos domésticos inteligentes para guardarlos a largo plazo.
+ * *Caso de uso de examen:* Recopilar registros de miles de dispositivos domésticos inteligentes para guardarlos a largo plazo.
 
 ---
 
@@ -56,7 +56,7 @@ Los datos brutos suelen venir "sucios" o desorganizados. Hay que hacerles un pro
 
 * **Amazon EMR (Elastic MapReduce - Big Data Masivo):** Diseñado para procesar datos a escala gigante utilizando marcos de trabajo de código abierto muy populares como **Apache Spark, Hadoop o Hive**. 
 
-    * *Clave de examen:* Requiere que el equipo tenga experiencia previa en herramientas de Big Data y necesite configuraciones muy personalizadas de clústeres.
+ * *Clave de examen:* Requiere que el equipo tenga experiencia previa en herramientas de Big Data y necesite configuraciones muy personalizadas de clústeres.
 
 ---
 
@@ -80,6 +80,7 @@ Una vez limpios, llega el momento de hacerles preguntas y ver los resultados.
 
 * **Kinesis Streams:** Tiempo real estricto, baja latencia, tú construyes la aplicación que consume el flujo
 .
+
 * **Firehose:** Casi tiempo real, automatizado, su función principal es "cargar" el dato directamente en S3, Redshift u OpenSearch.
 
 ### Amazon Athena vs. Amazon Redshift

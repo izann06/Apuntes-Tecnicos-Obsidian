@@ -14,23 +14,23 @@ No necesitas saber matemáticas ni saber entrenar un modelo. AWS ya lo ha hecho 
 * **Amazon Comprehend (El Analizador de Sentimientos):** Utiliza procesamiento de lenguaje natural (NLP) para leer textos (como correos o reseñas de clientes) y descubrir si la gente está contenta, enfadada o neutra. También extrae frases clave.
 
 * **Amazon Polly (Texto a Voz):** Convierte texto escrito en archivos de audio con voces humanas increíblemente realistas, soportando múltiples idiomas y acentos.
-    
+ 
 * **Amazon Transcribe (Voz a Texto):** Lo contrario a Polly. Escucha un archivo de audio o voz en tiempo real y lo convierte en texto escrito.
-    
+ 
 * **Amazon Translate (El Traductor):** Traduce grandes volúmenes de texto a diferentes idiomas en tiempo real o por lotes.
 
 ### B. Visión Artificial y Búsqueda Inteligente
 
 * **Amazon Rekognition (El Ojo Digital):** Analiza imágenes y vídeos guardados en Amazon S3. Puede identificar objetos, personas, texto e incluso detectar contenido inapropiado (moderación).
-    
-* **Amazon Textract (El Extractor de Formularios):** Va un paso más allá del reconocimiento de texto simple (OCR). Sabe leer tablas y formularios escaneados, identificando qué dato corresponde a cada casilla.
-    
+ 
+* **Amazon Textract (El Extractor de Formularios):** Va un paso más allí del reconocimiento de texto simple (OCR). Sabe leer tablas y formularios escaneados, identificando qué dato corresponde a cada casilla.
+ 
 * **Amazon Kendra (El Buscador Inteligente):** Un motor de búsqueda para empresas que entiende el contexto de la pregunta en lenguaje natural, en lugar de buscar simples palabras clave en un documento.
 
 ### C. Personalización e IA Conversacional
 
 * **Amazon Lex (El Constructor de Chatbots):** Es la tecnología que utiliza internamente Alexa. Permite añadir interfaces de conversación (de texto o voz) a tus aplicaciones.
-    
+ 
 * **Amazon Personalize (El Recomendador estilo Amazon.com):** Examina el historial de tus clientes y crea recomendaciones de productos o contenido totalmente adaptadas a sus gustos personales.
 
 ---

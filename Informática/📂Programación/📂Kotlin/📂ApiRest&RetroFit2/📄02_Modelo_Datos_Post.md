@@ -37,7 +37,7 @@ Como el objetivo del tema es guardar los datos en local (caché offline), debemo
 > Los nombres de las variables (userId, title) deben ser idénticos a los del JSON.
 > 
 > - Si en el JSON dice `"user_id"` y tú pones `val userId`, **no funcionará** (saldrá null o 0).
->     
+> 
 > - Solución: Si quieres poner un nombre distinto en el atributo de la data class para que el JSON sepa a que articulo está asociado, debes usar la anotación @SerializedName on el atributo del JSON
 
 ---
@@ -47,13 +47,13 @@ Como el objetivo del tema es guardar los datos en local (caché offline), debemo
 Cuando el JSON es enorme y tiene 50 campos, escribirlos a mano es una pérdida de tiempo y dolor de cabeza. Android Studio tiene un plugin para hacerlo automático:
 
 1. Copia el texto JSON crudo (desde el navegador).
-    
+ 
 2. En Android Studio: Clic derecho en la carpeta `model` -> `New` -> `Kotlin Data Class File from JSON`.
-    
+ 
 3. Pega el JSON y dale un nombre.
-    
+ 
 4. Hay un boton que es **Advanced** dentro vete a **Annotation** y selecciona Gson. Acepta.
-    
+ 
 
 ---
 

@@ -1,4 +1,5 @@
-﻿**Tags:** #comprehend #lex #translate #polly #transcribe #nlp #voz #ia #m2-servicios
+﻿**Tags:** #comprehend #lex #translate #polly #transcribe #nlp #voz #ia
+ #m2-servicios
 
 ---
 
@@ -24,9 +25,9 @@
 > [!example] Caso de uso real — Análisis de atención al cliente
 > ```
 > Flujo: Reseñas de clientes → Comprehend
->        ↓ Sentiment Analysis → Identifica reseñas muy negativas
->        ↓ Entity Recognition → Extrae el producto mencionado
->        ↓ Alerta automática → Crea ticket de soporte prioritario
+> ↓ Sentiment Analysis → Identifica reseñas muy negativas
+> ↓ Entity Recognition → Extrae el producto mencionado
+> ↓ Alerta automática → Crea ticket de soporte prioritario
 > ```
 
 > [!example] Caso de uso real — Compliance y PII
@@ -54,21 +55,21 @@
 
 ```mermaid
 sequenceDiagram
-    participant U as 👤 Usuario
-    participant L as 🤖 Amazon Lex
-    participant λ as ⚡ AWS Lambda
-    participant DB as 💾 Base de Datos
+ participant U as 👤 Usuario
+ participant L as 🤖 Amazon Lex
+ participant λ as ⚡ AWS Lambda
+ participant DB as 💾 Base de Datos
 
-    U->>L: "Quiero consultar mi saldo"
-    L->>L: Detecta Intent: ConsultarSaldo
-    L->>U: "¿De qué cuenta quieres consultar? (corriente/ahorro)"
-    U->>L: "De mi cuenta corriente"
-    L->>L: Slot completado: tipo_cuenta = corriente
-    L->>λ: Fulfillment → Llama a Lambda con {user_id, tipo: corriente}
-    λ->>DB: Consulta saldo
-    DB->>λ: €2,450.30
-    λ->>L: Respuesta formateada
-    L->>U: "Tu saldo en cuenta corriente es 2.450,30€"
+ U->>L: "Quiero consultar mi saldo"
+ L->>L: Detecta Intent: ConsultarSaldo
+ L->>U: "¿De qué cuenta quieres consultar? (corriente/ahorro)"
+ U->>L: "De mi cuenta corriente"
+ L->>L: Slot completado: tipo_cuenta = corriente
+ L->>λ: Fulfillment → Llama a Lambda con {user_id, tipo: corriente}
+ λ->>DB: Consulta saldo
+ DB->>λ: €2,450.30
+ λ->>L: Respuesta formateada
+ L->>U: "Tu saldo en cuenta corriente es 2.450,30€"
 ```
 
 > [!tip] Lex + Connect = Contact Center IA
@@ -121,16 +122,19 @@ sequenceDiagram
 > ```
 > SSML Example:
 > <speak>
->   Bienvenido a nuestra plataforma.
->   <break time="500ms"/>
->   Su pedido número <emphasis level="strong">A-12345</emphasis>
->   ha sido <prosody rate="slow">confirmado correctamente</prosody>.
+> Bienvenido a nuestra plataforma.
+> <break time="500ms"/>
+> Su pedido número <emphasis level="strong">A-12345</emphasis>
+> ha sido <prosody rate="slow">confirmado correctamente</prosody>.
 > </speak>
 > ```
 
 > [!example] Casos de uso de Polly
+>
 > - **E-learning:** Convertir cursos escritos en audio para consumo mientras se conduce
+>
 > - **Accesibilidad:** Leer contenido web en voz alta para personas con discapacidad visual
+>
 > - **IoT/Dispositivos:** Dar voz a dispositivos embebidos sin conexión a internet (con lexicons descargados)
 
 ---
@@ -142,26 +146,26 @@ sequenceDiagram
 
 ### Capacidades Clave
 
-| Capacidad                   | Descripción                                                                         | Caso de uso                                      |
+| Capacidad | Descripción | Caso de uso |
 | :-------------------------- | :---------------------------------------------------------------------------------- | :----------------------------------------------- |
-| **Speaker Diarization**     | Diferencia quién habla en cada momento ("Hablante 1:", "Hablante 2:")               | Transcribir reuniones o entrevistas multipersona |
-| **Custom Vocabulary**       | Entrena el modelo con términos especializados (jerga médica, nombres de empresa)    | Transcripción en sectores muy técnicos           |
-| **Automatic Punctuation**   | Añade puntuación automáticamente al texto                                           | Transcripciones más legibles                     |
-| **PII Redaction**           | Redacta automáticamente PII del texto transcrito                                    | Cumplimiento GDPR en registros de llamadas       |
-| **Language Identification** | Detecta automáticamente el idioma hablado                                           | Call centers multilinguales                      |
-| **Subtitles**               | Genera ficheros SRT/VTT de subtítulos sincronizados                                 | Accesibilidad en plataformas de vídeo            |
-| **Medical Transcribe**      | Versión especializada con vocabulario médico                                        | Transcripción de consultas y dictados médicos    |
-| **Call Analytics**          | Analiza conversaciones de call center: interrupciones, tiempo de habla, sentimiento | QA automatizado de call centers                  |
+| **Speaker Diarization** | Diferencia quién habla en cada momento ("Hablante 1:", "Hablante 2:") | Transcribir reuniones o entrevistas multipersona |
+| **Custom Vocabulary** | Entrena el modelo con términos especializados (jerga médica, nombres de empresa) | Transcripción en sectores muy técnicos |
+| **Automatic Punctuation** | Añade puntuación automáticamente al texto | Transcripciones más legibles |
+| **PII Redaction** | Redacta automáticamente PII del texto transcrito | Cumplimiento GDPR en registros de llamadas |
+| **Language Identification** | Detecta automáticamente el idioma hablado | Call centers multilinguales |
+| **Subtitles** | Genera ficheros SRT/VTT de subtítulos sincronizados | Accesibilidad en plataformas de vídeo |
+| **Medical Transcribe** | Versión especializada con vocabulario médico | Transcripción de consultas y dictados médicos |
+| **Call Analytics** | Analiza conversaciones de call center: interrupciones, tiempo de habla, sentimiento | QA automatizado de call centers |
 
 > [!example] Arquitectura — Análisis Automático de Call Center
 > ```mermaid
 > flowchart LR
->     A[📞 Grabación de llamada] --> B[Amazon Transcribe\nCall Analytics]
->     B --> C[Texto transcrito\n+ Metadatos: sentimiento, interrupciones]
->     C --> D[Amazon Comprehend\nAnálisis de sentimiento]
->     D --> E{¿Cliente\ninsatisfecho?}
->     E -->|Sí| F[🚨 Alerta al supervisor\n+ Ticket prioritario]
->     E -->|No| G[📊 Dashboard\nde calidad]
+> A[📞 Grabación de llamada] --> B[Amazon Transcribe\nCall Analytics]
+> B --> C[Texto transcrito\n+ Metadatos: sentimiento, interrupciones]
+> C --> D[Amazon Comprehend\nAnálisis de sentimiento]
+> D --> E{¿Cliente\ninsatisfecho?}
+> E -->|Sí| F[🚨 Alerta al supervisor\n+ Ticket prioritario]
+> E -->|No| G[📊 Dashboard\nde calidad]
 > ```
 
 ---

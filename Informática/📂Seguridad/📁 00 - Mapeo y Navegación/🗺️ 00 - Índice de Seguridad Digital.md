@@ -1,6 +1,6 @@
 # 🛡️ Índice de Seguridad Digital
 
-> **Mapa central del curso.** Navega por cada nivel para construir una base sólida de ciberseguridad personal, desde los mitos más comunes hasta los hábitos diarios que protegen tu vida digital.
+> **Mapa central.** Navega por cada nivel para construir una base sólida de ciberseguridad personal, desde los mitos más comunes hasta los hábitos diarios que protegen tu vida digital.
 
 ---
 
@@ -82,11 +82,11 @@
 
 ## ⚪ Nivel 9 — Mitigación, Antivirus y Recuperación de Datos
 
-| Nota                                                     | Descripción                                                                                          |
+| Nota | Descripción |
 | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| [[09.1 - Qué Hacer si ya te Hackearon Cerrando Puertas]] | Protocolo de emergencia, detección de señales silenciosas y reglas de reenvío ocultas.               |
-| [[09.2 - Antivirus El Guardián Solitario y sus Límites]] | Por qué un antivirus no es infalible frente a ataques modernos y el hábito del Threat Hunting.       |
-| [[09.3 - Recuperación de Datos Lógica vs Física]]        | La diferencia técnica entre borrado lógico y físico, y cuándo acudir a un laboratorio especializado. |
+| [[09.1 - Qué Hacer si ya te Hackearon Cerrando Puertas]] | Protocolo de emergencia, detección de señales silenciosas y reglas de reenvío ocultas. |
+| [[09.2 - Antivirus El Guardián Solitario y sus Límites]] | Por qué un antivirus no es infalible frente a ataques modernos y el hábito del Threat Hunting. |
+| [[09.3 - Recuperación de Datos Lógica vs Física]] | La diferencia técnica entre borrado lógico y físico, y cuándo acudir a un laboratorio especializado. |
 
 ---
 

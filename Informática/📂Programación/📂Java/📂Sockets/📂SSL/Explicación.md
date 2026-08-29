@@ -9,7 +9,7 @@ Con SSL los datos se encriptan (se vuelven ilegibles) antes de salir de tu orden
 Para que SSL funcione, el Servidor necesita una **Identidad**.
 
 1. **`server.jks`**: Es el "DNI" del servidor. Contiene su clave privada.
-    
+ 
 2. **`System.setProperty`**: Es la forma de decirle a Java: "Oye, antes de que abras ningún enchufe, que sepas que mis credenciales están en este archivo y la contraseña es 123456".
 
 > [!TIP] IMPORTANTE

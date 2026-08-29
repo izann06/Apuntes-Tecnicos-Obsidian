@@ -8,7 +8,9 @@
 ## 🌎 1. La Puerta Pública: Internet Gateway (IGW)
 
 * **¿Qué es?** Es la puerta principal de tu restaurante que da a la calle.
+
 * **¿Para qué sirve?** Permite que cualquier persona de Internet entre a tu VPC y que tus recursos (como tus servidores web en las *Subredes Públicas*) puedan salir a Internet a navegar.
+
 * **Seguridad:** Está abierta al público general. Si tienes recursos aquí, cualquiera puede intentar acceder a ellos (por lo que necesitas tener buena seguridad).
 
 ---
@@ -47,18 +49,20 @@ A veces, la conexión VPN no es suficiente si necesitas pasar cantidades monstru
 * **Analogía:** Es la "puerta mágica supersecreta" o un pasadizo subterráneo privado que va desde tu escritorio directo a la máquina de café de AWS.
 
 * **Las Ventajas:**
-    * **NO usa el Internet público.** No hay atascos, la velocidad es alta y constante.
-    * **Máxima Seguridad:** Es literalmente un cable privado para ti. Ideal para cumplir normativas bancarias o gubernamentales muy estrictas.
+
+ * **NO usa el Internet público.** No hay atascos, la velocidad es alta y constante.
+
+ * **Máxima Seguridad:** Es literalmente un cable privado para ti. Ideal para cumplir normativas bancarias o gubernamentales muy estrictas.
 
 ---
 
 ## 📊 Chuleta de Conexiones a la VPC
 
-| Si quieres conectar tu VPC con...                              | Usarás esta "Puerta" o Servicio                          |
+| Si quieres conectar tu VPC con... | Usarás esta "Puerta" o Servicio |
 | :------------------------------------------------------------- | :------------------------------------------------------- |
-| *El mundo entero (Internet público)*                         | *Internet Gateway (IGW)*                               |
-| *La red de tu oficina (A través de Internet cifrado)*        | *VPN enchufada a un Virtual Private Gateway (VGW)* |
-| *La red de tu oficina (A través de un cable físico privado)* | *AWS Direct Connect*                                   |
+| *El mundo entero (Internet público)* | *Internet Gateway (IGW)* |
+| *La red de tu oficina (A través de Internet cifrado)* | *VPN enchufada a un Virtual Private Gateway (VGW)* |
+| *La red de tu oficina (A través de un cable físico privado)* | *AWS Direct Connect* |
 
 ---
 

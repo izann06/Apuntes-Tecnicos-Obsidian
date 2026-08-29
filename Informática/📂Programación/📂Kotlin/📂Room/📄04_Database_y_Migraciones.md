@@ -11,9 +11,9 @@ La clase `AppDatabase` es el corazón de ROOM. Es una clase abstracta que conect
 ### A. `@Volatile` y `synchronized`
 
 - **`@Volatile`**: Asegura que cualquier cambio que un hilo haga en la variable `INSTANCE` sea visible inmediatamente para todos los demás hilos. Evita errores de lectura.
-    
+ 
 - **`synchronized(this)`**: Garantiza que si dos hilos intentan crear la base de datos al mismo tiempo, uno se espere al otro. Así evitamos crear **dos bases de datos** a la vez, lo que corrompería los datos.
-    
+ 
 
 ### B. `exportSchema = true`
 
@@ -25,11 +25,11 @@ Al poner esto, ROOM genera un archivo JSON con la estructura de tus tablas. Es f
 
 ¿Qué pasa si mañana añades una columna "Edad" a la tabla SuperHero? ROOM necesita saber qué hacer con los datos que ya existen. Por lo que en la version de Database tendras que sumarle un numero al que ya tiene. Si su versión es `1` ahora tendrás que ponerle `2`.
 
-| **Propiedad**                        | **Valor** | **Efecto**                                                                                                                                             |
+| **Propiedad** | **Valor** | **Efecto** |
 | ------------------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`fallbackToDestructiveMigration`** | `true`    | **¡CUIDADO!** Si cambias la versión, ROOM borra TODA la base de datos y la crea de nuevo. **Solo se usa en desarrollo**.                               |
-| **`fallbackToDestructiveMigration`** | `false`   | (Por defecto). Si cambias la versión y no has definido una migración manual, la app lanzará una excepción y se cerrará. Es más seguro para producción. |
-|                                      |           |                                                                                                                                                        |
+| **`fallbackToDestructiveMigration`** | `true` | **¡CUIDADO!** Si cambias la versión, ROOM borra TODA la base de datos y la crea de nuevo. **Solo se usa en desarrollo**. |
+| **`fallbackToDestructiveMigration`** | `false` | (Por defecto). Si cambias la versión y no has definido una migración manual, la app lanzará una excepción y se cerrará. Es más seguro para producción. |
+| | | |
 
 > [!TIP] En Desarrollo
 > 

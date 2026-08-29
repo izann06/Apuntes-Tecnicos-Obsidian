@@ -30,10 +30,11 @@ Para entender el ML, mira cómo ha cambiado la forma de programar con el ejemplo
 
 Todo proyecto de ML tiene dos fases principales que nunca debes confundir:
 
-1.  **Entrenamiento (Training):** Es la fase de estudio. Le das a la máquina toneladas de **datos históricos** limpios. La máquina analiza estos datos buscando patrones ocultos.
-    * *El Resultado:* El producto final del entrenamiento se llama **Modelo de Machine Learning**.
-    
-2.  **Inferencia (Inference):** Es la fase de "examen" o puesta en producción. Coges ese Modelo que ya ha estudiado y le presentas **datos nuevos** que nunca ha visto para que haga una predicción o tome una decisión.
+1. **Entrenamiento (Training):** Es la fase de estudio. Le das a la máquina toneladas de **datos históricos** limpios. La máquina analiza estos datos buscando patrones ocultos.
+
+ * *El Resultado:* El producto final del entrenamiento se llama **Modelo de Machine Learning**.
+ 
+2. **Inferencia (Inference):** Es la fase de "examen" o puesta en producción. Coges ese Modelo que ya ha estudiado y le presentas **datos nuevos** que nunca ha visto para que haga una predicción o tome una decisión.
 
 ---
 

@@ -2,7 +2,7 @@
 ------------------------------------------------------------------
 ### 🛠️ 0. Inicialización
 
-**Generar archivos Docker base para un proyecto** (Dockerfile, compose.yaml, .dockerignore) de forma automática.
+**Generar archivos Docker base para un proyecto** (Dockerfile, compose.yaml,.dockerignore) de forma automática.
 
 ```Bash
 docker init
@@ -49,22 +49,22 @@ docker run -d -p <host>:<cont> --name <nombre> <imagen>
 
 > [!tip] Desglose de parámetros
 > 
->   
+> 
 > 
 > - `--name <nombre>`: Nombre del Contenedor (Que vas a crear con ese comando)
->     
->       
->     
+> 
+> 
+> 
 > - `<imagen>`: Nombre de la imagen (ya creada) o puede usar una imagen publica (DockerHub)
->     
->       
->     
+> 
+> 
+> 
 > - `-d`: Modo segundo plano (_detached_).
->     
->       
->     
+> 
+> 
+> 
 > - `-p`: Mapeo de puertos `PC:Contenedor`.
->     
+> 
 
 ------------------------------------------------------------------
 ## 🔍 2. Monitorización y Logs
@@ -110,7 +110,7 @@ docker images
 **Construir imagen desde Dockerfile**
 
 ```Bash
-docker build -t <nombreImagen> .
+docker build -t <nombreImagen>.
 ```
 
 **Descargar imagen de Docker Hub**
@@ -267,9 +267,9 @@ docker exec -it <nombre_contenedor> <comando>
 > [!example] Ejemplos de uso con PostgreSQL (Desde la terminal host)
 > 
 > - **Crear tabla:** `docker exec -it <nombre_contenedor> psql -U postgres -c "CREATE TABLE usuarios (nombre text);"`
->     
+> 
 > - **Insertar dato:** `docker exec -it <nombre_contenedor> psql -U postgres -c "INSERT INTO usuarios VALUES ('midudev');"`
->     
+> 
 > - **Leer datos:** `docker exec -it <nombre_contenedor> psql -U postgres -c "SELECT * FROM usuarios;"`
 >
 

@@ -17,9 +17,11 @@
 
 * **Servicios AWS:**
 
-    * **AWS CloudFormation:** Para desplegar infraestructura mediante código (Infrastructure as Code) y evitar errores manuales.
-    * **AWS CodePipeline / CodeBuild:** Para automatizar las tuberías de entrega de software.
-    * **Amazon CloudWatch:** Para supervisar la salud de las aplicaciones.
+ * **AWS CloudFormation:** Para desplegar infraestructura mediante código (Infrastructure as Code) y evitar errores manuales.
+
+ * **AWS CodePipeline / CodeBuild:** Para automatizar las tuberías de entrega de software.
+
+ * **Amazon CloudWatch:** Para supervisar la salud de las aplicaciones.
 
 ### 2. Seguridad (Security)
 
@@ -29,10 +31,13 @@
 
 * **Servicios AWS:**
 
-    * **AWS IAM:** Para gestionar usuarios, roles y políticas de permisos estrictas.
-    * **AWS CloudTrail:** Para el registro de auditoría y la trazabilidad de llamadas a la API.
-    * **AWS KMS:** Para la gestión de claves y cifrado de datos.
-    * **AWS Shield / AWS WAF:** Para repeler ataques DDoS y amenazas web.
+ * **AWS IAM:** Para gestionar usuarios, roles y políticas de permisos estrictas.
+
+ * **AWS CloudTrail:** Para el registro de auditoría y la trazabilidad de llamadas a la API.
+
+ * **AWS KMS:** Para la gestión de claves y cifrado de datos.
+
+ * **AWS Shield / AWS WAF:** Para repeler ataques DDoS y amenazas web.
 
 ### 3. Fiabilidad (Reliability)
 
@@ -42,9 +47,11 @@
 
 * **Servicios AWS:**
 
-    * **Elastic Load Balancing (ELB):** Para distribuir el tráfico y evitar la saturación de un único servidor.
-    * **AWS Auto Scaling:** Para añadir o quitar servidores automáticamente según la carga de trabajo.
-    * **Amazon Route 53:** Para enrutar a los usuarios hacia infraestructuras de respaldo si el centro de datos principal falla.
+ * **Elastic Load Balancing (ELB):** Para distribuir el tráfico y evitar la saturación de un único servidor.
+
+ * **AWS Auto Scaling:** Para añadir o quitar servidores automáticamente según la carga de trabajo.
+
+ * **Amazon Route 53:** Para enrutar a los usuarios hacia infraestructuras de respaldo si el centro de datos principal falla.
 
 ### 4. Eficiencia del Rendimiento (Performance Efficiency)
 
@@ -54,9 +61,11 @@
 
 * **Servicios AWS:**
 
-    * **Amazon CloudFront (CDN):** Para entregar contenido a nivel mundial con latencia ultrabaja.
-    * **Amazon ElastiCache:** Para guardar datos en memoria y acelerar las consultas a bases de datos.
-    * **AWS Compute Optimizer:** Para obtener recomendaciones sobre qué tamaño exacto de servidor necesitas.
+ * **Amazon CloudFront (CDN):** Para entregar contenido a nivel mundial con latencia ultrabaja.
+
+ * **Amazon ElastiCache:** Para guardar datos en memoria y acelerar las consultas a bases de datos.
+
+ * **AWS Compute Optimizer:** Para obtener recomendaciones sobre qué tamaño exacto de servidor necesitas.
 
 ### 5. Optimización de Costes (Cost Optimization)
 
@@ -66,9 +75,11 @@
 
 * **Servicios AWS:**
 
-    * **AWS Cost Explorer / AWS Budgets:** Para analizar tendencias de gasto histórico y poner alertas proactivas.
-    * **AWS Trusted Advisor:** Para recibir avisos automáticos sobre servidores encendidos que nadie usa.
-    * **Amazon EC2 Spot Instances:** Para alquilar servidores sobrantes de AWS con hasta un 90% de descuento.
+ * **AWS Cost Explorer / AWS Budgets:** Para analizar tendencias de gasto histórico y poner alertas proactivas.
+
+ * **AWS Trusted Advisor:** Para recibir avisos automáticos sobre servidores encendidos que nadie usa.
+
+ * **Amazon EC2 Spot Instances:** Para alquilar servidores sobrantes de AWS con hasta un 90% de descuento.
 
 ### 6. Sostenibilidad (Sustainability)
 
@@ -78,9 +89,9 @@
 
 * **Servicios AWS:**
 
-    * **AWS Customer Carbon Footprint Tool:** Para calcular las emisiones de carbono que generan tus proyectos.
-    
-    * **AWS Lambda (Serverless):** Al no tener servidores encendidos 24/7 de forma ociosa, solo consumes la energía exacta durante los milisegundos que dura tu código.
+ * **AWS Customer Carbon Footprint Tool:** Para calcular las emisiones de carbono que generan tus proyectos.
+ 
+ * **AWS Lambda (Serverless):** Al no tener servidores encendidos 24/7 de forma ociosa, solo consumes la energía exacta durante los milisegundos que dura tu código.
 
 ---
 

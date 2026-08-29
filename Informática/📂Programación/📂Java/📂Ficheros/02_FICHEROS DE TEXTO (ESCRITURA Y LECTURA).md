@@ -11,9 +11,13 @@ En los archivos de texto usamos la codificación UTF-8 para convertir bytes a Ch
 Por otro lado, los archivos binarios cada byte no representa una letra si no datos estructurados, además de que no tiene sentido hacer la traducción porque esos bytes no representan caracteres como en el texto ya que lo que se guarda ahí es:
 
 * Música
+
 * Imágenes
+
 * Ejecutables(.exe)
+
 * Videos
+
 * PDFs
 
 Si intentas convertir esos bytes a texto se corrompen esos archivos y si lo abres veras símbolos raros no legibles. Por eso, no se decodifica se leen los bytes exactamente igual que se guardaron.
@@ -28,9 +32,13 @@ El objetivo es leer y mostar lo que hay en el archivo.
 Para leer archivos de texto tenemos:
 
 * FileReader
+
 * BufferedReader
+
 * FilesAllLines
+
 * Files.lines
+
 * Scanner
 
 ## **FileReader** 
@@ -38,7 +46,7 @@ Para leer archivos de texto tenemos:
 Permite leer caracteres directamente desde un archivo. Es adecuada para leer texto básico, pero normalmente se combina con BufferedReader para mejorar el rendimiento.
 
 Lee con el método **read** y devuelve enteros.
-Si da -1  termina porque un char nunca puede ser negativo, así que si da -1 es porque llegó al final del archivo.
+Si da -1 termina porque un char nunca puede ser negativo, así que si da -1 es porque llegó al final del archivo.
 
 ![[Pasted image 20251217130526.png]]
 
@@ -67,10 +75,11 @@ Esto es un método y lee todas las líneas de un archivo y las devuelve en una l
 ## **Files.Lines**
 
 - Pertenece a `java.nio.file.Files`.
-    
+ 
 - Devuelve un **Stream 'String'**, es decir, **líneas de texto**.
-    
+ 
 - **Se usa solo con archivos de texto**, porque interpreta los bytes como caracteres (por defecto UTF-8).
+
 - 
 ![[Pasted image 20251217144313.png]]
 
@@ -107,7 +116,9 @@ El objetivo es escribir datos del programa en archivos.
 Para leer archivos de texto tenemos:
 
 * FileWriter
+
 * BufferedWriter
+
 * PrintWriter
 
 

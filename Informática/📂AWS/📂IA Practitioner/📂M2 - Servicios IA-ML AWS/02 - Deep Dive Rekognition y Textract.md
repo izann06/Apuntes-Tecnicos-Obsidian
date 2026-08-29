@@ -1,4 +1,5 @@
-﻿**Tags:** #rekognition #textract #vision-artificial #ocr #idp #ia #m2-servicios
+﻿**Tags:** #rekognition #textract #vision-artificial #ocr #idp #ia
+ #m2-servicios
 
 ---
 ## 👁️ Amazon Rekognition
@@ -24,22 +25,23 @@
 > [!example] Flujo de caso de uso — Verificación de Identidad Bancaria
 > ```
 > Usuario sube selfie → Rekognition (Face Comparison) → Compara con foto del DNI
->                                                      ↓
->                                              Similitud > 95% → ✅ Identidad verificada
->                                              Similitud < 95% → ❌ Revisión manual
+> ↓
+> Similitud > 95% → ✅ Identidad verificada
+> Similitud < 95% → ❌ Revisión manual
 > ```
 
 > [!example] Flujo de caso de uso — Moderación de Contenido
 > ```
 > Usuario sube imagen → Rekognition (Content Moderation)
->                                    ↓
->           Contenido explícito detectado → Bloquear automáticamente + Notificar
->           Contenido seguro             → Publicar imagen
+> ↓
+> Contenido explícito detectado → Bloquear automáticamente + Notificar
+> Contenido seguro → Publicar imagen
 > ```
 
 ### 💰 Modelo de Precios
 
 - Cobro por **imagen analizada** o por **minuto de vídeo** procesado
+
 - Sin costes iniciales, pago por uso
 
 ---
@@ -64,14 +66,14 @@
 
 ```mermaid
 flowchart LR
-    DOC["📄 Documento\nescaneado o PDF"] --> T{Amazon\nTextract}
-    T --> A["📝 Raw Text\nTodo el texto\ndel documento"]
-    T --> B["📊 Tables\nTablas con\nfilas y columnas"]
-    T --> C["📋 Forms\nPares clave-valor\n(campo: nombre, valor: Juan)"]
-    T --> D["✍️ Signatures\nDetecta firmas\nen documentos"]
-    T --> E["🆔 Queries\nPregunta específica\n¿Cuál es el importe total?"]
+ DOC["📄 Documento\nescaneado o PDF"] --> T{Amazon\nTextract}
+ T --> A["📝 Raw Text\nTodo el texto\ndel documento"]
+ T --> B["📊 Tables\nTablas con\nfilas y columnas"]
+ T --> C["📋 Forms\nPares clave-valor\n(campo: nombre, valor: Juan)"]
+ T --> D["✍️ Signatures\nDetecta firmas\nen documentos"]
+ T --> E["🆔 Queries\nPregunta específica\n¿Cuál es el importe total?"]
 
-    style T fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
+ style T fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
 ```
 
 ### 📋 Casos de Uso de Textract
@@ -89,17 +91,17 @@ flowchart LR
 
 ```mermaid
 sequenceDiagram
-    participant S3 as 🗄️ Amazon S3
-    participant TX as 📄 Amazon Textract
-    participant CP as 🔍 Amazon Comprehend
-    participant DB as 💾 Base de Datos
+ participant S3 as 🗄️ Amazon S3
+ participant TX as 📄 Amazon Textract
+ participant CP as 🔍 Amazon Comprehend
+ participant DB as 💾 Base de Datos
 
-    S3->>TX: Documento PDF (factura)
-    TX->>TX: Extrae texto + tablas + formularios
-    TX->>CP: Texto extraído
-    CP->>CP: Clasifica documento + detecta entidades
-    CP->>DB: Datos estructurados (JSON)
-    DB->>DB: Almacena y procesa para ERP/CRM
+ S3->>TX: Documento PDF (factura)
+ TX->>TX: Extrae texto + tablas + formularios
+ TX->>CP: Texto extraído
+ CP->>CP: Clasifica documento + detecta entidades
+ CP->>DB: Datos estructurados (JSON)
+ DB->>DB: Almacena y procesa para ERP/CRM
 ```
 
 > [!tip] Truco de examen — IDP Architecture
@@ -108,6 +110,7 @@ sequenceDiagram
 ### 💰 Modelo de Precios
 
 - Cobro por **página analizada**
+
 - Tarifas diferentes según el tipo de análisis (texto simple, tablas, formularios, queries)
 
 ---

@@ -12,21 +12,29 @@ Antes del transistor, la única forma de controlar electrónicamente el flujo de
 Funcionalmente hacían lo mismo que un transistor (actuar como interruptores o amplificadores), pero con enormes desventajas:
 
 - **Tamaño**: cada válvula tenía varios centímetros.
+
 - **Calor**: generaban calor enorme. Los ordenadores de esta época necesitaban sistemas de ventilación masivos.
+
 - **Fiabilidad**: se fundían constantemente, como una bombilla. En el ENIAC, con 18.000 válvulas, estadísticamente se fundía una cada dos días.
+
 - **Consumo**: cientos de kilovatios para un solo ordenador.
 
 ### Características de los ordenadores
 
 - Ocupaban habitaciones o edificios enteros.
+
 - Pesaban toneladas.
+
 - Solo las instituciones militares, universitarias o gubernamentales podían permitírselos.
+
 - Programación mediante reconexión de cables o, más adelante, tarjetas perforadas y código máquina.
 
 ### Ejemplos destacados
 
 * ***Colossus** (1943, Reino Unido): desarrollado por **Tommy Flowers** para descifrar mensajes nazis en concreto el Lorenz(SZ-42). Clasificado como secreto durante décadas,por eso no se considera el primer ordenador,adem´sa de que estaba diseñado para criptografía (Romper códigos).
+
 - **ENIAC** (1945, EEUU): Primer ordenador electrónico de propósito general, este estaba diseñado para propósitos más generales, podía resolver casi cualquier problema de cálculo númerico.
+
 - **UNIVAC I** (1951, EEUU): primer ordenador producido comercialmente. Predijo correctamente el resultado de las elecciones presidenciales de 1952 en directo en televisión.
 
 > [!NOTE] ENIGMA (Máquina Nazi)
@@ -42,23 +50,33 @@ Funcionalmente hacían lo mismo que un transistor (actuar como interruptores o a
 En 1947 se inventó el transistor en los Laboratorios Bell, pero su adopción masiva en ordenadores comerciales ocurrió en la segunda mitad de los 50. Los transistores reemplazaron a las válvulas de vacío con ventajas enormes:
 
 - Mucho más pequeños (milímetros frente a centímetros).
+
 - Sin tiempo de calentamiento (no necesitan calentar un filamento).
+
 - Mucho más fiables (vida útil de años frente a cientos de horas).
+
 - Consumo drásticamente menor.
 
 ### Características de los ordenadores
 
 - Los ordenadores pasaron de ocupar una habitación a ocupar el tamaño de uno o dos armarios grandes.
+
 - Más rápidos y mucho más fiables.
+
 - Comenzaron a usarse en empresas privadas grandes (bancos, aseguradoras, aerolíneas).
+
 - Nacen los primeros lenguajes de programación de alto nivel:
-    - **FORTRAN** (1957): para cálculos científicos e ingeniería.
-    - **COBOL** (1959): para aplicaciones de negocio (todavía en uso en sistemas bancarios).
-    - **LISP** (1958): para inteligencia artificial y procesamiento simbólico.
+
+ - **FORTRAN** (1957): para cálculos científicos e ingeniería.
+
+ - **COBOL** (1959): para aplicaciones de negocio (todavía en uso en sistemas bancarios).
+
+ - **LISP** (1958): para inteligencia artificial y procesamiento simbólico.
 
 ### Ejemplos destacados
 
 - **IBM 7090** (1959): usado por la NASA para cálculos de las primeras misiones espaciales.
+
 - **PDP-1** (1960, DEC): el primero en tener un monitor y un teclado de verdad. Sobre él se programó el primer videojuego interactivo: Spacewar! (1962).
 
 ---
@@ -74,14 +92,19 @@ En lugar de fabricar transistores individuales y soldarlos en una placa, el chip
 ### Características de los ordenadores
 
 - Los ordenadores caben en un escritorio grande o en un armario pequeño (los llamados **minicomputadoras**).
+
 - Mucho más baratos que los de las generaciones anteriores: universidades y empresas medianas empiezan a comprarlos.
+
 - **Nacen los sistemas operativos**: por primera vez, un programa central gestiona los recursos del ordenador y permite ejecutar varios programas (multitarea básica).
+
 - Aparecen los terminales de texto (teclado + pantalla).
+
 - El Apollo Guidance Computer (1969), que llevó a los astronautas a la Luna, usaba circuitos integrados.
 
 ### Ejemplos destacados
 
 - **IBM System/360** (1964): primer gran sistema de ordenadores compatibles entre sí. Estableció el concepto de familia de ordenadores. Fue el proyecto de ingeniería más caro de la historia hasta ese momento.
+
 - **DEC PDP-8** (1965): primer minicomputador de éxito masivo. Miles de universidades lo adquirieron.
 
 ### Algo importante de esta época: UNIX
@@ -107,22 +130,22 @@ Intel lanzó el **Intel 4004** en 1971: el primer microprocesador comercial. Ten
 
 ### Hitos de esta generación
 
-| Año  | Hito                                                                |
+| Año | Hito |
 | ---- | ------------------------------------------------------------------- |
-| 1974 | Intel 8080 → base del primer ordenador personal, el Altair 8800     |
-| 1976 | Apple (Wozniak y Jobs)                                              |
-| 1981 | IBM PC → estandariza el PC moderno                                  |
+| 1974 | Intel 8080 → base del primer ordenador personal, el Altair 8800 |
+| 1976 | Apple (Wozniak y Jobs) |
+| 1981 | IBM PC → estandariza el PC moderno |
 | 1984 | Apple Macintosh → primera interfaz gráfica de usuario popular (GUI) |
-| 1991 | Linux (Linus Torvalds)                                              |
-| 1993 | Primer navegador web (Mosaic) → nace la World Wide Web pública      |
-| 2007 | iPhone → microprocesadores ARM en smartphones                       |
-| 2020 | Apple M1 → CPU ARM de alto rendimiento para ordenadores             |
+| 1991 | Linux (Linus Torvalds) |
+| 1993 | Primer navegador web (Mosaic) → nace la World Wide Web pública |
+| 2007 | iPhone → microprocesadores ARM en smartphones |
+| 2020 | Apple M1 → CPU ARM de alto rendimiento para ordenadores |
 
 ### Programación en esta generación
 
 Explotan los lenguajes de alto nivel modernos: C (1972), C++ (1985), Python (1991), Java (1995), JavaScript (1995), C# (2000)...
 
-La interfaz gráfica (ventanas, iconos, ratón) populariza la informática más allá de los técnicos. Nace el concepto de software de consumo masivo.
+La interfaz gráfica (ventanas, iconos, ratón) populariza la informática más allí de los técnicos. Nace el concepto de software de consumo masivo.
 
 ---
 
@@ -135,22 +158,22 @@ Estamos viviendo el fin del dominio absoluto de la CPU tradicional. Los problema
 Ya no es suficiente con una sola CPU haciendo cálculos secuenciales. La informática moderna se basa en el **procesamiento paralelo masivo**.
 
 - **GPU (Graphics Processing Unit):** Originalmente diseñadas para renderizar gráficos 3D (videojuegos), las GPUs tienen miles de núcleos pequeños capaces de hacer operaciones matemáticas simples al mismo tiempo. Los científicos descubrieron que esta arquitectura es exactamente la que se necesita para entrenar Redes Neuronales. Hoy, las GPUs de empresas como NVIDIA son el verdadero "motor" de la Inteligencia Artificial.
-    
+ 
 - **NPU / TPU (Neural / Tensor Processing Unit):** Son procesadores diseñados _exclusivamente_ para la IA. No saben hacer otra cosa que multiplicaciones de matrices masivas a una velocidad aterradora. Google usa sus TPUs en sus servidores, y hoy en día los móviles y PCs de Apple o Qualcomm incluyen NPUs para ejecutar IA localmente sin agotar la batería.
 
 ### NPU vs. TPU: Cara a Cara
 
-| **Característica**           | **NPU (Neural Processing Unit)**                                                                                                                   | **TPU (Tensor Processing Unit)**                                                                                                                    |
+| **Característica** | **NPU (Neural Processing Unit)** | **TPU (Tensor Processing Unit)** |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **¿Qué significa?**          | Unidad de Procesamiento Neuronal.                                                                                                                  | Unidad de Procesamiento Tensorial.                                                                                                                  |
-| **¿Quién las fabrica?**      | Todo el mundo: Apple (Neural Engine), Qualcomm (Hexagon), Intel, AMD.                                                                              | **Solo Google.** Es un chip propietario (ASIC) diseñado para sus propios centros de datos.                                                          |
-| **¿Dónde vive físicamente?** | **En tu bolsillo o tu escritorio.** Viene soldada dentro del procesador principal (SoC) de tu móvil, tablet o PC moderno.                          | **En La Nube.** Viven en granjas de servidores gigantescas conectadas entre sí formando superordenadores.                                           |
-| **Propósito Principal**      | **Inferencia (Ejecutar IA):** Su trabajo es usar modelos de IA que _ya están entrenados_ directamente en tu dispositivo sin usar Internet.         | **Entrenamiento (Crear IA):** Su trabajo es leer petabytes de datos durante meses para "enseñar" a los modelos gigantes (como yo, Gemini).          |
-| **Consumo y Tamaño**         | **Eficiencia Extrema:** Consume poquísima energía (pocos vatios). Evita que la IA funda la batería de tu teléfono.                                 | **Fuerza Bruta:** Consume miles de vatios. Son placas enormes que requieren refrigeración líquida industrial.                                       |
-| **Casos de uso reales**      | Desbloqueo facial (FaceID), mejorar las fotos que haces de noche, separar tu voz del ruido de fondo en una llamada, o ejecutar un asistente local. | Entrenar a ChatGPT, Gemini o Claude; procesar millones de búsquedas de Google Imágenes en tiempo real; simular el plegado de proteínas (AlphaFold). |
-    
+| **¿Qué significa?** | Unidad de Procesamiento Neuronal. | Unidad de Procesamiento Tensorial. |
+| **¿Quién las fabrica?** | Todo el mundo: Apple (Neural Engine), Qualcomm (Hexagon), Intel, AMD. | **Solo Google.** Es un chip propietario (ASIC) diseñado para sus propios centros de datos. |
+| **¿Dónde vive físicamente?** | **En tu bolsillo o tu escritorio.** Viene soldada dentro del procesador principal (SoC) de tu móvil, tablet o PC moderno. | **En La Nube.** Viven en granjas de servidores gigantescas conectadas entre sí formando superordenadores. |
+| **Propósito Principal** | **Inferencia (Ejecutar IA):** Su trabajo es usar modelos de IA que _ya están entrenados_ directamente en tu dispositivo sin usar Internet. | **Entrenamiento (Crear IA):** Su trabajo es leer petabytes de datos durante meses para "enseñar" a los modelos gigantes (como yo, Gemini). |
+| **Consumo y Tamaño** | **Eficiencia Extrema:** Consume poquísima energía (pocos vatios). Evita que la IA funda la batería de tu teléfono. | **Fuerza Bruta:** Consume miles de vatios. Son placas enormes que requieren refrigeración líquida industrial. |
+| **Casos de uso reales** | Desbloqueo facial (FaceID), mejorar las fotos que haces de noche, separar tu voz del ruido de fondo en una llamada, o ejecutar un asistente local. | Entrenar a ChatGPT, Gemini o Claude; procesar millones de búsquedas de Google Imágenes en tiempo real; simular el plegado de proteínas (AlphaFold). |
+ 
 - **La Nube (Cloud Computing):** El hardware físico que tienes en las manos importa cada vez menos. Las verdaderas aplicaciones (como ChatGPT o Gemini) se ejecutan en granjas de servidores distribuidas por todo el mundo. Tu teléfono o PC actúa simplemente como una "ventana" (terminal) hacia ese cerebro central.
-    
+ 
 
 #### B. Inteligencia Artificial (LLMs)
 
@@ -167,25 +190,25 @@ Es el mayor cambio de paradigma desde la invención del transistor. No es una ev
 **1. El Mito vs. La Realidad**
 
 - **El Mito:** Es un PC súper rápido que correrá videojuegos a millones de FPS.
-    
+ 
 - **La Realidad:** Es pésimo para tareas secuenciales o dibujar gráficos. Si intentas ejecutar Windows o un videojuego en él, funcionaría fatal. Sirve exclusivamente para resolver problemas matemáticos híper-complejos de un solo golpe.
-    
+ 
 
 **2. Bits vs. Qubits**
 
 - **Ordenador Clásico (Bits):** Usa transistores. Solo puede ser `0` o `1`.
-    
+ 
 - **Ordenador Cuántico (Qubits):** Aprovecha la mecánica cuántica. Gracias al fenómeno de la **Superposición**, un Qubit puede ser `0`, `1`, o _una combinación de ambos simultáneamente_. Además, mediante el **Entrelazamiento**, dos Qubits pueden estar conectados mágicamente sin cables: lo que le pasa a uno, le pasa al otro al instante, sin importar la distancia.
-    
+ 
 
 **3. La Analogía del Laberinto (Cómo funciona)**
 
 Si quieres salir de un laberinto gigante:
 
 - La CPU clásica prueba un camino, choca, vuelve atrás y prueba otro (muy rápido, pero de uno en uno).
-    
+ 
 - El ordenador cuántico, gracias a que sus Qubits son múltiples valores a la vez, inunda el laberinto y **prueba todos los caminos simultáneamente**. Los caminos incorrectos se cancelan entre sí, revelando la salida correcta casi al instante.
-    
+ 
 
 **4. Arquitectura y Componentes Físicos**
 
@@ -196,11 +219,11 @@ Esta estructura es en realidad un **refrigerador de dilución**. Los Qubits son 
 **5. Utilidades Reales**
 
 1. **Simular la Naturaleza:** Descubrir nuevas medicinas o materiales simulando reacciones químicas átomo por átomo (la naturaleza es cuántica, así que el ordenador "habla" su mismo idioma).
-    
+ 
 2. **Optimización:** Calcular la ruta perfecta de logística global para miles de aviones o camiones al mismo tiempo.
-    
+ 
 3. **Criptografía:** Tienen el potencial de romper los sistemas de contraseñas y cifrado que protegen el Internet actual en cuestión de minutos (lo que a una CPU le llevaría miles de años).
-    
+ 
 
 **6. Estado Actual (2026)**
 
@@ -223,6 +246,9 @@ Los ordenadores cuánticos actuales tienen cientos o miles de Qubits, pero son m
 ## Lecturas y recursos recomendados
 
 - **"Code" de Charles Petzold**: explica cómo construir un ordenador desde cero usando conceptos físicos simples. Perfecto punto de partida.
+
 - **"Nand to Tetris"** (nand2tetris.org / Coursera): curso donde construyes un ordenador completo desde una puerta NAND. Gratuito y muy práctico.
-- **"The Elements of Computing Systems"**: el libro del curso anterior.
+
+- **"The Elements of Computing Systems"**: el libro anterior.
+
 - **"Hackers: Heroes of the Computer Revolution" de Steven Levy**: la historia humana detrás de la informática, muy amena.

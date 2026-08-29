@@ -8,23 +8,23 @@
 
 Si entiendes estas tres reglas, entenderás casi toda la facturación de la nube:
 
-1.  **Pago por uso (Pay-as-you-go):**
+1. **Pago por uso (Pay-as-you-go):**
 
-    * *El concepto:* Si enciendes un servidor durante 3 horas y 15 minutos, pagas exactamente 3 horas y 15 minutos. Si lo apagas, el coste de computación se detiene a cero inmediatamente.
-    
-    * *Beneficio:* Ideal para experimentar o para cargas de trabajo que suben y bajan de forma impredecible (elimina el riesgo de comprar servidores de sobra).
+ * *El concepto:* Si enciendes un servidor durante 3 horas y 15 minutos, pagas exactamente 3 horas y 15 minutos. Si lo apagas, el coste de computación se detiene a cero inmediatamente.
+ 
+ * *Beneficio:* Ideal para experimentar o para cargas de trabajo que suben y bajan de forma impredecible (elimina el riesgo de comprar servidores de sobra).
 
-2.  **Ahorro con el compromiso (Save when you commit):**
+2. **Ahorro con el compromiso (Save when you commit):**
 
-    * *El concepto:* Si tu negocio es estable y sabes que vas a necesitar servidores funcionando 24/7, puedes firmar un **Savings Plan (Plan de Ahorro)** o reservar instancias.
-    
-    * *El Trato:* Te comprometes a un nivel de gasto durante **1 o 3 años**, y a cambio, AWS te hace descuentos masivos (hasta un 72% más barato que el pago por uso normal).
-    
-3.  **Menor pago al incrementar el uso (Descuentos por Volumen):**
+ * *El concepto:* Si tu negocio es estable y sabes que vas a necesitar servidores funcionando 24/7, puedes firmar un **Savings Plan (Plan de Ahorro)** o reservar instancias.
+ 
+ * *El Trato:* Te comprometes a un nivel de gasto durante **1 o 3 años**, y a cambio, AWS te hace descuentos masivos (hasta un 72% más barato que el pago por uso normal).
+ 
+3. **Menor pago al incrementar el uso (Descuentos por Volumen):**
 
-    * *El concepto:* AWS tiene "precios por niveles".
-    
-    * *El Trato:* Cuanto más usas un servicio, más barato te sale el Gigabyte. Por ejemplo, en Amazon S3, los primeros 50 Terabytes te cuestan un precio "X" por GB. Si guardas 500 Terabytes, los GB adicionales te cuestan "X - 10%".
+ * *El concepto:* AWS tiene "precios por niveles".
+ 
+ * *El Trato:* Cuanto más usas un servicio, más barato te sale el Gigabyte. Por ejemplo, en Amazon S3, los primeros 50 Terabytes te cuestan un precio "X" por GB. Si guardas 500 Terabytes, los GB adicionales te cuestan "X - 10%".
 
 ---
 

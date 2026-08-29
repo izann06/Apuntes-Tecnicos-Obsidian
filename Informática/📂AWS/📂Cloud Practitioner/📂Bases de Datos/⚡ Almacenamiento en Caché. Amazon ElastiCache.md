@@ -20,16 +20,19 @@ Es un servicio *completamente administrado*. Tú no instalas el software; AWS te
 
 ElastiCache no inventa un software nuevo, sino que administra los dos motores de caché de código abierto más famosos del mundo:
 
-1.  **Redis (o Valkey):** Muy potente, admite estructuras de datos complejas (listas, conjuntos) y permite guardar los datos en disco si quieres que sobrevivan a un reinicio.
+1. **Redis (o Valkey):** Muy potente, admite estructuras de datos complejas (listas, conjuntos) y permite guardar los datos en disco si quieres que sobrevivan a un reinicio.
 
-2.  **Memcached:** Muy simple, puramente para guardar pares clave-valor temporales en memoria.
+2. **Memcached:** Muy simple, puramente para guardar pares clave-valor temporales en memoria.
 
 ### El Flujo de Datos Típico (Lazy Loading)
 
-1.  El usuario (Cliente) pide ver el perfil de un jugador.
-2.  La Instancia EC2 (Aplicación) primero mira en **ElastiCache**.
-3.  *¿Está ahí? (Cache HIT):* EC2 se lo envía al cliente al instante.
-4.  *¿No está? (Cache MISS):* EC2 va a buscarlo a **Amazon RDS/DynamoDB**, se lo devuelve al cliente y, de paso, **guarda una copia en ElastiCache** para la próxima vez.
+1. El usuario (Cliente) pide ver el perfil de un jugador.
+
+2. La Instancia EC2 (Aplicación) primero mira en **ElastiCache**.
+
+3. *¿Está ahí? (Cache HIT):* EC2 se lo envía al cliente al instante.
+
+4. *¿No está? (Cache MISS):* EC2 va a buscarlo a **Amazon RDS/DynamoDB**, se lo devuelve al cliente y, de paso, **guarda una copia en ElastiCache** para la próxima vez.
 
 ---
 

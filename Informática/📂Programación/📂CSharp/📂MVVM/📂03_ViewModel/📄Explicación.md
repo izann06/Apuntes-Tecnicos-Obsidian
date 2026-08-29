@@ -5,11 +5,11 @@ Toma los datos del **Model** (la base de datos), los prepara para que la **View*
 Aquí tienes el flujo paso a paso:
 
 1. **Entrada (Usuario → View → VM):** El usuario escribe "Juan" en el `TextBox`. El **Binding** envía ese dato a la propiedad `Nombre` del **ViewModel**.
-    
+ 
 2. **Lógica (VM → Model):** El **ViewModel** recibe "Juan" y lo guarda dentro de su objeto privado del modelo (`telefono.Nombre = value`). Ahora el objeto del **Model** tiene el dato.
-    
+ 
 3. **El "Grito" (VM → View):** Justo después de guardar el dato en el modelo, el **ViewModel** ejecuta `OnPropertyChanged()`. Esto es como un grito que dice: _"¡Atención, la propiedad Nombre ha cambiado!"_.
-    
+ 
 4. **Refresco automático (View ← VM):** La **View**, que está escuchando ese grito, vuelve a leer la propiedad `Nombre` del **ViewModel**. Como el **ViewModel** ya tiene el dato actualizado en su objeto del modelo, le devuelve "Juan" a la pantalla.
 
 ### 📄 3.1 BaseViewModel 
@@ -32,7 +32,7 @@ Estas propiedades suelen apuntar directamente a un objeto del modelo como por ej
 ![[Pasted image 20251231020759.png]]
 
 - **El Get:** Permite que la vista lea el valor almacenado.
-    
+ 
 - **El Set:** Es la parte crítica. En el momento en que el usuario escribe en la pantalla y cambia la variable, el `set` captura ese valor y llama inmediatamente al método **OnPropertyChanged**.
 
 ![[Pasted image 20251231020816.png]]
@@ -50,7 +50,7 @@ El **RelayCommand** es una herramienta que nos permite encapsular una acción (c
 
 1. **Execute:** Es la acción que se ejecuta cuando pulsas el botón (ej. llamar al servicio para insertar en la DB).
 ![[Pasted image 20251231021007.png]]
-    
+ 
 2. **CanExecute:** Es una validación que devuelve un valor verdadero o falso. Si es falso, WPF deshabilitará el botón automáticamente (por ejemplo, si el campo de teléfono está vacío, el botón de "Guardar" se verá gris y no se podrá pulsar).
 ![[Pasted image 20251231021035.png]]
 

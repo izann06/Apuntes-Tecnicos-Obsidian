@@ -19,9 +19,13 @@ Si alguna vez has desarrollado software, esta frase te resultará dolorosamente 
 Este problema existe porque **el software no vive aislado**. Depende de:
 
 - La **versión del lenguaje** de programación (Python 3.8 vs 3.12).
+
 - Las **librerías del sistema operativo** (openssl, libc, etc.).
+
 - Las **variables de entorno** configuradas.
+
 - Los **servicios externos** (bases de datos, caches, colas de mensajes).
+
 - La **configuración del sistema operativo** en sí.
 
 ---
@@ -38,31 +42,34 @@ Este problema existe porque **el software no vive aislado**. Depende de:
 Un **contenedor** es una unidad de software que empaqueta:
 
 1. **Tu código** (la aplicación).
+
 2. **Todas sus dependencias** (librerías, frameworks, herramientas).
+
 3. **La configuración** necesaria (variables de entorno, archivos de config).
+
 4. **Un mini sistema de archivos** (basado en Linux) con todo lo que la app necesita para ejecutarse.
 
 Todo esto se ejecuta de forma **aislada** del resto del sistema, pero compartiendo el **kernel** del sistema operativo anfitrión (host). Esto último es la clave que diferencia a los contenedores de las máquinas virtuales.
 
 ```
 ┌─────────────────────────────────────────────────┐
-│              Máquina Anfitriona (Host)          │
-│                                                 │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐     │
-│  │ Conten.1 │  │ Conten.2 │  │ Conten.3 │     │
-│  │ Node.js  │  │ Python   │  │ Postgres │     │
-│  │ App Web  │  │ API REST │  │ DB       │     │
-│  └──────────┘  └──────────┘  └──────────┘     │
-│         │            │             │            │
-│  ┌──────────────────────────────────────┐      │
-│  │          Docker Engine               │      │
-│  └──────────────────────────────────────┘      │
-│  ┌──────────────────────────────────────┐      │
-│  │       Kernel del Sistema Operativo   │      │
-│  └──────────────────────────────────────┘      │
-│  ┌──────────────────────────────────────┐      │
-│  │         Hardware (CPU, RAM, Disco)   │      │
-│  └──────────────────────────────────────┘      │
+│ Máquina Anfitriona (Host) │
+│ │
+│ ┌──────────┐ ┌──────────┐ ┌──────────┐ │
+│ │ Conten.1 │ │ Conten.2 │ │ Conten.3 │ │
+│ │ Node.js │ │ Python │ │ Postgres │ │
+│ │ App Web │ │ API REST │ │ DB │ │
+│ └──────────┘ └──────────┘ └──────────┘ │
+│ │ │ │ │
+│ ┌──────────────────────────────────────┐ │
+│ │ Docker Engine │ │
+│ └──────────────────────────────────────┘ │
+│ ┌──────────────────────────────────────┐ │
+│ │ Kernel del Sistema Operativo │ │
+│ └──────────────────────────────────────┘ │
+│ ┌──────────────────────────────────────┐ │
+│ │ Hardware (CPU, RAM, Disco) │ │
+│ └──────────────────────────────────────┘ │
 └─────────────────────────────────────────────────┘
 ```
 
@@ -73,8 +80,11 @@ Todo esto se ejecuta de forma **aislada** del resto del sistema, pero compartien
 **Docker no inventó los contenedores.** La tecnología de contenedores existe en Linux desde hace más de una década (LXC, chroot, etc.). Lo que Docker hizo fue **democratizar** y **estandarizar** el uso de contenedores, creando:
 
 - Un **formato de imagen estándar** (la "receta" para crear contenedores).
+
 - Una **CLI intuitiva** para gestionar contenedores.
+
 - Un **ecosistema** ([[Registries y Etiquetado de Imágenes|Docker Hub]]) para compartir imágenes.
+
 - Herramientas como **[[Docker Compose]]** para orquestar múltiples contenedores.
 
 > [!info] Docker = Plataforma
@@ -90,14 +100,17 @@ Todo esto se ejecuta de forma **aislada** del resto del sistema, pero compartien
 Cada aplicación se instalaba directamente en un servidor físico. Si necesitabas 5 aplicaciones, comprabas 5 servidores (o las metías todas en uno, rezando para que no colisionaran).
 
 **Era 2 — Máquinas Virtuales (VMs):**
-Con la **virtualización** (VMware, VirtualBox, Hyper-V), un solo servidor físico podía albergar múltiples "computadoras virtuales", cada una con su propio sistema operativo completo.
+Con la **virtualización** (VMware, VirtualBox, Hyper-V), un solo servidor físico podía albergar múltiples "ordenadores virtuales", cada una con su propio sistema operativo completo.
 
 **Era 3 — Contenedores:**
 Empaquetan solo la aplicación y sus dependencias, compartiendo el kernel del host. Son más ligeros, rápidos y eficientes.
 
 > [!tip] Analogía: Los tres tipos de alojamiento
+>
 > - **Bare Metal** = Comprar una **casa entera** para cada inquilino. Máximo aislamiento, máximo desperdicio.
+>
 > - **VM** = Un **edificio de apartamentos** donde cada apartamento tiene su propia cocina, baño, instalación eléctrica y fontanería independientes. Buen aislamiento, pero mucha infraestructura duplicada.
+>
 > - **Contenedor** = Un **hotel** donde cada habitación es privada, pero todos comparten la estructura del edificio (fontanería, electricidad, recepción). Eficiente y rápido de "montar".
 
 ### La tabla comparativa
