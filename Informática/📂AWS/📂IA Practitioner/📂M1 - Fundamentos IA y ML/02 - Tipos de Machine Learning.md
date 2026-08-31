@@ -1,4 +1,4 @@
-﻿**Tags:** #ml #supervisado #no-supervisado #refuerzo #ia
+**Tags:** #ml #supervisado #no-supervisado #refuerzo #ia
  #m1-fundamentos
 
 > [!quote] Concepto fundamental
@@ -163,7 +163,9 @@ sequenceDiagram
 
 > [!example] RL en la práctica
 >
-> - **AlphaGo / AlphaZero (DeepMind):** Aprendió a jugar Go y ajedrez siendo su propio rival, superando a campeones mundiales.
+> - **AlphaGo / Ajedrez:** Aprenden a jugar siendo su propio rival mediante ensayo y error masivo, superando a humanos.
+>
+> - **Conducción Autónoma:** Los vehículos aprenden a navegar penalizando acciones peligrosas y premiando trayectos seguros.
 >
 > - **Robótica:** Un brazo robótico aprende a coger objetos frágiles sin romperlos.
 >

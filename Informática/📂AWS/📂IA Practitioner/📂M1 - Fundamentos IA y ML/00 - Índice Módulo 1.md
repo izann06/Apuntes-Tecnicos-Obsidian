@@ -1,4 +1,4 @@
-﻿**Tags:** #ia #m1-fundamentos #indice
+**Tags:** #ia #m1-fundamentos #indice
 
 # 🪐 Módulo 1: Fundamentos IA y ML
 
@@ -15,3 +15,5 @@
 - [[📂M1 - Fundamentos IA y ML/04 - Métricas de ML|04 - Métricas de ML]]
 
 - [[📂M1 - Fundamentos IA y ML/05 - ML Lifecycle|05 - ML Lifecycle]]
+
+- [[📂M1 - Fundamentos IA y ML/06 - Cheat Sheet Servicios AWS IA|06 - Cheat Sheet Servicios AWS IA]]

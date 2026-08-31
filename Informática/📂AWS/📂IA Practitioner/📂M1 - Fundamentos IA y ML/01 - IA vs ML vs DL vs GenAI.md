@@ -1,4 +1,4 @@
-﻿**Tags:** #fundamentos #ia #ml #dl #genai #m1-fundamentos
+**Tags:** #fundamentos #ia #ml #dl #genai #m1-fundamentos
 
 > [!quote] Concepto fundamental
 > La IA no es una sola tecnología. Es un campo de estudio que contiene capas cada vez más especializadas. Visualízalo como **muñecas rusas**: cada capa interna es un subconjunto más potente y específico de la exterior.
@@ -102,6 +102,39 @@ graph TD
 > El examen puede preguntarte la relación entre estos conceptos. La respuesta siempre sigue este patrón:
 > **"El Deep Learning es un subconjunto del Machine Learning, que es un subconjunto de la Inteligencia Artificial"**
 > Nunca al revés. Y la GenAI es una aplicación de los modelos de DL.
+
+> [!brain] El Mito de los LLMs
+> Un error común en el examen es creer que los LLMs "piensan" o "razonan". En realidad, usan estadísticas de probabilidad (la arquitectura Transformer) para predecir matemáticamente cuál es la siguiente palabra en una secuencia.
+
+---
+
+## 🧮 Algoritmos vs Modelos vs Entrenamiento
+
+Para el examen, es crucial no usar estos términos como sinónimos. Piensa en una pastelería:
+
+> [!abstract] La Metáfora de la Cocina
+> - **Algoritmo (La receta):** Es la base matemática pura. Instrucciones paso a paso que aún no han procesado ningún dato. En AWS, es el algoritmo vacío que eliges en SageMaker.
+> - **Entrenamiento (Cocinar):** El momento en el que metes *tus datos históricos* al algoritmo para que aprenda. Mezclas tus ingredientes (datos en **S3**) y enciendes el horno (poder de cómputo en **EC2** / SageMaker Training).
+> - **Modelo (La tarta terminada):** El resultado final. El algoritmo *después* de haber aprendido de tus datos. Ya está empaquetado y listo en un **Endpoint de SageMaker** para responder a tus preguntas (hacer predicciones al instante).
+
+### Los 3 Algoritmos Clave del Examen
+
+Hay docenas, pero el examen se centra en estos tres para comprobar si sabes elegir la herramienta adecuada:
+
+**1. Regresión Lineal (Linear Regression)**
+- **¿Para qué sirve?** Para predecir un **número continuo** en una escala infinita.
+- **¿Cómo funciona?** Traza una línea matemática que atraviesa puntos de datos pasados para estimar el futuro.
+- **En el examen:** Si te piden "predecir ventas futuras", "estimar el precio de una casa", o la respuesta es un número exacto ($45, 23ºC), elige Regresión Lineal.
+
+**2. K-Means (K-Medias)**
+- **¿Para qué sirve?** Para **agrupar** datos *sin etiquetas previas* (Aprendizaje No Supervisado).
+- **¿Cómo funciona?** Le dices "hazme 3 grupos (*k=3*)" y junta automáticamente a los usuarios/datos más parecidos entre sí, sin saber cómo se llaman esos grupos.
+- **En el examen:** Si ves "segmentar perfiles de compra sin categorías definidas" o "descubrir agrupaciones ocultas en datos", elige K-Means.
+
+**3. Árboles de Decisión (Decision Trees)**
+- **¿Para qué sirve?** Para **clasificar** en categorías concretas (Aprendizaje Supervisado).
+- **¿Cómo funciona?** Crea un diagrama de flujo con reglas de Sí/No fáciles de interpretar por humanos.
+- **En el examen:** Si piden "aprobar o denegar un préstamo" o "decidir si es Spam basándose en reglas transparentes", elige Árboles de Decisión.
 
 ---
 

@@ -1,4 +1,4 @@
-﻿**Tags:** #ml #overfitting #underfitting #regularizacion #ia
+**Tags:** #ml #overfitting #underfitting #regularizacion #ia
  #m1-fundamentos
 
 > [!quote] Concepto fundamental
@@ -53,6 +53,9 @@ El modelo tiene "prejuicios" que le impiden aprender: asume relaciones demasiado
 > - Las predicciones son mediocres **en todas partes**, no solo en datos nuevos.
 >
 > - Curvas de aprendizaje que no convergen (el loss no baja).
+
+> [!brain] Monitorización Activa
+> Durante el entrenamiento, herramientas como **Amazon SageMaker Debugger** monitorizan activamente el proceso y te alertan en tiempo real si tu modelo está sufriendo Underfitting u Overfitting.
 
 ### Causas Principales
 
