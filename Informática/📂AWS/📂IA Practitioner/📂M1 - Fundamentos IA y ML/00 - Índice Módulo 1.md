@@ -1,6 +1,5 @@
 **Tags:** #ia #m1-fundamentos #indice
 
-# 🪐 Módulo 1: Fundamentos IA y ML
 
 → Volver al centro: [[000 - AWS AI Practitioner (Home)|🏠 Home]]
 

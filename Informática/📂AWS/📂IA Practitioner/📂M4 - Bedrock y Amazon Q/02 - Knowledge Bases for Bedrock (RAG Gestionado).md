@@ -1,8 +1,5 @@
-﻿# 02 — Knowledge Bases for Bedrock (RAG Gestionado)
-
 **Tags:** #bedrock #knowledge-bases #rag #vector-db #s3 #ia
  #m4-bedrock
-**Módulo:** [[00 - Índice Módulo 4]] | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
 > [!quote] Definición AWS
 > **Knowledge Bases for Amazon Bedrock** es una capacidad fully managed que implementa **RAG de extremo a extremo**: conecta tus fuentes de datos (S3, Confluence, SharePoint...), las indexa automáticamente en una base de datos vectorial, y las integra con cualquier modelo FM de Bedrock para respuestas fundamentadas.

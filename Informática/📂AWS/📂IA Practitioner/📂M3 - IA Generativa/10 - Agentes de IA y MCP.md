@@ -10,8 +10,11 @@
 En el contexto de AWS (Bedrock Agents), un Agente es una arquitectura donde el LLM actúa como el **cerebro de un operario**. En lugar de solo generar texto, el Agente puede:
 
 1. **Planificar:** Desglosar una petición compleja del usuario en pasos lógicos.
+
 2. **Decidir:** Usar el razonamiento (Chain-of-Thought) para decidir qué herramienta necesita usar en cada paso.
+
 3. **Llamar Herramientas (Action Groups):** Ejecutar código, llamar a APIs externas (AWS Lambda) o consultar bases de datos.
+
 4. **Iterar:** Observar el resultado de la herramienta y decidir cuál es el siguiente paso hasta completar el objetivo.
 
 > [!abstract] Analogía del Agente
@@ -19,11 +22,17 @@ En el contexto de AWS (Bedrock Agents), un Agente es una arquitectura donde el L
 > - **Agente de IA:** Es un chef en una cocina. Le dices "hazme una pizza", y él planifica la receta, **abre la nevera (llama a una API)**, saca los ingredientes, usa el horno y te entrega la pizza terminada.
 
 ### Ejemplo de Flujo de un Agente (Reserva de Vuelos):
+
 1. **Usuario:** *"Cancela mi vuelo a Madrid y reserva uno para mañana a Barcelona."*
+
 2. **Agente (Planificación):** Necesito 1) Buscar el vuelo de Madrid. 2) Cancelarlo. 3) Buscar vuelos a Barcelona para mañana. 4) Reservar.
+
 3. **Agente (Acción):** Llama a la API de la aerolínea `obtenerVuelosUsuario(id)`.
+
 4. **Agente (Acción):** Llama a `cancelarReserva(idVuelo)`.
+
 5. **Agente (Acción):** Llama a `buscarVuelo(destino="BCN", fecha="mañana")`.
+
 6. **Agente (Acción):** Llama a `reservarVuelo(...)` y le informa al usuario que todo está listo.
 
 ---
@@ -40,8 +49,11 @@ El **MCP (Model Context Protocol)** es un nuevo estándar abierto (creado origin
 > **MCP es el USB-C de la IA.** Es un protocolo universal. Si una herramienta (ej. GitHub) soporta MCP, **cualquier** Agente o modelo de IA que soporte MCP podrá conectarse a ella instantáneamente, sin que los programadores tengan que escribir código de integración específico.
 
 ### Beneficios del MCP en la Empresa
+
 1. **Seguridad Total:** Las integraciones ocurren a nivel local/servidor bajo tu control, sin exponer tus credenciales directamente al modelo de la nube.
+
 2. **Velocidad de Desarrollo:** No hay que reinventar la rueda conectando APIs.
+
 3. **Interoperabilidad:** Puedes cambiar de Claude a Llama o a Amazon Titan, y todas las herramientas seguirán conectadas porque usan el mismo estándar MCP.
 
 ---

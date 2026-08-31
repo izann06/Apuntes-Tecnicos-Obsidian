@@ -1,8 +1,5 @@
-﻿# 01 — Amazon Bedrock: Qué Es y Catálogo de Modelos
-
 **Tags:** #bedrock #foundation-models #serverless #claude #titan #llama #ia
  #m4-bedrock
-**Módulo:** [[00 - Índice Módulo 4]] | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
 > [!quote] Definición AWS Oficial
 > Amazon Bedrock es un servicio **fully managed** que ofrece acceso a **Foundation Models** de alto rendimiento de las principales empresas de IA, a través de una única API, sin necesidad de gestionar infraestructura.

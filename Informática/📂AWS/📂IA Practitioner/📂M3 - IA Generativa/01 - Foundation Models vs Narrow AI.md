@@ -109,10 +109,15 @@ flowchart LR
 Un modelo fundacional no nace listo para tu empresa; sigue un ciclo estructurado de 6 etapas iterativas y no lineales:
 
 1. **Data Selection (Selección de Datos):** Elegir el alimento del modelo. La calidad define el rendimiento ("Basura entra, basura sale").
+
 2. **Model Selection (Selección del Modelo):** Elegir el modelo base adecuado según el problema (¿Necesito solo texto, un modelo multimodal o uno de difusión?).
+
 3. **Pre-training (Entrenamiento Previo):** El modelo aprende "cultura general", gramática y sentido común estudiando conjuntos de datos masivos públicos de internet.
+
 4. **Fine-tuning (Ajuste Fino):** Especializar el modelo base en un área de conocimiento cerrada y específica de tu negocio (ej. medicina, leyes corporativas o finanzas).
+
 5. **Evaluation (Evaluación):** Medir la calidad, seguridad y precisión del modelo mediante métricas antes de lanzarlo a producción.
+
 6. **Deployment & Feedback (Despliegue y Feedback):** Poner el modelo a trabajar para los usuarios finales y recopilar su retroalimentación para reentrenarlo de forma iterativa.
 
 > [!brain] Iteración Continua

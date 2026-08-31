@@ -1,8 +1,5 @@
-# 04 — Seguridad e Infraestructura: KMS, IAM, VPC, Macie y CloudTrail
-
 **Tags:** #kms #iam #vpc #macie #cloudtrail #seguridad #cifrado #ia
  #m5-seguridad
-**Módulo:** [[00 - Índice Módulo 5]] | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
 ## 🤝 Modelo de Responsabilidad Compartida en IA
 
@@ -12,14 +9,21 @@
 Para el examen, tienes que dominar exactamente qué hace cada parte:
 
 **1. AWS: Seguridad DE la Nube**
+
 - AWS se encarga de proteger la infraestructura física (data centers), el hardware, los hipervisores y las redes subyacentes.
+
 - En servicios gestionados como **Amazon Bedrock**, AWS protege el modelo fundacional base (garantizando que nadie robe los pesos del modelo) y la API.
 
 **2. Cliente: Seguridad EN la Nube**
+
 - Tú eres responsable de **TODO** lo que construyes encima:
+
 - Quién tiene acceso a los modelos (Permisos IAM).
+
 - Cifrar tus S3 Buckets de entrenamiento (KMS).
+
 - Configurar tu red privada (VPC, Security Groups).
+
 - **Proteger contra Prompt Injection y Jailbreaks** (usando Guardrails o lógica de aplicación).
 
 ---
@@ -194,7 +198,9 @@ graph LR
 
 ### Mitigación de Ataques (Security Groups y AWS Shield)
 Para completar el aislamiento de red en tu VPC:
+
 - **Security Groups (SG):** Actúan como un "portero" (firewall a nivel de instancia). Debes configurar el SG de tu aplicación para que *solo* permita tráfico en el puerto HTTPS (443) hacia el VPC Endpoint de Bedrock.
+
 - **AWS Shield:** Servicio gestionado que protege tu infraestructura (incluyendo las apps web de IA) contra ataques **DDoS** (Distributed Denial of Service). AWS Shield Standard viene activado por defecto y gratis.
 
 ---

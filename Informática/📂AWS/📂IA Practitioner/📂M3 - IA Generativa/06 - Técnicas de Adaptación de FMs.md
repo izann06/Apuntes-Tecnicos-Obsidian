@@ -1,4 +1,3 @@
-
 **Tags:** #prompt-engineering #rag #fine-tuning #few-shot #chain-of-thought #ia
  #m3-genai
 
@@ -32,8 +31,11 @@
 Un prompt de calidad profesional (Prompt Engineering) debe estructurarse incluyendo:
 
 1. **Rol:** Indicarle que actúe bajo un rol experto (ej. *"Actúa como un arquitecto cloud senior"*).
+
 2. **Contexto:** Delimitar el escenario (ej. *"para una startup financiera que migra a AWS"*).
+
 3. **Tarea Específica:** La orden exacta (ej. *"compara EC2 vs Lambda"*).
+
 4. **Formato de Salida:** El formato final (ej. *"en una tabla Markdown"*).
 
 > [!tip] Prompt Engineering vs Alucinaciones
@@ -140,8 +142,11 @@ Respuesta:
 El **Espacio Latente (Latent Space)** es el "universo matemático" donde la IA organiza todos los conceptos aprendidos. Cuando haces un prompt, le estás dando a la IA unas coordenadas para "navegar" hacia la respuesta correcta dentro de ese espacio.
 
 - **Negative Prompting:** Es una técnica donde le dices explícitamente a la IA lo que **NO** quieres que haga o genere.
+
 - *Ejemplo en texto:* "Escribe una historia infantil. NO uses lenguaje violento ni palabras complejas."
+
 - *Ejemplo en imágenes:* "Gato en un parque, [negative prompt: borroso, deforme, blanco y negro]".
+
 - **Por qué funciona:** El Negative Prompt bloquea "regiones indeseadas" del Espacio Latente, forzando a la IA a buscar la respuesta solo en las regiones permitidas.
 
 ---
@@ -150,7 +155,9 @@ El **Espacio Latente (Latent Space)** es el "universo matemático" donde la IA o
 
 A medida que tu aplicación crece, no todos los prompts necesitan el modelo más caro.
 El **Prompt Routing** es una arquitectura donde una pequeña pieza de código (o un LLM muy rápido) clasifica la pregunta entrante y la envía al modelo adecuado.
+
 - Pregunta simple ("¿Qué hora es?") ➔ Enruta a Claude Haiku (barato y rápido).
+
 - Pregunta compleja ("Revisa este contrato") ➔ Enruta a Claude Opus (caro y preciso).
 
 ---
@@ -227,16 +234,21 @@ Después del Fine-tuning con tus datos:
 
 #### 1. SFT (Supervised Fine-Tuning)
 Es el "Ajuste Fino Supervisado". Coges el modelo base preentrenado y le das miles de ejemplos exactos de cómo quieres que se comporte, presentados en pares de `(Pregunta, Respuesta Ideal)`.
+
 - **Ejemplo:** Le pasas 5.000 pares de "Mensaje del cliente" ➔ "Categoría del ticket técnico".
+
 - **Resultado:** El modelo ajusta sus pesos para aprender a replicar exactamente ese formato y lógica de categorización para futuros mensajes.
 
 #### 2. RLHF (Reinforcement Learning from Human Feedback)
 Es el "Aprendizaje por Refuerzo con Retroalimentación Humana". En lugar de darle respuestas perfectas, el modelo genera varias respuestas posibles a una misma pregunta y un equipo de humanos vota cuál es la mejor, la más segura y la más educada. El modelo desarrolla un "sistema de recompensas interno" para priorizar siempre respuestas útiles e inofensivas.
+
 - **Cuándo se usa:** Principalmente para alinear a los chatbots conversacionales (como Claude, Amazon Q o ChatGPT) para evitar que sean tóxicos o alucinen peligrosamente.
 
 #### 3. PEFT (Parameter-Efficient Fine-Tuning) y LoRA
 El *Fine-tuning completo* de un modelo gigante requeriría clusters de ordenadores gigantescos y carísimos. **PEFT** soluciona esto ajustando solo una pequeñísima parte de los pesos (ej. el 1% o menos) y "congelando" todo el resto del cerebro principal.
+
 - **LoRA (Low-Rank Adaptation):** Es la técnica de PEFT más famosa. En lugar de cambiar los pesos originales, LoRA añade unas pequeñas "matrices externas" (como unas gafas nuevas para el modelo) que se entrenan de forma muy rápida y barata.
+
 - **Resultado:** Consigues casi la misma calidad que con el Fine-Tuning completo, pero **costando 10 veces menos** y completándose en horas en lugar de semanas.
 
 > [!tip] Truco para el Examen

@@ -1,7 +1,4 @@
-# 01 — IA Responsable: Sesgos, Fairness, Explicabilidad y HITL
-
 **Tags:** #ia-responsable #sesgo #fairness #explicabilidad #hitl #etica #m5-seguridad
-**Módulo:** [[00 - Índice Módulo 5]] | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
 > [!quote] Principio AWS
 > AWS está comprometido con el desarrollo de IA de forma **responsable**, lo que incluye garantizar que los sistemas de IA sean justos, transparentes, robustos, seguros y privados. La IA Responsable no es una característica opcional: es un requisito fundamental.
@@ -15,10 +12,15 @@
 El examen AIF-C01 exige que conozcas estos 6 principios exactos de la IA responsable. Debes saber diferenciarlos:
 
 1. **Bias (Sesgo):** Fallo en los datos o en el modelo que resulta en un trato desigual o sistemáticamente injusto.
+
 2. **Fairness (Equidad):** La garantía de que el sistema no discrimina a nadie por su género, raza, edad u otros datos demográficos.
+
 3. **Inclusivity (Inclusividad):** El sistema debe ser accesible (física, cultural y lingüísticamente) para la mayor variedad de humanos posibles, independientemente de sus capacidades.
+
 4. **Robustness (Robustez):** El sistema debe operar de forma segura y fiable incluso ante entradas inesperadas, ataques (adversariales) o datos "raros".
+
 5. **Safety (Seguridad):** El sistema no debe causar daño físico ni emocional a los humanos, ni promover actividades ilícitas.
+
 6. **Veracity (Veracidad):** El modelo debe dar respuestas honestas y precisas, minimizando activamente las fabricaciones lógicas (alucinaciones).
 
 ---
@@ -26,8 +28,11 @@ El examen AIF-C01 exige que conozcas estos 6 principios exactos de la IA respons
 ## ⚖️ Riesgos Legales de GenAI
 
 Implementar modelos fundacionales conlleva responsabilidades y riesgos legales severos que un Practitioner debe advertir:
+
 - **Propiedad Intelectual (Copyright):** Los FMs están entrenados con miles de millones de imágenes y textos de internet. Si el modelo escupe código con licencia privativa o arte protegido, la empresa que lo usa puede enfrentarse a demandas millonarias.
+
 - **Salidas Sesgadas:** Demandas por discriminación en procesos de selección o aprobación de créditos.
+
 - **Sectores de Alto Riesgo:** En medicina, leyes o finanzas, una alucinación (falta de Veracity) o una falla puede causar daños irreparables y negligencia legal.
 
 ---
@@ -38,7 +43,9 @@ Implementar modelos fundacionales conlleva responsabilidades y riesgos legales s
 > La IA es un reflejo de sus datos. Si el dataset no es inclusivo, balanceado y bien curado, el modelo fallará en producción.
 
 Debes entender los dos extremos del fallo estadístico al entrenar modelos:
+
 - **Overfitting (Sobreajuste / Alta Varianza):** El modelo ha "memorizado" los datos de entrenamiento a la perfección, pero es incapaz de generalizar a datos nuevos. Es como un estudiante que memoriza un examen tipo test pero no sabe aplicar la teoría en la práctica.
+
 - **Underfitting (Subajuste / Alto Sesgo):** El modelo es demasiado simple y ni siquiera ha logrado aprender los patrones básicos de los datos de entrenamiento.
 
 ---
@@ -117,6 +124,7 @@ Un modelo de scoring de CVs entrenado con datos de contratación de los últimos
 > No son lo mismo. **Transparencia** es conocer "la receta" general. **Explicabilidad** es entender "por qué" se tomó una decisión específica hoy.
 
 - **Transparencia:** "Abrir la caja". Es documentar y explicar al público la arquitectura, las limitaciones y las fuentes de los datos de entrenamiento. En AWS, se documenta a través de las **Amazon SageMaker Model Cards** y **AI Service Cards**.
+
 - **Explicabilidad:** Saber exactamente por qué el modelo denegó el crédito a Juan Pérez y qué factores influyeron en esa única decisión matemática.
 
 > [!tip] El Trade-off (Compensación) de la Caja Negra

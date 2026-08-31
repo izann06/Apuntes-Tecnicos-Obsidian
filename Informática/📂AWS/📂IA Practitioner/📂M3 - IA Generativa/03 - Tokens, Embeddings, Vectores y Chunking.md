@@ -107,14 +107,19 @@ A esto se le llama **Búsqueda de Similitud** (o *Nearest Neighbors*), y es lo q
 Vamos a ver cómo funciona todo este flujo en la vida real. Para el examen, debes recordar que RAG se divide estrictamente en 3 fases secuenciales (Retrieve, Augment, Generate) para resolver el problema del conocimiento "congelado" de la IA y reducir alucinaciones **sin modificar los pesos** del modelo.
 
 ### Capa 1: Retrieve (Recuperar)
+
 1. **La Pregunta:** Entras en tu aplicación y escribes: *"¿Cuál es la política de vacaciones?"*
+
 2. **Embedding:** Tu pregunta se pasa a vector ("pegatina matemática").
+
 3. **Búsqueda en Vector DB:** El sistema busca por similitud semántica y extrae los 3 recortes (chunks) más relevantes de tus documentos corporativos.
 
 ### Capa 2: Augment (Aumentar)
+
 4. **Construcción del Prompt:** El orquestador toma tu pregunta original y le "inyecta" los 3 recortes recuperados en el Paso 3. El prompt que se va a enviar a la IA se transforma en algo como: *"Basándote en estos documentos [chunk1, chunk2, chunk3], responde a la pregunta: ¿Cuál es la política de vacaciones?"*.
 
 ### Capa 3: Generate (Generar)
+
 5. **La Respuesta del LLM:** Llamamos a la IA (ej. Claude). Al darle un prompt aumentado (pregunta + chunks), no superamos su límite de *Context Window*. La IA procesa la información y redacta una respuesta articulada basándose estrictamente en tus datos privados.
 
 ```mermaid

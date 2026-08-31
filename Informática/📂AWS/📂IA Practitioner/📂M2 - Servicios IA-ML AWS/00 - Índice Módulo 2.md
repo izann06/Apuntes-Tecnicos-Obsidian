@@ -1,6 +1,5 @@
 ﻿**Tags:** #ia #m2-servicios #indice
 
-# 🪐 Módulo 2: Servicios IA-ML AWS
 
 → Volver al centro: [[000 - AWS AI Practitioner (Home)|🏠 Home]]
 

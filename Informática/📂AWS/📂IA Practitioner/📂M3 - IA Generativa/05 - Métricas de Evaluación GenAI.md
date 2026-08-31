@@ -12,8 +12,11 @@
 
 ### ¿Qué son los N-gramas?
 Para entender las métricas de ROUGE y BLEU, primero debes entender qué es un "n-grama". Un n-grama es simplemente **una secuencia de "N" palabras consecutivas** en una frase:
+
 - **Unigrama (1-grama):** Palabras sueltas. Ej: "El", "gato", "come".
+
 - **Bigrama (2-grama):** Pares de palabras seguidas. Ej: "El gato", "gato come", "come pescado".
+
 - **Trigrama (3-grama):** Tríos de palabras. Ej: "El gato come", "gato come pescado".
 
 ### Las Variantes de ROUGE
@@ -215,8 +218,11 @@ sequenceDiagram
 A la hora de evaluar si un proyecto de GenAI es exitoso, las empresas miran estas métricas fundamentales:
 
 - **Eficiencia / Ahorro de tiempo:** ¿Ha reducido el tiempo promedio para resolver un ticket de soporte técnico de 10 minutos a 2 minutos?
+
 - **Tasa de Conversión:** Incremento en el porcentaje de usuarios que completan una compra gracias a las recomendaciones personalizadas del chatbot.
+
 - **ARPU (Average Revenue Per User) / LTV (Life Time Value):** ¿Genera el modelo más ingresos promedio por usuario gracias a interacciones más fluidas?
+
 - **Exactitud Operativa:** Reducción en la tasa de errores manuales en la entrada de datos.
 
 ---
@@ -229,10 +235,15 @@ A la hora de evaluar si un proyecto de GenAI es exitoso, las empresas miran esta
 En el examen, te pedirán que identifiques dónde falla un sistema RAG:
 
 1. **Fallo en Retrieval (Recuperación):** El modelo de Embedding o la base de datos vectorial sacan los documentos equivocados.
+
    - *¿Cómo se evalúa?* Usando métricas clásicas de búsqueda como MRR (Mean Reciprocal Rank) o NDCG.
+
    - *Síntoma:* La IA dice "No tengo información sobre eso" (porque los recortes que le llegaron no contenían la respuesta).
+
 2. **Fallo en Generation (Generación):** La base de datos sacó los recortes perfectos, pero la IA redactó mal la respuesta o alucinó.
+
    - *¿Cómo se evalúa?* Con métricas como **Faithfulness** (Fidelidad a los recortes) y **Answer Relevance** (Relevancia de la respuesta).
+
    - *Síntoma:* La IA se inventa datos que no estaban en los recortes recuperados.
 
 ---

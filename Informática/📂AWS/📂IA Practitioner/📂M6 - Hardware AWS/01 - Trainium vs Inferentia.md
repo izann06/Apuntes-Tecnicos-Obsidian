@@ -1,8 +1,5 @@
-﻿# 01 — AWS Trainium vs AWS Inferentia
-
 **Tags:** #trainium #inferentia #hardware #chips #aceleradores #ia
  #m6-hardware
-**Módulo:** M6 - Hardware AWS | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
 > [!quote] Contexto
 > AWS diseña sus propios chips de silicio optimizados para cargas de trabajo de IA/ML, ofreciendo mejor rendimiento por dólar que las GPUs estándar. Hay dos chips y se usan en momentos distintos del ciclo de vida: **uno para entrenar, otro para inferir**.

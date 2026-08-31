@@ -30,15 +30,18 @@ Cuando manejas Terabytes de datos para entrenar modelos o alimentar un sistema R
 
 ### 1. Ciclo de Vida (Amazon S3 Lifecycle Policies)
 Mantener todos los datos eternamente es carísimo e incumple leyes de retención.
+
 - **La solución:** Políticas de S3 que mueven datos antiguos de forma automática a S3 Glacier (archivo barato) o los borran permanentemente cuando superan los 5 años (cumplimiento legal).
 
 ### 2. Data Lineage (Trazabilidad del Dato)
 > [!abstract] La Trazabilidad Alimentaria
 > Al igual que necesitas saber de qué granja viene un trozo de carne contaminado, necesitas saber exactamente qué archivo PDF entrenó a tu modelo o generó una respuesta sesgada.
+
 - SageMaker provee capacidades de **ML Lineage Tracking** para conectar cada modelo desplegado con la versión exacta de los datos que lo entrenó.
 
 ### 3. Residencia de Datos (Data Residency)
 Las leyes nacionales (como el GDPR en Europa) obligan a que los datos de los ciudadanos europeos no salgan de las fronteras europeas.
+
 - **La solución en AWS:** Como cliente, tú eliges la Región de AWS (ej. `eu-west-1` Irlanda). AWS **garantiza** que los datos nunca se moverán a otra región (ej. `us-east-1` USA) sin tu permiso explícito. Bedrock procesará los prompts localmente en esa región.
 
 ---
@@ -49,14 +52,20 @@ Antes de desplegar cualquier aplicación de IA Generativa, una empresa debe clas
 
 ### Generative AI Security Scoping Matrix
 Es una matriz que cruza diferentes factores para clasificar el riesgo de la aplicación (Bajo, Medio, Alto, Crítico) y definir qué nivel de supervisión necesita:
+
 1. **Sensibilidad de los Datos:** ¿Usa datos públicos, corporativos internos, o altamente clasificados (PHI/PII)?
+
 2. **Impacto en el Usuario:** ¿Afecta a la salud, finanzas o libertad de un humano?
+
 3. **Nivel de Personalización:** ¿Usas el modelo tal cual (bajo riesgo), usas RAG (riesgo medio), o haces Fine-Tuning con datos propios (riesgo alto)?
 
 ### Cadencia de Revisión
 Los modelos fundacionales se degradan con el tiempo a medida que el mundo cambia (Data Drift). La gobernanza requiere establecer una cadencia rígida y programada de:
+
 - Escaneo de vulnerabilidades.
+
 - Monitorización del modelo (Amazon SageMaker Model Monitor).
+
 - Re-entrenamiento con datos actualizados.
 
 ---

@@ -1,8 +1,5 @@
-﻿# 03 — Agents for Amazon Bedrock
-
 **Tags:** #bedrock #agents #react #autonomia #apis #orchestration #ia
  #m4-bedrock
-**Módulo:** [[00 - Índice Módulo 4]] | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
 > [!quote] Definición AWS
 > **Agents for Amazon Bedrock** permite crear agentes de IA que pueden **planificar y ejecutar tareas de varios pasos** de forma autónoma, orquestando llamadas a APIs y servicios de AWS para completar objetivos complejos.

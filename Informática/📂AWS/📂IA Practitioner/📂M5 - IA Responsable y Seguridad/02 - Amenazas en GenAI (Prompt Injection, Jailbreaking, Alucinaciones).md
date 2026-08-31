@@ -1,8 +1,5 @@
-﻿# 02 — Amenazas en GenAI: Prompt Injection, Jailbreaking y Alucinaciones
-
 **Tags:** #seguridad #prompt-injection #jailbreaking #alucinaciones #data-leakage #ia
  #m5-seguridad
-**Módulo:** [[00 - Índice Módulo 5]] | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
 > [!quote] Contexto
 > Los LLMs introducen **nuevas categorías de riesgos de seguridad** que no existían en el software tradicional. Para el examen AIF-C01, debes conocer las amenazas, cómo se manifiestan y cómo **Bedrock Guardrails** las mitiga.

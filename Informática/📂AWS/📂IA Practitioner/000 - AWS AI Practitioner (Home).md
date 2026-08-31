@@ -1,6 +1,5 @@
 **Tags:** #ia #aws-ai-practitioner #indice-maestro
 
-# 🧠 AWS AI Practitioner - Centro de Conocimiento
 
 Bienvenido a tu cerebro de AWS AI Practitioner. Desde aquí puedes navegar a cualquier módulo.
 

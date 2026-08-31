@@ -1,6 +1,5 @@
-﻿**Tags:** #ia #m4-bedrock #indice
+**Tags:** #ia #m4-bedrock #indice
 
-# 🪐 Módulo 4: Bedrock y Amazon Q
 
 → Volver al centro: [[000 - AWS AI Practitioner (Home)|🏠 Home]]
 

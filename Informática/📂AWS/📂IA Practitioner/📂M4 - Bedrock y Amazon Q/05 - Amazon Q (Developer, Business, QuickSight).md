@@ -1,8 +1,5 @@
-﻿# 05 — Amazon Q: Developer, Business y QuickSight
-
 **Tags:** #amazon-q #q-developer #q-business #q-quicksight #ia
  #m4-bedrock
-**Módulo:** [[00 - Índice Módulo 4]] | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
 > [!warning] ⚠️ Confusión habitual en el examen
 > **Amazon Q** es una familia de **tres productos distintos** con nombres similares. Confundirlos es uno de los errores más comunes. Memoriza cuál es cuál antes de entrar al examen.

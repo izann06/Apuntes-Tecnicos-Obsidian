@@ -1,8 +1,5 @@
-﻿# 04 — Precios en Bedrock y Model Evaluation
-
 **Tags:** #bedrock #precios #on-demand #provisioned-throughput #model-evaluation #ia
  #m4-bedrock
-**Módulo:** [[00 - Índice Módulo 4]] | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
 ---
 

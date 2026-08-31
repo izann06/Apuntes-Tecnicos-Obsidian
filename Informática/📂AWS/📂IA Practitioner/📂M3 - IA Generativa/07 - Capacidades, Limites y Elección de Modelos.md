@@ -10,7 +10,9 @@
 Para justificar el uso de IA Generativa en una empresa, debes apoyarte en estas tres ventajas fundamentales:
 
 1. **Adaptabilidad (El "Chef Profesional"):** Un solo modelo fundacional (FM) puede realizar decenas de tareas diferentes de forma nativa (traducir, resumir, escribir código, clasificar) sin tener que entrenar un modelo por separado para cada caso.
+
 2. **Capacidad de respuesta (Lenguaje Natural):** Interacción fluida mediante lenguaje humano, lo que elimina la necesidad de interfaces complejas (UI/UX) o de aprender lenguajes de consulta (como SQL) para extraer información.
+
 3. **Simplicidad de adopción:** Reduce la barrera de entrada técnica; cualquier empleado de la empresa, independientemente de su perfil técnico, puede aprovechar su potencia.
 
 ---
@@ -26,7 +28,9 @@ Para justificar el uso de IA Generativa en una empresa, debes apoyarte en estas 
 Otros riesgos importantes a considerar:
 
 - **No determinismo:** Si le haces exactamente la misma pregunta al modelo dos veces, te dará respuestas ligeramente diferentes. Los modelos de GenAI trabajan con probabilidades estadísticas, no con reglas fijas de programación (salvo que configures la Temperature a 0, y aún así, la arquitectura base sigue siendo estadística).
+
 - **Inexactitud y Desactualización:** Respuestas erróneas si los datos de entrenamiento iniciales tenían errores o si el modelo fue entrenado hace meses y no tiene acceso a internet para validar el presente (se soluciona con RAG).
+
 - **Interpretabilidad Limitada (Caja Negra):** A diferencia de un árbol de decisión clásico, es extremadamente difícil auditar matemáticamente *por qué* un modelo con billones de parámetros tomó una decisión o generó una palabra específica.
 
 ---
@@ -52,7 +56,9 @@ Al diseñar soluciones y elegir qué modelo habilitar en Amazon Bedrock, debes e
 Al diseñar arquitecturas de IA para el examen, debes tener en cuenta que existe una restricción matemática y de física subyacente llamada el "Trilema". Solo puedes maximizar 2 de estas 3 propiedades a la vez:
 
 1. **Razonamiento (Calidad):** La inteligencia y capacidad lógica del modelo. (Requiere modelos más grandes = Opus, Llama 405B).
+
 2. **Latencia (Velocidad):** Qué tan rápido responde el modelo en milisegundos.
+
 3. **Costo (Eficiencia):** Cuánto dinero cuesta generar cada 1,000 tokens.
 
 > [!abstract] El Equilibrio Imposible

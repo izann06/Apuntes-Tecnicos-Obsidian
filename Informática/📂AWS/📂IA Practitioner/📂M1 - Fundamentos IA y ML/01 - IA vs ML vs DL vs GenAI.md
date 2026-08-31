@@ -122,18 +122,27 @@ Para el examen, es crucial no usar estos términos como sinónimos. Piensa en un
 Hay docenas, pero el examen se centra en estos tres para comprobar si sabes elegir la herramienta adecuada:
 
 **1. Regresión Lineal (Linear Regression)**
+
 - **¿Para qué sirve?** Para predecir un **número continuo** en una escala infinita.
+
 - **¿Cómo funciona?** Traza una línea matemática que atraviesa puntos de datos pasados para estimar el futuro.
+
 - **En el examen:** Si te piden "predecir ventas futuras", "estimar el precio de una casa", o la respuesta es un número exacto ($45, 23ºC), elige Regresión Lineal.
 
 **2. K-Means (K-Medias)**
+
 - **¿Para qué sirve?** Para **agrupar** datos *sin etiquetas previas* (Aprendizaje No Supervisado).
+
 - **¿Cómo funciona?** Le dices "hazme 3 grupos (*k=3*)" y junta automáticamente a los usuarios/datos más parecidos entre sí, sin saber cómo se llaman esos grupos.
+
 - **En el examen:** Si ves "segmentar perfiles de compra sin categorías definidas" o "descubrir agrupaciones ocultas en datos", elige K-Means.
 
 **3. Árboles de Decisión (Decision Trees)**
+
 - **¿Para qué sirve?** Para **clasificar** en categorías concretas (Aprendizaje Supervisado).
+
 - **¿Cómo funciona?** Crea un diagrama de flujo con reglas de Sí/No fáciles de interpretar por humanos.
+
 - **En el examen:** Si piden "aprobar o denegar un préstamo" o "decidir si es Spam basándose en reglas transparentes", elige Árboles de Decisión.
 
 ---

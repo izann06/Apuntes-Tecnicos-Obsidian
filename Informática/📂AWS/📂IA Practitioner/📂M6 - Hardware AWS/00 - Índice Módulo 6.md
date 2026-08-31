@@ -1,6 +1,5 @@
 ﻿**Tags:** #ia #m6-hardware #indice
 
-# 🪐 Módulo 6: Hardware AWS
 
 → Volver al centro: [[000 - AWS AI Practitioner (Home)|🏠 Home]]
 
