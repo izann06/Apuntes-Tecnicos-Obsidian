@@ -18,5 +18,10 @@
 - [[📂M3 - IA Generativa/06 - Técnicas de Adaptación de FMs|06 - Técnicas de Adaptación de FMs]]
 
 - [[📂M3 - IA Generativa/07 - Capacidades, Limites y Elección de Modelos|07 - Capacidades, Limites y Elección de Modelos]]
-
 - [[📂M3 - IA Generativa/08 - Cheat Sheet Ecosistema AWS GenAI y Trade-offs|08 - Cheat Sheet Ecosistema AWS GenAI y Trade-offs]]
+
+- [[📂M3 - IA Generativa/09 - Vector Stores en AWS|09 - Vector Stores en AWS]]
+
+- [[📂M3 - IA Generativa/10 - Agentes de IA y MCP|10 - Agentes de IA y MCP]]
+
+- [[📂M3 - IA Generativa/11 - Ataques y Seguridad de Prompt Engineering|11 - Ataques y Seguridad de Prompt Engineering]]

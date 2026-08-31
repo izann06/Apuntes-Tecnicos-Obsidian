@@ -21,9 +21,9 @@
 ## ✍️ Técnica 1: Prompt Engineering
 
 > [!quote] Definición
-> El arte de **diseñar los inputs (prompts)** para guiar al modelo hacia la respuesta deseada sin modificar ningún peso del modelo.
+> El arte de **diseñar los inputs (prompts)** para guiar al modelo hacia la respuesta deseada sin modificar ningún peso del modelo. También se le conoce formalmente en el examen como **In-Context Learning (Aprendizaje en Contexto)**.
 
-**Es siempre la primera técnica a probar.** Si funciona, no necesitas nada más.
+**Es siempre la primera técnica a probar.** Si funciona, no necesitas nada más porque su coste de entrenamiento es **Cero**.
 
 ---
 
@@ -60,9 +60,9 @@ Respuesta del modelo: "Negativo"
 
 ---
 
-### 🎯 Few-shot Prompting
+### 🎯 Single-shot y Few-shot Prompting
 
-Se proporcionan **entre 2 y 5 ejemplos** de pares input→output en el propio prompt para que el modelo aprenda el patrón deseado.
+Se proporcionan **entre 1 (Single-shot) y 5 (Few-shot) ejemplos** de pares input→output en el propio prompt para que el modelo aprenda el patrón deseado.
 
 ```
 Prompt:
@@ -132,6 +132,26 @@ Respuesta:
 > [!tip] Variante: Zero-shot CoT
 > Simplemente añade al final del prompt: **"Piensa paso a paso:"** o **"Let's think step by step:"**
 > Esta variante es sorprendentemente efectiva sin necesidad de ejemplos.
+
+---
+
+### 🌌 Espacio Latente y Negative Prompts
+
+El **Espacio Latente (Latent Space)** es el "universo matemático" donde la IA organiza todos los conceptos aprendidos. Cuando haces un prompt, le estás dando a la IA unas coordenadas para "navegar" hacia la respuesta correcta dentro de ese espacio.
+
+- **Negative Prompting:** Es una técnica donde le dices explícitamente a la IA lo que **NO** quieres que haga o genere.
+- *Ejemplo en texto:* "Escribe una historia infantil. NO uses lenguaje violento ni palabras complejas."
+- *Ejemplo en imágenes:* "Gato en un parque, [negative prompt: borroso, deforme, blanco y negro]".
+- **Por qué funciona:** El Negative Prompt bloquea "regiones indeseadas" del Espacio Latente, forzando a la IA a buscar la respuesta solo en las regiones permitidas.
+
+---
+
+### 🔀 Prompt Routing (Enrutamiento)
+
+A medida que tu aplicación crece, no todos los prompts necesitan el modelo más caro.
+El **Prompt Routing** es una arquitectura donde una pequeña pieza de código (o un LLM muy rápido) clasifica la pregunta entrante y la envía al modelo adecuado.
+- Pregunta simple ("¿Qué hora es?") ➔ Enruta a Claude Haiku (barato y rápido).
+- Pregunta compleja ("Revisa este contrato") ➔ Enruta a Claude Opus (caro y preciso).
 
 ---
 
@@ -233,6 +253,11 @@ El *Fine-tuning completo* de un modelo gigante requeriría clusters de ordenador
 > - ❌ **No uses fine-tuning para:** Darle al modelo información actualizada → usa **RAG**
 >
 > - ❌ **No uses fine-tuning para:** Proporcionar documentos contextuales → usa **RAG**
+
+> [!brain] Regla Mnemotécnica del Dominio 3
+> - **Hechos / Datos / Memoria:** RAG.
+> - **Estilo / Tono / Habilidades / Formato:** Fine-Tuning.
+> - **Costo Cero / Aprendizaje Inmediato:** In-Context Learning (Prompt Engineering).
 
 ---
 

@@ -42,5 +42,23 @@ Al diseñar soluciones y elegir qué modelo habilitar en Amazon Bedrock, debes e
 | **Seguridad y Compliance** | Requisitos legales de privacidad y residencia de datos. Sectores como la salud (HIPAA), finanzas o gobierno pueden exigir modelos específicos o instancias privadas. |
 | **Costo por Token** | Evaluar cuántos tokens consume la tarea en relación al presupuesto total del proyecto. |
 
+> [!tip] Prompt Caching (Ahorro de Costes)
+> Si envías el mismo System Prompt gigante o los mismos documentos de contexto una y otra vez en cada chat, AWS Bedrock permite usar **Prompt Caching**. Guarda el prompt en caché para que no tengas que pagar (ni esperar) a que el modelo lo vuelva a procesar entero en cada interacción. ¡Ideal para abaratar chatbots empresariales!
+
+---
+
+## 📐 El Trilema de la IA Generativa
+
+Al diseñar arquitecturas de IA para el examen, debes tener en cuenta que existe una restricción matemática y de física subyacente llamada el "Trilema". Solo puedes maximizar 2 de estas 3 propiedades a la vez:
+
+1. **Razonamiento (Calidad):** La inteligencia y capacidad lógica del modelo. (Requiere modelos más grandes = Opus, Llama 405B).
+2. **Latencia (Velocidad):** Qué tan rápido responde el modelo en milisegundos.
+3. **Costo (Eficiencia):** Cuánto dinero cuesta generar cada 1,000 tokens.
+
+> [!abstract] El Equilibrio Imposible
+> - Si quieres **Mucho Razonamiento y Bajo Costo**, tendrás una **Latencia altísima** (tendrás que usar modelos pesados en horarios valle o en batch).
+> - Si quieres **Mucho Razonamiento y Baja Latencia**, tendrás un **Costo altísimo** (tendrás que usar Provisioned Throughput o los modelos más premium).
+> - Si quieres **Baja Latencia y Bajo Costo**, tendrás **Poco Razonamiento** (modelos pequeños como Haiku, ideales para tareas mecánicas pero no lógicas).
+
 ---
 → Volver al índice: [[📂M3 - IA Generativa/00 - Índice Módulo 3|🪐 Módulo 3: IA Generativa]]

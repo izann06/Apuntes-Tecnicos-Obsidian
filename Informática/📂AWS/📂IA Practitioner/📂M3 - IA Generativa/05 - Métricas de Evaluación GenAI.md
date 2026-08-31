@@ -220,4 +220,20 @@ A la hora de evaluar si un proyecto de GenAI es exitoso, las empresas miran esta
 - **Exactitud Operativa:** Reducción en la tasa de errores manuales en la entrada de datos.
 
 ---
+
+## 🗂️ Evaluación del Pipeline RAG (Retrieve vs Generate)
+
+> [!brain] Regla de Oro del Diagnóstico RAG
+> Si un sistema RAG da una respuesta incorrecta, **no siempre es culpa de la IA (Generate)**. A menudo es culpa de la base de datos que no encontró el documento correcto (Retrieve). ¡Hay que evaluarlos por separado!
+
+En el examen, te pedirán que identifiques dónde falla un sistema RAG:
+
+1. **Fallo en Retrieval (Recuperación):** El modelo de Embedding o la base de datos vectorial sacan los documentos equivocados.
+   - *¿Cómo se evalúa?* Usando métricas clásicas de búsqueda como MRR (Mean Reciprocal Rank) o NDCG.
+   - *Síntoma:* La IA dice "No tengo información sobre eso" (porque los recortes que le llegaron no contenían la respuesta).
+2. **Fallo en Generation (Generación):** La base de datos sacó los recortes perfectos, pero la IA redactó mal la respuesta o alucinó.
+   - *¿Cómo se evalúa?* Con métricas como **Faithfulness** (Fidelidad a los recortes) y **Answer Relevance** (Relevancia de la respuesta).
+   - *Síntoma:* La IA se inventa datos que no estaban en los recortes recuperados.
+
+---
 → Volver al índice: [[📂M3 - IA Generativa/00 - Índice Módulo 3|🪐 Módulo 3: IA Generativa]]
