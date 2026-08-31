@@ -38,12 +38,16 @@ A medida que avanzo en mis estudios y proyectos, voy subiendo contenido organiza
 
 ---
 
-## ⚙️ ¿Cómo funciona este repositorio?
+## ⚙️ ¿Cómo funciona este repositorio y su sincronización automática?
+Este proyecto utiliza un sistema completamente automatizado para que mis apuntes pasen de estar en mi ordenador a verse en la web sin que tenga que hacer nada de forma manual:
 
-Este proyecto utiliza un sistema de integración y despliegue continuo (CI/CD) completamente automatizado:
-1. Escribo y organizo mis notas localmente utilizando **Obsidian** (Markdown).
-2. Subo los cambios (*Push*) a la rama principal de este repositorio.
-3. Un **GitHub Action** entra en juego de fondo, compila el sitio web estático utilizando **Quartz v4**, ajusta la configuración al vuelo y lo despliega públicamente usando **GitHub Pages**.
+1. Trabajo local: Primero, escribo, modifico o añado nuevos archivos de notas en local en Obsidian.
+
+2. Sincronización automática con Git: Gracias al plugin de Git instalado en Obsidian y a la carpeta oculta .git, la aplicación está conectada directamente con este repositorio remoto. Con el plugin puedes configurar que si hay cambios se haga un commit, push o pull cada 'X' tiempo, por lo que detecta mis cambios de manera autónoma en segundo plano, empaqueta los archivos (commit) y los sube a la nube (push) sin que yo me entere.
+
+3. Despliegue en la web (CI/CD): Tan pronto como los cambios llegan a GitHub, una GitHub Action entra en juego de fondo. Esta acción compila el sitio web estático utilizando Quartz v4, ajusta la configuración al vuelo y lo despliega públicamente en GitHub Pages para que la web esté siempre actualizado al instante.
+
+Todo esto sin yo enterarme, ni abrir terminal, ni tocar absoulutamente nada.
 
 ## 🌐 Visita la Web
 Puedes ver la versión interactiva, renderizada y navegable de todos estos apuntes visitando el enlace del entorno de **GitHub Pages** (disponible en la sección de *Deployments* a la derecha de este repositorio).
