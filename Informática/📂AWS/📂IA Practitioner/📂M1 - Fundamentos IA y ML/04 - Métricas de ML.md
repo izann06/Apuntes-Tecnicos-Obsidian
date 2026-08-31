@@ -1,4 +1,4 @@
-﻿**Tags:** #ml #metricas #precision #recall #f1 #rmse #confusion-matrix #ia
+**Tags:** #ml #metricas #precision #recall #f1 #rmse #confusion-matrix #ia
  #m1-fundamentos
 
 > [!quote] Concepto fundamental

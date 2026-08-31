@@ -1,4 +1,4 @@
-﻿**Tags:** #rouge #bleu #bertscore #llm-judge #evaluacion-genai #ia #m3-genai
+**Tags:** #rouge #bleu #bertscore #llm-judge #evaluacion-genai #ia #m3-genai
 
 > [!quote] El reto de evaluar GenAI
 > Evaluar texto generado es radicalmente más difícil que evaluar una clasificación binaria. "¿Es buena esta respuesta?" no tiene una respuesta única. Por eso existen estas métricas especializadas.
@@ -10,13 +10,21 @@
 > [!quote] Definición
 > **ROUGE** (Recall-Oriented Understudy for Gisting Evaluation) es un conjunto de métricas que mide la **superposición de n-gramas** entre el texto generado y un texto de referencia. Está orientado al **Recall**.
 
-### Las Variantes de ROUGE
+### ¿Qué son los N-gramas?
+Para entender las métricas de ROUGE y BLEU, primero debes entender qué es un "n-grama". Un n-grama es simplemente **una secuencia de "N" palabras consecutivas** en una frase:
+- **Unigrama (1-grama):** Palabras sueltas. Ej: "El", "gato", "come".
+- **Bigrama (2-grama):** Pares de palabras seguidas. Ej: "El gato", "gato come", "come pescado".
+- **Trigrama (3-grama):** Tríos de palabras. Ej: "El gato come", "gato come pescado".
 
-| Variante | Qué mide | Fórmula conceptual |
-| :--- | :--- | :--- |
-| **ROUGE-1** | Superposición de unigramas (palabras individuales) | n-gramas de 1 palabra coincidentes / n-gramas en la referencia |
-| **ROUGE-2** | Superposición de bigramas (pares de palabras) | n-gramas de 2 palabras coincidentes / n-gramas en la referencia |
-| **ROUGE-L** | Secuencia de palabras comunes más larga (LCS) | Preserva el orden de las palabras |
+### Las Variantes de ROUGE
+ROUGE cuenta cuántos de estos n-gramas del texto humano (referencia) han sido "acertados" e incluidos en el texto generado por el modelo.
+
+| Variante | Qué mide |
+| :--- | :--- |
+| **ROUGE-1** | Mide aciertos de **unigramas** (palabras sueltas). Evalúa si el vocabulario principal está presente en la respuesta del modelo. |
+| **ROUGE-2** | Mide aciertos de **bigramas** (pares). Empieza a evaluar si el orden sintáctico a corto plazo se está respetando. |
+| **ROUGE-N** | Mide aciertos de "N" palabras consecutivas (ROUGE-3, ROUGE-4...). |
+| **ROUGE-L** | Mide la **secuencia más larga de palabras comunes** (LCS - Longest Common Subsequence). No exige que todas las palabras estén estrictamente juntas una tras otra, pero sí exige que mantengan el **mismo orden general** en la oración. |
 
 ### Ejemplo de Cálculo de ROUGE-1
 
@@ -69,6 +77,20 @@ ROUGE-1 F1 = 0.60
 | **Uso principal** | Resumen, Q&A | Traducción automática |
 | **Referencia** | Una referencia | Puede usar múltiples referencias |
 | **Penalización** | No penaliza respuestas cortas | Sí penaliza respuestas demasiado cortas (Brevity Penalty) |
+
+### Ejemplo de Cálculo de BLEU
+
+```
+Traducción Humana (Referencia): "El gato está sobre la alfombra" (6 palabras)
+Traducción del Modelo: "El gato está sobre" (4 palabras)
+
+Precision de unigramas (BLEU-1):
+Las 4 palabras del modelo {"El", "gato", "está", "sobre"} sí aparecen en la referencia humana.
+¡La Precisión del modelo es del 100%! (4 palabras acertadas de 4 generadas = 1.0)
+```
+
+**¡Problema!** Aunque la precisión del modelo sea perfecta (100%), su respuesta es incompleta y el significado está truncado.
+Aquí es donde BLEU brilla en comparación a otras métricas: BLEU aplica matemáticamente una **Brevity Penalty (Penalización por brevedad)**. Dado que el modelo generó solo 4 palabras frente a las 6 de la referencia, la fórmula castiga severamente la puntuación final de BLEU para evitar que modelos que responden respuestas extremadamente cortas (pero muy precisas) ganen puntuaciones altas inmerecidas.
 
 > [!example] Cuándo usar BLEU
 >

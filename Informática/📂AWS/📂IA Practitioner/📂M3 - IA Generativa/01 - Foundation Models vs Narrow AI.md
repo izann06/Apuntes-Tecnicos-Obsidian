@@ -1,4 +1,4 @@
-﻿**Tags:** #genai #foundation-models #narrow-ai #llm #ia
+**Tags:** #genai #foundation-models #narrow-ai #llm #ia
  #m3-genai
 
 > [!quote] Definición AWS de Foundation Model
@@ -63,6 +63,10 @@ graph LR
 ```
 
 Los FMs más grandes (GPT-4, Llama 3 405B, Claude 3 Opus) tienen **cientos de miles de millones de parámetros** y fueron entrenados con prácticamente toda la información textual de internet.
+
+> [!info] ¿Qué son los "Parámetros" o "Pesos" (Weights)?
+> Imagina el cerebro humano con sus miles de millones de conexiones neuronales. En las redes neuronales de IA, esas conexiones se llaman **parámetros** o **pesos**. Un "peso" es simplemente un número matemático que decide cuánta importancia tiene una palabra sobre otra en un contexto dado. 
+> Cuando decimos que un modelo "aprende", en realidad significa que el ordenador está ajustando milimétricamente esos miles de millones de números (pesos) hasta que la red neuronal empieza a dar respuestas correctas. Por eso entrenar desde cero cuesta millones de dólares, y por eso el *Fine-tuning* (modificar levemente una parte de esos pesos) es mucho más barato.
 
 ### 2. Pre-training auto-supervisado
 

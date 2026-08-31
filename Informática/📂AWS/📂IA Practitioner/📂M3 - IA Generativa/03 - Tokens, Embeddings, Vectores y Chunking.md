@@ -1,4 +1,4 @@
-﻿**Tags:** #tokens #embeddings #vector-db #chunking #rag #pre-training #fine-tuning #ia
+**Tags:** #tokens #embeddings #vector-db #chunking #rag #pre-training #fine-tuning #ia
  #m3-genai
 
 > [!quote] Contexto Inicial: El Gran Malentendido (RAG NO es entrenar a la IA)

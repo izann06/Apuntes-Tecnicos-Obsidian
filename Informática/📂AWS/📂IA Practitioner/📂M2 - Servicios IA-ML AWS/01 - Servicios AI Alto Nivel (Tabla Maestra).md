@@ -1,4 +1,4 @@
-﻿**Tags:** #servicios-aws #ai #rekognition #comprehend #lex #polly #transcribe #ia
+**Tags:** #servicios-aws #ai #rekognition #comprehend #lex #polly #transcribe #ia
  #m2-servicios
 
 > [!quote] Concepto clave

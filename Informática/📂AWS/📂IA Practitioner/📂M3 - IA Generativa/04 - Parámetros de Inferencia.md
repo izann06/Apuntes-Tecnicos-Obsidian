@@ -1,4 +1,4 @@
-﻿**Tags:** #inferencia #temperature #top-p #top-k #max-tokens #ia
+**Tags:** #inferencia #temperature #top-p #top-k #max-tokens #ia
  #m3-genai
 
 > [!quote] Concepto

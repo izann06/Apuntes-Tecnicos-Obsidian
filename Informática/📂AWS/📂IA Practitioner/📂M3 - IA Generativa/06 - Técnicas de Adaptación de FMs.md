@@ -1,8 +1,6 @@
-# 06 — Técnicas de Adaptación de Foundation Models
 
 **Tags:** #prompt-engineering #rag #fine-tuning #few-shot #chain-of-thought #ia
  #m3-genai
-**Módulo:** [[00 - Índice Módulo 3]] | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
 > [!quote] El reto de la adaptación
 > Los Foundation Models son generalistas. Para hacerlos útiles en contextos específicos de negocio, tenemos cuatro técnicas de adaptación con diferentes niveles de esfuerzo, coste y control. Elegir la correcta es una decisión de arquitectura crítica.
@@ -98,7 +96,7 @@ Prompt SIN Chain-of-Thought:
 "Si Juan tiene 15 manzanas, da 1/3 a María y la mitad 
  de lo que queda a Pedro, ¿cuántas le quedan a Juan?"
 
-Respuesta (incorrecta frecuentemente): "5"
+Respuesta final: "5"
 
 ---
 
@@ -194,16 +192,22 @@ Después del Fine-tuning con tus datos:
 
 ### Tipos de Fine-tuning
 
-| Tipo | Descripción | Cuándo usarlo |
-| :--- | :--- | :--- |
-| **SFT (Supervised Fine-tuning)** | Entrenas con pares (prompt, respuesta ideal) | Tarea muy específica con ejemplos etiquetados |
-| **RLHF** | Alinear con preferencias humanas via recompensa | Mejorar utilidad y seguridad del modelo |
-| **LoRA / QLoRA (PEFT)** | Solo ajusta una pequeña fracción de los parámetros | Reducir coste: el 99% de los parámetros no cambia |
+#### 1. SFT (Supervised Fine-Tuning)
+Es el "Ajuste Fino Supervisado". Coges el modelo base preentrenado y le das miles de ejemplos exactos de cómo quieres que se comporte, presentados en pares de `(Pregunta, Respuesta Ideal)`.
+- **Ejemplo:** Le pasas 5.000 pares de "Mensaje del cliente" ➔ "Categoría del ticket técnico".
+- **Resultado:** El modelo ajusta sus pesos para aprender a replicar exactamente ese formato y lógica de categorización para futuros mensajes.
 
-> [!tip] LoRA — Por Qué Es Importante para el Examen
-> **LoRA (Low-Rank Adaptation)** es la técnica más popular de **PEFT (Parameter-Efficient Fine-tuning)**. En lugar de ajustar todos los pesos del modelo, añade pequeñas matrices de adaptación que se entrenan. El resultado: **80-95% menos de parámetros entrenables**, costes 10x menores, mismo rendimiento final. 
-> 
-> Amazon Bedrock soporta fine-tuning con estas técnicas de forma gestionada.
+#### 2. RLHF (Reinforcement Learning from Human Feedback)
+Es el "Aprendizaje por Refuerzo con Retroalimentación Humana". En lugar de darle respuestas perfectas, el modelo genera varias respuestas posibles a una misma pregunta y un equipo de humanos vota cuál es la mejor, la más segura y la más educada. El modelo desarrolla un "sistema de recompensas interno" para priorizar siempre respuestas útiles e inofensivas.
+- **Cuándo se usa:** Principalmente para alinear a los chatbots conversacionales (como Claude, Amazon Q o ChatGPT) para evitar que sean tóxicos o alucinen peligrosamente.
+
+#### 3. PEFT (Parameter-Efficient Fine-Tuning) y LoRA
+El *Fine-tuning completo* de un modelo gigante requeriría clusters de ordenadores gigantescos y carísimos. **PEFT** soluciona esto ajustando solo una pequeñísima parte de los pesos (ej. el 1% o menos) y "congelando" todo el resto del cerebro principal.
+- **LoRA (Low-Rank Adaptation):** Es la técnica de PEFT más famosa. En lugar de cambiar los pesos originales, LoRA añade unas pequeñas "matrices externas" (como unas gafas nuevas para el modelo) que se entrenan de forma muy rápida y barata.
+- **Resultado:** Consigues casi la misma calidad que con el Fine-Tuning completo, pero **costando 10 veces menos** y completándose en horas en lugar de semanas.
+
+> [!tip] Truco para el Examen
+> Si una pregunta del examen menciona la necesidad de **reducir los costes de computación o evitar reentrenar billones de parámetros** a la hora de adaptar un modelo a tu negocio, la respuesta correcta apuntará a **PEFT** o **LoRA**. Amazon Bedrock soporta estas técnicas de forma nativa.
 
 ### Cuándo Usar Fine-tuning (NO RAG)
 
