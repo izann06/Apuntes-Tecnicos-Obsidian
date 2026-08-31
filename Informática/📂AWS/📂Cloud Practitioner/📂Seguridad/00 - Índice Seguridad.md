@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #cloud-practitioner #cp-seguridad #indice
+**Tags:** #aws #cloud-practitioner #cp-seguridad #indice
 
 # 🪐 Seguridad
 

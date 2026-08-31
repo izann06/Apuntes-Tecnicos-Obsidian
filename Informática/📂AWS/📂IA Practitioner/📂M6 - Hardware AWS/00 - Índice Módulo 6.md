@@ -1,4 +1,4 @@
-﻿**Tags:** #ia #m6-hardware #indice
+**Tags:** #ia #m6-hardware #indice
 
 
 → Volver al centro: [[000 - AWS AI Practitioner (Home)|🏠 Home]]

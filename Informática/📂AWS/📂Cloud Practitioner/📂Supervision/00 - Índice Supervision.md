@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #cloud-practitioner #cp-supervision #indice
+**Tags:** #aws #cloud-practitioner #cp-supervision #indice
 
 # 🪐 Supervision
 
