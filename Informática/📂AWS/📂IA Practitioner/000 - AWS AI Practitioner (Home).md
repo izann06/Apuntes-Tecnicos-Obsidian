@@ -1,4 +1,4 @@
-﻿**Tags:** #ia #aws-ai-practitioner #indice-maestro
+**Tags:** #ia #aws-ai-practitioner #indice-maestro
 
 # 🧠 AWS AI Practitioner - Centro de Conocimiento
 

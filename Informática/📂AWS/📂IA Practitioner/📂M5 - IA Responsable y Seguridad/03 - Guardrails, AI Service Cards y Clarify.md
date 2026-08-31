@@ -1,4 +1,4 @@
-﻿# 03 — Guardrails, AI Service Cards y SageMaker Clarify
+# 03 — Guardrails, AI Service Cards y SageMaker Clarify
 
 **Tags:** #guardrails #ai-service-cards #clarify #proteccion #filtros #ia
  #m5-seguridad
@@ -114,6 +114,17 @@ Guardrails (Grounding check): PERMITIDO ✅
 | **SageMaker Clarify** | Durante el desarrollo/entrenamiento | Sesgos en datos y modelos |
 | **Amazon Macie** | Análisis de S3 | PII en archivos almacenados (no en tiempo real) |
 | **Amazon Comprehend** | Procesamiento de texto | Detección de PII y sentimiento |
+
+---
+
+## 🌱 Sostenibilidad (Customer Carbon Footprint Tool)
+
+> [!quote] El Impacto Ambiental de GenAI
+> Entrenar y ejecutar Modelos Fundacionales consume enormes cantidades de energía y genera una huella de carbono significativa. La IA Responsable también abarca el pilar de **Sostenibilidad** de AWS.
+
+Para medir esto, AWS ofrece la **Customer Carbon Footprint Tool**.
+- **Qué hace:** Mapea y monitorea el impacto ambiental (emisiones de carbono) del uso que hace tu empresa de los servicios de AWS (incluyendo recursos masivos como instancias EC2 con GPUs para entrenamiento de IA).
+- **Para el Examen:** Si preguntan por sostenibilidad, eficiencia energética de los FMs o reporte de emisiones de carbono corporativo ➔ **Customer Carbon Footprint Tool**.
 
 ---
 

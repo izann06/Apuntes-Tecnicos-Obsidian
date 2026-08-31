@@ -1,11 +1,26 @@
-﻿# 04 — Seguridad e Infraestructura: KMS, IAM, VPC, Macie y CloudTrail
+# 04 — Seguridad e Infraestructura: KMS, IAM, VPC, Macie y CloudTrail
 
 **Tags:** #kms #iam #vpc #macie #cloudtrail #seguridad #cifrado #ia
  #m5-seguridad
 **Módulo:** [[00 - Índice Módulo 5]] | **Índice:** [[🏠 AWS AIF-C01 — Índice Maestro]]
 
+## 🤝 Modelo de Responsabilidad Compartida en IA
+
 > [!quote] Principio fundamental
-> La seguridad de una solución de IA en AWS no es solo responsabilidad del modelo: es una responsabilidad compartida entre AWS y el cliente. El cliente es responsable de **cómo y para qué** usa los servicios, el control de acceso, el cifrado adicional y la configuración de red.
+> La seguridad no es 100% de AWS ni 100% tuya. Sigue un modelo de corresponsabilidad.
+
+Para el examen, tienes que dominar exactamente qué hace cada parte:
+
+**1. AWS: Seguridad DE la Nube**
+- AWS se encarga de proteger la infraestructura física (data centers), el hardware, los hipervisores y las redes subyacentes.
+- En servicios gestionados como **Amazon Bedrock**, AWS protege el modelo fundacional base (garantizando que nadie robe los pesos del modelo) y la API.
+
+**2. Cliente: Seguridad EN la Nube**
+- Tú eres responsable de **TODO** lo que construyes encima:
+- Quién tiene acceso a los modelos (Permisos IAM).
+- Cifrar tus S3 Buckets de entrenamiento (KMS).
+- Configurar tu red privada (VPC, Security Groups).
+- **Proteger contra Prompt Injection y Jailbreaks** (usando Guardrails o lógica de aplicación).
 
 ---
 
@@ -176,6 +191,11 @@ graph LR
 
 > [!example] Caso de uso — Banco con datos de clientes
 > Un banco tiene su aplicación de chatbot en una VPC privada. Configura un VPC Endpoint para Amazon Bedrock: los datos confidenciales de los clientes (transcripciones de llamadas, datos financieros) nunca salen de la red privada de AWS ni pasan por internet público, aunque se usen en prompts al LLM.
+
+### Mitigación de Ataques (Security Groups y AWS Shield)
+Para completar el aislamiento de red en tu VPC:
+- **Security Groups (SG):** Actúan como un "portero" (firewall a nivel de instancia). Debes configurar el SG de tu aplicación para que *solo* permita tráfico en el puerto HTTPS (443) hacia el VPC Endpoint de Bedrock.
+- **AWS Shield:** Servicio gestionado que protege tu infraestructura (incluyendo las apps web de IA) contra ataques **DDoS** (Distributed Denial of Service). AWS Shield Standard viene activado por defecto y gratis.
 
 ---
 
