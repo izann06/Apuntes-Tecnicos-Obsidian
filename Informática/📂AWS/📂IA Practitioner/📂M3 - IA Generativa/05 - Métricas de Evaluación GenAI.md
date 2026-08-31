@@ -205,6 +205,19 @@ sequenceDiagram
 | **BLEU** | N-gramas (Precision) | Solapamiento léxico | ❌ | Traducción automática | Bedrock Model Eval |
 | **BERTScore** | Embeddings semánticos | Similitud de significado | ✅ | Evaluación semántica general | Bedrock Model Eval |
 | **LLM-as-a-Judge** | Juicio de otro LLM | Calidad holística | ✅ | Evaluación completa de chatbots | Bedrock Model Eval |
+---
+
+## 💼 Métricas de Éxito Empresarial (Más allá de lo técnico)
+
+> [!warning] Mentalidad para el Examen
+> AWS evaluará tu capacidad para pensar como un líder de proyecto. No basta con saber que el modelo tiene buen ROUGE o BLEU; debes saber cómo medir el impacto real en el negocio.
+
+A la hora de evaluar si un proyecto de GenAI es exitoso, las empresas miran estas métricas fundamentales:
+
+- **Eficiencia / Ahorro de tiempo:** ¿Ha reducido el tiempo promedio para resolver un ticket de soporte técnico de 10 minutos a 2 minutos?
+- **Tasa de Conversión:** Incremento en el porcentaje de usuarios que completan una compra gracias a las recomendaciones personalizadas del chatbot.
+- **ARPU (Average Revenue Per User) / LTV (Life Time Value):** ¿Genera el modelo más ingresos promedio por usuario gracias a interacciones más fluidas?
+- **Exactitud Operativa:** Reducción en la tasa de errores manuales en la entrada de datos.
 
 ---
 → Volver al índice: [[📂M3 - IA Generativa/00 - Índice Módulo 3|🪐 Módulo 3: IA Generativa]]

@@ -27,6 +27,19 @@
 
 ---
 
+### 🧩 Los 4 Componentes de un Prompt Empresarial
+
+Un prompt de calidad profesional (Prompt Engineering) debe estructurarse incluyendo:
+
+1. **Rol:** Indicarle que actúe bajo un rol experto (ej. *"Actúa como un arquitecto cloud senior"*).
+2. **Contexto:** Delimitar el escenario (ej. *"para una startup financiera que migra a AWS"*).
+3. **Tarea Específica:** La orden exacta (ej. *"compara EC2 vs Lambda"*).
+4. **Formato de Salida:** El formato final (ej. *"en una tabla Markdown"*).
+
+> [!tip] Prompt Engineering vs Alucinaciones
+> El Prompt Engineering riguroso es la primera (y más barata) línea de defensa para reducir **alucinaciones**. Sin embargo, no es infalible; no garantiza una verdad absoluta y siempre requiere validación humana posterior, especialmente en áreas críticas.
+
+---
 ### 🎯 Zero-shot Prompting
 
 El modelo realiza la tarea **sin ningún ejemplo previo**, basándose únicamente en su conocimiento preentrenado.

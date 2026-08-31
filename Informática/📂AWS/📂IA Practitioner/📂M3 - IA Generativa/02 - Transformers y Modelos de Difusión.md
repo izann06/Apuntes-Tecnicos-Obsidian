@@ -1,4 +1,4 @@
-﻿**Tags:** #transformers #difusion #arquitectura #llm #imagen #ia
+**Tags:** #transformers #difusion #arquitectura #llm #imagen #ia
  #m3-genai
 
 > [!quote] Contexto
@@ -174,6 +174,18 @@ En cada paso, el prompt *condiciona* (guía) la limpieza: le dice a la IA *"quit
 - Generación de arte y diseño
 
 - Creación de assets para juegos/cine
+
+---
+
+## 🐙 Modelos Multimodales
+
+> [!quote] Concepto
+> Los **Modelos Multimodales** son aquellos capaces de procesar, entender y relacionar múltiples tipos de datos (modalidades) de forma simultánea, como texto, imágenes, audio y video en una sola conversación.
+
+**Ejemplo Práctico:**
+Puedes subir la foto del interior de tu nevera y pedirle a la IA por texto: *"Dime 3 recetas que puedo hacer con lo que hay aquí"*. El modelo "ve" los ingredientes (visión) y genera la receta (texto) en el mismo paso.
+
+**En AWS Bedrock:** Modelos como **Claude 3 (Opus, Sonnet, Haiku)** y **Amazon Titan Multimodal** soportan nativamente entrada de texto + imágenes.
 
 ---
 
