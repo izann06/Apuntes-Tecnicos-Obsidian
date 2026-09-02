@@ -1,18 +1,4 @@
----
-tags:
-  - linux
-  - moc
-  - dashboard
-  - índice
-carpeta: "00 - Dashboard y Mapeo"
-fecha: 2026-09-01
-aliases:
-  - MOC Linux
-  - Dashboard Linux
-  - Índice Linux
----
-
-# 🐧 Índice Maestro de Linux, Terminal, Redes y Bash
+#linux #moc #dashboard #índice
 
 > [!abstract] 🧠 Tu mapa de navegación central
 > Este archivo es el **Mapa de Contenido (MOC)** de toda la sección de Linux. Funciona como un dashboard interactivo desde el que puedes saltar directamente a cualquier tema. Cada enlace te lleva a una nota extensa y detallada con ejemplos prácticos, analogías y comandos reales.
