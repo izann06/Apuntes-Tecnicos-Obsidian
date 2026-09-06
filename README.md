@@ -23,17 +23,17 @@ A medida que avanzo en mis estudios y proyectos, voy subiendo contenido organiza
 - **Inteligencia Artificial (IA Generativa)**:
   - **Amazon Bedrock**: Catálogo de modelos, RAG Gestionado (Knowledge Bases) y Agents for Bedrock.
   - **Amazon Q**: Asistentes IA aplicados en entornos Developer, Business y QuickSight.
+  -**SageMaker**: Servicio completamente gestionado que permite a los desarrolladores y científicos de datos construir, entrenar y desplegar modelos de Machine Learning (ML) a cualquier escala, facilitando todo el ciclo de vida de los proyectos de IA.
 - Infraestructura global, control de facturación (Pricing) y diseño de arquitecturas Cloud robustas.
 
 ### 💻 Programación y Desarrollo Móvil
 - **Kotlin & Android**: Interfaces declarativas con Jetpack Compose, ViewModels y gestión de estados de interfaz (UI).
 - **Persistencia de Datos**: Bases de datos locales robustas con **Room** (DAO, Flow, LiveData, Migraciones) y Datastore para Tokens.
 - **Comunicación Remota**: Consumo de APIs REST y conexión con servidores usando **Retrofit**.
-- **Desarrollo de Videojuegos**: Motor **LibGDX**, ciclo de vida, renderizado 2D y simulaciones de físicas realistas con **Box2D**.
 
 ### 🖥️ Sistemas Informáticos
 - Componentes de hardware e historia de la informática (desde la electricidad y los transistores hasta las puertas lógicas, ALU y CPUs modernas).
-- **Virtualización y DevOps**: Uso de máquinas virtuales, automatización y despliegue con **Vagrant**.
+- **Virtualización y DevOps**: Uso de máquinas virtuales, automatización y despliegue con **Vagrant** (Muy por encima).
 - Fundamentos sólidos de Bases de Datos, Redes e Internet y APIs (ej. Javalin).
 
 ---
