@@ -93,8 +93,11 @@ graph TD
 ## 🚦 Los Estados de las Luces en Packet Tracer (Troubleshooting Rápido)
 
 - **Triángulos Rojos en Router**: El puerto del router está **apagado administrativamente** (`shutdown`). En los routers Cisco los puertos vienen apagados de fábrica; entro y los enciendo manualmente (marco casilla **On** o ejecuto `no shutdown` en CLI).
+
 - **Círculos / Puntos Naranjas en Switch**: El puerto está negociando la conexión mediante el protocolo **Spanning Tree (STP)** para evitar bucles. Espero aproximadamente **30 segundos** y cambia automáticamente a verde.
+
 - **Triángulos Verdes**: Enlace activo y funcional en Capa 1 y Capa 2. Listo para transmitir paquetes.
+
 - **Ondas de Radio Discontinuas**: Conexión inalámbrica por radiofrecuencia establecida con éxito entre el Access Point y el dispositivo móvil.
 
 ---
@@ -102,5 +105,10 @@ graph TD
 ## 💡 Pautas que Sigo al Realizar las Prácticas
 
 1. **Construyo de forma acumulativa**: Voy guardando un archivo `.pkt` por cada proyecto (`Proyecto_01.pkt`, `Proyecto_02.pkt`, etc.) para comparar cómo evoluciona mi red.
+
 2. **Uso el Modo Simulación**: Si un ping me falla o quiero ver cómo viajan los datos en tiempo real, abro la pestaña lateral derecha **Simulation** (o `Shift + S`) y avanzo los paquetes paso a paso.
+
 3. **Tengo paciencia con el primer ping**: Al cruzar un router por primera vez, sé que el primer paquete siempre dará `Request timed out` mientras los dispositivos resuelven las tablas ARP. Lanzo el comando de ping dos veces seguidas para confirmar la conexión.
+
+---
+→ Siguiente nivel: [[📂Proyectos Intermedios/🌐 README|🚀 Pasar al Laboratorio de Proyectos Intermedios (07 en adelante)]]
