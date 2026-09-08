@@ -16,3 +16,8 @@ Bienvenido a tu cerebro de AWS AI Practitioner. Desde aquí puedes navegar a cua
 - [[📂M5 - IA Responsable y Seguridad/00 - Índice Módulo 5|Módulo 5: IA Responsable y Seguridad]]
 
 - [[📂M6 - Hardware AWS/00 - Índice Módulo 6|Módulo 6: Hardware AWS]]
+
+---
+
+## 🎯 Simulacros y Evaluación
+- 📝 **[[00 - Examen Simulacro AIF-C01 (50 Preguntas)|Simulacro Oficial AIF-C01 (50 Preguntas Explicadas)]]**
