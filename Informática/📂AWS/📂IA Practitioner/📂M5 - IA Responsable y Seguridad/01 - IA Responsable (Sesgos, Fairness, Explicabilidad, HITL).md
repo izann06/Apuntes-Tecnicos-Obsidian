@@ -5,9 +5,8 @@
 
 ---
 
-## 🏛️ Los Pilares de la IA Responsable
+# 🏛️ Los 6 Pilares de la IA Responsable
 
-## 🏛️ Los 6 Principios de la IA Responsable (Para el Examen)
 
 El examen AIF-C01 exige que conozcas estos 6 principios exactos de la IA responsable. Debes saber diferenciarlos:
 

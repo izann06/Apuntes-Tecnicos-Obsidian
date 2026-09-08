@@ -41,6 +41,7 @@ flowchart TD
 ### Tipos de Prompt Injection
 
 #### Direct Prompt Injection (Inyección Directa)
+
 El atacante interactúa directamente con el LLM y manipula el prompt del usuario:
 
 ```
@@ -58,6 +59,7 @@ Con Guardrails → La inyección es detectada y bloqueada.
 ```
 
 #### Indirect Prompt Injection (Inyección Indirecta)
+
 El atacante no interactúa directamente: **contamina datos externos** que el LLM leerá:
 
 ```
