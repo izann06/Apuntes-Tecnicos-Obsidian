@@ -53,25 +53,36 @@ flowchart TD
 ## 🧩 Componentes de un Agente
 
 ```mermaid
-mindmap
- root((Agent for\nBedrock))
- Foundation Model
- El cerebro del agente
- Claude, Titan, Llama...
- System Prompt
- Instrucciones y personalidad
- Qué puede y no puede hacer
- Action Groups
- APIs que puede llamar
- Definidas con OpenAPI Schema
- Ejecutadas via Lambda
- Knowledge Bases
- Fuentes de consulta
- RAG integrado
- Memory
- Session memory
- Recuerda el contexto
+flowchart TD
+  AG["🤖 Agent for Bedrock\n(Orquestador Autónomo)"]
+  FM["🧠 Foundation Model\n(El cerebro del agente)"]
+  SP["📜 System Prompt\n(Instrucciones y personalidad)"]
+  ACT["🔌 Action Groups\n(APIs ejecutadas vía Lambda)"]
+  KB["📚 Knowledge Bases\n(Fuentes de consulta / RAG)"]
+  MEM["💾 Memory\n(Contexto de la sesión)"]
+
+  AG --> FM
+  AG --> SP
+  AG --> ACT
+  AG --> KB
+  AG --> MEM
+
+  style AG fill:#1e1b4b,stroke:#818cf8,color:#ffffff
+  style FM fill:#311042,stroke:#c084fc,color:#ffffff
+  style SP fill:#143024,stroke:#4ade80,color:#ffffff
+  style ACT fill:#3b1e08,stroke:#fb923c,color:#ffffff
+  style KB fill:#0c2a44,stroke:#38bdf8,color:#ffffff
+  style MEM fill:#3a1d28,stroke:#f472b6,color:#ffffff
 ```
+
+| Componente | Rol en el Agente | ¿Cómo funciona? |
+| :--- | :--- | :--- |
+| **🧠 Foundation Model** | El cerebro del agente | Modela el razonamiento y decide qué pasos seguir (Claude, Titan, Llama). |
+| **📜 System Prompt** | La directriz y límites | Define la personalidad, el objetivo y qué tiene prohibido hacer. |
+| **🔌 Action Groups** | Las "manos" del agente | APIs definidas con OpenAPI Schema y ejecutadas mediante funciones AWS Lambda. |
+| **📚 Knowledge Bases** | La memoria documental | RAG integrado para consultar información corporativa privada (S3, Confluence). |
+| **💾 Memory** | El hilo de la conversación | Mantiene el contexto de múltiples turnos de diálogo (*Session Memory*). |
+
 
 ### Action Groups — Las "Manos" del Agente
 

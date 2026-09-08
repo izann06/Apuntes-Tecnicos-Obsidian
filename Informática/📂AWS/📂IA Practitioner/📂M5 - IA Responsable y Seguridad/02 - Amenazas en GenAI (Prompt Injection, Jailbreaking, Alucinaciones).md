@@ -9,28 +9,26 @@
 ## 🗺️ El Panorama de Amenazas en GenAI
 
 ```mermaid
-mindmap
- root((Amenazas\nGenAI))
- Prompt Injection
- El usuario manipula el prompt
- Objetivo: eludir restricciones
- Tipos: Direct, Indirect
- Jailbreaking
- Subconjunto de Injection
- Objetivo: eludir la ética/políticas
- Técnicas: DAN, roleplay, codificación
- Data Leakage
- Filtración de datos del prompt
- Exposición de datos de training
- PII en las respuestas
- Alucinaciones
- Información inventada
- Presentada con confianza
- Sin base factual
- Envenenamiento de datos
- Dataset de training contaminado
- Afecta al comportamiento del modelo
- Backdoors en el modelo
+flowchart TD
+  A["⚠️ Amenazas en IA Generativa"]
+  PI["💉 Prompt Injection\n(Manipulación de prompts)"]
+  JB["🔓 Jailbreaking\n(Elusión de restricciones éticas)"]
+  DL["🕵️ Data Leakage\n(Fuga de PII y datos de training)"]
+  AL["🌀 Alucinaciones\n(Respuestas falsas con convicción)"]
+  DP["🧪 Data Poisoning\n(Envenenamiento de datasets)"]
+
+  A --> PI
+  A --> JB
+  A --> DL
+  A --> AL
+  A --> DP
+
+  style A fill:#1e1b4b,stroke:#818cf8,color:#ffffff
+  style PI fill:#3b1e08,stroke:#fb923c,color:#ffffff
+  style JB fill:#311042,stroke:#c084fc,color:#ffffff
+  style DL fill:#0c2a44,stroke:#38bdf8,color:#ffffff
+  style AL fill:#3a1d28,stroke:#f472b6,color:#ffffff
+  style DP fill:#143024,stroke:#4ade80,color:#ffffff
 ```
 
 ---

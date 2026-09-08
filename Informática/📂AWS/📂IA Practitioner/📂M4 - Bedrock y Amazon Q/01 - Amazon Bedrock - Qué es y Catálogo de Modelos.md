@@ -144,6 +144,7 @@ graph TB
 ## 🔬 Funcionalidades Avanzadas de Bedrock
 
 ### Bedrock Studio
+
 Interface visual para explorar y probar modelos sin escribir código. Útil para prototipado rápido.
 
 ### Playgrounds en Bedrock Console
@@ -155,6 +156,7 @@ Interface visual para explorar y probar modelos sin escribir código. Útil para
 - **Image Playground:** Generación de imágenes
 
 ### Bedrock Guardrails
+
 (Cubierto en detalle en el Módulo 5)
 Filtros de seguridad que se aplican a las entradas y salidas de cualquier modelo en Bedrock.
 
@@ -164,32 +166,65 @@ Herramienta para comparar modelos con métricas automáticas o evaluación human
 
 ---
 
-## 🎯 Casos de Uso de Amazon Bedrock
+## 🎯 Casos de Uso Comunes de Amazon Bedrock
+
+Amazon Bedrock permite acceder a los mejores modelos fundacionales del mercado sin gestionar servidores. Estos son sus usos más habituales:
 
 ```mermaid
-mindmap
- root((Amazon Bedrock\nCasos de Uso))
- Chat y Asistentes
- Chatbot de atención al cliente
- Asistente interno de empresa
- Q&A sobre documentos
- Generación de Contenido
- Redacción de marketing
- Generación de código
- Resúmenes automáticos
- Búsqueda Inteligente
- RAG con Knowledge Bases
- Búsqueda semántica
- FAQ automatizado
- Automatización
- Agents para tareas complejas
- Procesamiento de documentos
- Clasificación y extracción
- Creación Visual
- Generación de imágenes
- Diseño de assets
- Prototipado visual
+flowchart LR
+  B["⚡ Amazon Bedrock\n(Casos de Uso)"]
+  C1["💬 Chat & Asistentes"]
+  C2["✍️ Generación de Contenido"]
+  C3["💻 Código y DevOps"]
+  C4["📄 Procesamiento Documental"]
+  C5["🎨 Creación Visual"]
+
+  B --> C1
+  B --> C2
+  B --> C3
+  B --> C4
+  B --> C5
+
+  style B fill:#1e1b4b,stroke:#818cf8,color:#ffffff
+  style C1 fill:#0c2a44,stroke:#38bdf8,color:#ffffff
+  style C2 fill:#143024,stroke:#4ade80,color:#ffffff
+  style C3 fill:#311042,stroke:#c084fc,color:#ffffff
+  style C4 fill:#3b1e08,stroke:#fb923c,color:#ffffff
+  style C5 fill:#3a1d28,stroke:#f472b6,color:#ffffff
 ```
 
 ---
+
+### 1. 💬 Chatbots Inteligentes y Atención al Cliente (Claude / Llama 3)
+
+* **Uso común:** Atender consultas de usuarios 24/7 en webs y apps con lenguaje natural y humano.
+
+* **Solución breve:** Conectas el modelo por API; entiende el contexto de la conversación, analiza el sentimiento del cliente y resuelve incidencias sin respuestas robóticas.
+
+### 2. ✍️ Generación y Síntesis de Contenido (Amazon Titan / Claude)
+
+* **Uso común:** Redactar borradores de marketing, emails comerciales, fichas de producto o resumir informes de 50 páginas.
+
+* **Solución breve:** Le proporcionas los puntos clave y el modelo redacta el contenido adaptado al tono de tu empresa o sintetiza documentos extensos en un párrafo ejecutivo.
+
+### 3. 💻 Asistencia al Desarrollo de Software (Claude / Mistral / Llama)
+
+* **Uso común:** Escribir funciones, depurar errores de compilación, refactorizar código antiguo o crear tests unitarios.
+
+* **Solución breve:** El programador le pasa una función o mensaje de error; el modelo devuelve el código optimizado, explicado y listo para producción.
+
+### 4. 📄 Extracción Estructurada de Documentos (Modelos Multimodales)
+
+* **Uso común:** Procesar facturas, nóminas, albaranes o informes médicos escaneados en PDF o imagen.
+
+* **Solución breve:** El modelo lee el documento visualmente y extrae los campos clave (importes, fechas, CIF, conceptos) en formato JSON limpio directo a tu base de datos.
+
+### 5. 🎨 Generación y Edición de Imágenes (Stable Diffusion XL / Titan Image)
+
+* **Uso común:** Crear creatividades publicitarias, portadas, prototipos visuales o variantes de productos para catálogos.
+
+* **Solución breve:** Escribes una descripción en texto (*prompt*) y el modelo genera imágenes fotorrealistas de alta calidad en segundos sin pagar bancos de imágenes.
+
+---
 → Volver al índice: [[📂M4 - Bedrock y Amazon Q/00 - Índice Módulo 4|🪐 Módulo 4: Bedrock y Amazon Q]]
+

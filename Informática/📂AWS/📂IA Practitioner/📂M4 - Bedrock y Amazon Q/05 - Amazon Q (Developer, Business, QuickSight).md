@@ -9,24 +9,27 @@
 ## 🗺️ La Familia Amazon Q
 
 ```mermaid
-mindmap
- root((Amazon Q))
- Q Developer
- Asistente de programación
- IDE plugins
- Similar a GitHub Copilot
- Genera, explica y depura código
- Q Business
- Asistente empresarial
- Conectado a fuentes de datos propias
- Similar a un ChatGPT privado
- Control de acceso por roles
- Q in QuickSight
- Asistente de BI
- Consultas en lenguaje natural
- Genera gráficos desde texto
- Solo dentro de QuickSight
+flowchart TD
+  Q["🌐 Familia Amazon Q\n(Asistentes de IA de AWS)"]
+  QD["👨‍💻 Amazon Q Developer\nPara Desarrolladores"]
+  QB["🏢 Amazon Q Business\nPara Empleados de Empresa"]
+  QQ["📊 Amazon Q in QuickSight\nPara Analistas de BI"]
+
+  Q --> QD
+  Q --> QB
+  Q --> QQ
+
+  style Q fill:#1e1b4b,stroke:#818cf8,color:#ffffff
+  style QD fill:#0c2a44,stroke:#38bdf8,color:#ffffff
+  style QB fill:#143024,stroke:#4ade80,color:#ffffff
+  style QQ fill:#311042,stroke:#c084fc,color:#ffffff
 ```
+
+| Producto | ¿Para quién es? | ¿Dónde se usa? | Caso típico |
+| :--- | :--- | :--- | :--- |
+| **👨‍💻 Q Developer** | Desarrolladores y DevOps | IDEs (VS Code, JetBrains) y Consola AWS | Generar funciones, depurar errores y crear tests |
+| **🏢 Q Business** | Empleados de toda la empresa | Web / Intranet empresarial / Slack | Consultar políticas, wikis y datos internos con permisos IAM |
+| **📊 Q in QuickSight** | Analistas de negocio y BI | Exclusivamente dentro de Amazon QuickSight | Crear gráficos y dashboards preguntando: *"ventas por región este mes"* |
 
 ---
 

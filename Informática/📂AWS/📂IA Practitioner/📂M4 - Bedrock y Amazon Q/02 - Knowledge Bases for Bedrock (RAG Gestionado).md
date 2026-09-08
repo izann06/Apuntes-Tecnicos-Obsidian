@@ -179,9 +179,48 @@ Una de las ventajas más importantes de RAG con Knowledge Bases es la capacidad 
 
 - Permite **trazabilidad** y cumplimiento normativo
 
+---
+
+## 🚀 Casos de Uso Comunes de Knowledge Bases for Bedrock
+
+Knowledge Bases se utiliza siempre que necesites que un LLM responda basándose en **datos privados de tu empresa** citando la fuente exacta y sin alucinaciones.
+
+### 1. 👥 Asistente de Recursos Humanos (Onboarding y Políticas)
+
+* **Uso común:** Responder preguntas de empleados sobre vacaciones, permisos, bajas médicas, seguros o convenios.
+
+* **Solución breve:** Conecta un bucket de Amazon S3 con los PDFs corporativos; el empleado pregunta y la IA responde indicando la página exacta del manual oficial.
+
+### 2. 🛠️ Helpdesk Técnico y Atención al Cliente
+
+* **Uso común:** Guiar a clientes o técnicos de soporte en la resolución de averías y códigos de error.
+
+* **Solución breve:** Indexa manuales de producto y artículos de ServiceNow o Salesforce; la IA devuelve el paso a paso exacto para reparar la avería sin inventar nada.
+
+### 3. ⚖️ Auditoría Legal y Revisión de Contratos Masiva
+
+* **Uso común:** Localizar cláusulas de penalización, fechas de rescisión o indemnizaciones en cientos de contratos.
+
+* **Solución breve:** Sube los contratos a S3 cifrados con KMS; la búsqueda semántica localiza de inmediato los párrafos legales exactos para auditorías.
+
+### 4. 💻 Wiki Técnica de Ingeniería y DevOps
+
+* **Uso común:** Consultar cómo desplegar un microservicio, qué variables requiere o cómo resolver incidencias pasadas.
+
+* **Solución breve:** Sincroniza espacios de Atlassian Confluence; los programadores obtienen respuestas técnicas actualizadas sin perder horas buscando en la wiki.
+
+### 5. 🏥 Protocolos Médicos y Sanitarios
+
+* **Uso común:** Consultar pautas de medicación, contraindicaciones o protocolos hospitalarios.
+
+* **Solución breve:** Conecta guías clínicas y vademécums; los médicos reciben la dosis o protocolo recomendado con verificación directa de la literatura médica oficial.
+
+---
+
 > [!tip] Truco de examen — Knowledge Bases = RAG gestionado + S3
 > Si el examen describe: "conectar un LLM a documentos internos almacenados en S3 sin gestionar infraestructura" → la respuesta es **Knowledge Bases for Amazon Bedrock**. 
 > Es el servicio RAG de referencia de AWS para el examen AIF-C01.
 
 ---
 → Volver al índice: [[📂M4 - Bedrock y Amazon Q/00 - Índice Módulo 4|🪐 Módulo 4: Bedrock y Amazon Q]]
+
