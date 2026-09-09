@@ -24,19 +24,21 @@ Sin Knowledge Bases, implementar RAG requiere:
 
 ---
 
-## 💡 De Documentos Privados a Respuestas Precisas: El Problema y la Solución (Caso Real Avincis)
+## 💡 De Documentos Privados a Respuestas Precisas: El Problema y la Solución
 
 Este es el bloque conceptual más importante para comprender la necesidad de **Bedrock**, **Knowledge Bases** y **RAG** en entornos corporativos reales.
 
 ### El Problema del Mundo Real
 
 Imagina que una empresa aeronáutica y de servicios de emergencia como **Avincis** tiene almacenados en sus repositorios estos documentos privados:
+
 * `Manual_RRHH.pdf`
 * `Politica_Viajes.pdf`
 * `Procedimiento_Compras.pdf`
 * `Mantenimiento_Helicopteros.pdf`
 
 Un empleado entra al portal y pregunta:
+
 > *"¿Cuántos días antes debo solicitar vacaciones?"*
 
 Un Modelo Fundacional (LLM) generalista (como Claude, Titan o Llama) **no conoce esos documentos** porque nunca formaron parte de su entrenamiento público. Además, superan con creces los límites de lectura simultánea de la ventana de contexto.
@@ -48,12 +50,14 @@ Para resolverlo, entran en juego cuatro piezas: **Chunks**, **Embeddings**, **Ba
 ### Paso 1: Chunks (Fragmentación del Documento)
 
 Supongamos que el PDF `Manual_RRHH.pdf` indica:
+
 > *"Las vacaciones deben solicitarse con 15 días de antelación. Las solicitudes se tramitan mediante Workday."*
 
 La IA no suele procesar PDFs completos de golpe. Por ello, el sistema los fragmenta en bloques pequeños manejables llamados **Chunks**:
 
 * **Chunk 1:** *"Las vacaciones deben solicitarse con 15 días de antelación."*
-* **Chunk 2:** *"Las solicitudes se tramitan mediante Workday."*
+
+* **Chunk 2:** *"Las solicitudes se tramitan mediante un excel compartido."*
 
 ---
 
@@ -95,6 +99,7 @@ La base vectorial guarda cada registro con la estructura:
 $$\mathbf{Chunk} \quad + \quad \mathbf{Embedding}$$
 
 * **Chunk:** *"Las vacaciones deben solicitarse con 15 días de antelación."*
+
 * **Embedding:** `[0.11, 0.65, 0.33, 0.92, ...]`
 
 #### Diferencia Vital: Base SQL Tradicional vs. Base Vectorial
@@ -111,13 +116,17 @@ $$\mathbf{Chunk} \quad + \quad \mathbf{Embedding}$$
 RAG une las dos fases críticas: **Recuperación (Retrieval)** + **Generación (Generation)**.
 
 * **Sin RAG:** Le preguntas a Claude *"¿Cuántos días antes debo pedir vacaciones en Avincis?"*. Claude responde usando solo lo que aprendió en su entrenamiento público general. **Puede equivocarse o inventarse una política inexistente (alucinación)**.
+
 * **Con RAG:** El flujo conecta tus datos privados con la inteligencia del modelo:
 
 $$\text{Usuario (Pregunta)} \longrightarrow \text{Base Vectorial (Búsqueda semántica)} \longrightarrow \text{Recupera Chunk 1} \longrightarrow \text{Claude (Contexto + Pregunta)} \longrightarrow \text{Respuesta con Citations}$$
 
 #### Flujo en Ejecución Real:
+
 1. **Pregunta:** *"¿Cuántos días antes debo pedir vacaciones?"*
+
 2. **La Base Vectorial recupera el Chunk exacto:** *"Las vacaciones deben solicitarse con 15 días de antelación."*
+
 3. **Claude recibe el prompt enriquecido:**
    ```text
    CONTEXTO:
@@ -126,6 +135,7 @@ $$\text{Usuario (Pregunta)} \longrightarrow \text{Base Vectorial (Búsqueda sem�
    PREGUNTA:
    ¿Cuántos días antes debo pedir vacaciones?
    ```
+   
 4. **Claude responde:**
    > *"Según la política oficial de la empresa (Manual de RRHH), las vacaciones deben solicitarse con 15 días de antelación."*
 
