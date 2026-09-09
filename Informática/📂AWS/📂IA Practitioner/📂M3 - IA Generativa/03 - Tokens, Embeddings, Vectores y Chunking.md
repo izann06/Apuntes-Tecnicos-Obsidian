@@ -139,7 +139,7 @@ flowchart LR
 ```
 
 > [!tip] Resumen para el Examen
-> Si AWS te pregunta cómo hacer que una IA responda sobre documentos privados o PDFs de tu empresa **sin tener que entrenarla desde cero**, la arquitectura que debes buscar en las respuestas se llama **RAG**, y se implementa usando **Knowledge Bases for Amazon Bedrock** (que hace todos los pasos de chunking, embedding y vector DB por ti).
+> Si AWS te pregunta cómo hacer que una IA responda sobre documentos privados o PDFs de tu empresa **sin tener que entrenarla desde cero**, la arquitectura que debes buscar en las respuestas se llama **RAG**, y se implementa usando [[📂M4 - Bedrock y Amazon Q/02 - Knowledge Bases for Bedrock (RAG Gestionado)|Knowledge Bases for Amazon Bedrock]] (que automatiza todos los pasos de chunking, embeddings con Titan y vector store por ti).
 
 ---
 

@@ -6,6 +6,10 @@
 > 
 > Cada nota combina **rigor técnico de nivel Cisco CCNA**, **perspectiva ofensiva/defensiva de Ciberseguridad (Pentesting)** y **analogías cotidianas** para afianzar cada concepto con solidez.
 
+> [!tip] 🚀 Chuleta Rápida y Hoja de Ruta (Niveles 1 al 9)
+> Si buscas repasar los conceptos fundamentales condensados y las preguntas clave de resolución de averías (Helpdesk/Sysadmin), consulta la guía:
+> ➔ [[🧭 00.1 - Guía Esencial de Conceptos y Diagnóstico de Redes (Niveles 1 al 9)|🧭 00.1 - Guía Esencial de Conceptos y Diagnóstico de Redes (Niveles 1 al 9)]]
+
 ---
 
 ## 🗺️ Mapa de Navegación por Capas (Arquitectura Global)
