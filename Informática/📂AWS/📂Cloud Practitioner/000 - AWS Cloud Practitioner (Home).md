@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #cloud-practitioner #indice-maestro
+**Tags:** #aws #cloud-practitioner #indice-maestro
 
 # ☁️ AWS Cloud Practitioner - Centro de Conocimiento
 
