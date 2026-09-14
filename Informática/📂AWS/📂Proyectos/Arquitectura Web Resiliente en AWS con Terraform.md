@@ -67,28 +67,37 @@ Para evitarlo, usamos una tabla de DynamoDB. Funciona como un **semáforo**:
 La red no es solo cables, es nuestra barrera de ciberseguridad. Hemos diseñado una arquitectura "Zero Trust" donde casi nada es directamente accesible desde internet.
 
 ### 1. VPC (Virtual Private Cloud)
+
 Nuestra parcela de terreno. Elegimos un bloque CIDR grande (`10.0.0.0/16`) para tener un límite teórico de 65.536 direcciones IP disponibles.
 
 ### 2. Zonas de Disponibilidad (Multi-AZ)
+
 AWS divide sus regiones (ej. Virginia) en varios centros de datos separados físicamente (AZs). Al dividir nuestros recursos entre `us-east-1a` y `us-east-1b`, logramos **Alta Disponibilidad**. Si un centro de datos entero se cae (por fuego o corte de luz), la arquitectura conmuta al otro automáticamente.
 
 ### 3. Subredes Públicas y el Internet Gateway (IGW)
+
 - El **Internet Gateway (IGW)** es la puerta al mundo real. 
 - Las **Subredes Públicas** (`map_public_ip_on_launch = true`) tienen una tabla de rutas que envía tráfico directamente al IGW. 
 - **¿Qué va aquí?** SOLO recursos que deben ser vistos por usuarios, como el Application Load Balancer.
 
 ### 4. Subredes Privadas (El Búnker)
+
 - Estas subredes NO asignan IPs públicas a sus servidores. Un hacker no puede escribir una IP en su terminal y atacar un servidor nuestro, porque esa IP pública no existe.
 - **¿Qué va aquí?** Nuestro código de aplicación (instancias EC2 dentro de un Auto Scaling Group) y nuestra base de datos (Amazon RDS).
 
 ### 5. NAT Gateway y Elastic IP (El Mayordomo Secreto)
+
 Si nuestras instancias EC2 son invisibles y no pueden hablar con internet... ¿cómo descargan librerías de Python o actualizaciones de Linux (`apt update`)?
+
 Para solucionar esto, usamos un **NAT Gateway**. 
+
 - Lo situamos en la subred pública.
 - Le asignamos una **Elastic IP** (una IP pública fija de AWS).
 - **Funcionamiento:** El servidor privado manda la petición al NAT. El NAT (que sí tiene internet) hace la petición, descarga la actualización y se la devuelve al servidor privado. Los hackers solo verán la IP del NAT realizando una petición legítima, pero no podrán ver los servidores que hay detrás.
 
 ### 6. Route Tables (Señales de Tráfico)
+
 Las tablas de enrutamiento (Route Tables) dictan el flujo de red.
+
 - **Tabla Pública:** *"Si quieres ir a internet (`0.0.0.0/0`), usa la gran puerta principal (Internet Gateway)"*.
 - **Tabla Privada:** *"Si quieres ir a internet (`0.0.0.0/0`), envíale la petición a nuestro intermediario (NAT Gateway)"*.
