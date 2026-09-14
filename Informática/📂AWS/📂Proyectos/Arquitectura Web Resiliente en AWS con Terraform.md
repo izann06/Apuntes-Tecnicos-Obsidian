@@ -1,3 +1,24 @@
+PROYECTO PARA HACER EN EL FUTURO:
+
+Proyecto 2: Arquitectura Web Resiliente y Desacoplada con Terraform
+Objetivo: Dominar Terraform, bases de datos gestionadas, almacenamiento seguro y balanceo de carga.
+
+Qué construir: Un backend web completo aprovisionado 100% mediante Terraform.
+
+Infraestructura:
+
+Networking: VPC con subredes públicas y privadas distribuidas en dos zonas de disponibilidad (Multi-AZ).
+
+Cómputo y Tráfico: Un Application Load Balancer (ALB) público que distribuye peticiones a un grupo de Auto Scaling (ASG) con instancias EC2 en subredes privadas.
+
+Base de datos: Instancia RDS (PostgreSQL o MySQL) en subredes de datos aisladas, sin acceso a Internet.
+
+Seguridad: Credenciales de la base de datos guardadas en AWS Secrets Manager y recuperadas en tiempo de ejecución; datos estáticos servidos desde S3 vía CloudFront.
+
+Entregable: Código modular de Terraform estructurado en carpetas (network, compute, database) con su archivo de estado remoto en S3 y bloqueo en DynamoDB.
+
+**LO DEJE A MEDIAS PORQUE ES BASTANTE COMPLETO PREFIERO IR POCO A POCO**
+
 
 Este documento es la base de conocimiento interna (ADR - Architecture Decision Record) para la arquitectura web resiliente. Contiene explicaciones técnicas, diagramas y decisiones de diseño.
 
@@ -101,3 +122,74 @@ Las tablas de enrutamiento (Route Tables) dictan el flujo de red.
 
 - **Tabla Pública:** *"Si quieres ir a internet (`0.0.0.0/0`), usa la gran puerta principal (Internet Gateway)"*.
 - **Tabla Privada:** *"Si quieres ir a internet (`0.0.0.0/0`), envíale la petición a nuestro intermediario (NAT Gateway)"*.
+  
+  
+  
+  README GITHUB
+  # 🚀 Arquitectura Web Resiliente y Desacoplada en AWS
+
+Un backend Cloud de nivel empresarial aprovisionado al 100% como Infraestructura como Código (IaC) mediante **Terraform**.
+
+## 🎯 Resumen de la Arquitectura
+Esta infraestructura está diseñada para ser altamente disponible (Multi-AZ), segura (recursos críticos aislados en redes privadas) y escalable automáticamente según el tráfico.
+
+```mermaid
+graph TD
+    Internet((Internet)) --> IGW[Internet Gateway]
+    IGW --> ALB[Application Load Balancer]
+    
+    subgraph VPC [VPC Custom - 10.0.0.0/16]
+        ALB -->|Tráfico de Usuarios| ASG
+        
+        subgraph Publicas [Subredes Públicas]
+            ALB
+            NAT[NAT Gateway]
+        end
+        
+        subgraph Privadas [Subredes Privadas]
+            ASG[Auto Scaling Group EC2]
+            RDS[(Base de Datos PostgreSQL)]
+        end
+        
+        ASG -.->|Descarga Actualizaciones| NAT
+        ASG -->|Lee/Escribe| RDS
+    end
+```
+
+## 🛠️ Tecnologías Principales
+- **AWS VPC & Networking:** Red Multi-AZ con subredes públicas y privadas, usando NAT Gateways.
+- **AWS ALB & Auto Scaling:** Balanceo de carga y autoescalado dinámico de servidores web.
+- **AWS RDS & Secrets Manager:** Base de datos segura sin credenciales en el código fuente.
+- **AWS S3 & DynamoDB:** Almacenamiento de estado remoto (`.tfstate`) y State Locking.
+- **Terraform:** Estructura modular avanzada.
+
+## 📂 Estructura del Proyecto (Módulos)
+```text
+terraform/
+├── main.tf              # Llama y orquesta los submódulos
+├── provider.tf          # Configuración del proveedor y Backend S3
+├── variables.tf         # Variables globales del entorno
+├── outputs.tf           # Datos de salida finales (ej. URL del Balanceador)
+└── modules/             # Piezas lógicas reutilizables
+    ├── network/         # VPC, Subredes, IGW, NAT, Tablas de Rutas
+    ├── database/        # Amazon RDS y Secrets Manager
+    └── compute/         # ALB, Launch Templates, Auto Scaling Group
+```
+
+## 🚀 Despliegue Rápido
+1. **Configurar Estado Remoto (Solo la primera vez):** Crear el bucket S3 y la tabla DynamoDB mediante AWS CLI.
+2. **Inicializar Terraform:**
+   ```bash
+   terraform init
+   ```
+3. **Desplegar Infraestructura:**
+   ```bash
+   terraform apply
+   ```
+
+*(Nota: Las decisiones de diseño arquitectónico y explicaciones técnicas detalladas se encuentran en mis apuntes de Obsidian, tengo un repositorio donde están todos mis apuntes, te lo dejaré abajo).* 
+
+***
+
+**Apuntes de clase, libros, apuntes y lo que necesito para comprender y aprender mejor la tecnología y conceptos que se van viendo en cada clase o momento de aprendizaje.**
+https://github.com/izann06/Apuntes-Tecnicos-Obsidian
