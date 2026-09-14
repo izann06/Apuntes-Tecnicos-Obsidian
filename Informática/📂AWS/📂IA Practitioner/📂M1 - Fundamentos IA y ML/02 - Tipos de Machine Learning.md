@@ -185,6 +185,17 @@ sequenceDiagram
 
 ---
 
+## 🧠 Algoritmos Representativos y Explicabilidad
+
+Dependiendo del paradigma y la necesidad de entender el modelo (explicabilidad), usamos diferentes arquitecturas:
+
+> [!brain] Algoritmos Clave para el Examen
+> - **Árboles de Decisión (Decision Trees):** Algoritmo de ML tradicional muy utilizado cuando se requiere **alta interpretabilidad**. Es fácil documentar cómo el mecanismo interno afecta a la salida (modelo de "caja blanca"). Ideal para auditorías o cumplimiento normativo.
+> - **Modelos basados en BERT:** Arquitecturas de Deep Learning diseñadas para el entendimiento profundo del lenguaje. Un caso de uso clásico es la **inserción y sugerencia de palabras faltantes** en documentos basándose en el contexto bidireccional.
+> - **GANs (Generative Adversarial Networks):** Un tipo avanzado de red neuronal utilizada en IA Generativa. Se basa en dos redes (un generador y un discriminador) que compiten entre sí. Su uso más destacado es la **generación de datos sintéticos** a partir de datos existentes.
+
+---
+
 ## 📋 Tabla Comparativa Final
 
 | Paradigma | Etiquetas en entrenamiento | Tipo de output | Cuándo usarlo |

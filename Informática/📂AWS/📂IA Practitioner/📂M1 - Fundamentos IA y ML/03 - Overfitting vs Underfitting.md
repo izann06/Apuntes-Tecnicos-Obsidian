@@ -141,6 +141,19 @@ El modelo es tan sensible a los datos de entrenamiento que varía drásticamente
 
 ---
 
+## 🎛️ Hiperparámetros Clave: Epochs y Batch Size
+
+En el examen AIF-C01 es común que te pregunten cómo ajustar ciertos hiperparámetros para mitigar estos problemas:
+
+> [!tip] Ajuste de Epochs y Batch Size
+> - **Epochs:** Representan el número de veces que el algoritmo de aprendizaje verá **todo** el conjunto de datos de entrenamiento.
+>   - Si tienes **Underfitting**, debes **incrementar las épocas (Epochs)** para alcanzar la precisión deseada.
+>   - Si tienes **Overfitting**, debes utilizar *Early Stopping* para detener el entrenamiento antes de completar todas las épocas si el error de validación aumenta.
+> - **Batch Size (Tamaño de lote):** Número de muestras procesadas antes de actualizar el modelo. Reducir el Batch Size puede introducir "ruido" beneficioso que ayuda a generalizar mejor, evitando el overfitting a los datos locales.
+> - **Incrementar volumen de datos:** Es la mitigación definitiva para el bajo rendimiento en producción (Overfitting) cuando se aumenta la cantidad de datos reales en entrenamiento.
+
+---
+
 ## 📊 Tabla Comparativa Completa
 
 | | **Underfitting** | **Zona Ideal** | **Overfitting** |

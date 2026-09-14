@@ -82,7 +82,7 @@ graph TB
 
 | Servicio | Qué cifra con KMS |
 | :--- | :--- |
-| **Amazon S3** | Datasets, modelos, outputs almacenados |
+| **Amazon S3** | Datasets, modelos, outputs almacenados. *Para Bedrock, es necesario configurar roles de IAM con permisos de descifrado KMS si se usa SSE-S3/KMS en los buckets.* |
 | **Amazon SageMaker** | Datos de entrenamiento, modelos, notebooks |
 | **Amazon Bedrock** | Datos fine-tuning, Knowledge Bases, configuraciones |
 | **Amazon OpenSearch** | Bases de datos vectoriales de Knowledge Bases |
@@ -153,6 +153,7 @@ graph TB
 | Escenario | Configuración IAM recomendada |
 | :--- | :--- |
 | **Lambda que llama a Bedrock** | Role con `bedrock:InvokeModel` solo para el modelo específico |
+| **Aislamiento de Datos por Equipos** | Crear roles de servicio personalizados por equipo de IA para restringir a qué carpetas específicas de S3 pueden acceder. |
 | **Cientista de datos en SageMaker** | Role con permisos de lectura en S3 de datos + permisos de training jobs |
 | **Pipeline CI/CD de ML** | Role con permisos para crear/actualizar endpoints, nada más |
 | **Usuario humano accediendo a Q Business** | Integración con IAM Identity Center (SSO) |
@@ -196,9 +197,11 @@ graph LR
 > [!example] Caso de uso — Banco con datos de clientes
 > Un banco tiene su aplicación de chatbot en una VPC privada. Configura un VPC Endpoint para Amazon Bedrock: los datos confidenciales de los clientes (transcripciones de llamadas, datos financieros) nunca salen de la red privada de AWS ni pasan por internet público, aunque se usen en prompts al LLM.
 
-### Mitigación de Ataques (Security Groups y AWS Shield)
+### Mitigación de Ataques y Aislamiento Avanzado
 Para completar el aislamiento de red en tu VPC:
 
+- **SageMaker Network Isolation:** Permite ejecutar trabajos de entrenamiento o inferencia en contenedores *completamente desconectados de internet*, garantizando máxima privacidad de datos.
+- **Endpoints VPC para SageMaker Studio:** Obliga a que todo el flujo de datos entre S3 y los cuadernos de trabajo pase por la red privada de AWS.
 - **Security Groups (SG):** Actúan como un "portero" (firewall a nivel de instancia). Debes configurar el SG de tu aplicación para que *solo* permita tráfico en el puerto HTTPS (443) hacia el VPC Endpoint de Bedrock.
 
 - **AWS Shield:** Servicio gestionado que protege tu infraestructura (incluyendo las apps web de IA) contra ataques **DDoS** (Distributed Denial of Service). AWS Shield Standard viene activado por defecto y gratis.

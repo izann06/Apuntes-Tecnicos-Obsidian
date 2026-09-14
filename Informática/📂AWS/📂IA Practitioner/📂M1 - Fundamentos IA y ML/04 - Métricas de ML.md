@@ -120,36 +120,37 @@ $$\text{F1} = 2 \times \frac{Precision \times Recall}{Precision + Recall}$$
 
 ---
 
-### 5️⃣ RMSE (Root Mean Square Error)
+### 5️⃣ Métricas de Regresión (RMSE, MSE, R²)
 
+Además del RMSE, existen otras métricas clave para evaluar modelos numéricos continuos:
+
+#### **RMSE (Root Mean Square Error)**
 $$\text{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}$$
+- **¿Qué mide?** El error promedio de predicción expresado en las **mismas unidades** que la variable objetivo (ej. euros). Penaliza fuerte los errores grandes.
 
-**¿Qué mide?** El error promedio de predicción en **problemas de Regresión** (salida numérica continua). Está expresado en las **mismas unidades** que la variable objetivo.
+#### **MSE (Mean Squared Error)**
+$$\text{MSE} = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2$$
+- **¿Qué mide?** Similar al RMSE pero sin la raíz cuadrada. Es útil matemáticamente para optimizar, pero más difícil de interpretar porque las unidades están al cuadrado (ej. euros al cuadrado).
 
-**Características clave:**
+#### **R² (R-squared o Coeficiente de Determinación)**
+- **¿Qué mide?** Qué tan bien el modelo explica la variabilidad de los datos. 
+- Va de **0 a 1** (o de 0% a 100%). Un R² de 0.90 significa que tu modelo explica el 90% de la varianza del precio de las casas. Es la mejor métrica para saber rápidamente si el modelo "encaja" bien (goodness of fit).
 
-- Penaliza los **errores grandes** más que los pequeños (por el cuadrado)
-
-- Es sensible a **outliers**
-
-- Un RMSE de 0 sería predicción perfecta
-
-> [!example] Interpretando el RMSE
-> Si predices precios de casas en euros y obtienes RMSE = 15,000€, significa que en promedio tus predicciones se desvían ~15,000€ del precio real.
-> 
-> Si hay una sola casa que el modelo predice con $200,000€ de error, el RMSE subirá drásticamente por ese único outlier.
+> [!example] Interpretando métricas de Regresión
+> Si predices precios de casas en euros y obtienes **RMSE = 15,000€**, significa que en promedio tus predicciones se desvían ~15,000€. Si obtienes un **R² = 0.85**, significa que el modelo es bastante bueno capturando la tendencia general del mercado (85% de la variabilidad explicada).
 
 ---
 
 ## 📋 Tabla Resumen Final — Guía Rápida de Métricas
 
-| Métrica | Fórmula | Tipo de problema | Cuándo es la mejor opción |
+| Métrica | Fórmula / Concepto | Tipo de problema | Cuándo es la mejor opción |
 | :--- | :--- | :--- | :--- |
 | **Accuracy** | `(TP+TN) / Total` | Clasificación | Dataset **balanceado** |
 | **Precision** | `TP / (TP+FP)` | Clasificación | Minimizar **Falsos Positivos** (SPAM, medicamentos) |
 | **Recall** | `TP / (TP+FN)` | Clasificación | Minimizar **Falsos Negativos** (cáncer, fraude) |
 | **F1-Score** | `2×(P×R)/(P+R)` | Clasificación | Dataset **desbalanceado**, balance P/R |
-| **RMSE** | `√(media de errores²)` | **Regresión** | Predecir **valores numéricos** continuos |
+| **RMSE / MSE** | Error promedio / cuadrático | **Regresión** | Predecir **valores numéricos** continuos (unidades absolutas) |
+| **R² (R-squared)** | % Varianza explicada | **Regresión** | Evaluar la calidad global del ajuste (0 a 1) |
 
 ---
 

@@ -16,6 +16,7 @@ Para el examen, empareja directamente el caso de uso con el servicio:
 | **AWS Audit Manager** | Recolección **continua** de evidencia de **cumplimiento normativo** (GDPR, HIPAA, ISO). Traduce políticas en la nube a evidencia para auditores externos. |
 | **AWS Artifact** | Repositorio central estático de **informes oficiales** y certificaciones de seguridad de AWS (ej. el certificado SOC2 de AWS). |
 | **AWS CloudTrail** | Log unificado de **todas las acciones de API** en la cuenta (Quién hizo qué y cuándo). |
+| **Bedrock Invocation Logging** | Servicio nativo para registrar específicamente **los metadatos, prompts de entrada y respuestas de salida** de los modelos de Bedrock. Clave para auditorías de contenido. |
 | **AWS Trusted Advisor** | Recomendaciones automáticas sobre las mejores prácticas de AWS (**Seguridad, Costes, Límites de cuota, Rendimiento, Tolerancia a fallos**). |
 
 > [!warning] Trampa Clásica de Examen

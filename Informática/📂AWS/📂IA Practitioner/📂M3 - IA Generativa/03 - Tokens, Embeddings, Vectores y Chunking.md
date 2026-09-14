@@ -24,8 +24,9 @@ Este sistema se construye con 4 piezas clave: Tokens, Chunking, Embeddings y Vec
 
 Un **token** es la unidad mínima de texto que lee una IA. Puede ser una palabra, media palabra o un signo de puntuación. 
 
-> [!warning] El idioma importa (Inglés vs Español)
-> Los modelos están optimizados para el inglés. Escribir y recibir respuestas en **inglés gasta menos tokens** que en español (porque en español las palabras largas y con tildes se rompen en varios tokens). Como en AWS te cobran por cada token que entra y sale, usar inglés es técnicamente **más barato y más rápido**.
+> [!warning] El idioma y la facturación (Tokens = Coste)
+> Los modelos están optimizados para el inglés. Escribir y recibir respuestas en **inglés gasta menos tokens** que en español (porque en español las palabras largas y con tildes se rompen en varios tokens). 
+> **Clave de Examen:** En servicios como Amazon Bedrock, los **Tokens** son el factor principal de facturación. Te cobran por cada token de entrada (tu prompt) y token de salida (la respuesta de la IA). Por tanto, un prompt optimizado y en inglés es técnicamente **más barato y más rápido**.
 
 ### El problema: El "Context Window" (La memoria a corto plazo)
 

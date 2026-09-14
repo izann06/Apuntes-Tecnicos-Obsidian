@@ -48,13 +48,18 @@ Formular el problema en términos de Machine Learning (Clasificación, Regresió
 
 ## 🗄️ Fase 3 y 4 — Preparación de Datos
 
-### Paso 3: Collect Data
-Recopilar datos de múltiples fuentes (S3, bases de datos).
+### Paso 3: Collect Data & Labeling
+Recopilar datos de múltiples fuentes (S3, bases de datos) y etiquetarlos si es necesario.
 
-- **Herramientas:** **Amazon S3** (Data Lake), **AWS Glue** (Catálogo y ETL).
+- **Herramientas:** 
+  - **Amazon S3** (Data Lake) y **AWS Glue** (Catálogo y ETL).
+  - **SageMaker Ground Truth Plus:** Etiquetado y validación de alta precisión de datos de entrenamiento mediante equipos de humanos expertos en el bucle (*Human-in-the-loop*). Vital para tareas supervisadas complejas.
 
 ### Paso 4: Preprocess Data
-Limpiar datos, tratar nulos y dividir el dataset.
+Limpiar datos, tratar nulos, hacer Análisis Exploratorio (EDA) y dividir el dataset.
+
+> [!tip] Exploratory Data Analysis (EDA)
+> Antes de transformar los datos, es vital visualizarlos y analizarlos estadísticamente (ej. mediante **matrices de correlación**) para entender las relaciones entre las variables y detectar outliers.
 
 > [!warning] División de Datos y Memorización
 > La regla de oro es separar siempre los datos en **Training (80%)**, **Validation (10%)** y **Test (10%)**. Esto evita trampas: el modelo no puede memorizar las respuestas del examen final (Test).
@@ -71,7 +76,7 @@ Limpiar datos, tratar nulos y dividir el dataset.
 ### Paso 5: Engineer Features
 Transformar los datos para que el modelo los entienda mejor (ej. extraer "Edad" a partir de "Fecha de Nacimiento").
 
-- **Herramientas:** **SageMaker Feature Store** (repositorio central para almacenar y compartir features).
+- **Herramientas:** **SageMaker Feature Store**. Actúa como un repositorio central gestionado para almacenar, actualizar, consultar y **compartir variables (features)** entre múltiples equipos de desarrollo, garantizando consistencia entre entrenamiento e inferencia.
 
 ---
 

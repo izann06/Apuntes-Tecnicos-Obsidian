@@ -57,6 +57,9 @@ Un **sesgo (bias)** en IA ocurre cuando el modelo produce resultados **sistemát
 
 **El sesgo no es aleatorio: es sistemático.** Si un modelo sesga contra las mujeres en contratación, lo hará *consistentemente*, no por accidente.
 
+> [!tip] Mitigación del Sesgo: Augmentación de Datos
+> Una de las técnicas principales para corregir sesgos por falta de datos en un grupo minoritario es la **Augmentación de Datos** (sintetizar nuevos ejemplos o recolectar más muestras específicas de ese grupo) e incluir métricas de equidad (*fairness metrics*) en la evaluación continua del modelo.
+
 ---
 
 ### 📊 Tipos de Sesgo (Los Más Importantes para el Examen)
@@ -140,24 +143,21 @@ Un modelo de scoring de CVs entrenado con datos de contratación de los últimos
 
 - **Detección de sesgo:** La explicabilidad revela si el modelo usa atributos injustos
 
-### Herramienta: SHAP (SHapley Additive exPlanations)
+### Herramientas y Gráficos de Explicabilidad
 
-La técnica más usada para explicabilidad de modelos ML, implementada en **SageMaker Clarify**:
+Las dos técnicas visuales más preguntadas en el examen para explicar modelos de caja negra (usando **SageMaker Clarify**) son:
 
-```
+1. **SHAP (SHapley Additive exPlanations):**
+Muestra la contribución exacta (en positivo o negativo) de cada feature para una **predicción individual**.
+```text
 Predicción del modelo: "Crédito DENEGADO" para cliente ID-8821
-
-Contribución de cada feature a la decisión:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Feature SHAP Value Efecto
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ratio_deuda_ingresos: 0.72 → -0.45 ↓ Empuja a DENEGAR
-historial_impagos: 2 → -0.31 ↓ Empuja a DENEGAR 
-tiempo_empleo: 8 meses → -0.18 ↓ Empuja a DENEGAR
 ingresos_anuales: €28k → +0.12 ↑ Empuja a APROBAR
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Suma de contribuciones: -0.82 → DENEGADO
 ```
+
+2. **Partial Dependence Plots (PDPs):**
+Gráficos estadísticos que muestran **la influencia global** de una o dos variables sobre las predicciones del modelo. Son fundamentales en los informes de transparencia y explicabilidad que se entregan a los stakeholders para demostrar que el modelo no tiene sesgos ocultos.
 
 ---
 

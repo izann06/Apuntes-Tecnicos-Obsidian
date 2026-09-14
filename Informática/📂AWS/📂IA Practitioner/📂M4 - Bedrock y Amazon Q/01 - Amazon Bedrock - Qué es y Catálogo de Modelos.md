@@ -60,6 +60,17 @@ graph TB
 
 ---
 
+## 💰 Modelo de Precios y Rendimiento
+
+Comprender cómo se factura Bedrock es un tema asegurado en el examen:
+
+> [!brain] Conceptos Clave de Facturación y Despliegue
+> - **Tokens:** La unidad básica de facturación. Un token es un fragmento de palabra (aprox. 4 caracteres). Bedrock cobra por *Tokens de Entrada* (lo que envías en el prompt) y *Tokens de Salida* (lo que el modelo genera).
+> - **Precios On-Demand (Bajo Demanda):** Pagas exactamente por lo que usas (por cada token procesado). Ofrece máxima flexibilidad y es ideal para presupuestos limitados o cargas de trabajo impredecibles sin compromiso a largo plazo.
+> - **Provisioned Throughput (Rendimiento Aprovisionado):** Compras capacidad dedicada por tiempo (meses). Te asegura un nivel de rendimiento constante. **Obligatorio:** Es un requisito estricto si quieres ejecutar modelos personalizados (*custom models* o fine-tuned) en Bedrock.
+
+---
+
 ## 📋 Catálogo de Modelos en Amazon Bedrock
 
 ### 🏆 Anthropic Claude — El Más Popular para Chat y Análisis
