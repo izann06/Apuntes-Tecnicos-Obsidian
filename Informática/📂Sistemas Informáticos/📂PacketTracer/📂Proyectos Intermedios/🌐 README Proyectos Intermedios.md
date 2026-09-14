@@ -26,14 +26,6 @@ flowchart LR
 
 ---
 
-## 📸 Galería Visual de Topologías en Packet Tracer
-
-### 🔀 Proyecto 07: Segmentación de Redes (VLANs y Router-on-a-Stick)
-
-![[PT_Proyecto_07_VLANs_Router_on_a_Stick.png]]
-
----
-
 ## 🧠 Conceptos Esenciales del Nivel Intermedio
 
 ### 1. Puertos de Acceso (*Access*) vs. Puertos Troncales (*Trunk*)
@@ -43,12 +35,8 @@ flowchart TD
     P["Puertos en un Switch Cisco"] --> ACC["🔌 Puerto de Acceso (Access)"]
     P --> TRK["⚡ Puerto Troncal (Trunk)"]
 
-    ACC --> ACC_DESC["Conecta dispositivos finales (PCs, impresoras, servidores)
-Pertenece a UNA ÚNICA VLAN
-Envía tramas Ethernet estándar SIN etiquetar"]
-    TRK --> TRK_DESC["Conecta dispositivos de red (Switch a Switch, Switch a Router)
-Transporta tráfico de MÚLTIPLES VLANs a la vez
-Inyecta la etiqueta IEEE 802.1Q (4 bytes) con el VLAN ID"]
+    ACC --> ACC_DESC["Conecta dispositivos finales (PCs, impresoras, servidores)\nPertenece a UNA ÚNICA VLAN\nEnvía tramas Ethernet estándar SIN etiquetar"]
+    TRK --> TRK_DESC["Conecta dispositivos de red (Switch a Switch, Switch a Router)\nTransporta tráfico de MÚLTIPLES VLANs a la vez\nInyecta la etiqueta IEEE 802.1Q (4 bytes) con el VLAN ID"]
 
     style P fill:#1e1b4b,stroke:#818cf8,color:#fff
     style ACC fill:#0c2a44,stroke:#38bdf8,color:#fff
@@ -78,4 +66,4 @@ Es una técnica de diseño de red que permite realizar **enrutamiento inter-VLAN
 | `show ip route` | Router | Tabla de enrutamiento; confirma si las subredes de las VLANs aparecen como directamente conectadas (`C`). |
 
 ---
-→ Volver al repositorio de proyectos: [[📂Proyectos Básicos/🌐 README|📁 Ver Proyectos Básicos (01 al 06)]]
+→ Volver al repositorio de proyectos: [[🌐 README Proyectos Básicos|📁 Ver Proyectos Básicos (01 al 06)]]

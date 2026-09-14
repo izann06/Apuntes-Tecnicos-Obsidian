@@ -60,16 +60,16 @@ flowchart TD
 
 Para consultar directamente los índices maestros, simulacros de examen o guías de diagnóstico más importantes:
 
-* 🐧 **Linux:** [[📂Linux/📂00 - Dashboard y Mapeo/🐧00 - Índice Maestro de Linux, Terminal, Redes y Bash|🐧 Índice Maestro de Linux, Terminal y Bash]]
-* 🌐 **Redes:** [[📂Redes/📂00 - Dashboard y Mapeo/🌐 00 - Índice Maestro de Redes Informáticas|🌐 Índice Maestro de Redes Informáticas (CCNA)]]
-* 🧭 **Chuleta de Redes:** [[📂Redes/📂00 - Dashboard y Mapeo/🧭 00.1 - Guía Esencial de Conceptos y Diagnóstico de Redes (Niveles 1 al 9)|🧭 Chuleta Esencial y Guía de Diagnóstico de Redes (Niveles 1 al 9)]]
-* 🧠 **AWS AI Practitioner:** [[📂AWS/📂IA Practitioner/000 - AWS AI Practitioner (Home)|🧠 AWS AI Practitioner AIF-C01 (Centro de Mando)]]
-* 📝 **Simulacro de Examen:** [[📂AWS/📂IA Practitioner/00 - Examen Simulacro AIF-C01 (50 Preguntas)|📝 Examen de Práctica AIF-C01 (50 Preguntas de Examen Oficial)]]
-* ☁️ **AWS Cloud Practitioner:** [[📂AWS/📂Cloud Practitioner/000 - AWS Cloud Practitioner (Home)|☁️ AWS Cloud Practitioner CLF-C02 (Home)]]
-* 🛡️ **Seguridad Digital:** [[📂Seguridad/📁 00 - Mapeo y Navegación/🗺️ 00 - Índice de Seguridad Digital|🗺️ Índice General de Seguridad y Protección Digital]]
-* 🧪 **Laboratorio Cisco:** [[📂Sistemas Informáticos/📂PacketTracer/📂Proyectos Básicos/🌐 README|🧪 Packet Tracer: Proyectos Básicos (01 al 06)]] y [[📂Sistemas Informáticos/📂PacketTracer/📂Proyectos Intermedios/🌐 README|🔀 Proyectos Intermedios (07 RoAS y VLANs)]]
-* 🐳 **Docker:** [[📂Docker/📂Explicacion/🐳 Índice - Guía Docker|🐳 Guía Completa y Comandos de Docker]]
-* 🐙 **Git:** [[📂Control de Versiones/Git&GitHub/Fundamentos Git|🐙 Fundamentos de Git y Flujos de Trabajo en GitHub]]
+* 🐧 **Linux:** [[🐧00 - Índice Maestro de Linux, Terminal, Redes y Bash|🐧 Índice Maestro de Linux, Terminal y Bash]]
+* 🌐 **Redes:** [[🌐 00 - Índice Maestro de Redes Informáticas|🌐 Índice Maestro de Redes Informáticas (CCNA)]]
+* 🧭 **Chuleta de Redes:** [[🧭 00.1 - Guía Esencial de Conceptos y Diagnóstico de Redes (Niveles 1 al 9)|🧭 Chuleta Esencial y Guía de Diagnóstico de Redes (Niveles 1 al 9)]]
+* 🧠 **AWS AI Practitioner:** [[000 - AWS AI Practitioner (Home)|🧠 AWS AI Practitioner AIF-C01 (Centro de Mando)]]
+* 📝 **Simulacro de Examen:** [[00 - Examen Simulacro AIF-C01 (50 Preguntas)|📝 Examen de Práctica AIF-C01 (50 Preguntas de Examen Oficial)]]
+* ☁️ **AWS Cloud Practitioner:** [[000 - AWS Cloud Practitioner (Home)|☁️ AWS Cloud Practitioner CLF-C02 (Home)]]
+* 🛡️ **Seguridad Digital:** [[🗺️ 00 - Índice de Seguridad Digital|🗺️ Índice General de Seguridad y Protección Digital]]
+* 🧪 **Laboratorio Cisco:** [[🌐 README Proyectos Básicos|🧪 Packet Tracer: Proyectos Básicos (01 al 06)]] y [[🌐 README Proyectos Intermedios|🔀 Proyectos Intermedios (07 RoAS y VLANs)]]
+* 🐳 **Docker:** [[🐳 Índice - Guía Docker|🐳 Guía Completa y Comandos de Docker]]
+* 🐙 **Git:** [[Fundamentos Git|🐙 Fundamentos de Git y Flujos de Trabajo en GitHub]]
 
 ---
 
