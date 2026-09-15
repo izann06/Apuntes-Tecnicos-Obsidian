@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #cloud-practitioner #cp-redes #indice
+**Tags:** #aws #cloud-practitioner #cp-redes #indice
 
 # 🪐 Redes
 
@@ -15,3 +15,5 @@
 - [[🚪 Puertas de Enlace y Conexiones en AWS (IGW, VGW, VPN y Direct Connect)|🚪 Puertas de Enlace y Conexiones en AWS (IGW, VGW, VPN y Direct Connect)]]
 
 - [[🛡️ Seguridad en Redes AWS. ACLs vs. Grupos de Seguridad|🛡️ Seguridad en Redes AWS. ACLs vs. Grupos de Seguridad]]
+
+- [[🏗️ Arquitectura Web. EC2, S3 y CloudFront (CDN)|🏗️ Arquitectura Web. S3, EC2 y CloudFront (CDN)]]
