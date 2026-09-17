@@ -11,11 +11,13 @@ Esta bóveda de conocimiento está construida en **Obsidian** y publicada autom�
 A medida que avanzo en mis estudios y proyectos, voy subiendo contenido organizado en diferentes áreas. Actualmente, en estos apuntes podrás encontrar:
 
 ### 🔒 Seguridad Digital
+
 - Conceptos base de redes, servidores y malware.
 - Gestión de identidades, buenas prácticas, Contraseñas, 2FA y MFA.
 - Ingeniería Social: Phishing, Session Hijacking y análisis de amenazas y ataques reales.
 
 ### ☁️ Cloud & IA (AWS Practitioner)
+
 - **Cómputo (Compute)**: Despliegue de servidores (EC2), arquitecturas Serverless (AWS Lambda) y balanceo de carga.
 - **Almacenamiento (Storage)**: Diferencias clave entre S3 (objetos), EBS (bloques) y EFS (archivos).
 - **Bases de Datos**: Motores relacionales (RDS, Amazon Aurora) y bases de datos NoSQL (DynamoDB).
