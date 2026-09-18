@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #fsx #almacenamiento #windows #lustre #hpc #cloud-practitioner #cp-almacenamiento
+**Tags:** #aws #fsx #almacenamiento #windows #lustre #hpc #cloud-practitioner #cp-almacenamiento
 
 > [!summary] El Concepto Clave
 > Si Amazon EFS es la "carpeta compartida" exclusiva para servidores Linux, **Amazon FSx** es la familia de sistemas de archivos compartidos para *todo lo demás*. Te permite lanzar sistemas de archivos de alto rendimiento compatibles con plataformas específicas que ya usas en tu empresa (como Windows) sin tener que administrar los servidores físicos.

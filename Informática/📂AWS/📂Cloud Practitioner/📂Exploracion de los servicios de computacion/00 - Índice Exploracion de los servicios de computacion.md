@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #cloud-practitioner #cp-exploracion-de-los-servicios-de-computacion #indice
+**Tags:** #aws #cloud-practitioner #cp-exploracion-de-los-servicios-de-computacion #indice
 
 # 🪐 Exploracion de los servicios de computacion
 

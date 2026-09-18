@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #efs #almacenamiento #nfs #efs-vs-ebs #cloud-practitioner #cp-almacenamiento
+**Tags:** #aws #efs #almacenamiento #nfs #efs-vs-ebs #cloud-practitioner #cp-almacenamiento
 
 > [!summary] El Concepto Clave
 > Amazon EFS es un sistema de archivos compartido y elástico para servidores **Linux**. Permite que miles de instancias EC2 lean y escriban en el mismo disco duro virtual **al mismo tiempo**, creciendo y encogiendo su tamaño automáticamente según lo necesites.

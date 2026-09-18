@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #cloud-practitioner #cp-computacion #indice
+**Tags:** #aws #cloud-practitioner #cp-computacion #indice
 
 # 🪐 Computacion
 

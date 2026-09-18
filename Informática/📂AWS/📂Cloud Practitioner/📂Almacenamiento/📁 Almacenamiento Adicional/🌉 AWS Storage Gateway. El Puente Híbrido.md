@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #storage-gateway #nube-hibrida #almacenamiento #backup #cloud-practitioner #cp-almacenamiento
+**Tags:** #aws #storage-gateway #nube-hibrida #almacenamiento #backup #cloud-practitioner #cp-almacenamiento
 
 > [!summary] El Concepto Clave
 > AWS Storage Gateway es el "puente" que conecta los servidores físicos de tu oficina (on-premises) con el almacenamiento infinito de AWS. Permite que tus aplicaciones locales sigan funcionando como siempre, pero guardando los datos (o las copias de seguridad) en la nube por detrás de las cámaras.

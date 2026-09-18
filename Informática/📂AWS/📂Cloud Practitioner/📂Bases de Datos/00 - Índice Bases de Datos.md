@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #cloud-practitioner #cp-bases-de-datos #indice
+**Tags:** #aws #cloud-practitioner #cp-bases-de-datos #indice
 
 # 🪐 Bases de Datos
 

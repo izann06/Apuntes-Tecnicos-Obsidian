@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #contenedores #docker #ecs #eks #fargate #computacion #cloud-practitioner #cp-exploracion-de-los-servicios-de-computacion
+**Tags:** #aws #contenedores #docker #ecs #eks #fargate #computacion #cloud-practitioner #cp-exploracion-de-los-servicios-de-computacion
 
 > [!summary] El fin del "¡En mi máquina sí funciona!"
 > Los contenedores resuelven el problema de la portabilidad empaquetando tu código, sus dependencias y la configuración en una sola "caja" sellada. Si funciona en tu portátil, funcionará exactamente igual en AWS.

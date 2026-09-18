@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #s3 #almacenamiento #objetos #buckets #seguridad #cloud-practitioner #cp-almacenamiento
+**Tags:** #aws #s3 #almacenamiento #objetos #buckets #seguridad #cloud-practitioner #cp-almacenamiento
 
 > [!summary] El Concepto Clave
 > Amazon S3 (Simple Storage Service) es un servicio de almacenamiento de *objetos*. No guardas archivos en carpetas tradicionales, sino que metes "Objetos" (archivos de cualquier tipo) en "Buckets" (cubos). Es infinitamente escalable, Serverless (sin servidor) y ofrece una durabilidad extrema.
@@ -52,6 +52,10 @@ Esta es la regla más estricta de S3: **Todo lo que subes es PRIVADO de forma pr
 ### El Bloqueo de Acceso Público (Block Public Access - BPA)
 
 Es un "botón de pánico" de seguridad. Si el Bloqueo de Acceso Público está activado a nivel de cuenta o de bucket, **nadie en Internet podrá ver tus archivos**, incluso si has configurado políticas que digan lo contrario. Es la causa número uno de problemas cuando la gente intenta hacer una web pública con S3.
+
+Es importante hacerlo siempre privado ya que al hacerlo público alguien puede encontrar tu bucket de S3 y descargarse todo lo que tienes dentro sacarlo de AWS, y todo lo que sacas de AWS te cobran $, por lo que te llevarías una sorpresa en tu cuenta, además de que perderías ya toda la privacidad.
+
+Con esto está totalmente aislado de Internet, para que alguien pueda entrar se usa un CDN como **CloudFront.**
 
 ### Políticas de Bucket (Bucket Policies)
 

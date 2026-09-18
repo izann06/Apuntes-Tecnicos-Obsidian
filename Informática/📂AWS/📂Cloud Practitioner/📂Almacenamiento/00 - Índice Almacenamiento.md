@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #cloud-practitioner #cp-almacenamiento #indice
+**Tags:** #aws #cloud-practitioner #cp-almacenamiento #indice
 
 # 🪐 Almacenamiento
 
@@ -8,7 +8,7 @@
 
 - [[🌉 AWS Storage Gateway. El Puente Híbrido|🌉 AWS Storage Gateway. El Puente Híbrido]]
 
-- [[🚨 AWS Elastic Disaster Recovery. El Seguro de Vida (DRS)|🚨 AWS Elastic Disaster Recovery. El Seguro de Vida (DRS)]]
+- [[🚨 AWS Elastic Disaster Recovery. El Seguro de Vida (EDR)|🚨 AWS Elastic Disaster Recovery. El Seguro de Vida (DRS)]]
 
 - [[🗃️ Amazon FSx. Sistemas de Archivos Especializados|🗃️ Amazon FSx. Sistemas de Archivos Especializados]]
 

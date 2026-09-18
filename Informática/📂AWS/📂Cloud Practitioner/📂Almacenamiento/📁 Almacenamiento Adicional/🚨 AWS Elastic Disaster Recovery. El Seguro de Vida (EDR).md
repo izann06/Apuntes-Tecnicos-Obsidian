@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #disaster-recovery #drs #continuidad-negocio #cloud-practitioner #cp-almacenamiento
+**Tags:** #aws #disaster-recovery #drs #continuidad-negocio #cloud-practitioner #cp-almacenamiento
 
 > [!summary] El Concepto Clave
 > Una copia de seguridad (Backup) te devuelve tus archivos perdidos, pero puedes tardar días en comprar un servidor nuevo, instalar Windows y volcar los datos. **Elastic Disaster Recovery** te devuelve *el servidor entero funcionando en minutos* si tu centro de datos principal sufre una catástrofe.

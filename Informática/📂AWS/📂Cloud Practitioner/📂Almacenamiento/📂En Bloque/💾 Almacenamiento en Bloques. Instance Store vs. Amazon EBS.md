@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #ec2 #ebs #instance-store #almacenamiento #cloud-practitioner #cp-almacenamiento
+**Tags:** #aws #ec2 #ebs #instance-store #almacenamiento #cloud-practitioner #cp-almacenamiento
 
 > [!summary] El Concepto Clave
 > El almacenamiento a nivel de bloque es básicamente un disco duro. La gran diferencia en AWS radica en **dónde está conectado** ese disco duro y **qué pasa con tus datos** si apagas el servidor.
@@ -27,7 +27,7 @@
 
 * **El Superpoder (La Persistencia):** Si detienes tu instancia EC2 o incluso si la destruyes (terminas), el volumen EBS **sobrevive** de forma independiente. Tus datos persisten.
 
-* **Beneficios:** * **Persistencia:** No pierdes datos al apagar.
+* **Beneficios:**  Tienes **Persistencia** No pierdes datos al apagar.
 
  * **Portabilidad:** Puedes desconectar un volumen EBS de un servidor y conectárselo a otro diferente en segundos.
 
