@@ -1,4 +1,4 @@
-﻿**Tags:** #aws #supervision #monitoreo #metricas #alarmas #cloud-practitioner #cp-supervision
+**Tags:** #aws #supervision #monitoreo #metricas #alarmas #cloud-practitioner #cp-supervision
 
 > [!summary] El Concepto Clave
 > La supervisión (Monitoring) es el proceso continuo de **recopilar, visualizar y rastrear** la salud y el rendimiento de tus recursos en AWS. Te permite saber qué está pasando en tu infraestructura en tiempo real sin tener que estar mirando una pantalla las 24 horas del día.
