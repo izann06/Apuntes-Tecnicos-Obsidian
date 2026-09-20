@@ -22,6 +22,7 @@ La certificación **GitHub Foundations** valida el conocimiento fundamental sobr
 | **Dominio 7** | Beneficios de la Comunidad GitHub | [[D7 - Comunidad y Open Source]] |
 
 ## 🔗 Recursos Oficiales
+
 - [Guía de Estudio Oficial (PDF)](https://assets.ctfassets.net/wfutmusr1t3h/1kmMx7AwI4qH8yIZgOmQlP/4e60030cc6c76688698652e830ea2a48/github-foundations-exam-study-guide.pdf)
 - [GitHub Student Developer Pack](https://education.github.com/pack)
 - [Ruta de aprendizaje en Microsoft Learn](https://learn.microsoft.com/es-es/collections/o1njfe825p602p)

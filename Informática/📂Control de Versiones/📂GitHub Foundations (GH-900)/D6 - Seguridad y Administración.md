@@ -10,9 +10,11 @@
 ## 6.1 Autenticación y Seguridad
 
 ### Autenticación en Dos Factores (2FA)
+
 La **2FA** añade una segunda capa de seguridad a tu cuenta de GitHub. Aunque alguien obtenga tu contraseña, no podrá acceder sin el segundo factor.
 
 **Métodos de 2FA en GitHub:**
+
 - **Authenticator App:** Apps como Google Authenticator, Authy (generan un código TOTP de 6 dígitos que cambia cada 30 segundos). **Recomendado.**
 - **SMS:** Código enviado por mensaje de texto. **Menos seguro** (vulnerable a SIM swapping).
 - **Security Keys (Hardware):** Llaves físicas como YubiKey. El método más seguro.
@@ -22,6 +24,7 @@ La **2FA** añade una segunda capa de seguridad a tu cuenta de GitHub. Aunque al
 > GitHub ha empezado a exigir 2FA a los contribuidores activos. Es una buena práctica tenerlo activado siempre.
 
 ### Permisos de Acceso (Access Permissions)
+
 Los permisos controlan qué pueden hacer los usuarios en tus repositorios:
 
 | Permiso | Descripción |
@@ -33,6 +36,7 @@ Los permisos controlan qué pueden hacer los usuarios en tus repositorios:
 | **Admin** | Control total, incluida la configuración del repo y borrado |
 
 ### Enterprise Managed Users (EMU)
+
 Los **EMUs** son cuentas de GitHub creadas y gestionadas por una empresa a través de su proveedor de identidad (IdP, como Azure AD o Okta).
 
 - Las cuentas EMU **no pueden actuar fuera de la organización** (no pueden contribuir a repos públicos con esa cuenta).
@@ -44,14 +48,18 @@ Los **EMUs** son cuentas de GitHub creadas y gestionadas por una empresa a trav�
 ## 6.2 Administración de GitHub
 
 ### Habilitar/Deshabilitar Características
+
 Los administradores de una organización o repositorio pueden activar o desactivar funcionalidades como:
+
 - Issues, Wikis, Discussions, Pages, Sponsorships, Projects.
 - Se hace desde `Settings > General` del repositorio o de la organización.
 
 ### Niveles de Permisos de Repositorio
+
 Los mismos 5 niveles vistos arriba (Read, Triage, Write, Maintain, Admin) se aplican tanto a colaboradores individuales como a equipos dentro de una organización.
 
 ### Visibilidad del Repositorio
+
 | Visibilidad | ¿Quién puede verlo? |
 | :--- | :--- |
 | **Public** | Cualquier persona en internet |
@@ -64,6 +72,7 @@ Los mismos 5 niveles vistos arriba (Read, Triage, Write, Maintain, Admin) se apl
 ### Opciones de Privacidad del Repositorio
 
 **Branch Protection Rules:** Reglas que protegen ramas específicas de cambios no autorizados:
+
 - Requerir PRs antes de fusionar (no se puede hacer push directo a `main`).
 - Requerir revisiones aprobadas (1, 2 o más aprobaciones).
 - Requerir que los checks de CI pasen antes de fusionar.
@@ -74,19 +83,24 @@ Los mismos 5 niveles vistos arriba (Read, Triage, Write, Maintain, Admin) se apl
 **CODEOWNERS:** Asigna automáticamente revisores según el archivo modificado (explicado en Dominio 2).
 
 ### Pestaña de Seguridad (Security Tab)
+
 La pestaña **Security** de un repositorio incluye:
+
 - **Security Policy:** Archivo `SECURITY.md` que indica cómo reportar vulnerabilidades.
 - **Dependabot Alerts:** Alertas automáticas de vulnerabilidades en las dependencias del proyecto.
 - **Code Scanning:** Análisis estático del código para encontrar vulnerabilidades.
 - **Secret Scanning:** Detecta si accidentalmente has subido claves API, tokens o contraseñas al repositorio.
 
 ### Repository Insights
+
 La pestaña **Insights** del repositorio incluye métricas de:
+
 - Actividad de la comunidad (contributors, commits por semana).
 - Traffic (visitantes únicos, clonaciones).
 - Dependency graph (árbol de dependencias del proyecto).
 
 ### Gestión de Colaboradores
+
 - **Invitar colaboradores:** `Settings > Collaborators` → Buscar por username o email.
 - **Eliminar colaborador:** Desde la misma pantalla.
 - **Equipos (Teams) en organizaciones:** Permite gestionar permisos de forma grupal en lugar de usuario a usuario.

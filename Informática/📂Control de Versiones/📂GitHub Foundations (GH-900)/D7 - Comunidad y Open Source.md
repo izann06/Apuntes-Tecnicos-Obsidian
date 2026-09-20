@@ -10,9 +10,11 @@
 ## 7.1 Open Source
 
 ### ¿Qué es el Open Source?
+
 El **Open Source** (Código Abierto) es un modelo de desarrollo de software donde el código fuente es **público, libre de ver, modificar y distribuir** bajo los términos de una licencia específica.
 
 **Beneficios del Open Source:**
+
 - **Transparencia:** Cualquiera puede auditar el código.
 - **Colaboración global:** Desarrolladores de todo el mundo pueden contribuir.
 - **Velocidad de innovación:** Más ojos detectan más bugs y proponen más mejoras.
@@ -20,7 +22,9 @@ El **Open Source** (Código Abierto) es un modelo de desarrollo de software dond
 - **Comunidad:** Genera ecosistemas de usuarios y contribuidores muy activos.
 
 ### Cómo GitHub impulsa el Open Source
+
 GitHub es el hogar de la mayor comunidad de Open Source del mundo. Lo hace posible con:
+
 - Repositorios públicos gratuitos.
 - Herramientas de colaboración (Issues, PRs, Discussions).
 - GitHub Actions para CI/CD gratuito en repos públicos.
@@ -50,6 +54,7 @@ En lugar de que los equipos trabajen en silos con código inaccesible para otros
 **Forkear** un repositorio es crear una copia completa de ese repositorio bajo **tu propia cuenta de GitHub**. Es independiente del original, pero mantiene una referencia a él.
 
 **Casos de uso del Fork:**
+
 1. **Contribuir a Open Source:** Forkeas el repo, haces tus cambios en tu fork, y luego abres un PR al repositorio original.
 2. **Usar un proyecto como base:** Quieres usar el código de alguien como punto de partida para tu propio proyecto.
 3. **Experimentar:** Probar cambios drásticos sin miedo a romper el original.
@@ -67,7 +72,9 @@ Repositorio Original (upstream) ──fork──► Tu Fork (origin)
 ## 7.4 Descubrimiento en GitHub
 
 ### Repositorios Descubribles
+
 Para que un repositorio sea fácil de encontrar:
+
 - **Descripción clara** en la parte superior del repo.
 - **Topics (Temas):** Etiquetas de búsqueda (ej. `python`, `machine-learning`, `api`). Se añaden desde `About > Topics`.
 - **README.md completo.**
@@ -75,6 +82,7 @@ Para que un repositorio sea fácil de encontrar:
 - **Repositorio público** (los privados no aparecen en búsquedas).
 
 ### Seguir Personas y Organizaciones
+
 - **Seguir a personas:** Recibes notificaciones de su actividad pública (repos que estrella, proyectos en los que contribuye). Te ayuda a descubrir proyectos interesantes en su comunidad.
 - **Seguir organizaciones:** Recibes notificaciones sobre sus anuncios y nuevos repositorios.
 
@@ -107,12 +115,14 @@ El **GitHub Marketplace** es una tienda integrada donde puedes encontrar y insta
 **Organización:** Una cuenta colectiva en GitHub que permite a grupos de personas colaborar en múltiples proyectos.
 
 **Miembros (Members):** Usuarios que pertenecen a la organización. Pueden ser:
+
 - **Owners:** Control total sobre la organización (facturación, miembros, seguridad).
 - **Members:** Acceso estándar según los permisos que se les asigne.
 
 **Equipos (Teams):** Subgrupos dentro de la organización. Los permisos se asignan al equipo, no individualmente. Ej: `@mi-empresa/backend`, `@mi-empresa/devops`.
 
 ### Gestión de la Organización
+
 - **Configuración global:** Desde `github.com/organizations/nombre-org/settings`.
 - **Roles de repositorio:** Los equipos se asignan a repos con niveles Read/Triage/Write/Maintain/Admin.
 - **Visibilidad de miembros:** Puedes hacer que la lista de miembros sea pública o solo visible para otros miembros.
@@ -122,10 +132,12 @@ El **GitHub Marketplace** es una tienda integrada donde puedes encontrar y insta
 ## 7.8 Templates de Issues y PRs (en contexto de comunidad)
 
 ### ¿Cuándo usar Issue Templates?
+
 - Cuando recibes muchos issues mal formateados o sin la información necesaria para reproducir un bug.
 - En proyectos Open Source con muchos contribuidores externos.
 - Cuando quieres diferenciar entre "reporte de bug", "petición de feature" y "pregunta".
 
 ### ¿Cuándo usar Pull Request Templates?
+
 - Cuando quieres que todos los PRs incluyan una checklist estándar: "¿Has añadido tests? ¿Has actualizado la documentación? ¿Los CI checks pasan?".
 - En equipos grandes donde la revisión de código es un proceso formal.
