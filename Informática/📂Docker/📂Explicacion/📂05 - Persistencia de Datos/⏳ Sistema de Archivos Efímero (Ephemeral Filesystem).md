@@ -1,11 +1,9 @@
-# ⏳ Sistema de Archivos Efímero (Ephemeral Filesystem)
 
 > [!info] Navegación
-> ◀ [[Redes en Docker]] · ▶ [[Volume Mounts]]
-> 📂 Sección: **05 - Persistencia de Datos** · Ver también: [[Volume Mounts]] · [[Bind Mounts]]
+> ◀ [[🌐 Redes en Docker (Networks)]] · ▶ [[💾 Volume Mounts (Volúmenes gestionados por Docker)]]
+> 📂 Sección: **05 - Persistencia de Datos** · Ver también: [[💾 Volume Mounts (Volúmenes gestionados por Docker)]] · [[📁 Bind Mounts (Carpetas locales mapeadas)]]
 
 ---
-
 ## El problema: Los datos mueren con el contenedor
 
 > [!warning] Dato crucial
@@ -15,7 +13,7 @@
 
 ## ¿Por qué es efímero?
 
-Recuerda la sección de [[Union Filesystems]]: cada contenedor tiene una **capa de escritura** (thin writable layer) encima de las capas de solo lectura de la imagen. Todos los cambios que hagas durante la ejecución — archivos creados, modificados, datos guardados — se almacenan **únicamente** en esa capa de escritura.
+Recuerda la sección de [[📦 Union Filesystems (Sistema de archivos por capas)]]: cada contenedor tiene una **capa de escritura** (thin writable layer) encima de las capas de solo lectura de la imagen. Todos los cambios que hagas durante la ejecución — archivos creados, modificados, datos guardados — se almacenan **únicamente** en esa capa de escritura.
 
 ```
 ┌──────────────────────────────────────┐
@@ -74,12 +72,12 @@ docker rm demo
 
 | Caso de uso | ¿Necesita persistencia? | ¿Por qué? | Solución recomendada |
 |---|---|---|---|
-| Base de datos (PostgreSQL, MySQL, MongoDB) | ✅ **Siempre** | Los datos deben sobrevivir reinicios y actualizaciones | [[Volume Mounts]] |
-| Archivos subidos por usuarios (fotos, PDFs) | ✅ **Siempre** | Son datos generados por el usuario, irreemplazables | [[Volume Mounts]] |
-| Logs de aplicación | ✅ A menudo | Para análisis posterior, debugging, auditoría | [[Volume Mounts]] o log driver |
-| Caché (Redis) | ⚠️ Depende | Si es caché regenerable, puede ser efímera. Si es cola de tareas, necesita persistencia | [[Volume Mounts]] si persistente |
-| Código fuente en desarrollo | ✅ **Siempre** | Tu código no vive dentro del contenedor | [[Bind Mounts]] |
-| Configuración personalizada | ✅ A menudo | Archivos de config que no están en la imagen | [[Bind Mounts]] (readonly) |
+| Base de datos (PostgreSQL, MySQL, MongoDB) | ✅ **Siempre** | Los datos deben sobrevivir reinicios y actualizaciones | [[💾 Volume Mounts (Volúmenes gestionados por Docker)]] |
+| Archivos subidos por usuarios (fotos, PDFs) | ✅ **Siempre** | Son datos generados por el usuario, irreemplazables | [[💾 Volume Mounts (Volúmenes gestionados por Docker)]] |
+| Logs de aplicación | ✅ A menudo | Para análisis posterior, debugging, auditoría | [[💾 Volume Mounts (Volúmenes gestionados por Docker)]] o log driver |
+| Caché (Redis) | ⚠️ Depende | Si es caché regenerable, puede ser efímera. Si es cola de tareas, necesita persistencia | [[💾 Volume Mounts (Volúmenes gestionados por Docker)]] si persistente |
+| Código fuente en desarrollo | ✅ **Siempre** | Tu código no vive dentro del contenedor | [[📁 Bind Mounts (Carpetas locales mapeadas)]] |
+| Configuración personalizada | ✅ A menudo | Archivos de config que no están en la imagen | [[📁 Bind Mounts (Carpetas locales mapeadas)]] (readonly) |
 | Servidor web con archivos estáticos | ❌ Normalmente no | Los archivos están en la imagen, se recrean con cada build | Imagen |
 | Datos temporales sensibles (tokens, secretos) | ⚠️ Especial | No deben escribirse en disco | tmpfs mount |
 
@@ -119,8 +117,8 @@ Docker ofrece **tres mecanismos** para que los datos sobrevivan al ciclo de vida
 
 | Tipo | ¿Dónde se almacena? | ¿Persiste? | Ideal para |
 |---|---|---|---|
-| **[[Volume Mounts]]** | Docker gestiona la ubicación (`/var/lib/docker/volumes/`) | ✅ Sí | Bases de datos, datos de producción |
-| **[[Bind Mounts]]** | Una ruta específica de tu máquina | ✅ Sí | Código fuente en desarrollo, configuración |
+| **[[💾 Volume Mounts (Volúmenes gestionados por Docker)]]** | Docker gestiona la ubicación (`/var/lib/docker/volumes/`) | ✅ Sí | Bases de datos, datos de producción |
+| **[[📁 Bind Mounts (Carpetas locales mapeadas)]]** | Una ruta específica de tu máquina | ✅ Sí | Código fuente en desarrollo, configuración |
 | **tmpfs** | En **RAM** (memoria del host) | ❌ No | Datos sensibles temporales |
 
 ---
@@ -156,11 +154,11 @@ docker run -d \
 > [!info] Siguiente paso
 > Ahora que entiendes el problema, vamos a ver las dos soluciones principales en detalle:
 >
-> - [[Volume Mounts]] — La solución recomendada para datos persistentes (bases de datos, uploads, etc.)
+> - [[💾 Volume Mounts (Volúmenes gestionados por Docker)]] — La solución recomendada para datos persistentes (bases de datos, uploads, etc.)
 >
-> - [[Bind Mounts]] — La solución ideal para desarrollo (código fuente, configuración)
+> - [[📁 Bind Mounts (Carpetas locales mapeadas)]] — La solución ideal para desarrollo (código fuente, configuración)
 
 ---
 
 > [!info] Navegación
-> ◀ [[Redes en Docker]] · ▶ [[Volume Mounts]]
+> ◀ [[🌐 Redes en Docker (Networks)]] · ▶ [[💾 Volume Mounts (Volúmenes gestionados por Docker)]]

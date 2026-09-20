@@ -1,21 +1,21 @@
-# 📦 Contenedores en Docker
 
 > [!info] Navegación
-> ◀ [[Imágenes en Docker]] · ▶ [[Redes en Docker]]
-> 📂 Sección: **04 - CLI Básica** · Ver también: [[Imágenes en Docker]] · [[Redes en Docker]]
+> ◀ [[🖼️ Imágenes en Docker]] · ▶ [[🌐 Redes en Docker (Networks)]]
+> 📂 Sección: **04 - CLI Básica** · Ver también: [[🖼️ Imágenes en Docker]] · [[🌐 Redes en Docker (Networks)]]
 
 ---
-
 ## ¿Qué es un contenedor?
 
-Un contenedor es una **instancia en ejecución** de una [[Imágenes en Docker|imagen]]. Si la imagen es la receta, el contenedor es el plato servido. Puedes crear múltiples contenedores a partir de la misma imagen, y cada uno tendrá su propio **estado**, su propia **capa de escritura** y su propio **aislamiento** (gracias a los [[Namespaces]] y [[Cgroups]]).
+Un contenedor es una **instancia en ejecución** de una [[🖼️ Imágenes en Docker|imagen]]. Si la imagen es la receta, el contenedor es el plato servido. Puedes crear múltiples contenedores a partir de la misma imagen, y cada uno tendrá su propio **estado**, su propia **capa de escritura** y su propio **aislamiento** (gracias a los [[🔒 Namespaces (Aislamiento. Lo que el contenedor puede ver)]] y [[⚖️ Cgroups (Control Groups. CPU, RAM y más)]]).
 
 ```
- docker run
+docker run
 IMAGEN ──────────────────────────────► CONTENEDOR
 (inmutable) (en ejecución, con estado)
+
  docker run
  ──────────────────────────────► CONTENEDOR 2
+ 
  docker run (misma imagen, instancia diferente)
  ──────────────────────────────► CONTENEDOR 3
 ```
@@ -115,9 +115,9 @@ docker run -d \
 > El formato es `-p <PUERTO_HOST>:<PUERTO_CONTENEDOR>`:
 > ```
 > -p 8080:80
-> │ │
-> │ └── Puerto DENTRO del contenedor (donde la app escucha)
-> └──────── Puerto en TU MÁQUINA (por donde accedes desde el navegador)
+> 	│   │
+> 	|   └── Puerto DENTRO del contenedor (donde la app escucha)
+> 	└──────── Puerto en TU MÁQUINA (por donde accedes desde el navegador)
 > ```
 > 
 > Si escribes `-p 8080:80`, significa:
@@ -383,9 +383,8 @@ docker inspect mi-nginx --format='{{.State.Status}}'
 ## Ciclo de vida completo de un contenedor
 
 ```
- docker create docker start docker stop docker rm
- (crear sin (arrancar) (detener) (eliminar)
- ejecutar)
+ docker create --> docker start --> docker stop --> docker rm
+   (crear)          (arrancar)       (detener)      (eliminar)                     
  │ │ │ │
  ▼ ▼ ▼ ▼
  ┌────────┐ ┌─────────┐ ┌─────────┐ ┌────────┐
@@ -437,4 +436,4 @@ docker system prune -a --volumes
 ---
 
 > [!info] Navegación
-> ◀ [[Imágenes en Docker]] · ▶ [[Redes en Docker]]
+> ◀ [[🖼️ Imágenes en Docker]] · ▶ [[🌐 Redes en Docker (Networks)]]

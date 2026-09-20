@@ -1,11 +1,9 @@
-# 🔒 Namespaces (Aislamiento: Lo que el contenedor puede ver)
 
 > [!info] Navegación
-> ◀ [[🐳Introducción al Mundo Docker]] · ▶ [[Cgroups]]
-> 📂 Sección: **02 - Tecnologías Subyacentes** · Ver también: [[Cgroups]] · [[Union Filesystems]]
+> ◀ [[🐳Introducción al Mundo Docker]] · ▶ [[⚖️ Cgroups (Control Groups. CPU, RAM y más)]]
+> 📂 Sección: **02 - Tecnologías Subyacentes** · Ver también: [[⚖️ Cgroups (Control Groups. CPU, RAM y más)]] · [[📦 Union Filesystems (Sistema de archivos por capas)]]
 
 ---
-
 ## ¿Qué son los Namespaces?
 
 Los **Namespaces** son una funcionalidad del kernel de Linux que permite **particionar los recursos del sistema** de forma que cada proceso (o grupo de procesos) tenga su propia **vista aislada** de ciertos recursos del sistema.
@@ -152,13 +150,13 @@ ip addr show docker0
 ```
 
 > [!info] Más sobre redes
-> El funcionamiento completo de las redes Docker, tipos de drivers y comunicación entre contenedores se explica en detalle en [[Redes en Docker]].
+> El funcionamiento completo de las redes Docker, tipos de drivers y comunicación entre contenedores se explica en detalle en [[🌐 Redes en Docker (Networks)]].
 
 ---
 
 ### MNT Namespace (Sistema de Archivos)
 
-El namespace MNT da a cada contenedor su propio **árbol de sistema de archivos**. Cuando un contenedor ve `/`, no es el `/` del host, sino su propio directorio raíz aislado, construido a partir de las capas de la imagen Docker (ver [[Union Filesystems]]).
+El namespace MNT da a cada contenedor su propio **árbol de sistema de archivos**. Cuando un contenedor ve `/`, no es el `/` del host, sino su propio directorio raíz aislado, construido a partir de las capas de la imagen Docker (ver [[📦 Union Filesystems (Sistema de archivos por capas)]]).
 
 ```bash
 # Dentro del contenedor, el sistema de archivos es completamente diferente al del host
@@ -224,7 +222,7 @@ docker run -d --name consumidor --ipc=container:productor mi-worker
 
 ### CGROUP Namespace
 
-Limita la **visibilidad** que tiene el contenedor sobre la jerarquía de [[Cgroups]]. El contenedor solo ve sus propios cgroups, no los del host ni los de otros contenedores.
+Limita la **visibilidad** que tiene el contenedor sobre la jerarquía de [[⚖️ Cgroups (Control Groups. CPU, RAM y más)]]. El contenedor solo ve sus propios cgroups, no los del host ni los de otros contenedores.
 
 ---
 
@@ -253,4 +251,4 @@ ls -la /proc/$PID/ns/
 ---
 
 > [!info] Navegación
-> ◀ [[🐳Introducción al Mundo Docker]] · ▶ [[Cgroups]]
+> ◀ [[🐳Introducción al Mundo Docker]] · ▶ [[⚖️ Cgroups (Control Groups. CPU, RAM y más)]]

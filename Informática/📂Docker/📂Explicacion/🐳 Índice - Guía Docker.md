@@ -12,15 +12,15 @@
 | # | Sección | Archivos |
 |---|---|---|
 | 01 | **Introducción al Mundo Docker** | [[🐳Introducción al Mundo Docker]] |
-| 02 | **Tecnologías Subyacentes** | [[Namespaces]] · [[Cgroups]] · [[Union Filesystems]] |
-| 03 | **Instalación y Setup** | [[Instalación y Setup]] |
+| 02 | **Tecnologías Subyacentes** | [[🔒 Namespaces (Aislamiento. Lo que el contenedor puede ver)]] · [[⚖️ Cgroups (Control Groups. CPU, RAM y más)]] · [[📦 Union Filesystems (Sistema de archivos por capas)]] |
+| 03 | **Instalación y Setup** | [[⚙️ Instalación y Setup]] |
 
 ### 🔵 Uso Diario
 
 | # | Sección | Archivos |
 |---|---|---|
-| 04 | **CLI y Conceptos Básicos** | [[Imágenes en Docker]] · [[Contenedores en Docker]] · [[Redes en Docker]] |
-| 05 | **Persistencia de Datos** | [[Sistema de Archivos Efímero]] · [[Volume Mounts]] · [[Bind Mounts]] |
+| 04 | **CLI y Conceptos Básicos** | [[🖼️ Imágenes en Docker]] · [[📦 Contenedores en Docker]] · [[🌐 Redes en Docker (Networks)]] |
+| 05 | **Persistencia de Datos** | [[Informática/📂Docker/📂Explicacion/📂05 - Persistencia de Datos/# ⏳ Sistema de Archivos Efímero (Ephemeral Filesystem)]] · [[💾 Volume Mounts (Volúmenes gestionados por Docker)]] · [[📁 Bind Mounts (Carpetas locales mapeadas)]] |
 
 ### 🟣 Construcción y Distribución
 
@@ -72,6 +72,6 @@ Introducción ──► Tecnologías Subyacentes ──► Instalación
 >
 > - Si ya conoces Docker y quieres **profundizar**: Ve directo a la sección que necesites.
 >
-> - Si buscas una **referencia rápida de comandos**: Consulta [[Imágenes en Docker]], [[Contenedores en Docker]] y [[Redes en Docker]].
+> - Si buscas una **referencia rápida de comandos**: Consulta [[🖼️ Imágenes en Docker]], [[📦 Contenedores en Docker]] y [[🌐 Redes en Docker (Networks)]].
 >
 > - Si quieres **montar un proyecto con Compose**: Ve directo a [[Docker Compose]].

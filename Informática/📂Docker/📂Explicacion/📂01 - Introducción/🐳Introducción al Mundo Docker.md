@@ -1,6 +1,6 @@
 
 > [!info] Navegación
-> ◀ [[🐳 Índice - Guía Docker]] · ▶ [[Namespaces]]
+> ◀ [[🐳 Índice - Guía Docker]] · ▶ [[🔒 Namespaces (Aislamiento. Lo que el contenedor puede ver)]]
 
 ---
 ## ¿Qué son los contenedores y por qué los necesitamos?
@@ -97,12 +97,17 @@ Todo esto se ejecuta de forma **aislada** del resto del sistema, pero compartien
 ### Las tres eras del despliegue
 
 **Era 1 — Bare Metal (Servidores físicos):**
-Cada aplicación se instalaba directamente en un servidor físico. Si necesitabas 5 aplicaciones, comprabas 5 servidores (o las metías todas en uno, rezando para que no colisionaran).
+
+"Bare Metal" se traduce literalmente como "Metal desnudo". En informática, esto significa instalar tu sistema operativo y tus aplicaciones **directamente sobre los componentes físicos puros de un ordenador** (el procesador, la memoria, el disco duro), sin ninguna capa intermedia de software (como máquinas virtuales o contenedores). 
+Antiguamente, si una empresa quería lanzar 3 aplicaciones distintas (por ejemplo: la web de la empresa, el servidor de correos y la base de datos), lo más normal era **comprar 3 ordenadores físicos gigantes (servidores)** y dedicar uno a cada cosa. 
+*El problema:* Si el servidor de correos solo usaba el 10% de la potencia del ordenador, el 90% restante del hardware (y del dinero que costó) se desperdiciaba. Podías intentar meter las 3 aplicaciones en el mismo servidor físico, pero era peligrosísimo: si una aplicación fallaba, bloqueaba el servidor entero y tiraba a las otras dos. Era carísimo y muy ineficiente.
 
 **Era 2 — Máquinas Virtuales (VMs):**
+
 Con la **virtualización** (VMware, VirtualBox, Hyper-V), un solo servidor físico podía albergar múltiples "ordenadores virtuales", cada una con su propio sistema operativo completo.
 
 **Era 3 — Contenedores:**
+
 Empaquetan solo la aplicación y sus dependencias, compartiendo el kernel del host. Son más ligeros, rápidos y eficientes.
 
 > [!tip] Analogía: Los tres tipos de alojamiento
@@ -122,11 +127,11 @@ Empaquetan solo la aplicación y sus dependencias, compartiendo el kernel del ho
 | **Tamaño típico** | N/A (es el servidor completo) | **GBs** (una VM de Ubuntu pesa ~2-4 GB) | **MBs** (una imagen Alpine pesa ~5 MB) |
 | **Tiempo de arranque** | Minutos (boot del servidor) | **30s - 2 min** (boot del SO completo) | **Milisegundos a segundos** |
 | **Rendimiento** | Máximo (acceso directo al hardware) | **Overhead del 5-15%** por la capa de virtualización | **Casi nativo** (~1-3% de overhead) |
-| **Aislamiento** | Nulo (todo comparte el mismo SO) | **Fuerte** (kernel separado por VM) | **Bueno** (aislamiento a nivel de proceso mediante [[Namespaces]]) |
+| **Aislamiento** | Nulo (todo comparte el mismo SO) | **Fuerte** (kernel separado por VM) | **Bueno** (aislamiento a nivel de proceso mediante [[🔒 Namespaces (Aislamiento. Lo que el contenedor puede ver)]]) |
 | **Densidad** (cuántos caben en un host) | 1 SO por servidor | **~10-20 VMs** por servidor típico | **~100-1000 contenedores** por servidor |
 | **Portabilidad** | Nula (atado al hardware) | Media (formato de VM varía entre hipervisores) | **Máxima** (misma imagen corre en cualquier host con Docker) |
 | **Uso de recursos** | Eficiente pero inflexible | **Alto** (cada VM reserva CPU, RAM fija) | **Bajo** (comparte recursos del kernel dinámicamente) |
-| **Seguridad** | Depende de la configuración del SO | **Alta** (aislamiento total del kernel) | **Media-Alta** (comparte kernel, pero tiene aislamiento con [[Namespaces]]/[[Cgroups]]) |
+| **Seguridad** | Depende de la configuración del SO | **Alta** (aislamiento total del kernel) | **Media-Alta** (comparte kernel, pero tiene aislamiento con [[🔒 Namespaces (Aislamiento. Lo que el contenedor puede ver)]]/[[⚖️ Cgroups (Control Groups. CPU, RAM y más)]]) |
 | **Caso de uso ideal** | Aplicaciones que necesitan rendimiento extremo (gaming, HPC) | Múltiples SO diferentes en un mismo servidor; máximo aislamiento | Microservicios, CI/CD, desarrollo local, escalado rápido |
 | **Herramientas típicas** | Ansible, Chef, Puppet | VMware, VirtualBox, Hyper-V, KVM | Docker, Podman, containerd |
 
@@ -136,4 +141,4 @@ Empaquetan solo la aplicación y sus dependencias, compartiendo el kernel del ho
 ---
 
 > [!info] Navegación
-> ◀ [[🐳 Índice - Guía Docker]] · ▶ [[Namespaces]]
+> ◀ [[🐳 Índice - Guía Docker]] · ▶ [[🔒 Namespaces (Aislamiento. Lo que el contenedor puede ver)]]

@@ -1,11 +1,9 @@
-# ⚙️ Instalación y Setup
 
 > [!info] Navegación
-> ◀ [[Union Filesystems]] · ▶ [[Imágenes en Docker]]
+> ◀ [[📦 Union Filesystems (Sistema de archivos por capas)]] · ▶ [[🖼️ Imágenes en Docker]]
 > 📂 Sección: **03 - Instalación**
 
 ---
-
 ## Docker Desktop vs Docker Engine: ¿Cuál necesitas?
 
 Docker ofrece dos productos principales. Elegir el correcto depende de tu sistema operativo y tu caso de uso:
@@ -51,7 +49,7 @@ docker --version
 # Docker version 27.x.x, build xxxxxxx
 
 docker compose version
-# Docker Compose version v2.x.x
+# Docker Compose version v5.x.x
 ```
 
 ### macOS
@@ -244,4 +242,4 @@ Después de la instalación, tendrás estos componentes:
 ---
 
 > [!info] Navegación
-> ◀ [[Union Filesystems]] · ▶ [[Imágenes en Docker]]
+> ◀ [[📦 Union Filesystems (Sistema de archivos por capas)]] · ▶ [[🖼️ Imágenes en Docker]]

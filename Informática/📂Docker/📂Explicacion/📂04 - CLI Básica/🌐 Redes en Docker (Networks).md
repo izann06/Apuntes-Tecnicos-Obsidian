@@ -1,14 +1,12 @@
-# 🌐 Redes en Docker (Networks)
 
 > [!info] Navegación
-> ◀ [[Contenedores en Docker]] · ▶ [[Sistema de Archivos Efímero]]
-> 📂 Sección: **04 - CLI Básica** · Ver también: [[Imágenes en Docker]] · [[Contenedores en Docker]]
+> ◀ [[📦 Contenedores en Docker]] · ▶ [[Informática/📂Docker/📂Explicacion/📂05 - Persistencia de Datos/# ⏳ Sistema de Archivos Efímero (Ephemeral Filesystem)]]
+> 📂 Sección: **04 - CLI Básica** · Ver también: [[🖼️ Imágenes en Docker]] · [[📦 Contenedores en Docker]]
 
 ---
-
 ## ¿Por qué necesitas entender las redes de Docker?
 
-Las redes de Docker definen **cómo se comunican los contenedores entre sí** y con el mundo exterior. Cuando trabajas con múltiples contenedores (ej. una API + una base de datos + un cache Redis), necesitas que puedan "hablarse" entre sí de forma segura y controlada.
+Las redes de Docker definen **cómo se comunican los contenedores entre sí** y con el mundo exterior. Cuando trabajas con múltiples contenedores (ej. una API + una base de datos + un cache Redis), necesitas que puedan comunicarse entre sí de forma segura y controlada.
 
 > [!tip] Analogía: Las redes como edificios y pisos
 > Imagina que los contenedores son oficinas:
@@ -291,4 +289,4 @@ docker network prune -f
 ---
 
 > [!info] Navegación
-> ◀ [[Contenedores en Docker]] · ▶ [[Sistema de Archivos Efímero]]
+> ◀ [[📦 Contenedores en Docker]] · ▶ [[Informática/📂Docker/📂Explicacion/📂05 - Persistencia de Datos/# ⏳ Sistema de Archivos Efímero (Ephemeral Filesystem)]]

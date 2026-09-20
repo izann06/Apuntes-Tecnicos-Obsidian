@@ -1,14 +1,12 @@
-# 📁 Bind Mounts (Carpetas locales mapeadas)
 
 > [!info] Navegación
-> ◀ [[Volume Mounts]] · ▶ [[Dockerfile - Anatomía Completa]]
-> 📂 Sección: **05 - Persistencia de Datos** · Ver también: [[Sistema de Archivos Efímero]] · [[Volume Mounts]]
+> ◀ [[💾 Volume Mounts (Volúmenes gestionados por Docker)]] · ▶ [[Dockerfile - Anatomía Completa]]
+> 📂 Sección: **05 - Persistencia de Datos** · Ver también: [[Informática/📂Docker/📂Explicacion/📂05 - Persistencia de Datos/# ⏳ Sistema de Archivos Efímero (Ephemeral Filesystem)]] · [[💾 Volume Mounts (Volúmenes gestionados por Docker)]]
 
 ---
-
 ## ¿Qué son los Bind Mounts?
 
-Los **Bind Mounts** montan un **directorio o archivo específico de tu máquina** directamente dentro del contenedor. A diferencia de los [[Volume Mounts|volumes]], **tú controlas exactamente dónde están los datos** en tu disco.
+Los **Bind Mounts** montan un **directorio o archivo específico de tu máquina** directamente dentro del contenedor. A diferencia de los [[💾 Volume Mounts (Volúmenes gestionados por Docker)|volumes]], **tú controlas exactamente dónde están los datos** en tu disco.
 
 > [!tip] Analogía: El enchufe directo
 > Si un **volume** es una caja fuerte gestionada por el hotel, un **bind mount** es como si conectaras un **enchufe directo** desde tu escritorio (tu máquina) hasta la habitación del hotel (contenedor). Todo lo que pongas en ese escritorio aparece instantáneamente en la habitación, y viceversa. Tú controlas dónde está el escritorio; el hotel no tiene ni idea.
@@ -227,7 +225,7 @@ docker run -d -v $(pwd)/mi-html:/usr/share/nginx/html nginx
 ```
 
 > [!info] Diferencia con Volumes
-> Los [[Volume Mounts]] tienen un comportamiento diferente: si el volumen está **vacío**, Docker **copia** los datos de la imagen al volumen (pre-población). Los bind mounts **nunca** hacen esto.
+> Los [[💾 Volume Mounts (Volúmenes gestionados por Docker)]] tienen un comportamiento diferente: si el volumen está **vacío**, Docker **copia** los datos de la imagen al volumen (pre-población). Los bind mounts **nunca** hacen esto.
 
 ---
 
@@ -269,4 +267,4 @@ docker run -d -v $(pwd)/mi-html:/usr/share/nginx/html nginx
 ---
 
 > [!info] Navegación
-> ◀ [[Volume Mounts]] · ▶ [[Dockerfile - Anatomía Completa]]
+> ◀ [[💾 Volume Mounts (Volúmenes gestionados por Docker)]] · ▶ [[Dockerfile - Anatomía Completa]]

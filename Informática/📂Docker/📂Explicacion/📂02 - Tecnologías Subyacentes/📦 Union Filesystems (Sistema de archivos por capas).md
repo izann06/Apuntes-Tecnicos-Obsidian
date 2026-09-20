@@ -1,11 +1,9 @@
-# 📦 Union Filesystems (Sistema de archivos por capas)
 
 > [!info] Navegación
-> ◀ [[Cgroups]] · ▶ [[Instalación y Setup]]
-> 📂 Sección: **02 - Tecnologías Subyacentes** · Ver también: [[Namespaces]] · [[Cgroups]]
+> ◀ [[⚖️ Cgroups (Control Groups. CPU, RAM y más)]] · ▶ [[⚙️ Instalación y Setup]]
+> 📂 Sección: **02 - Tecnologías Subyacentes** · Ver también: [[🔒 Namespaces (Aislamiento. Lo que el contenedor puede ver)]] · [[⚖️ Cgroups (Control Groups. CPU, RAM y más)]]
 
 ---
-
 ## ¿Qué son los Union Filesystems?
 
 Los **Union Filesystems** (también llamados **UnionFS** o **overlay filesystems**) son sistemas de archivos que permiten **superponer múltiples capas de archivos** en una sola vista unificada. Piensa en ellos como transparencias apiladas: cada transparencia tiene contenido diferente, pero cuando las miras todas juntas, ves una imagen completa.
@@ -61,7 +59,7 @@ CMD ["python3", "app.py"] # Capa 5: Metadatos (0 MB, no crea capa real)
 Cuando ejecutas un contenedor a partir de esta imagen, Docker añade una **capa de escritura** (thin writable layer) encima de todas las capas de solo lectura. Esta es la única capa donde el contenedor puede crear, modificar o eliminar archivos.
 
 > [!warning] La capa de escritura es efímera
-> Cuando el contenedor se elimina (`docker rm`), **la capa de escritura se destruye** junto con todos los datos que contenía. Por eso necesitas [[Volume Mounts]] o [[Bind Mounts]] para persistir datos.
+> Cuando el contenedor se elimina (`docker rm`), **la capa de escritura se destruye** junto con todos los datos que contenía. Por eso necesitas [[💾 Volume Mounts (Volúmenes gestionados por Docker)]] o [[📁 Bind Mounts (Carpetas locales mapeadas)]] para persistir datos.
 
 ---
 
@@ -221,4 +219,4 @@ docker inspect mi-nginx --format='{{json.GraphDriver.Data}}' | python3 -m json.t
 ---
 
 > [!info] Navegación
-> ◀ [[Cgroups]] · ▶ [[Instalación y Setup]]
+> ◀ [[⚖️ Cgroups (Control Groups. CPU, RAM y más)]] · ▶ [[⚙️ Instalación y Setup]]

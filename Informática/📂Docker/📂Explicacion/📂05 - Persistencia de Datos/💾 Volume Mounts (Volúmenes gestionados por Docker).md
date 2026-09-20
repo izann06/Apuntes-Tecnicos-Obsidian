@@ -1,11 +1,9 @@
-# 💾 Volume Mounts (Volúmenes gestionados por Docker)
 
 > [!info] Navegación
-> ◀ [[Sistema de Archivos Efímero]] · ▶ [[Bind Mounts]]
-> 📂 Sección: **05 - Persistencia de Datos** · Ver también: [[Sistema de Archivos Efímero]] · [[Bind Mounts]]
+> ◀ [[Informática/📂Docker/📂Explicacion/📂05 - Persistencia de Datos/# ⏳ Sistema de Archivos Efímero (Ephemeral Filesystem)]] · ▶ [[📁 Bind Mounts (Carpetas locales mapeadas)]]
+> 📂 Sección: **05 - Persistencia de Datos** · Ver también: [[Informática/📂Docker/📂Explicacion/📂05 - Persistencia de Datos/# ⏳ Sistema de Archivos Efímero (Ephemeral Filesystem)]] · [[📁 Bind Mounts (Carpetas locales mapeadas)]]
 
 ---
-
 ## ¿Qué son los Volumes?
 
 Los **volumes** (volúmenes) son el mecanismo **recomendado por Docker** para persistir datos. Docker crea y gestiona un directorio especial en el sistema de archivos del host (`/var/lib/docker/volumes/` en Linux) donde almacena los datos del volumen.
@@ -338,4 +336,4 @@ docker volume create \
 ---
 
 > [!info] Navegación
-> ◀ [[Sistema de Archivos Efímero]] · ▶ [[Bind Mounts]]
+> ◀ [[Informática/📂Docker/📂Explicacion/📂05 - Persistencia de Datos/# ⏳ Sistema de Archivos Efímero (Ephemeral Filesystem)]] · ▶ [[📁 Bind Mounts (Carpetas locales mapeadas)]]

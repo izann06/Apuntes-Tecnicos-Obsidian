@@ -1,11 +1,9 @@
-# 🖼️ Imágenes en Docker
 
 > [!info] Navegación
-> ◀ [[Instalación y Setup]] · ▶ [[Contenedores en Docker]]
-> 📂 Sección: **04 - CLI Básica** · Ver también: [[Contenedores en Docker]] · [[Redes en Docker]]
+> ◀ [[⚙️ Instalación y Setup]] · ▶ [[📦 Contenedores en Docker]]
+> 📂 Sección: **04 - CLI Básica** · Ver también: [[📦 Contenedores en Docker]] · [[🌐 Redes en Docker (Networks)]]
 
 ---
-
 ## La relación entre Imagen y Contenedor
 
 Antes de entrar en los comandos, es crucial entender la diferencia entre estos dos conceptos:
@@ -88,7 +86,7 @@ Construye una imagen a partir de un **[[Dockerfile - Anatomía Completa|Dockerfi
 # Sintaxis básica (el punto "." indica el directorio actual como contexto de build)
 docker build -t <nombre>:<tag>.
 
-# Construir una imagen con nombre y tag
+# Construir una imagen con nombre y tag (opcional)
 docker build -t mi-api:v1.0.0.
 
 # Construir con un Dockerfile en una ubicación diferente
@@ -285,4 +283,4 @@ docker load < nginx-backup.tar.gz
 ---
 
 > [!info] Navegación
-> ◀ [[Instalación y Setup]] · ▶ [[Contenedores en Docker]]
+> ◀ [[⚙️ Instalación y Setup]] · ▶ [[📦 Contenedores en Docker]]

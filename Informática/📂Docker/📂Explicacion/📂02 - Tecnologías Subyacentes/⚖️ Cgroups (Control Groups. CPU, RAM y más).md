@@ -1,19 +1,17 @@
-# ⚖️ Cgroups (Control Groups: CPU, RAM y más)
 
 > [!info] Navegación
-> ◀ [[Namespaces]] · ▶ [[Union Filesystems]]
-> 📂 Sección: **02 - Tecnologías Subyacentes** · Ver también: [[Namespaces]] · [[Union Filesystems]]
+> ◀ [[🔒 Namespaces (Aislamiento. Lo que el contenedor puede ver)]] · ▶ [[📦 Union Filesystems (Sistema de archivos por capas)]]
+> 📂 Sección: **02 - Tecnologías Subyacentes** · Ver también: [[🔒 Namespaces (Aislamiento. Lo que el contenedor puede ver)]] · [[📦 Union Filesystems (Sistema de archivos por capas)]]
 
 ---
-
 ## ¿Qué son los Cgroups?
 
 Los **cgroups** (abreviatura de *Control Groups*) son una funcionalidad del kernel de Linux que permite **limitar, contabilizar y aislar el uso de recursos** (CPU, memoria, disco I/O, red) de un grupo de procesos.
 
-Si los **[[Namespaces]]** controlan **qué puede ver** un contenedor, los **cgroups** controlan **cuánto puede usar**.
+Si los **Namespaces** controlan **qué puede ver** un contenedor, los **cgroups** controlan **cuánto puede usar**.
 
 > [!tip] Analogía: El contrato de alquiler del hotel
-> Volvamos al hotel de los [[Namespaces]]. Los namespaces te dan tu habitación privada (aislamiento). Pero, ¿qué pasa si un huésped decide ducharse con toda el agua caliente durante 3 horas? Los demás se quedan sin agua.
+> Volvamos al hotel de los [[🔒 Namespaces (Aislamiento. Lo que el contenedor puede ver)]]. Los namespaces te dan tu habitación privada (aislamiento). Pero, ¿qué pasa si un huésped decide ducharse con toda el agua caliente durante 3 horas? Los demás se quedan sin agua.
 > 
 > Los **cgroups** son como las **reglas del hotel**: "Cada habitación puede usar máximo X litros de agua caliente al día, consumir máximo Y kWh de electricidad". Así, ningún huésped acapara todos los recursos y el hotel funciona correctamente.
 >
@@ -245,4 +243,4 @@ docker info | grep "Cgroup"
 ---
 
 > [!info] Navegación
-> ◀ [[Namespaces]] · ▶ [[Union Filesystems]]
+> ◀ [[🔒 Namespaces (Aislamiento. Lo que el contenedor puede ver)]] · ▶ [[📦 Union Filesystems (Sistema de archivos por capas)]]
