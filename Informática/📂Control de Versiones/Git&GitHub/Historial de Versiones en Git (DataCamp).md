@@ -46,6 +46,16 @@ Cuando un repositorio crece mucho, navegar por el `git log` estándar se vuelve 
   git log -N
   # Ejemplo: Mostrar solo los últimos 3 commits
   git log -3
+  
+  # Salida esperada:
+  # commit a1b2c3d4... (HEAD -> main)
+  # Author: Izan <izan@email.com>
+  # Date:   Wed Oct 25 14:30:00 2023 +0200
+  #
+  #     Update README.md
+  #
+  # commit e5f6g7h8...
+  # [...] (Muestra los 3 últimos)
   ```
 
 - **Filtrar por archivo específico:**
@@ -58,21 +68,32 @@ Cuando un repositorio crece mucho, navegar por el `git log` estándar se vuelve 
 - **Combinar filtros y rutas:**
   ```bash
   # Ver los últimos 2 commits que afectaron a un archivo específico
-  git log -2 mental_health_survey.csv
+  git log -2 report.md
   ```
 
 ### Búsqueda por Rango de Fechas
 
 Puedes acotar el historial usando `--since` (desde) y `--until` (hasta).
 
+```bash
+git log --since="2 weeks ago"
+
+# Salida esperada (solo muestra los commits recientes):
+# commit 9f8e7d6c...
+# Author: Izan <izan@email.com>
+# Date:   Mon Oct 23 09:15:00 2023 +0200
+#
+#     Fix login bug
+```
+
 **Tabla de Formatos de Fecha**
 
-| Formato | Ejemplo | ¿Es válido? | Notas |
-| :--- | :--- | :---: | :--- |
-| **Lenguaje natural** | `"2 weeks ago"`, `"yesterday"` | ✅ Sí | Útil para búsquedas rápidas. |
-| **Formato ISO 8601** | `2023-10-25` (YYYY-MM-DD) | ✅ Sí | **Recomendado** por su precisión y evitar ambigüedades. |
-| **Fecha exacta ISO** | `2023-10-25T14:30:00` | ✅ Sí | Máxima precisión. |
-| **Formatos locales ambiguos** | `10/25/2023` o `25/10/2023` | ⚠️ Depende | Puede fallar según la configuración regional. Evitar. |
+| Formato                       | Ejemplo                        | ¿Es válido? | Notas                                                   |
+| :---------------------------- | :----------------------------- | :---------: | :------------------------------------------------------ |
+| **Lenguaje natural**          | `"2 weeks ago"`, `"yesterday"` |    ✅ Sí     | Útil para búsquedas rápidas.                            |
+| **Formato ISO 8601**          | `2023-10-25` (YYYY-MM-DD)      |    ✅ Sí     | **Recomendado** por su precisión y evitar ambigüedades. |
+| **Fecha exacta ISO**          | `2023-10-25T14:30:00`          |    ✅ Sí     | Máxima precisión.                                       |
+| **Formatos locales ambiguos** | `10/25/2023` o `25/10/2023`    | ⚠️ Depende  | Puede fallar según la configuración regional. Evitar.   |
 
 ### Inspeccionar un Commit Específico
 
@@ -81,6 +102,20 @@ Puedes acotar el historial usando `--since` (desde) y `--until` (hasta).
 > [!TIP] Hashes cortos
 > No necesitas copiar los 40 caracteres del hash (SHA-1). Git es lo suficientemente inteligente para identificar un commit usando solo los **primeros 8 a 10 caracteres**. 
 > Ejemplo: `git show e2f9a3c1` es mucho más rápido y cómodo.
+> 
+> ```bash
+> git show e2f9a3c1
+> 
+> # Salida esperada:
+> # commit e2f9a3c1a4b5...
+> # Author: Izan <izan@email.com>
+> # 
+> #     Añade sección de precios
+> #
+> # diff --git a/index.html b/index.html
+> # + <h2>Precios</h2>
+> # + <p>10€ al mes</p>
+> ```
 
 ---
 
@@ -102,29 +137,44 @@ Para entender `git diff`, primero hay que tener claro dónde se encuentran los a
 
 - **Working Directory vs. Repository (Último commit):**
   Compara lo modificado que **no** está en staging.
+
   ```bash
   git diff
+  
+  # Salida esperada:
+  # diff --git a/app.js b/app.js
+  # index 8a9b0c1..2d3e4f5 100644
+  # --- a/app.js
+  # +++ b/app.js
+  # @@ -10,3 +10,4 @@
+  #  function login() {
+  # -  console.log("old login");
+  # +  console.log("new secure login");
+  #  }
   ```
 
 - **Staging Area vs. Repository:**
   Compara los cambios preparados (`git add`) contra el último commit.
+
   ```bash
   git diff --staged
   ```
 
 - **Comparar archivos individuales:**
-  Añade el nombre del archivo al final.
+
   ```bash
   git diff <archivo>
   git diff --staged <archivo>
   ```
 
 - **Comparar dos Commits del historial:**
-  Mediante Hashes:
+
   ```bash
   git diff <hash_antiguo> <hash_reciente>
   ```
-  Mediante referencias relativas (`HEAD`):
+  
+* Mediante referencias relativas (`HEAD`):
+  
   ```bash
   # Compara el penúltimo commit (HEAD~1) con el último (HEAD)
   git diff HEAD~1 HEAD
@@ -145,16 +195,25 @@ Todos nos equivocamos. Git ofrece múltiples estrategias para deshacer cambios, 
 El comando `git revert` **no borra** el commit del historial (lo cual es peligroso si el código ya está en GitHub), sino que **crea un nuevo commit** que deshace exactamente los cambios del commit indicado.
 
 - **Revertir el último commit:**
+
   ```bash
   git revert HEAD
+  
+  # Salida esperada:
+  # [main 7a8b9c0] Revert "Añade botón roto"
+  #  1 file changed, 1 deletion(-)
   ```
+  
 - **Revertir sin abrir el editor de texto:**
   Omite la pantalla que te pide un mensaje de commit (usa el generado por defecto).
+
   ```bash
   git revert HEAD --no-edit
   ```
+  
 - **Aplicar la reversión en el Staging Area sin confirmarla:**
   Ideal si quieres revisar los cambios antes de hacer el commit de reversión tú mismo.
+
   ```bash
   git revert HEAD -n
   ```
@@ -162,6 +221,7 @@ El comando `git revert` **no borra** el commit del historial (lo cual es peligro
 ### Revertir un solo archivo (`git checkout`)
 
 Si solo quieres recuperar la versión anterior de un archivo concreto y no tocar el resto:
+
 ```bash
 git checkout HEAD~1 -- <archivo>
 ```
@@ -171,10 +231,18 @@ git checkout HEAD~1 -- <archivo>
 Si hiciste `git add` por accidente, puedes quitar el archivo del *Staging Area* (sin perder tus modificaciones en el código).
 
 - **Desmarcar un archivo específico:**
+
   ```bash
-  git restore --staged <archivo>
+  git restore --staged index.html
+  
+  # Salida esperada (Git es silencioso si hay éxito, pero al 
+  # hacer 'git status' verás que ya no está en el staging area):
+  # Changes not staged for commit:
+  #   modified:   index.html
   ```
+  
 - **Desmarcar todos los archivos:**
+
   ```bash
   git restore --staged .
   ```
