@@ -72,13 +72,18 @@ Pulsa la tecla `.` en cualquier repositorio de GitHub y se abre un **editor VS C
 
 ### Ciclo de Vida
 
-| Estado | Descripción |
+| Etapa | Descripción |
 | :--- | :--- |
-| **Creating** | Se está provisionando el contenedor |
-| **Running** | Activo y funcional. Puedes trabajar. |
-| **Stopped** | Parado por inactividad (30 min por defecto). Los datos se conservan. |
-| **Rebuild** | Se recrea el contenedor (útil al cambiar dev container config). |
-| **Deleted** | Eliminado permanentemente. Los datos no guardados se pierden. |
+| **1. Asignación** | Se asigna una máquina virtual (VM) y el almacenamiento. |
+| **2. Creación** | Se descarga y crea el contenedor basado en la imagen definida. |
+| **3. Conexión** | El entorno se conecta al editor (web o local). |
+| **4. Post-creación** | Se ejecutan los scripts de `postCreateCommand` (ej. `npm install`). |
+
+| Estado/Políticas | Descripción |
+| :--- | :--- |
+| **Stopped (Inactividad)** | Se detiene automáticamente tras 30 minutos sin uso (configurable). Los datos se conservan. |
+| **Deleted (Retención)** | Se elimina permanentemente tras 30 días de inactividad por defecto. |
+| **Prebuilds** | Permiten precompilar el contenedor de forma automática. Cuando un desarrollador inicia un Codespace, arranca casi al instante. |
 
 > [!WARNING] Codespaces tiene coste
 > GitHub Free incluye **120 horas core/mes** gratuitas. Pasado el límite, se cobra por hora de uso. Los Codespaces con más CPU/RAM cuestan más. Configura el **spending limit** para no llevarte sorpresas.
@@ -96,9 +101,15 @@ Pulsa la tecla `.` en cualquier repositorio de GitHub y se abre un **editor VS C
 
 ---
 
-## 4. Dev Containers
+## 4. Personalización Avanzada y Dev Containers
 
-Un **Dev Container** es un archivo de configuración que define el entorno de un Codespace. Garantiza que todos los desarrolladores trabajen con las mismas herramientas, versiones y extensiones.
+### Dotfiles y Settings Sync
+- **Dotfiles:** Puedes enlazar tu repositorio público de dotfiles (ej. `github.com/izanm/dotfiles`) en la configuración de GitHub. Codespaces los clonará automáticamente y aplicará tus configuraciones de bash/zsh, git, etc.
+- **Settings Sync:** Activa la sincronización de configuración (VS Code) para que tus atajos de teclado, temas y snippets se apliquen a cualquier Codespace nuevo.
+- **Tipo de máquina:** Puedes cambiar la CPU/RAM del Codespace incluso después de crearlo, pero requiere detener y reiniciar el entorno.
+
+### Dev Containers
+Un **Dev Container** es un archivo de configuración que define el entorno base de un Codespace. Garantiza que todos los desarrolladores del proyecto trabajen con las mismas herramientas y dependencias.
 
 ```json
 // .devcontainer/devcontainer.json
@@ -138,18 +149,7 @@ Un **Dev Container** es un archivo de configuración que define el entorno de un
 
 ---
 
-## 5. GitHub Copilot (Mención Rápida)
-
-| Característica | Descripción |
-| :--- | :--- |
-| **¿Qué es?** | Asistente de programación basado en IA (modelos de OpenAI) |
-| **¿Dónde funciona?** | VS Code, JetBrains, Vim, Neovim, y la web |
-| **Gratis para estudiantes** | ✅ Con GitHub Student Developer Pack |
-| **¿Qué hace?** | Sugiere líneas de código, funciones completas, tests y documentación |
-
----
-
-## 6. Gists, Wikis, Discussions y Marketplace
+## 5. Gists, Wikis, Discussions y Marketplace
 
 ### GitHub Gist
 

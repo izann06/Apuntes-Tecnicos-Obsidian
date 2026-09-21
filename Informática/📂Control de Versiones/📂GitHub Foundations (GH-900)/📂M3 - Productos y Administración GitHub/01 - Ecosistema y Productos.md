@@ -14,7 +14,20 @@
 
 ---
 
-## 1. Git vs. GitHub
+## 1. Arquitectura de Cuentas (Enterprise)
+
+En implementaciones a gran escala, GitHub utiliza una estructura jerárquica para facilitar la administración y facturación unificadas:
+
+```mermaid
+graph TD
+    EA["🏢 Enterprise Account<br>(Nivel más alto: Facturación y Políticas globales)"] --> O1["👥 Organización 1<br>(Ej. Frontend)"]
+    EA --> O2["👥 Organización 2<br>(Ej. Backend)"]
+    O1 --> R1["📦 Repositorio 1"]
+    O1 --> R2["📦 Repositorio 2"]
+    O2 --> R3["📦 Repositorio 3"]
+```
+
+## 2. Git vs. GitHub
 
 | | [[Git]] | [[GitHub]] |
 | :--- | :--- | :--- |
@@ -63,7 +76,7 @@
 | **Caso de uso** | Empresas cloud-first | Sectores regulados (banca, gobierno, defensa) |
 
 > [!WARNING] Pregunta frecuente de examen
-> **EMU (Enterprise Managed Users):** Son cuentas de GitHub creadas y gestionadas por la empresa a través de un proveedor de identidad (IdP). A diferencia de las cuentas personales normales, las cuentas EMU **no pueden contribuir a repositorios públicos fuera de la organización**. Cuando el empleado deja la empresa, se desprovisiona automáticamente.
+> **EMU (Enterprise Managed Users):** Son cuentas de GitHub controladas *totalmente* por la empresa a través de un proveedor de identidad (IdP) corporativo, sin perfiles personales asociados. A diferencia de las cuentas personales normales, las cuentas EMU **no pueden contribuir a repositorios públicos fuera de la empresa**. Cuando el empleado deja la empresa, se desprovisiona automáticamente.
 
 ---
 

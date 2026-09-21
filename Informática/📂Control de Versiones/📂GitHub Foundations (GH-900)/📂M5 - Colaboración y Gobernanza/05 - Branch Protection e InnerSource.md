@@ -91,5 +91,12 @@ En empresas grandes, los equipos trabajan en silos: el equipo A no puede ver ni 
 4. **Issues y PRs:** El mismo flujo que en Open Source, pero dentro de la empresa.
 5. **Templates de repo:** Repositorios plantilla para que los equipos creen proyectos con la estructura estándar.
 
+### Métricas de Éxito en InnerSource
+
+Para medir si la estrategia de InnerSource funciona, **NO se deben medir líneas de código**. Las métricas correctas evalúan la colaboración:
+- **Tiempos de revisión de código (Time-to-Review):** ¿Se atascan los PRs inter-equipos?
+- **Reutilización de componentes:** ¿Cuántos equipos usan una librería común en lugar de reinventar la rueda?
+- **Colaboración entre equipos:** Número de PRs fusionados provenientes de empleados que no pertenecen al equipo principal del repositorio (Outside contributors).
+
 > [!TIP] Exam Tip — InnerSource
-> El examen puede preguntar qué tipo de visibilidad de repositorio se recomienda para InnerSource. La respuesta es **Internal**, porque permite que todos los miembros de la organización vean y contribuyan sin necesidad de invitación individual.
+> El examen puede preguntar qué tipo de visibilidad de repositorio se recomienda para InnerSource. La respuesta es **Internal**, porque permite que todos los miembros de la organización vean y contribuyan sin necesidad de invitación individual. También pueden preguntar sobre métricas: recuerda medir colaboración, no cantidad de código.
