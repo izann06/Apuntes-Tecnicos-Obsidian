@@ -56,24 +56,24 @@ graph TD
 
 ### Planes para Organizaciones y Empresas
 
-| Característica | GitHub Team | GitHub Enterprise |
-| :--- | :--- | :--- |
-| **Precio** | ~4 $/usuario/mes | ~21 $/usuario/mes |
-| **Branch Protection Rules** | ✅ | ✅ Avanzadas |
-| **Equipos (Teams)** | ✅ | ✅ + Team Sync con IdP |
-| **SAML SSO** | ❌ | ✅ |
-| **Enterprise Managed Users (EMU)** | ❌ | ✅ |
-| **Auditoría avanzada** | ❌ | ✅ |
-| **SLA** | ❌ | ✅ 99.9% |
+| Característica                     | GitHub Team      | GitHub Enterprise     |
+| :--------------------------------- | :--------------- | :-------------------- |
+| **Precio**                         | ~4 $/usuario/mes | ~21 $/usuario/mes     |
+| **Branch Protection Rules**        | ✅                | ✅ Avanzadas           |
+| **Equipos (Teams)**                | ✅                | ✅ + Team Sync con IdP |
+| **SAML SSO**                       | ❌                | ✅                     |
+| **Enterprise Managed Users (EMU)** | ❌                | ✅                     |
+| **Auditoría avanzada**             | ❌                | ✅                     |
+| **SLA**                            | ❌                | ✅ 99.9%               |
 
 ### Despliegue Enterprise
 
-| | Enterprise Cloud (GHEC) | Enterprise Server (GHES) |
-| :--- | :--- | :--- |
-| **Alojamiento** | Microsoft Azure (nube) | Tus propios servidores (on-premise) |
-| **Mantenimiento** | GitHub se encarga | Tú te encargas |
-| **Actualizaciones** | Automáticas | Manuales |
-| **Caso de uso** | Empresas cloud-first | Sectores regulados (banca, gobierno, defensa) |
+| Característica      | Enterprise Cloud (GHEC) | Enterprise Server (GHES)                      |
+| :------------------ | :---------------------- | :-------------------------------------------- |
+| **Alojamiento**     | Microsoft Azure (nube)  | Tus propios servidores (on-premise)           |
+| **Mantenimiento**   | GitHub se encarga       | Tú te encargas                                |
+| **Actualizaciones** | Automáticas             | Manuales                                      |
+| **Caso de uso**     | Empresas cloud-first    | Sectores regulados (banca, gobierno, defensa) |
 
 > [!WARNING] Pregunta frecuente de examen
 > **EMU (Enterprise Managed Users):** Son cuentas de GitHub controladas *totalmente* por la empresa a través de un proveedor de identidad (IdP) corporativo, sin perfiles personales asociados. A diferencia de las cuentas personales normales, las cuentas EMU **no pueden contribuir a repositorios públicos fuera de la empresa**. Cuando el empleado deja la empresa, se desprovisiona automáticamente.

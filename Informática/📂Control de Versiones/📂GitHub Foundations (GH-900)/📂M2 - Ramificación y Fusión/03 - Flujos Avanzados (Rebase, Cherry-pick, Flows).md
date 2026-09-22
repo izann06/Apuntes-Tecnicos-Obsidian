@@ -14,30 +14,78 @@
 
 ---
 
-## 1. Rebase Interactivo (`git rebase`)
+## 1. Reescribir la historia (`git rebase`)
 
-`git rebase` toma los commits de tu rama y los **reaplica** encima del último commit de otra rama, como si tu rama hubiese nacido más tarde. El resultado: un historial **lineal** sin commits de merge.
+Imagina que estás escribiendo un capítulo extra para un libro (tu rama `feature`) basándote en la 2ª edición de ese libro (tu `main`). Mientras escribes, la editorial saca la 3ª edición en `main` con cambios importantes. 
+Puedes hacer un **Merge** (que crea un nudo extraño en el historial para juntar ambas versiones), o puedes hacer un **Rebase**.
 
+Con el **Rebase**, Git pone temporalmente tus apuntes a un lado, actualiza tu base a la 3ª edición (`main` actual), y luego vuelve a aplicar tus apuntes uno por uno encima. **El resultado es como si hubieses empezado a trabajar desde el principio usando la 3ª edición.**
+
+* **¿Qué hace exactamente?** "Desconecta" los commits de tu rama, busca la punta más reciente de la rama principal, y los "reaplica" ahí.
+
+* **El resultado:** Un historial **perfectamente lineal** (una sola línea recta sin nudos ni commits de merge).
+
+```mermaid
+graph LR
+    A((A)) --> B((B))
+    B --> E((E: main))
+    B --> C((C))
+    C --> D((D: feature))
 ```
-ANTES (dos ramas divergentes):
-main:     A --- B --- E
-                 \
-feature:          C --- D
-
-DESPUÉS de git rebase main (desde feature):
-main:     A --- B --- E
-                       \
-feature:                C' --- D'   (commits re-creados sobre E)
+*(Arriba: Estado original. Tú empezaste feature desde el commit B, pero main avanzó hasta E)*
+```mermaid
+graph LR
+    A((A)) --> B((B))
+    B --> E((E: main))
+    E -.-> C2((C'))
+    C2 -.-> D2((D': feature))
+    
+    C((C)):::borrado
+    D((D)):::borrado
+    B -.-x C
+    C -.-x D
+    classDef borrado fill:#ffcccc,stroke:#ff0000,stroke-dasharray: 5 5;
 ```
+*(Abajo: Tras el rebase, Git borra tus antiguos C y D, y crea "copias" exactas (C' y D') enganchadas a E)*
 
 ```bash
-# Desde la rama feature:
+# 1. Vas a tu rama desactualizada
 git switch feature/login
+
+# 2. Le dices a Git que quieres re-basarla sobre los últimos cambios de main
 git rebase main
 
 # Salida esperada:
 # Successfully rebased and updated refs/heads/feature/login.
 ```
+
+### Conflictos durante el Rebase
+
+Si al intentar "reaplicar" tus commits Git detecta que la rama `main` modificó exactamente la misma línea que tú modificaste en tu rama, se detendrá y te dará un **error por conflicto**.
+
+El proceso para resolver un conflicto en rebase es muy similar al de un merge:
+
+1. Git pausa el rebase en el commit problemático.
+
+2. Abres el archivo con tu editor y resuelves el conflicto borrando los marcadores `<<<<<<<` (dejando la versión final correcta).
+
+3. Marcas el archivo como resuelto:
+
+   ```bash
+   git add archivo_resuelto.js
+   ```
+   
+4. **Le dices a Git que continúe con el proceso** (NO uses `git commit` aquí):
+
+   ```bash
+   git rebase --continue
+   ```
+   
+5. *(El Botón de pánico)* Si te agobias y quieres cancelar todo el rebase para volver a como estabas antes de empezar:
+
+   ```bash
+   git rebase --abort
+   ```
 
 > [!WARNING] Regla de oro del Rebase
 > **NUNCA hagas rebase de commits que ya hayas subido (`push`) a GitHub**. El rebase reescribe los hashes de los commits, lo que destruye el historial compartido y causa problemas graves a tus compañeros. Úsalo solo en ramas locales privadas.
@@ -72,7 +120,7 @@ git cherry-pick e5f6g7h
 
 ### GitHub Flow (Recomendado para la mayoría de equipos)
 
-Es el flujo que promueve [[GitHub]]. Es **simple y directo**:
+Es el flujo que promueve GitHub. Es **simple y directo**:
 
 ```mermaid
 graph LR
@@ -84,6 +132,7 @@ graph LR
 ```
 
 **Reglas:**
+
 - Solo existe la rama `main` como rama permanente.
 - Para cada funcionalidad o fix, se crea una rama corta.
 - Se abre un PR, se revisa, se fusiona y se borra la rama.

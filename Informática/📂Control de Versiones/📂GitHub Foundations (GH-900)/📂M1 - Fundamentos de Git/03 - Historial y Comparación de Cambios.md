@@ -58,6 +58,25 @@ git log --oneline --graph --all
 # * 9f8e7d6 Configuración inicial
 ```
 
+### Crear un Alias para comandos largos (`git config alias`)
+
+Escribir combinaciones largas como `--oneline --graph --all` constantemente es pesado. Puedes usar la configuración de Git para crear un **alias** (un atajo). 
+
+```bash
+# Crear un alias global llamado "historial"
+git config --global alias.historial "log --oneline --graph --all --decorate"
+
+# Crear un alias global para prettyoneline
+git config --global alias.prettyoneline "log --pretty=oneline"
+
+# Ahora puedes usar los atajos en la terminal:
+git historial
+git prettyoneline
+```
+
+> [!TIP] Exam Tip — Alias
+> Los alias se guardan en el archivo de configuración global (`~/.gitconfig`) o local. Al crear el alias, **NO incluyas la palabra "git"** en el valor. Por ejemplo: `git config --global alias.st "status"`, no `"git status"`.
+
 ---
 
 ## 2. Filtrado Avanzado del Historial
@@ -191,10 +210,19 @@ git diff --staged
 
 ### Comparar un archivo individual
 
+Puedes limitar cualquiera de los comandos anteriores a un solo archivo:
+
 ```bash
+# Compara los cambios locales de app.js con lo que hay en el Staging Area (o en el último commit)
 git diff app.js
+
+# Compara lo que ya has preparado (git add) de styles.css con el último commit
 git diff --staged styles.css
 ```
+
+> [!WARNING] Archivos nuevos (Untracked)
+> Si creas un archivo **por primera vez** (no está trackeado) y haces `git diff archivo_nuevo.js`, **no verás nada**. Git ignora los archivos untracked en el diff porque no tiene una versión anterior con la que compararlos. 
+> Para ver el diff de un archivo totalmente nuevo, primero debes hacerle `git add` y luego usar `git diff --staged`. Verás todo el contenido marcado en verde como líneas nuevas (`+`).
 
 ### Comparar dos Commits del historial
 

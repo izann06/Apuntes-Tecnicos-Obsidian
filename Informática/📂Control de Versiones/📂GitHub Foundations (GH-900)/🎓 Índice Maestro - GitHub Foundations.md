@@ -8,6 +8,15 @@
 
 # 🎯 Índice Maestro — GitHub Foundations (GH-900)
 
+## 🚀 Referencia Rápida y Cheatsheets
+
+| Archivo                                            | Contenido                                                                                   |
+| :------------------------------------------------- | :------------------------------------------------------------------------------------------ |
+| [[01 - Todos los Comandos de Git]]                 | Cheatsheet completa de comandos Git.                                                        |
+| [[02 - Guía Visual de GitHub (Interfaz y Flujos)]] | Guía completa por pestañas (Code, Issues, Actions, Settings...), atajos de teclado y flujos |
+
+---
+
 ## 📦 Módulo 1: Fundamentos de Git y Control de Versiones Local
 
 | Archivo | Contenido |

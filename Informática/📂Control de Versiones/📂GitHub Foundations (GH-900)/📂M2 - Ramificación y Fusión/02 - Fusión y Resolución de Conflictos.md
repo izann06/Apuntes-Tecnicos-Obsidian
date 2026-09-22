@@ -19,10 +19,10 @@
 Fusionar (*merge*) significa integrar los cambios de una rama (**source/origen**) en otra (**destination/destino**).
 
 ```bash
-# Paso 1: Cambia a la rama destino (normalmente main)
+# Paso 1: Cambia a la rama destino (normalmente main, la que quieres aplicar los cambios)
 git switch main
 
-# Paso 2: Fusiona la rama origen
+# Paso 2: Fusiona la rama origen (para traspasar los cambios de feature/login a main)
 git merge feature/login
 
 # Salida esperada:
@@ -36,50 +36,62 @@ git merge feature/login
 
 ## 2. Estrategias de Fusión
 
-### Fast-Forward (Avance Rápido)
+Cuando haces `git merge`, Git analiza la historia y decide automáticamente qué "estrategia" usar para unir los códigos. Principalmente existen dos:
 
-Ocurre cuando la rama destino (`main`) **no tiene commits nuevos** desde que se creó la rama origen. Git simplemente "avanza" el puntero de `main`:
+### Estrategia 1: Fast-Forward (Avance Rápido)
 
+* **¿Qué es?** Es la fusión más simple. No hay cruce de ramas, solo una línea recta.
+
+* **¿Cuándo se usa?** Ocurre cuando nadie más ha tocado la rama destino (`main`) mientras tú trabajabas en tu rama (`feature`). Como `main` se quedó "congelada" en el pasado, Git no tiene que mezclar nada; simplemente coge la etiqueta de `main` y la "avanza rápido" (Fast-Forward) hasta donde estás tú.
+
+* **¿Cómo se hace?** Simplemente haciendo `git merge feature`. Al hacerlo, **NO se crea un commit nuevo de merge**. El historial queda como una línea recta perfecta.
+
+```mermaid
+graph LR
+    A((A)) --> B((B))
+    B -.-> C((C)) -.-> D((D: feature))
 ```
-ANTES:
-main:     A --- B
-                 \
-feature:          C --- D     (HEAD → feature)
-
-DESPUÉS (Fast-Forward):
-main:     A --- B --- C --- D     (HEAD → main)
-```
-
-No se crea un commit de merge. El historial queda lineal y limpio.
-
-### 3-Way Merge (Merge Commit)
-
-Ocurre cuando **ambas ramas tienen commits nuevos** que divergen. Git crea un **commit de merge** que une ambas líneas:
-
-```
-ANTES:
-main:     A --- B --- E
-                 \
-feature:          C --- D
-
-DESPUÉS (3-Way Merge):
-main:     A --- B --- E --- M     (M = merge commit)
-                 \         /
-feature:          C --- D
+*(Arriba: Estado antes del merge. Abajo: Tras el Fast-Forward, main simplemente se desliza hasta la última posición)*
+```mermaid
+graph LR
+    A((A)) --> B((B)) --> C((C)) --> D((D: main y feature))
 ```
 
-```bash
-# Salida esperada de un 3-way merge:
-# Merge made by the 'ort' strategy.
-#  login.html | 10 ++++++++++
-#  styles.css |  5 +++++
-#  2 files changed, 15 insertions(+)
+> [!TIP] Forzar un commit de merge
+> A veces, aunque puedas hacer Fast-Forward, prefieres crear un commit explícito para que quede constancia visual de que esa funcionalidad se hizo en una rama separada. Para forzar la creación del commit usa: `git merge feature --no-ff` (no fast-forward).
+
+### Estrategia 2: 3-Way Merge (Merge a 3 bandas)
+
+* **¿Qué es?** Es una fusión real donde dos líneas temporales distintas se unen creando un nuevo **Commit de Merge** que actúa como "nudo" uniendo a dos padres.
+
+* **¿Cuándo se usa?** Ocurre cuando **ambas ramas han avanzado**. Ejemplo: Tú creas la rama `feature` y trabajas en ella, pero mientras tanto, un compañero sube cambios nuevos directamente a `main`. Ahora ambas ramas han divergido por caminos separados.
+
+* **¿Por qué se llama a "3 bandas"?** Porque para juntar tu código y el de tu compañero de forma inteligente, Git necesita comparar 3 puntos: (1) El último commit de tu rama, (2) el último de la rama `main`, y (3) el "ancestro común" (el commit desde el que os separasteis).
+
+* **¿Cómo se hace?** Igual, ejecutando `git merge feature`. Como Git detecta que ambas han avanzado, te abrirá el editor de texto pidiéndote guardar un mensaje para el nuevo "Commit de Merge".
+
+```mermaid
+graph LR
+    A((A)) --> B((B))
+    B --> E((E: main))
+    B --> C((C))
+    C --> D((D: feature))
+```
+*(Arriba: Las ramas han divergido. Abajo: 3-Way Merge creando el commit "M" que actúa como nudo)*
+```mermaid
+graph LR
+    A((A)) --> B((B))
+    B --> E((E))
+    B --> C((C))
+    C --> D((D))
+    E --> M((M: main))
+    D --> M
 ```
 
-| Estrategia | ¿Cuándo ocurre? | ¿Crea commit de merge? | Historial |
+| Estrategia | ¿Cuándo ocurre? | ¿Crea commit de merge? | Forma del Historial |
 | :--- | :--- | :---: | :--- |
-| **Fast-Forward** | `main` no tiene commits nuevos | ❌ No | Lineal y limpio |
-| **3-Way Merge** | Ambas ramas tienen commits nuevos | ✅ Sí | Muestra bifurcación |
+| **Fast-Forward** | `main` se quedó congelada, no tiene commits nuevos | ❌ No | Lineal (una sola línea recta) |
+| **3-Way Merge** | Ambas ramas avanzaron por caminos separados | ✅ Sí | Ramificado (crea un nudo) |
 
 ---
 
@@ -135,24 +147,31 @@ git merge feature/precios
 ```bash
 # 3. Marca el conflicto como resuelto
 git add index.html
-
-# 4. Completa el merge
-git commit
-# (Git abrirá el editor con un mensaje de merge predeterminado)
-
-# Alternativa:
-git merge --continue
 ```
 
-### Cancelar un merge en conflicto
+```bash
+Una vez que has arreglado los archivos conflictivos y les has hecho `git add`, tienes que avisar a Git de que has terminado para que cierre el proceso y cree el commit de merge.
 
-Si te agobias o quieres empezar de cero:
+# Opción semántica recomendada:
+git merge --continue
+
+# Opción clásica (hace exactamente lo mismo):
+git commit
+```
+
+*(Ambos comandos abrirán tu editor de texto para que simplemente guardes y cierres el mensaje autogenerado).*
+
+### El Botón de Pánico (`--abort`)
+
+A veces haces un merge y te encuentras con 20 archivos llenos de conflictos. Te agobias, no sabes qué versión elegir, o te das cuenta de que estabas mezclando la rama equivocada. Para eso existe el **botón de pánico**:
 
 ```bash
 git merge --abort
-
-# Salida: Git vuelve al estado exacto anterior al intento de merge.
 ```
+
+* **¿Qué hace?** Cancela todo el proceso de fusión al instante.
+
+* **¿Qué pasa con tus archivos?** Git borra todos los marcadores `<<<<<<<` y devuelve todos tus archivos exactamente al estado en el que estaban un segundo antes de que escribieras el comando `git merge`. Estarás a salvo.
 
 > [!IMPORTANT] Exam Tip — Resolución de conflictos
 > El examen puede preguntar cuál es el flujo correcto para resolver un conflicto:

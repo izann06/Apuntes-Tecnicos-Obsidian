@@ -14,60 +14,102 @@
 
 ---
 
-## 1. Restaurar Archivos en el Working Directory
+## 1. Restaurar Archivos (`git restore`)
 
-Si has modificado un archivo y quieres **descartar esos cambios** (volver a la versión del último commit):
+El comando `git restore` tiene dos usos principales dependiendo de si usas la bandera `--staged` o no.
+
+### 1. Descartar cambios por completo (Peligroso)
+
+Si has modificado un archivo y quieres **tirar esos cambios a la basura** (volver a la versión del último commit):
 
 ```bash
-# Forma moderna (recomendada)
 git restore app.js
 
-# Forma clásica (equivalente)
+# Forma antigua (equivalente)
 git checkout -- app.js
-
-# Salida: Git es silencioso. Confirma con git status:
-# On branch main
-# nothing to commit, working tree clean
 ```
 
-> [!WARNING] `git restore` / `git checkout --` es destructivo
-> Los cambios no commiteados que descartes con estos comandos **se pierden para siempre**. No hay undo. Asegúrate antes de ejecutarlo.
+> [!WARNING] Esto es destructivo
+> Los cambios descartados de esta manera **se pierden para siempre**. No hay botón de deshacer.
+
+### 2. Sacar de la caja de Staging (Seguro)
+
+Si ya hiciste `git add app.js` pero te arrepientes y no quieres incluirlo en el próximo commit todavía. Esto **NO borra** tus modificaciones, solo saca el archivo del "área de preparación".
+
+```bash
+git restore --staged app.js
+```
+
+*(Nota: Esto es idéntico a lo que vimos en el archivo 02, pero es fundamental recordarlo al hablar de deshacer cambios).*
 
 ---
 
-## 2. Revertir Confirmaciones (`git revert`)
+## 2. Revertir Confirmaciones de forma segura (`git revert`)
 
-`git revert` **no borra** el commit del historial. Crea un **nuevo commit** que deshace exactamente los cambios del commit indicado.
+Imagina que subiste a GitHub un commit que rompe la aplicación. ¡No puedes borrarlo porque tus compañeros ya lo han descargado! 
+
+La solución es `git revert`. Este comando **no borra** el commit original. En su lugar, analiza qué sumó ese commit y crea un **NUEVO commit que hace exactamente lo contrario** (resta lo que se sumó, o suma lo que se borró).
+
+**Ejemplo Práctico:**
+
+1. El Commit A añade una línea: `console.log("Hola");`
+2. Te das cuenta de que fue un error. Haces un revert del Commit A.
+3. Git crea el Commit B, que elimina la línea: `console.log("Hola");`.
+4. El historial muestra AMBOS commits: el error (A) y la corrección automática (B).
+
+> [!TIP] ¿Tengo que hacer commit después del revert?
+> ¡No! Al ejecutar `git revert`, Git abrirá automáticamente tu editor de texto por defecto con un mensaje autogenerado. **Solo tienes que guardar y cerrar el editor**, y Git completará y guardará el nuevo commit por ti automáticamente.
+> - Si se abre **Nano**: Guarda pulsando `Ctrl + O` (luego `Enter`) y sal pulsando `Ctrl + X`.
+> - Si se abre **Vim**: Escribe `:wq` y pulsa `Enter`.
 
 ```bash
-# Revertir el último commit
+# Revertir el último commit (HEAD)
 git revert HEAD
 
-# Salida esperada:
+# Revertir un commit específico del pasado usando su hash
+git revert 9f8e7d6
+
+# Salida esperada de Git:
 # [main 7a8b9c0] Revert "Añade botón roto"
 #  1 file changed, 0 insertions(+), 5 deletions(-)
 ```
 
 ```bash
-# Revertir sin abrir el editor de texto (acepta el mensaje por defecto)
-git revert HEAD --no-edit
-
-# Aplicar la reversión en staging sin confirmar automáticamente
+# Revertir pero dejar los cambios inversos en la Staging Area para revisarlos antes de confirmar
 git revert HEAD -n
-# (Útil para revisar los cambios antes de commitear tú mismo)
 ```
 
 ---
 
-## 3. Reseteo del Historial (`git reset`)
+## 3. Reseteo del Historial (`git reset`) y el Puntero HEAD
 
-`git reset` mueve el puntero HEAD hacia atrás, **reescribiendo el historial**. Tiene 3 modos:
+Para entender el reset, debes entender qué es **HEAD**. 
+Visualmente, imagina una línea de tiempo donde cada círculo es un commit. **HEAD es una flecha o puntero que indica "ESTÁS AQUÍ"**. Normalmente, HEAD apunta al último círculo (el commit más reciente).
 
-| Modo | Comando | Working Directory | Staging Area | Historial |
-| :--- | :--- | :---: | :---: | :---: |
-| **`--soft`** | `git reset --soft HEAD~1` | ✅ Intacto | ✅ Conserva cambios | ❌ Borra commit |
-| **`--mixed`** (por defecto) | `git reset HEAD~1` | ✅ Intacto | ❌ Desmarca cambios | ❌ Borra commit |
-| **`--hard`** | `git reset --hard HEAD~1` | ❌ Borra cambios | ❌ Borra cambios | ❌ Borra commit |
+```mermaid
+graph LR
+    A((Commit 1)) --> B((Commit 2)) --> C((Commit 3))
+    HEAD>HEAD] -.-> C
+```
+
+Cuando haces `git reset`, estás cogiendo esa flecha (HEAD) y **moviéndola a la fuerza hacia atrás** a un círculo anterior. Los commits que quedan huérfanos por delante desaparecen del historial oficial visible.
+
+```mermaid
+graph LR
+    A((Commit 1)) --> B((Commit 2))
+    C((Commit 3)):::borrado
+    B -.-x C
+    HEAD>HEAD] -.-> B
+    classDef borrado fill:#ffcccc,stroke:#ff0000,stroke-dasharray: 5 5;
+```
+
+¿Pero qué pasa con el código que escribiste en esos commits borrados? `git reset` tiene 3 modos para decidirlo:
+
+| Modo                        | Comando                   | Working Directory |    Staging Area    |   Historial    |
+| :-------------------------- | :------------------------ | :---------------: | :----------------: | :------------: |
+| **`--soft`**                | `git reset --soft HEAD~1` |     ✅ Intacto     | ✅ Conserva cambios | ❌ Borra commit |
+| **`--mixed`** (por defecto) | `git reset HEAD~1`        |     ✅ Intacto     | ❌ Desmarca cambios | ❌ Borra commit |
+| **`--hard`**                | `git reset --hard HEAD~1` |  ❌ Borra cambios  |  ❌ Borra cambios   | ❌ Borra commit |
 
 ```bash
 # Ejemplo: Deshacer el último commit pero conservar los cambios en staging
@@ -94,6 +136,9 @@ git reset --hard HEAD~1
 # Salida esperada:
 # HEAD is now at 9f8e7d6 Configuración inicial
 ```
+
+> [!TIP] También puedes viajar hacia ADELANTE
+> Si haces `git reset --hard HEAD~1` por error, ¡no entres en pánico! Git nunca borra nada inmediatamente. Usando `git reflog` (que veremos en la siguiente sección) puedes encontrar el hash original del Commit 3 y hacer `git reset --hard <hash_del_commit_3>` para que la flecha de HEAD **vuelva a viajar hacia adelante** y recuperes todo al instante.
 
 > [!IMPORTANT] Diferencia clave para el examen: `revert` vs `reset`
 > - **`git revert`**: Crea un commit nuevo que deshace los cambios. El historial **crece**. ✅ Seguro para repos compartidos.
@@ -139,7 +184,13 @@ git reset --hard 7a8b9c0
 
 ## 5. Almacenamiento Temporal (`git stash`)
 
-`git stash` guarda temporalmente tus cambios en una "pila" sin hacer commit, dejando el Working Directory limpio. Ideal para cambiar de rama sin perder tu trabajo en progreso.
+Estás a mitad de programar una función nueva en la rama `feature-x`. Tienes el código a medias. De repente, tu jefe te llama: *"¡Hay un fallo crítico en la rama `main` de producción, arréglalo ya!"*.
+
+No puedes hacer un commit porque tu código está a medias y roto. Tampoco puedes cambiar de rama a `main` porque Git no te dejará saltar con el código incompleto y sin guardar. ¿Qué haces?
+
+Usas `git stash`. Imagina que tu código es un escritorio desordenado. `git stash` coge todo el desorden, lo mete en un cajón (la "pila"), y te deja el escritorio perfectamente limpio. Ahora puedes ir a `main`, arreglar el fallo, volver a tu rama `feature-x`, y "abrir el cajón" (`git stash pop`) para volver a poner el desorden sobre la mesa y seguir programando exactamente donde lo dejaste.
+
+### Comandos de Stash
 
 ```bash
 # Guardar cambios temporalmente

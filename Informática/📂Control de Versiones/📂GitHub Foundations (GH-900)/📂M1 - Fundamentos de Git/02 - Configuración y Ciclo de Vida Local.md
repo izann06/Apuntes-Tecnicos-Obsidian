@@ -90,15 +90,20 @@ git add .
 git add *.css
 ```
 
-Para **desmarcar** un archivo del staging (sin perder tus cambios en el código):
+### Deshacer la preparación (`git restore --staged`)
+
+Imagina que la *Staging Area* es una caja donde estás metiendo cosas para enviar. Si metes un archivo por error, puedes **sacarlo de la caja sin perder tus modificaciones** usando `--staged`.
 
 ```bash
+# 1. Sacar el archivo de la Staging Area (vuelve al Working Directory)
 git restore --staged index.html
 
-# Salida esperada (al hacer git status después):
-# Changes not staged for commit:
-#   modified:   index.html
+# 2. Descartar los cambios por completo (PELIGRO: borra lo que has escrito)
+git restore index.html
 ```
+
+- **Con `--staged`:** Tus líneas de código están a salvo, solo le dices a Git "no incluyas esto en el próximo commit todavía".
+- **Sin `--staged`:** Git borra tus modificaciones y devuelve el archivo a como estaba en el último commit. ¡No hay botón de deshacer para esto!
 
 ---
 
@@ -113,35 +118,45 @@ git commit -m "Añade formulario de login"
 #  2 files changed, 45 insertions(+), 3 deletions(-)
 ```
 
+### Atajo: El comando `git commit -am`
+
+Este comando combina dos banderas (flags) para saltarse el paso de `git add`:
+
+- **`-a` (all):** Añade a la Staging Area todos los archivos modificados o borrados que Git **ya conoce** (trackeados).
+- **`-m` (message):** Permite escribir el mensaje del commit.
+
 ```bash
-# Añadir al staging y hacer commit en un solo paso (solo archivos ya trackeados)
 git commit -am "Corrige bug en la validación"
 ```
 
-> [!WARNING] Pregunta frecuente de examen
-> `git commit -am` **NO incluye archivos nuevos** (untracked). Solo añade automáticamente los archivos que Git ya conoce (que ya fueron añadidos al menos una vez con `git add`). Para archivos nuevos, siempre debes hacer `git add` primero.
+> [!WARNING] Pregunta frecuente de examen: El peligro del `-am`
+> El flag `-a` **NO incluye archivos nuevos** (untracked). 
+> **Ejemplo:** Si modificas `app.js` (ya trackeado) y creas `nuevo.js` (no trackeado), y ejecutas `git commit -am "fix"`, **solo se guardará `app.js`**. El archivo `nuevo.js` se quedará fuera porque Git aún no lo conoce. Para archivos nuevos, siempre debes usar `git add` primero.
 
 ### Corregir el Último Commit (`--amend`)
 
-Si cometiste un error en el mensaje o se te olvidó incluir un archivo:
+En lugar de crear un commit nuevo que diga "Ups, me olvidé de este archivo", Git te permite **abrir el último commit, meterle más cosas o cambiarle el mensaje, y volverlo a cerrar**. A esto se le llama "enmendar" (*amend*).
+
+**Caso 1: Me equivoqué en el mensaje**
 
 ```bash
-# Corregir solo el mensaje del último commit
-git commit --amend -m "Mensaje corregido"
-
-# Añadir un archivo olvidado al último commit
-git add archivo_olvidado.js
-git commit --amend --no-edit
-# (--no-edit mantiene el mensaje original)
-
-# Salida esperada:
-# [main 9f8e7d6] Mensaje corregido
-#  Date: Sun Sep 21 19:00:00 2026 +0200
-#  3 files changed, 50 insertions(+)
+git commit --amend -m "Mensaje corregido y sin faltas de ortografía"
 ```
 
+**Caso 2: Me olvidé de añadir un archivo importante**
+
+```bash
+# 1. Preparas el archivo olvidado en la Staging Area
+git add estilo_olvidado.css
+
+# 2. Lo fusionas dentro del ÚLTIMO commit (sin cambiar el mensaje)
+git commit --amend --no-edit
+```
+
+*(El flag `--no-edit` le dice a Git: "usa el mismo mensaje que ya tenía el commit, solo mételo dentro").*
+
 > [!WARNING] Cuidado con `--amend` en commits subidos
-> Nunca uses `--amend` en un commit que **ya hayas subido** a GitHub (`git push`). Reescribe el historial y causará conflictos a tus compañeros de equipo. Úsalo solo para commits que aún están en tu máquina local.
+> Al usar `--amend`, Git borra el commit original y crea uno **totalmente nuevo** (con un hash diferente) en su lugar. Por tanto, **nunca uses `--amend` en un commit que ya hayas subido a GitHub** (`git push`), porque reescribirás la historia y romperás el código de tus compañeros. Úsalo solo localmente.
 
 ---
 
