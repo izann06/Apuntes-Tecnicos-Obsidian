@@ -29,7 +29,7 @@ El **Dependency Graph** analiza automáticamente los archivos de manifiesto de t
 | .NET | `*.csproj`, `packages.config` |
 | Go | `go.mod` |
 
-**Dónde verlo:** Pestaña `Insights > Dependency Graph` del repositorio.
+**Dónde verlo:** Pestaña `Insights > Dependency Graph > Dependencies > enable` del repositorio.
 
 ---
 

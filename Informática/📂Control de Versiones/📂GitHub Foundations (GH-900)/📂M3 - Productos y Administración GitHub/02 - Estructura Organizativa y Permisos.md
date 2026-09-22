@@ -63,7 +63,10 @@ Cada usuario o equipo puede tener un nivel de permiso diferente para cada reposi
 | **Admin** | Control total del repositorio: borrar repo, cambiar visibilidad, gestionar webhooks. |
 
 > [!TIP] Exam Tip — Permisos Base (Base Permissions)
-> La organización puede definir un **permiso base** que se aplica a todos los miembros para todos los repositorios. Por defecto es `Read`. Esto se puede cambiar en `Settings > Member privileges > Base permissions`. Los equipos pueden tener permisos más altos que el base, pero nunca más bajos.
+> La organización puede definir un **permiso base** que se aplica automáticamente a todos sus miembros para absolutamente todos los repositorios de la organización.
+> * Se configura en: **Settings (de la org) > Member privileges > Base permissions**.
+> * Por defecto está en **Read**.
+> * **Regla de oro:** Los permisos siempre se suman, nunca se restan. Si el permiso base de la organización es `Write`, y metes a alguien en un equipo con permiso `Read`, esa persona **seguirá teniendo Write** (prevalece el permiso más alto).
 
 ---
 

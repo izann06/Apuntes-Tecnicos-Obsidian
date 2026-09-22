@@ -20,11 +20,12 @@
 
 ### Funcionamiento
 
-| Tipo | Descripción | Disponibilidad |
-| :--- | :--- | :--- |
-| **Push Protection** | **Bloquea el push** antes de que el secreto llegue al repositorio. | Repos públicos (gratis) + GitHub Advanced Security |
-| **Alert Scanning** | Escanea commits ya subidos y genera alertas si encuentra secretos. | Repos públicos (gratis) + GitHub Advanced Security |
-| **Partner Alerts** | Si detecta un token de un partner (AWS, Azure, Stripe...), notifica al proveedor para que lo revoque. | Repos públicos (automático) |
+| Tipo                | Descripción                                                                                           | Disponibilidad                                     |
+| :------------------ | :---------------------------------------------------------------------------------------------------- | :------------------------------------------------- |
+| **Push Protection** | **Bloquea el push** antes de que el secreto llegue al repositorio.                                    | Repos públicos (gratis) + GitHub Advanced Security |
+| **Alert Scanning**  | Escanea commits ya subidos y genera alertas si encuentra secretos.                                    | Repos públicos (gratis) + GitHub Advanced Security |
+| **Partner Alerts**  | Si detecta un token de un partner (AWS, Azure, Stripe...), notifica al proveedor para que lo revoque. | Repos públicos (automático)                        |
+|                     |                                                                                                       |                                                    |
 
 ### ¿Qué detecta?
 
@@ -38,34 +39,39 @@ GitHub tiene patrones para detectar secretos de más de 100 proveedores:
 - **Slack:** Webhooks y tokens de bot
 
 > [!WARNING] Push Protection es tu mejor amigo
-> Con Push Protection activado, si intentas hacer `git push` con un token de AWS en el código, GitHub **rechaza el push** y te muestra un mensaje de error. Esto previene la exposición antes de que ocurra. Actívalo en `Settings > Code security and analysis > Secret scanning > Push protection`.
+> Con Push Protection activado, si intentas hacer `git push` con un token de AWS en el código, GitHub **rechaza el push** y te muestra un mensaje de error. Esto previene la exposición antes de que ocurra. Actívalo en `Settings > Code security > Push protection`.
 
+![[03 - Secret Scanning y Políticas.png]]
 ---
 
 ## 2. Política de Seguridad (`SECURITY.md`)
 
-El archivo `SECURITY.md` en la raíz del repositorio (o en `.github/`) define cómo los investigadores de seguridad deben reportar vulnerabilidades de forma responsable (sin exponerlas públicamente).
+Imagina que alguien encuentra un fallo de seguridad gravísimo en el código de tu empresa. Lo peor que podría hacer esa persona es ir a la pestaña "Issues" de GitHub y crear un reporte público diciendo: *"Oye, he descubierto cómo hackearos haciendo X"*. ¡Si hace eso, todos los hackers del mundo lo leerán y atacarán tu aplicación antes de que tengas tiempo a arreglarlo!
+
+Para evitar esto existe el archivo **`SECURITY.md`**. 
+
+* **¿Qué se pone ahí?** Son simplemente las **instrucciones** de cómo quieres que te contacten "en secreto" si alguien encuentra un fallo. Lo normal es escribir algo como: *"Si encuentras una vulnerabilidad, por favor NO abras un issue público. Envíanos un correo directamente a `seguridad@miempresa.com`"*. También se suele indicar qué versiones de tu código están mantenidas y cuáles ya están obsoletas.
+
+* **¿Dónde aparece en GitHub?** Si creas este archivo en la raíz de tu repositorio (o en la carpeta `.github/`), GitHub lo detecta mágicamente. Si vas a la pestaña **Security** del repositorio, verás un apartado llamado **Security policy** donde se mostrará este texto. Además, GitHub pondrá un aviso automático recordando que lean esto cada vez que alguien intente abrir un nuevo Issue normal.
+
+**Ejemplo de cómo se ve el archivo por dentro:**
 
 ```markdown
-# Security Policy
+# Security Policy (Política de Seguridad)
 
-## Supported Versions
+## Versiones soportadas
+Actualmente solo lanzamos parches de seguridad para las siguientes versiones:
+| Version | Soportada |
+| ------- | --------- |
+| 2.x.x   | ✅ Sí |
+| 1.x.x   | ❌ No (Obsoleta) |
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 2.x.x   | :white_check_mark: |
-| 1.x.x   | :x:                |
-
-## Reporting a Vulnerability
-
-If you discover a security vulnerability, please report it by emailing
-security@mycompany.com. Do NOT open a public issue.
-
-We will respond within 48 hours and provide a fix within 7 days.
+## Cómo reportar una vulnerabilidad
+Si descubres un problema de seguridad, por favor envíanos un correo a `security@miempresa.com`. NO abras un Issue público. Responderemos a tu correo en menos de 48 horas.
 ```
 
 > [!TIP] Exam Tip
-> El examen puede preguntar dónde se documenta la política de seguridad de un repositorio. La respuesta es el archivo `SECURITY.md`. Aparece como enlace en la pestaña **Security** del repositorio.
+> El examen suele preguntar cómo le indicas a la comunidad la forma correcta de reportar vulnerabilidades en tu proyecto. La respuesta es creando un archivo `SECURITY.md`.
 
 ---
 

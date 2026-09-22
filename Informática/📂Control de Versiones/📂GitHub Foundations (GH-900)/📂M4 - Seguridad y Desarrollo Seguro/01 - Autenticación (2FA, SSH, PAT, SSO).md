@@ -17,7 +17,27 @@
 ## 1. Métodos de Autenticación
 
 > [!WARNING] Contraseñas HTTPS eliminadas
-> Desde agosto de 2021, GitHub **eliminó la autenticación por contraseña** para operaciones Git por HTTPS. Ya no puedes hacer `git push` introduciendo tu contraseña. Debes usar un **Personal Access Token (PAT)** o una **clave SSH**.
+> Desde agosto de 2021, GitHub **eliminó la autenticación por contraseña** para operaciones Git por HTTPS. Ya no puedes hacer `git push` tecleando tu contraseña de GitHub. Debes usar un **Personal Access Token (PAT)** o una **clave SSH**.
+
+**¿Por qué has estado usando Git sin darte cuenta de esto?**
+
+Seguramente pienses: *"Pero si yo he estado haciendo `git push` sin configurar nada de esto"*. Eso es porque en Windows/Mac existe un programa secundario llamado **Git Credential Manager** (o si usas GitHub Desktop). Cuando inicias sesión la primera vez, se abre una ventana del navegador; ahí autorizas a GitHub, se genera un token por detrás automáticamente y se guarda en tu ordenador para que no te lo vuelva a pedir. Pero bajo el capó, Git **nunca** está enviando tu contraseña, está usando tokens.
+
+### Ejemplo práctico: HTTPS vs SSH a la hora de clonar
+
+Cuando vas a clonar un repositorio, GitHub te da dos enlaces. Dependiendo de cuál elijas, el proceso cambia:
+
+1. **Clonar por HTTPS (`https://github.com/usuario/repo.git`)**
+
+   * **¿Qué pasa al hacer push?** Si no usas Git Credential Manager, la terminal te pedirá un `Username` y un `Password`.
+   
+   * **El truco:** Donde dice "Password", NO puedes poner la contraseña de tu cuenta. Tienes que ir a GitHub, generar un **PAT (Personal Access Token)**, que es una cadena larguísima (ej: `ghp_1234abcd...`), copiarlo y pegarlo ahí.
+
+2. **Clonar por SSH (`git@github.com:usuario/repo.git`)**
+
+   * **¿Qué pasa al hacer push?** No te pide NADA. Git simplemente empuja el código directo.
+   
+   * **¿Por qué usamos SSH?** Porque es mucho más cómodo para los programadores. En lugar de estar generando y copiando tokens que caducan (PATs), generas una **Clave SSH** en tu ordenador una sola vez en la vida, se la subes a GitHub, y a partir de ahí tu ordenador y GitHub se reconocen automáticamente por criptografía pura.
 
 ### Tabla Resumen de Métodos
 
@@ -43,7 +63,7 @@ La **2FA** añade una segunda capa de seguridad. Aunque alguien robe tu contrase
 | **SMS** | Código por mensaje de texto. | ⭐⭐ Vulnerable a SIM swapping |
 
 > [!IMPORTANT] 2FA obligatorio
-> GitHub está exigiendo 2FA a los contribuidores activos. Las organizaciones pueden **forzar 2FA** a nivel de organización: cualquier miembro que no lo tenga activado es automáticamente removido. Esto sale en el examen.
+> GitHub está exigiendo 2FA a los contribuidores activos. Las organizaciones pueden **forzar 2FA** a nivel de organización: cualquier miembro que no lo tenga activado es automáticamente removido. Esto sale en el examen
 
 ---
 
@@ -105,11 +125,23 @@ ssh -T git@github.com
 
 ### SAML Single Sign-On (SSO)
 
-Disponible en **GitHub Enterprise Cloud**. Permite que los empleados se autentiquen en GitHub usando las credenciales de su empresa (Azure AD, Okta, etc.).
+¿Has visto alguna vez el botón **"Iniciar sesión con Microsoft"** o **"Iniciar sesión con Google"** en la web del trabajo? Eso es SSO (Single Sign-On).
 
-- Los usuarios inician sesión una sola vez en el IdP corporativo y acceden a GitHub sin credenciales adicionales.
-- La organización puede forzar que **todos los miembros pasen por el SSO**.
+En empresas grandes (GitHub Enterprise Cloud), los administradores no quieren que los programadores tengan contraseñas separadas para el correo, para el chat y para GitHub. 
+* Con **SAML SSO**, la empresa conecta su directorio central (IdP) con GitHub.
+* Cuando el programador intenta entrar a la organización en GitHub, este le redirige a la web corporativa de Microsoft/Okta. Allí pone el correo y contraseña del trabajo, y vuelve a GitHub autenticado.
 
-### OAuth Apps
+* **Ventaja:** Si despiden a la persona y le cortan el correo corporativo, automáticamente pierde el acceso a GitHub. Además, la empresa puede forzar que **nadie** acceda a los repositorios de la organización si no es usando este sistema corporativo.
 
-Permiten que aplicaciones de terceros accedan a tu cuenta de GitHub con los permisos que tú autorices. Ejemplo: un servicio de CI/CD que necesita leer tus repositorios.
+### OAuth Apps (Aplicaciones de terceros)
+
+Imagina que estás usando un servicio externo como **Vercel** o **Netlify** para alojar tu página web, y te dicen: *"Oye, necesito acceso a tu código de GitHub para poder publicarlo por ti"*.
+
+Obviamente **no le vas a dar tu usuario y contraseña** de GitHub a Vercel. 
+
+Ahí entra **OAuth**. Es un sistema donde:
+
+1. Haces clic en "Conectar con GitHub".
+2. GitHub te saca una pantalla diciendo: *"Vercel quiere leer tus repositorios, ¿le dejas?"*.
+3. Si le das a aceptar, GitHub le da a Vercel un "pase VIP" (un token de OAuth) que solo sirve para leer repositorios.
+4. Si un día dejas de usar Vercel, vas a `Settings > Applications > Authorized OAuth Apps` en GitHub y le revocas el pase VIP. Tu contraseña original de GitHub nunca estuvo en peligro.
