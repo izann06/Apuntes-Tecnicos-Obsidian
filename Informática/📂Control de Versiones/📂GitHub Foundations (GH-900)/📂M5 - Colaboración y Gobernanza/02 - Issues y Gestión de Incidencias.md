@@ -91,12 +91,23 @@ git commit -m "Corrige la validación del email. Fixes #42"
 
 ## 5. Issue Templates vs. Issue Forms
 
-### Issue Templates (Markdown)
+Imagina que tienes un proyecto público y alguien te abre un issue diciendo simplemente: *"El botón no funciona, arregladlo"*. 
+No te dicen qué botón, en qué navegador, ni cómo reproducirlo. Para evitar este caos y perder el tiempo preguntando, GitHub permite crear "plantillas" para guiar (u obligar) al usuario a dar la información correcta desde el primer momento.
 
-Archivos `.md` en `.github/ISSUE_TEMPLATE/` que prerellenan el cuerpo del issue:
+Hay dos formas de hacer esto. Ambas se guardan en la carpeta oculta `.github/ISSUE_TEMPLATE/` de tu repositorio:
+
+### 📄 Issue Templates (El método clásico y flexible)
+
+Son simples archivos de texto en formato **Markdown** (`.md`).
+
+- **Cómo funciona:** Cuando el usuario va a crear un issue, el cuadro de texto ya le aparece pre-rellenado con un esqueleto (ej: apartados de "Pasos para reproducir", "Comportamiento esperado", etc.).
+  
+- **El problema (Caso de uso):** Como es solo texto libre en una caja grande, el usuario perezoso puede pulsar `Ctrl+A` (seleccionar todo), borrar tu preciosa plantilla y escribir *"El botón no funciona"* ignorando tus reglas por completo.
+  
+- **Formato:** Archivos `.md`.
 
 ```markdown
-<!-- .github/ISSUE_TEMPLATE/bug_report.md -->
+<!-- Ejemplo de Issue Template (.md) -->
 ---
 name: Bug Report
 about: Reporta un error
@@ -104,48 +115,47 @@ labels: bug
 ---
 
 ## Descripción del bug
-<!-- Describe claramente el problema -->
+<!-- Describe claramente el problema aquí -->
 
 ## Pasos para reproducir
-1. 
-2. 
-3. 
-
-## Comportamiento esperado
-<!-- ¿Qué debería pasar? -->
-
-## Capturas de pantalla
-<!-- Si aplica -->
+1. Ve a '...'
+2. Haz clic en '....'
 ```
 
-### Issue Forms (YAML — Más estructurados)
+### 📋 Issue Forms (El método moderno y estricto)
 
-Formularios con campos controlados (dropdowns, checkboxes, campos obligatorios):
+Son verdaderos **formularios interactivos** creados mediante código **YAML** (`.yml`). 
+
+- **Cómo funciona:** En lugar de darle al usuario una caja de texto gigante, le presentas un formulario de web real: cajas de texto separadas, menús desplegables (dropdowns) y casillas de verificación (checkboxes)
+
+- **La gran ventaja (Caso de uso):** Puedes marcar campos como **obligatorios** (`required: true`). El usuario **NO PUEDE** saltárselos ni borrar la estructura. Si pones un desplegable para que elija su navegador y lo marcas como obligatorio, no podrá enviar el issue si no lo selecciona. Es perfecto para equipos profesionales.
+  
+- **Formato:** Archivos `.yml`.
 
 ```yaml
-# .github/ISSUE_TEMPLATE/bug_report.yml
+# Ejemplo de Issue Form (.yml)
 name: Bug Report
-description: Reporta un error
+description: Reporta un error en la aplicación
 labels: [bug]
 body:
   - type: textarea
     attributes:
-      label: Descripción
+      label: Descripción detallada
     validations:
-      required: true
+      required: true  # ¡Obligatorio, no puede borrarlo!
   - type: dropdown
     attributes:
-      label: Severidad
+      label: ¿Qué navegador usas?
       options:
-        - Crítica
-        - Alta
-        - Media
-        - Baja
+        - Chrome
+        - Firefox
+        - Safari
 ```
 
-> [!TIP] Exam Tip — Templates vs Forms
-> **Templates** = Markdown libre. El usuario puede borrar o modificar la estructura.
-> **Forms** = YAML con campos controlados. El usuario rellena un formulario y no puede saltarse campos obligatorios. Son más nuevos y más estrictos.
+> [!TIP] Exam Tip — Diferencia Clave para el Examen
+> Si te preguntan en el examen por la diferencia principal:
+> - **Templates (`.md`)** = Markdown libre. El usuario puede saltarse las normas y borrar el texto.
+> - **Forms (`.yml`)** = Formulario estructurado. Soporta menús desplegables, checkboxes y lo más importante: **campos obligatorios**. Son mucho más estrictos.
 
 ---
 

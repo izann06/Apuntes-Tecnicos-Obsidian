@@ -104,11 +104,15 @@ Pulsa la tecla `.` en cualquier repositorio de GitHub y se abre un **editor VS C
 ## 4. Personalización Avanzada y Dev Containers
 
 ### Dotfiles y Settings Sync
+
 - **Dotfiles:** Puedes enlazar tu repositorio público de dotfiles (ej. `github.com/izanm/dotfiles`) en la configuración de GitHub. Codespaces los clonará automáticamente y aplicará tus configuraciones de bash/zsh, git, etc.
+  
 - **Settings Sync:** Activa la sincronización de configuración (VS Code) para que tus atajos de teclado, temas y snippets se apliquen a cualquier Codespace nuevo.
+  
 - **Tipo de máquina:** Puedes cambiar la CPU/RAM del Codespace incluso después de crearlo, pero requiere detener y reiniciar el entorno.
 
 ### Dev Containers
+
 Un **Dev Container** es un archivo de configuración que define el entorno base de un Codespace. Garantiza que todos los desarrolladores del proyecto trabajen con las mismas herramientas y dependencias.
 
 ```json

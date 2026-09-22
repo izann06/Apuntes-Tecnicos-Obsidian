@@ -39,6 +39,7 @@ GitHub Copilot no es un único producto, sino una suite de funcionalidades poten
 Copilot funciona como una **extensión** instalable en los entornos de desarrollo más populares. No es un programa independiente.
 
 **IDEs y Editores soportados oficialmente:**
+
 - Visual Studio Code
 - Visual Studio
 - JetBrains (IntelliJ, WebStorm, PyCharm, etc.)
@@ -46,6 +47,7 @@ Copilot funciona como una **extensión** instalable en los entornos de desarroll
 - GitHub Codespaces (suele venir preinstalado)
 
 ### Pasos de Configuración Básica
+
 1. Instalar la extensión "GitHub Copilot" y "GitHub Copilot Chat" desde el marketplace del IDE.
 2. Iniciar sesión con la cuenta de GitHub que tiene la licencia activa.
 3. Autorizar el acceso en el navegador.
@@ -57,16 +59,20 @@ Copilot funciona como una **extensión** instalable en los entornos de desarroll
 Copilot interactúa contigo de tres maneras principales:
 
 ### 1. Autocompletado Ghost Text
+
 Mientras escribes, Copilot sugiere código en texto grisáceo.
 - **Aceptar sugerencia completa:** `Tab`
 - **Aceptar palabra por palabra:** `Ctrl + Right Arrow` (Windows/Linux) o `Cmd + Right Arrow` (Mac).
 - **Descartar sugerencia:** `Esc`
 
 ### 2. Panel de Sugerencias Múltiples
+
 Si la primera sugerencia no te gusta, puedes pedirle a Copilot que genere hasta 10 opciones alternativas en un panel lateral.
+
 - **Abrir panel de sugerencias:** `Ctrl + Enter`
 
 ### 3. Interacción por Comentarios (Prompting)
+
 Copilot lee el contexto del archivo, especialmente los comentarios y el nombre de la función. Para pedir algo específico, simplemente descríbelo en un comentario.
 
 ```javascript

@@ -67,7 +67,9 @@ GitHub ha introducido **Rulesets** como una alternativa más flexible a las Bran
 
 ## 3. InnerSource
 
-**InnerSource** es la práctica de aplicar las metodologías y cultura del **Open Source** dentro de los límites de una empresa privada.
+**InnerSource** es **exactamente lo mismo que el Open Source**, pero cerrado a nivel de empresa. 
+
+Es decir, se aplican las mismas reglas del código abierto: cualquier persona puede ver el código, proponer mejoras, abrir Issues y enviar Pull Requests libremente. La única diferencia es que **solo pueden acceder a él los miembros del equipo o empleados de tu propia empresa**, no el público general de Internet.
 
 ### ¿Qué problema resuelve?
 

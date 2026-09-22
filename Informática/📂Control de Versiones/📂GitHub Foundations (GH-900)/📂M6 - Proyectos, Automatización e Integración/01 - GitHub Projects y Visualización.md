@@ -84,7 +84,7 @@ Automatizaciones predefinidas que se activan con un clic:
 
 ### Automatización con GitHub Actions
 
-Para lógica más compleja, se pueden crear workflows de Actions que actualicen el proyecto. Ejemplo: asignar automáticamente un label según el tipo de issue.
+Para lógica más compleja, se pueden crear workflows de Actions que actualicen el proyecto. Ejemplo: que tu código se suba a un servidor en el cloud.
 
 ---
 
