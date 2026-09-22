@@ -10,19 +10,19 @@
 > **Resumen ejecutivo:**
 > 1. **Clonar** = descargar una copia del repo a tu máquina. Necesitas permisos de escritura para hacer push.
 > 2. **Forkear** = crear una copia independiente del repo en tu cuenta de GitHub. No necesitas permisos.
-> 3. Para contribuir a Open Source: Fork → Clone → Haz cambios → Push a tu fork → Abre PR al repo original.
+> 3. Para contribuir a Open Source: Fork → Clone → Haz cambios → Push a tu fork → Abre Pull-Request al repo original.
 
 ---
 
 ## 1. Clone vs. Fork
 
-| | `git clone` | Fork (GitHub) |
-| :--- | :--- | :--- |
-| **¿Qué crea?** | Copia local en tu máquina | Copia del repo en tu cuenta de GitHub |
-| **¿Dónde vive?** | En tu disco duro | En github.com bajo tu usuario |
-| **¿Necesitas permisos?** | Para clonar no, para hacer push sí | No, cualquiera puede forkear un repo público |
-| **¿Está vinculado al original?** | Sí (remote `origin`) | Sí (GitHub mantiene la referencia) |
-| **¿Cuándo se usa?** | Cuando eres colaborador directo del repo | Cuando quieres contribuir a un proyecto ajeno |
+|                                  | `git clone`                              | Fork (GitHub)                                 |
+| :------------------------------- | :--------------------------------------- | :-------------------------------------------- |
+| **¿Qué crea?**                   | Copia local en tu máquina                | Copia del repo en tu cuenta de GitHub         |
+| **¿Dónde vive?**                 | En tu disco duro                         | En github.com bajo tu usuario                 |
+| **¿Necesitas permisos?**         | Para clonar no, para hacer push sí       | No, cualquiera puede forkear un repo público  |
+| **¿Está vinculado al original?** | Sí (remote `origin`)                     | Sí (GitHub mantiene la referencia)            |
+| **¿Cuándo se usa?**              | Cuando eres colaborador directo del repo | Cuando quieres contribuir a un proyecto ajeno |
 
 ```
 Repositorio Original (upstream)
