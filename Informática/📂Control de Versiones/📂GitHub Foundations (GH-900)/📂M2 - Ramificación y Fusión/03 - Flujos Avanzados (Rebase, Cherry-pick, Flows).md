@@ -149,5 +149,25 @@ Es un flujo más complejo, ideal para software con versiones publicadas (apps m�
 | `release/*` | Preparación de una versión. Bug fixes de última hora antes de publicar. | ❌ |
 | `hotfix/*` | Parches urgentes en producción. Nacen de `main`, se fusionan a `main` Y `develop`. | ❌ |
 
+#### Herramienta CLI: `git flow`
+
+GitFlow es tan estricto que existe un **plugin de terminal** que automatiza la creación y fusión de estas ramas para que no te equivoques.
+
+**1. Instalación (Linux):**
+
+```bash
+apt-get install git-flow
+```
+
+*(En Windows suele venir incluido si instalaste **Git Bash**. En Mac usa `brew install git-flow`).*
+
+**2. Inicialización en tu proyecto:**
+
+```bash
+git flow init
+```
+
+Este comando te hará una serie de preguntas (qué nombre quieres para la rama de producción, cuál para desarrollo , prefijos, etc.). Si pulsas `Enter` a todo, te configurará las ramas estándar (`main`, `develop`, `feature/`, etc.) automáticamente y te dejará situado en la rama `develop` listo para trabajar.
+
 > [!TIP] Exam Tip — ¿Cuál pregunta el examen?
 > El examen se centra en **GitHub Flow**, no en GitFlow. Debes saber los 6 pasos del GitHub Flow de memoria. GitFlow puede salir como comparación, pero no profundizan en él.

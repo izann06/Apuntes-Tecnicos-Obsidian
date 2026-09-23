@@ -196,14 +196,17 @@
 | :--- | :--- |
 | `git remote -v` | Lista los remotos configurados con sus URLs |
 | `git remote add origin https://...` | Asocia el repo local al remoto con nombre `origin` |
+| `git remote set-url origin git@...` | Cambia la URL del remoto (ej: pasar de HTTPS a SSH) |
 | `git remote remove origin` | Elimina el vínculo con el remoto |
 | `git push origin main` | Sube la rama `main` al remoto |
 | `git push -u origin main` | Sube y configura el tracking (solo la primera vez) |
+| `git push -f origin main` | Fuerza la subida sobreescribiendo el remoto (PELIGROSO) |
 | `git push origin feature/login` | Sube una rama nueva al remoto |
 | `git push origin --delete feature/login` | Borra una rama en el remoto |
 | `git push --tags` | Sube todos los tags al remoto |
 | `git fetch origin` | Descarga los cambios del remoto SIN fusionarlos |
 | `git pull origin main` | `fetch` + `merge` en un solo paso |
+| `git pull origin main --allow-unrelated-histories` | Fusiona historiales paralelos (útil en repo nuevo con README) |
 | `git pull --rebase origin main` | `fetch` + `rebase` en lugar de merge |
 
 ---
