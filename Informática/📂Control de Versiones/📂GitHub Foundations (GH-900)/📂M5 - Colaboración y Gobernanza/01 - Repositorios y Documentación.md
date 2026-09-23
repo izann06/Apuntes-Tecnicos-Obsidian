@@ -38,6 +38,8 @@
 | `SECURITY.md` | Cómo reportar vulnerabilidades de seguridad | Raíz o `.github/` |
 | `CODEOWNERS` | Asigna revisores automáticos por archivo/carpeta | `.github/CODEOWNERS` |
 | `.gitignore` | Archivos que Git debe ignorar | Raíz del repo |
+| `CHANGELOG.md` | Registro cronológico de todos los cambios entre versiones | Raíz del repo |
+| `FUNDING.yml` | Configura botones de donación/patrocinio (GitHub Sponsors) | `.github/FUNDING.yml` |
 
 ### El README.md — La Puerta de Entrada
 
@@ -83,6 +85,43 @@ El archivo `CODEOWNERS` (ubicado en `.github/CODEOWNERS`) define quién es autom
 
 > [!TIP] Exam Tip — CODEOWNERS + Branch Protection
 > La combinación más poderosa: activas Branch Protection con "Require review from Code Owners" y defines el `CODEOWNERS`. Así, nadie puede fusionar cambios en `/docs` sin que `@izanm` lo apruebe, ni cambios en `*.js` sin la aprobación del equipo frontend.
+
+---
+
+## 4.5. Archivos Especiales: CHANGELOG y FUNDING.yml
+
+### CHANGELOG.md
+
+Registro cronológico de todos los cambios por versión. Es el "diário" público de la evolución del proyecto:
+
+```markdown
+# Changelog
+
+## [2.0.0] - 2026-09-01
+### Added
+- Nueva pantalla de dashboard
+- Autenticación con Google (OAuth)
+### Changed
+- Rediseñada la página de login
+### Fixed
+- Corregido error de formulario en móvil
+
+## [1.4.3] - 2026-08-15
+### Fixed
+- Bug de cursor en el editor
+```
+
+### FUNDING.yml — GitHub Sponsors
+
+**GitHub Sponsors** es el sistema oficial de GitHub para que la comunidad pueda financiar a desarrolladores o proyectos Open Source directamente. Al crear el archivo `.github/FUNDING.yml`, aparece un botón **"Sponsor"** en la portada de tu repositorio:
+
+```yaml
+# .github/FUNDING.yml
+github: izanm              # Tu usuario de GitHub Sponsors
+patreon: mi_usuario_patreon
+ko_fi: mi_usuario_kofi
+custom: ["https://paypal.me/mi-enlace"]
+```
 
 ---
 

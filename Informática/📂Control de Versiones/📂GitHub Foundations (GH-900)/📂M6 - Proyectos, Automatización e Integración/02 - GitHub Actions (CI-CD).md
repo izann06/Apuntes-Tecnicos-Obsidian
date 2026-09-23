@@ -14,6 +14,39 @@
 
 ---
 
+## 0. DevOps y CI/CD — El Por Qué
+
+Antes de entender cómo funciona GitHub Actions, hay que entender **para qué** sirve.
+
+### ¿Qué es DevOps?
+
+**DevOps** es una filosofía de trabajo que une a los equipos de **Desarrollo** (Dev) y de **Operaciones** (Ops) que antes trabajaban por separado. La idea es que el mismo equipo que escribe el código también se encarga de desplegarlo y mantenerlo en producción.
+
+### Las 3 fases del CI/CD
+
+```
+DEV  →  [CI] Build + Test  →  [CD] Entrega  →  [CD] Despliegue  →  PROD
+```
+
+| Fase | Nombre completo | ¿Qué hace? | ¿Automático? |
+|:---|:---|:---|:---:|
+| **CI** | Continuous Integration (Integración Continua) | Cada vez que un developer sube código, se compila y se ejecutan los tests automáticamente | ✅ Siempre |
+| **CD** | Continuous Delivery (Entrega Continua) | El código aprobado se empaqueta y deja listo para desplegar, pero **alguien pulsa el botón** | ❌ Solo el último paso |
+| **CD** | Continuous Deployment (Despliegue Continuo) | Si todos los tests pasan, el código llega a producción **completamente solo**, sin intervención humana | ✅ Siempre |
+
+> [!IMPORTANT] Exam Tip — Delivery vs Deployment
+> Esta distinción es una trampa clásica del examen:
+> - **Continuous Delivery** = El proceso es automático PERO alguien tiene que aprobar el despliegue final a producción manualmente.
+> - **Continuous Deployment** = El proceso es completamente automático de principio a fin. Si los tests pasan, se despliega solo.
+
+**Analogía:** 
+Imagínate una fábrica de coches.
+- **CI** es la cadena de montaje: cada pieza que entra se inspecciona automáticamente.
+- **Continuous Delivery** es tener el coche terminado, inspeccionado y en el concesionario, esperando que el director firme el pedido para entregarlo.
+- **Continuous Deployment** es que el coche sale de la fábrica y llega al cliente directamente sin que nadie firme nada.
+
+---
+
 ## 1. Conceptos Clave
 
 | Concepto | Descripción |

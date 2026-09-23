@@ -108,6 +108,40 @@ git log -- report.md
 git log -2 -- mental_health_survey.csv
 ```
 
+### Filtrar por autor
+
+```bash
+# Solo commits de un autor concreto (nombre o email)
+git log --author="Izan"
+
+# También funciona con parte del nombre o con regex
+git log --author="Izan\|Ana"
+```
+
+### Ver el diff completo de cada commit (`-p`)
+
+El flag `-p` (de "patch") es uno de los más potentes. En lugar de solo mostrar el mensaje del commit, muestra **exactamente qué líneas añadió y qué líneas borró** en cada commit:
+
+```bash
+# Ver el diff del último commit
+git log -p -1
+
+# Ver el diff de los últimos 3 commits
+git log -p -3
+```
+
+### Buscar commits que añadieron o borraron un texto (`-S`)
+
+El flag `-S` (llamado "pickaxe") busca commits que **introdujeron o eliminaron** un texto concreto:
+
+```bash
+# Buscar qué commit introdujo la función "calculateTax"
+git log -S "calculateTax"
+
+# Buscar qué commit eliminó una contraseña hardcodeada (para auditorías)
+git log -S "password123"
+```
+
 ### Filtrar por rango de fechas
 
 ```bash

@@ -75,3 +75,36 @@ La barra de búsqueda global (arriba a la izquierda, atajo `/`) no solo busca pa
 
 > [!TIP] Exam Tip — Búsqueda
 > El examen puede presentarte un escenario (ej. "quieres buscar un error de log en archivos de Python"). La respuesta correcta será el filtro adecuado: `error extension:py`. Memoriza especialmente `extension:`, `path:` y `repo:`.
+
+### Filtros específicos de Issues y Pull Requests
+
+Estos se usan dentro de la pestaña **Issues** o **Pull Requests** de un repositorio:
+
+| Filtro | Ejemplo | ¿Qué hace? |
+|:---|:---|:---|
+| `is:open` / `is:closed` | `is:issue is:closed` | Filtra por estado abierto o cerrado |
+| `is:issue` / `is:pr` | `is:pr is:open` | Distingue entre issues y pull requests |
+| `label:` | `label:bug label:"help wanted"` | Filtra por etiqueta (usa comillas si tiene espacios) |
+| `author:` | `author:izanm` | Issues/PRs creados por ese usuario |
+| `assignee:` | `assignee:izanm` | Issues/PRs asignados a ese usuario |
+| `mentions:` | `mentions:izanm` | Issues/PRs donde se menciona al usuario |
+| `milestone:` | `milestone:"Sprint 3"` | Issues pertenecientes a ese hito |
+| `no:` | `no:assignee no:label` | Issues sin asignado, sin etiqueta, etc. |
+| `draft:true` | `is:pr draft:true` | Solo Draft PRs |
+| `review:required` | `is:pr review:required` | PRs que todavía necesitan revisión |
+| `sort:` | `is:issue sort:created-asc` | Ordenar por fecha de creación, actualización, comentarios |
+
+**Ejemplos reales de uso en equipo:**
+```
+# ¿Qué bugs están sin asignar?
+is:issue is:open label:bug no:assignee
+
+# ¿Cuántos PRs están esperando MI revisión?
+is:pr is:open review-requested:izanm
+
+# Todos los issues del Sprint 3 que aún están abiertos
+is:issue is:open milestone:"Sprint 3"
+
+# PRs de mi compañero que ya están aprobados y listos para mergear
+is:pr is:open author:micompanero review:approved
+```
