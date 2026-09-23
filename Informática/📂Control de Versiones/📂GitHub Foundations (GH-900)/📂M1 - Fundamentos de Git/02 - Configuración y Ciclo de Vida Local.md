@@ -200,3 +200,194 @@ build/
 
 > [!TIP] Exam Tip — `.gitignore` se debe crear al inicio
 > La buena práctica es crear el `.gitignore` al inicio del proyecto, antes del primer commit. Si olvidas incluir algo y ya fue commiteado, Git seguirá trackeándolo incluso después de añadirlo al `.gitignore`. Para dejar de trackearlo: `git rm --cached <archivo>`.
+
+---
+
+## 6. Remotos, `origin` y el Misterio del `-u`
+
+Esta sección explica el tropiezo más habitual de todo el mundo con Git. Lo entiendes una vez y no te vuelve a dar problemas nunca más.
+
+### ¿Qué es un "remoto" y qué es `origin`?
+
+Cuando haces `git init`, tu repositorio existe **solo en tu ordenador**. Un **remoto** es simplemente la dirección de ese mismo repositorio alojado en un servidor externo (GitHub).
+
+`origin` **no es nada especial ni técnico**. Es solo un **apodo** (alias) que se le da por convenio mundial a la URL del servidor principal. En vez de escribir la URL entera cada vez, le pones un nombre corto.
+
+```bash
+# Asociar tu repo local a GitHub (darle el alias "origin" a esa URL)
+git remote add origin git@github.com:izann06/mi-proyecto.git
+
+# Ver qué remotos tienes configurados (y sus URLs reales)
+git remote -v
+
+# Salida:
+# origin  git@github.com:izann06/mi-proyecto.git (fetch)
+# origin  git@github.com:izann06/mi-proyecto.git (push)
+```
+
+> [!TIP] ¿Por qué aparece dos veces (fetch y push)?
+> Git permite configurar URLs diferentes para descargar (fetch) y para subir (push). Normalmente son la misma. Por eso aparece dos líneas con el mismo valor.
+
+**Comandos para gestionar remotos:**
+
+```bash
+# Ver los remotos configurados
+git remote -v
+
+# Añadir un remoto
+git remote add origin git@github.com:izann06/repo.git
+
+# Cambiar la URL de un remoto (ej: de HTTPS a SSH)
+git remote set-url origin git@github.com:izann06/repo.git
+
+# Eliminar un remoto (no borra el repo en GitHub, solo el alias local)
+git remote remove origin
+
+# Renombrar un remoto
+git remote rename origin nuevo-nombre
+```
+
+---
+
+### ¿Qué hace el `-u` en `git push -u origin main`?
+
+Tu rama local se llama `main`. La rama en GitHub también se llama `main`. Pero Git **no las empareja automáticamente**. Son dos cosas independientes hasta que tú lo configures.
+
+La primera vez que subes código, tienes que decirle a Git DOS cosas:
+
+1. **¿A qué servidor?** → `origin`
+2. **¿A qué rama de ese servidor?** → `main`
+
+```bash
+git push -u origin main
+```
+
+El flag `-u` (o `--set-upstream`) hace el emparejamiento **una sola vez para siempre**: *"Esta rama local `main` queda ligada a `origin/main`"*.
+
+**La ventaja:**
+```bash
+# Primera vez (necesario el -u):
+git push -u origin main
+
+# A partir de ahora, para siempre, basta con:
+git push
+git pull
+```
+
+---
+
+### ¿Por qué falla `git pull` en un repositorio nuevo?
+
+Es el error más frecuente y confuso. Ocurre cuando tu local y GitHub tienen historiales **paralelos e independientes** que nunca se han "conocido".
+
+**El escenario que lo provoca:**
+
+```
+TU ORDENADOR:             GITHUB:
+git init                  Creaste el repo
+└── Commit A (local)      └── Commit B (lo creó GitHub)
+
+Git dice: "No sé cómo fusionar A con B, son universos paralelos"
+```
+
+**Los dos errores clásicos que verás:**
+
+```
+fatal: refusing to merge unrelated histories
+```
+```
+There is no tracking information for the current branch.
+```
+
+---
+
+### Los 3 Flujos Correctos para Crear un Repositorio
+
+#### ✅ Opción A — El repo en GitHub ya tiene archivos (README, licencia...)
+**La forma más fácil: clónalo directamente. No hagas `git init`.**
+
+```bash
+# 1. Clona tu repositorio de GitHub
+git clone git@github.com:izann06/nombre-repo.git
+
+# 2. Entra en la carpeta
+cd nombre-repo
+
+# 3. Mete tus archivos y trabaja normal
+git add .
+git commit -m "primer commit"
+git push   # Ya funciona sin -u porque clone lo configura todo solo
+```
+
+> Al clonar, Git configura `origin`, el emparejamiento (`-u`) y el tracking **automáticamente**. Es el flujo más limpio.
+
+---
+
+#### ✅ Opción B — Ya tienes archivos en local y el repo de GitHub está vacío
+**Crea el repo en GitHub 100% vacío** (sin README, sin .gitignore, sin licencia).
+
+```bash
+git init
+git add .
+git commit -m "primer commit"
+git branch -M main                                      # Asegurar que la rama se llama main
+git remote add origin git@github.com:izann06/repo.git
+git push -u origin main                                 # Primera vez: necesita el -u
+```
+
+Como GitHub estaba vacío, no hay conflicto de historias. Entra directo sin errores.
+
+---
+
+#### 🔧 Opción C — Repo local con commits + GitHub con archivos (el caso problemático)
+Si ya hiciste `git init` y tienes commits, **pero en GitHub también hay cosas** (marcaste "Add README" al crearlo):
+
+```bash
+# 1. Conectas tu local a GitHub
+git remote add origin git@github.com:izann06/repo.git
+
+# 2. Renombrar rama a main si se llama master
+git branch -M main
+
+# 3. Descargas los cambios de GitHub sin fusionar aún
+git fetch origin
+
+# 4. Fusionas las dos historias independientes (flag especial)
+git pull origin main --allow-unrelated-histories
+
+# Git te pedirá un mensaje para el commit de merge
+# En nano: escribe el mensaje y pulsa Ctrl+X → Y → Enter
+
+# 5. Ahora ya puedes subir todo junto
+git push -u origin main
+```
+
+> [!WARNING] ¿Qué hace `--allow-unrelated-histories`?
+> Le dice a Git: *"Sé que estas dos historias no comparten ningún antepasado común. Fusiónalas de todas formas."* Sin este flag, Git se niega por seguridad.
+
+---
+
+### Lo que pasó en tu sesión de práctica (explicado)
+
+```bash
+mkdir Practica-GH-900
+git init                # Se crea en rama "master" (versiones antiguas de Git)
+git remote add origin git@github.com:izann06/Pruebas-GitHub.git
+git pull                # ← ERROR: no hay tracking, rama se llama master pero GitHub tiene main
+```
+
+**¿Por qué falló?**
+1. `git init` creó la rama `master` (nombre antiguo por defecto).
+2. GitHub tenía la rama `main` (nombre moderno por defecto).
+3. Git no sabía emparejar `master` local con `origin/main` remota porque nadie se lo dijo.
+4. Además, la carpeta local estaba vacía (ningún commit), así que tampoco había base para hacer un merge.
+
+**La solución correcta para ese caso:**
+```bash
+git branch -M main                              # Renombrar master → main
+git pull origin main --allow-unrelated-histories  # Fusionar si GitHub tiene archivos
+
+# O si el repo de GitHub no tiene nada importante, la alternativa limpia:
+git fetch origin
+git reset --hard origin/main                    # Descartar el local y usar el de GitHub
+```
