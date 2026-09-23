@@ -93,6 +93,7 @@ Las 4 palabras del modelo {"El", "gato", "está", "sobre"} sí aparecen en la re
 ```
 
 **¡Problema!** Aunque la precisión del modelo sea perfecta (100%), su respuesta es incompleta y el significado está truncado.
+
 Aquí es donde BLEU brilla en comparación a otras métricas: BLEU aplica matemáticamente una **Brevity Penalty (Penalización por brevedad)**. Dado que el modelo generó solo 4 palabras frente a las 6 de la referencia, la fórmula castiga severamente la puntuación final de BLEU para evitar que modelos que responden respuestas extremadamente cortas (pero muy precisas) ganen puntuaciones altas inmerecidas.
 
 > [!example] Cuándo usar BLEU
