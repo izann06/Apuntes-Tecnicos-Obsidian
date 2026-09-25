@@ -90,5 +90,13 @@
 
 ---
 
+## 🧰 Nivel 10 — Hardware Hacking y Privacidad Física
+
+| Nota | Descripción |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [[01 - Gadgets y Hardware Táctico]] | Rubber Ducky, Flipper Zero, Wi-Fi Pineapples y hardware de privacidad extrema en la vida real. |
+
+---
+
 > [!tip] Recomendación de estudio
 > Sigue los niveles en orden. Cada uno construye sobre el anterior y las notas contienen enlaces internos que conectan conceptos entre sí.

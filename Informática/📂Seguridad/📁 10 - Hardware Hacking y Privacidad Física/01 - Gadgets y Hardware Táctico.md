@@ -5,7 +5,7 @@
 
 ---
 
-# 10 — Hardware Hacking y Privacidad Física: Gadgets y Uso Real
+# 01 — Hardware Hacking y Privacidad Física: Gadgets y Uso Real
 
 El acceso físico a un dispositivo suele significar el **compromiso total del sistema** ("Game Over"). En esta sección exploramos las herramientas de hardware que utilizan tanto los profesionales de ciberseguridad (Red Team / Blue Team) para auditar, como los atacantes para infiltrarse, además de gadgets enfocados en la extrema privacidad.
 
