@@ -17,7 +17,7 @@ Estos dispositivos aprovechan la confianza ciega que los sistemas operativos tie
 
 ### 🦆 USB Rubber Ducky
 
-![Rubber Ducky](img/rubber_ducky.png)
+![[rubber_ducky.png|Rubber Ducky]]
 
 - **Qué es:** A simple vista es un pendrive normal, pero internamente cuenta con un chip que engaña al ordenador diciéndole: *"Hola, soy un teclado USB"*. 
 <br>
@@ -30,7 +30,7 @@ Estos dispositivos aprovechan la confianza ciega que los sistemas operativos tie
 ---
 ### 🐰 Bash Bunny
 
-![Bash Bunny](img/bash_bunny.png)
+![[bash_bunny.png|Bash Bunny]]
 
 - **Qué es:** El hermano hipervitaminado del Rubber Ducky. Es capaz de emular simultáneamente **varios dispositivos a la vez**: un teclado, una tarjeta de red ultrarrápida, un puerto serie y una memoria USB.
 <br>
@@ -43,7 +43,7 @@ Estos dispositivos aprovechan la confianza ciega que los sistemas operativos tie
 ---
 ### 🐢 LAN Turtle
 
-![LAN Turtle](img/lan_turtle.png)
+![[lan_turtle.png|LAN Turtle]]
 
 - **Qué es:** Aparenta ser un simple adaptador de red de USB a Ethernet, pero esconde un mini ordenador Linux completo en su interior.
 <br>
@@ -56,7 +56,7 @@ Estos dispositivos aprovechan la confianza ciega que los sistemas operativos tie
 ---
 ### ⌨️ Key Grabber USB
 
-![Key Grabber](img/key_grabber.png)
+![[key_grabber.png|Key Grabber]]
 
 - **Qué es:** Un hardware keylogger. Es un adaptador muy pequeño que se intercala entre el cable del teclado y el puerto USB de la torre del ordenador.
 <br>
@@ -67,7 +67,7 @@ Estos dispositivos aprovechan la confianza ciega que los sistemas operativos tie
 ---
 ### 🔌 O.MG Cables
 
-![OMG Cables](img/omg_cable.png)
+![[omg_cable.png|OMG Cables]]
 
 - **Qué es:** Cables de carga y datos (Lightning, USB-C, Micro-USB) idénticos a los originales (con el mismo peso, color y tacto), pero que esconden un microchip inalámbrico y un servidor web miniatura en la punta del conector.
 <br>
@@ -85,7 +85,7 @@ El espectro invisible. Las señales Wi-Fi, Bluetooth, RFID de tarjetas de acceso
 
 ### 🍍 Wi-Fi Pineapple
 
-![Wi-Fi Pineapple](img/pineapple.png)
+![[pineapple.png|Wi-Fi Pineapple]]
 
 - **Qué es:** El rey indiscutible de las auditorías Wi-Fi. Un router táctico con múltiples antenas diseñado para lanzar ataques de *Man-in-the-Middle* (MitM) de forma automatizada.
 <br>
@@ -98,7 +98,7 @@ El espectro invisible. Las señales Wi-Fi, Bluetooth, RFID de tarjetas de acceso
 ---
 ### 🐬 Flipper Zero
 
-![Flipper Zero](img/flipper_zero.png)
+![[flipper_zero.png|Flipper Zero]]
 
 - **Qué es:** Conocido como el "Tamagotchi para Hackers". Es una multiherramienta de bolsillo de código abierto con una mascota virtual (un delfín) que sube de nivel cuanto más lo usas.
 <br>
@@ -111,7 +111,7 @@ El espectro invisible. Las señales Wi-Fi, Bluetooth, RFID de tarjetas de acceso
 ---
 ### 📡 HackRF One
 
-![HackRF](img/hackrf.png)
+![[hackrf.png|HackRF]]
 
 - **Qué es:** Una radio definida por software (SDR) extremadamente potente. Transmite y recibe señales de radio desde 1 MHz hasta 6 GHz (cubriendo radio FM, Bluetooth, Wi-Fi, móviles, GPS, etc.).
 <br>
@@ -124,7 +124,7 @@ El espectro invisible. Las señales Wi-Fi, Bluetooth, RFID de tarjetas de acceso
 ---
 ### 💳 ProxMark III
 
-![ProxMark III](img/proxmark.png)
+![[proxmark.png|ProxMark III]]
 
 - **Qué es:** El estándar de la industria (el "bisturí") para la investigación y explotación de sistemas RFID y NFC.
 <br>
@@ -137,7 +137,7 @@ El espectro invisible. Las señales Wi-Fi, Bluetooth, RFID de tarjetas de acceso
 ---
 ### 🪪 RFIDler
 
-![RFIDler](img/rfidler.png)
+![[rfidler.png|RFIDler]]
 
 - **Qué es:** Un hardware de código abierto enfocado principalmente al estudio y suplantación de etiquetas RFID de **baja frecuencia** (LF a 125kHz y 134kHz).
 <br>
@@ -148,7 +148,7 @@ El espectro invisible. Las señales Wi-Fi, Bluetooth, RFID de tarjetas de acceso
 ---
 ### 🚫 Signal Jammers (Inhibidores)
 
-![Signal Jammers](img/signal_jammer.png)
+![[signal_jammer.png|Signal Jammers]]
 
 - **Qué es:** Dispositivos (altamente ilegales para el público) que inundan las bandas de frecuencia con "ruido" de radio para ensordecer a los receptores reales, impidiendo cualquier comunicación.
 <br>
@@ -159,7 +159,7 @@ El espectro invisible. Las señales Wi-Fi, Bluetooth, RFID de tarjetas de acceso
 ---
 ### 🔓 Lockpicks for Tech (Ganzúas)
 
-![Lockpicks](img/lockpicks.png)
+![[lockpicks.png|Lockpicks]]
 
 - **Qué es:** Herramientas de *Lockpicking* (apertura física de cerraduras sin llave).
 <br>

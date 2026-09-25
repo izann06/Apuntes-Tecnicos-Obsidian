@@ -16,7 +16,7 @@
 
 ## 1️⃣ MLP (Multi-Layer Perceptron)
 
-![MLP](img/MLP.png)
+![[MLP.png|MLP]]
 
 Es la red neuronal "clásica" o feedforward. La información fluye en una sola dirección: entra por un lado, se procesa en el medio (capas ocultas) y sale un resultado. 
 
@@ -29,7 +29,7 @@ Es la red neuronal "clásica" o feedforward. La información fluye en una sola d
 
 ## 2️⃣ CNN (Convolutional Neural Network)
 
-![CNN](img/CNN.png)
+![[CNN.png|CNN]]
 
 Las CNN son especialistas en "ver". Utilizan filtros (convoluciones) para escanear una imagen por partes y detectar primero cosas simples (bordes, líneas) y luego cosas complejas (ojos, caras, coches).
 
@@ -42,7 +42,7 @@ Las CNN son especialistas en "ver". Utilizan filtros (convoluciones) para escane
 
 ## 3️⃣ RNN (Recurrent Neural Network)
 
-![RNN](img/RNN.png)
+![[RNN.png|RNN]]
 
 Diseñadas para trabajar con secuencias (cosas que van en orden). Tienen "memoria": lo que procesan en el paso 2 depende de lo que vieron en el paso 1.
 
@@ -55,7 +55,7 @@ Diseñadas para trabajar con secuencias (cosas que van en orden). Tienen "memori
 
 ## 4️⃣ LSTM (Long Short-Term Memory)
 
-![LSTM](img/LSTM.png)
+![[LSTM.png|LSTM]]
 
 Las RNN tienen un defecto: tienen muy mala memoria a largo plazo (como Dory de Buscando a Nemo). Las LSTM son una evolución que soluciona esto, decidiendo qué información vieja es importante guardar y cuál olvidar.
 
@@ -69,7 +69,7 @@ Las RNN tienen un defecto: tienen muy mala memoria a largo plazo (como Dory de B
 
 ## 5️⃣ GRU (Gated Recurrent Unit)
 
-![GRU](img/GRU.png)
+![[GRU.png|GRU]]
 
 Es la hermana pequeña de la LSTM. Hace casi lo mismo (recordar a largo plazo), pero es más simple por dentro.
 
@@ -80,7 +80,7 @@ Es la hermana pequeña de la LSTM. Hace casi lo mismo (recordar a largo plazo), 
 
 ## 6️⃣ Autoencoders
 
-![Autoencoders](img/Autoencoders.png)
+![[Autoencoders.png|Autoencoders]]
 
 Su objetivo es "comprimir" la información hasta su esencia más básica y luego intentar reconstruirla. Si la reconstruye igual, todo va bien. Si falla, es que el dato original era raro.
 
@@ -92,7 +92,7 @@ Su objetivo es "comprimir" la información hasta su esencia más básica y luego
 
 ## 7️⃣ GAN (Generative Adversarial Networks)
 
-![GAN](img/GAN.png)
+![[GAN.png|GAN]]
 
 Son dos inteligencias artificiales peleando entre sí (compitiendo) para volverse mejores. 
 
@@ -104,7 +104,7 @@ Son dos inteligencias artificiales peleando entre sí (compitiendo) para volvers
 
 ## 8️⃣ Transformers
 
-![Transformers](img/Transformers.png)
+![[Transformers.png|Transformers]]
 
 A diferencia de las RNN que leen palabra por palabra en orden, los Transformers leen toda la frase de golpe y usan un truco llamado **"Atención" (Self-Attention)** para ver qué palabras están conectadas entre sí, sin importar lo lejos que estén en la frase.
 
@@ -117,7 +117,7 @@ A diferencia de las RNN que leen palabra por palabra en orden, los Transformers 
 
 ## 9️⃣ GNN (Graph Neural Networks)
 
-![GNN](img/GNN.png)
+![[GNN.png|GNN]]
 
 Están diseñadas para procesar datos que no son tablas ni imágenes, sino **redes o mallas** (grafos). Estudian las relaciones entre nodos.
 

@@ -200,6 +200,27 @@ flowchart TB
 
 ---
 
+## 🗃️ Bases de Datos Vectoriales Soportadas: ¿Cuál elegir?
+
+Aunque Knowledge Bases automatiza el proceso, debes elegir qué motor de base de datos vectorial almacenará tus embeddings. Para el examen **AI Practitioner (AIF-C01)**, es fundamental entender cuándo usar cada una de las tres opciones principales:
+
+### 1. Amazon OpenSearch Serverless (Vector Engine)
+- **Qué es:** Es la opción **predeterminada y recomendada por AWS** para la gran mayoría de casos de uso de Knowledge Bases. Es un motor de búsqueda altamente escalable sin necesidad de gestionar servidores.
+- **Cómo se configura:** En la consola de Bedrock, si eliges "Quick create", AWS crea automáticamente una colección en OpenSearch Serverless y configura el índice vectorial por ti.
+- **Cuándo elegirlo:** Cuando empiezas desde cero, necesitas escalar automáticamente a millones de vectores, y quieres la integración más rápida y nativa con Bedrock.
+
+### 2. Amazon Aurora PostgreSQL (con extensión pgvector)
+- **Qué es:** Aurora es la base de datos relacional (SQL) premium de AWS. Al activarle la extensión de código abierto `pgvector`, adquiere la capacidad de almacenar y buscar embeddings vectoriales junto a tus datos tradicionales.
+- **Cómo se configura:** Debes tener un clúster de Aurora PostgreSQL en funcionamiento, instalar la extensión `CREATE EXTENSION vector;`, y luego conectar Bedrock proporcionando las credenciales (vía AWS Secrets Manager).
+- **Cuándo elegirlo:** Cuando tu empresa **ya tiene sus datos transaccionales en Aurora PostgreSQL** y quieres almacenar los embeddings en la misma base de datos para no tener que mantener dos sistemas separados (OpenSearch + Aurora), permitiendo hacer consultas híbridas (ej. "Busca textos sobre la política de vacaciones *Y* cuyo departamento sea 'RRHH'").
+
+### 3. Amazon Neptune Analytics
+- **Qué es:** Es la base de datos de grafos de AWS optimizada para análisis de redes complejas, que ahora incluye capacidades de búsqueda vectorial.
+- **Cómo se configura:** Creas un grafo en Neptune Analytics y lo vinculas a tu Knowledge Base.
+- **Cuándo elegirlo:** Cuando tus datos tienen **relaciones complejas altamente interconectadas** (ej. detección de fraudes, redes sociales, gráficos de conocimiento corporativo). Te permite buscar no solo por similitud de texto, sino por las "conexiones" (grafos) que existen entre diferentes entidades.
+
+---
+
 ## ⚙️ Configuración de Knowledge Bases
 
 ### Opciones de Chunking
