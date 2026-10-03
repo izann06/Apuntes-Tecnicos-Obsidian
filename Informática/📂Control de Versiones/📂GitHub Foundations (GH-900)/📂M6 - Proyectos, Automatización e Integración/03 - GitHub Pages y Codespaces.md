@@ -177,3 +177,8 @@ Tienda de herramientas y servicios de terceros que se integran con GitHub: CI/CD
 ### GitHub Sponsors
 
 Programa para **financiar económicamente** a desarrolladores Open Source. Los sponsors pagan mensualmente. GitHub no cobra comisión en el primer año.
+
+
+## 💡 Conceptos Avanzados de Examen
+- **Dominios Personalizados:** Para que GitHub asocie tu dominio personalizado (ej. `miweb.com`) a tu sitio de Pages, se debe crear un archivo llamado `CNAME` en la raíz de tu rama de publicación con el nombre del dominio dentro.
+- **Despliegues con Actions vs rama `gh-pages`:** Al desplegar GitHub Pages mediante GitHub Actions, puedes tener tu repositorio limpio (solo con código fuente) y compilar todo dinámicamente en el runner, sin necesidad de hacer commits de tu carpeta de "build" o "dist" en tu historial de Git.

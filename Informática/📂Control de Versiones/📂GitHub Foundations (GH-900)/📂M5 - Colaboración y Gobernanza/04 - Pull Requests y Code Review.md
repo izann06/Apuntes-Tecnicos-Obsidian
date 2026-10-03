@@ -162,3 +162,10 @@ Imagina que mientras trabajabas en tu rama, hiciste estos 3 commits:
 @my-org/team → Mencionar a un equipo
 SHA-hash     → Referencia a un commit específico
 ```
+
+
+## 💡 Conceptos Avanzados de Examen
+- **CODEOWNERS con reglas superpuestas:** Si un Pull Request modifica múltiples archivos, y cada archivo coincide con una regla distinta en `.github/CODEOWNERS`, **todos** los equipos involucrados serán solicitados como revisores. (Ej. `@global-team` por un `.md` y `@frontend-team` por un `.js`).
+- **Draft Pull Requests:** Evitan que un PR sea fusionado accidentalmente y **no notifican automáticamente a los CODEOWNERS** hasta que el autor lo marca explícitamente como "Ready for review".
+- **Changes Requested:** Cuando un revisor solicita cambios, actúa como un veto. Si el branch tiene reglas de protección activadas, el PR **no se podrá mergear** hasta que ese revisor lo apruebe o la revisión sea descartada.
+- **Squash and Merge:** Comprime todos los commits de la rama de feature en un único commit en la rama base (`main`), perdiendo el rastro de los commits individuales pero manteniendo el historial lineal.

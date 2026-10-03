@@ -178,3 +178,11 @@ steps:
 ```
 
 Se configuran en `Settings > Secrets and variables > Actions`.
+
+
+## 💡 Conceptos Avanzados de Examen
+- **Dependencias entre Jobs:** Por defecto, los Jobs corren en paralelo. Para ejecutar `deploy` solo después de `build`, añade `needs: build` en la configuración del job de deploy.
+- **Compartir datos entre Jobs:** Puesto que corren en runners distintos, se hace mediante "outputs". En el Job 1 escribes al entorno `$GITHUB_OUTPUT`, y en el Job 2 lo referencias mediante `needs.<job1>.outputs.<var>`.
+- **`pull_request` vs `pull_request_target`:** El trigger `pull_request_target` se usa por seguridad. Ejecuta el workflow usando el contexto y los secretos del repositorio **base** (ej. main), no del repositorio del fork. Esto previene que código malicioso de un fork robe secretos durante la ejecución.
+- **Environment Secrets:** Para que un job acceda a un secreto de entorno (`production`), el job debe declarar explícitamente `environment: production`.
+- **Matrices (Matrix builds) y fail-fast:** Por defecto, las matrices tienen `fail-fast: true`. Si pruebas en Node 16, 18 y 20, y la de Node 16 falla, las de 18 y 20 se **cancelarán automáticamente** para ahorrar recursos.

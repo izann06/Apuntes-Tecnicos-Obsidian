@@ -186,3 +186,84 @@ graph LR
 
 ---
 → Volver al índice: [[📂M4 - Bedrock y Amazon Q/00 - Índice Módulo 4|🪐 Módulo 4: Bedrock y Amazon Q]]
+
+---
+
+## 🎸 PartyRock — El Playground de Bedrock (Sin Código)
+
+> [!quote] Definición
+> **PartyRock** es una plataforma gratuita de Amazon (basada en Bedrock) que permite a cualquier persona crear aplicaciones de IA Generativa **100% sin código**, simplemente describiendo en lenguaje natural lo que quiere que haga la app.
+
+### ¿Para qué sirve?
+
+| Capacidad | Descripción |
+| :--- | :--- |
+| **Prototipado visual** | Construyes apps de IA arrastrando widgets (texto, imagen, chat) en un canvas visual |
+| **Explorar modelos** | Pruebas diferentes FMs de Bedrock (Claude, Titan, Llama) sin configurar nada |
+| **Compartir apps** | Generas un enlace público para que otros usen tu app de IA |
+| **Aprender Prompt Engineering** | Ves en tiempo real cómo diferentes prompts producen diferentes resultados |
+
+### Ejemplo Práctico
+
+Quieres crear una app que genere recetas saludables basadas en los ingredientes que tiene el usuario en la nevera:
+1. Entras en PartyRock
+2. Escribes: *"Crea una app donde el usuario escriba los ingredientes que tiene y le genere 3 recetas saludables con calorías estimadas"*
+3. PartyRock genera automáticamente la interfaz con campos de entrada y salida
+4. Publicas el enlace y lo compartes con tu equipo
+
+> [!tip] PartyRock para el examen
+> - **Sin código, sin cuenta de AWS necesaria** → es una herramienta de democratización de la IA
+> - Si el escenario menciona "crear una app de IA rápidamente sin programar" o "prototipar con modelos de Bedrock sin infraestructura" → **PartyRock**
+> - PartyRock NO es para producción. Es para **aprender, experimentar y prototipar**
+
+---
+
+## 👁️ Amazon CloudWatch + Amazon Bedrock — Monitorización de Modelos
+
+> [!quote] Definición
+> **Amazon CloudWatch** es el servicio centralizado de monitorización de AWS. Cuando se integra con **Amazon Bedrock**, permite vigilar en tiempo real el rendimiento, el coste y los errores de tus llamadas a los modelos fundacionales.
+
+### ¿Por qué es importante?
+Desplegar un modelo en producción sin monitorización es como conducir de noche sin luces: no sabes cuánto estás gastando, si el modelo está tardando demasiado, o si se están produciendo errores.
+
+### Métricas Clave de Bedrock en CloudWatch
+
+| Métrica | Qué Mide | Por Qué Importa | Ejemplo de Alarma |
+| :--- | :--- | :--- | :--- |
+| **`Invocations`** | Número total de llamadas al modelo | Control de volumen de uso | "Alerta si hay más de 10.000 llamadas/hora" |
+| **`InvocationLatency`** | Tiempo que tarda el modelo en responder (ms) | Experiencia del usuario | "Alerta si la latencia supera 5 segundos" |
+| **`InputTokenCount`** | Tokens enviados en el prompt | Control de costes (los tokens de entrada se cobran) | "Alerta si un prompt supera 4.000 tokens" |
+| **`OutputTokenCount`** | Tokens generados por el modelo | Control de costes (la salida es lo más caro) | "Alerta si la respuesta supera 2.000 tokens" |
+| **`InvocationClientErrors`** | Errores 4xx (límite de cuota, bad request) | Detectar problemas de configuración | "Alerta si hay más de 50 errores/hora" |
+| **`InvocationServerErrors`** | Errores 5xx (fallo del servicio AWS) | Detectar problemas de disponibilidad | "Alerta si hay errores 5xx continuos" |
+| **`InvocationThrottles`** | Peticiones rechazadas por exceder el límite de cuota | Necesidad de escalar a Provisioned Throughput | "Alerta si hay throttling recurrente" |
+
+### Arquitectura: CloudWatch + Bedrock en Producción
+
+```mermaid
+sequenceDiagram
+  participant APP as 🖥️ Tu Aplicación
+  participant BED as 🧠 Amazon Bedrock
+  participant CW as 📊 CloudWatch
+  participant SNS as 📧 SNS (Notificaciones)
+
+  APP->>BED: InvokeModel (prompt del usuario)
+  BED->>CW: Publica métricas (latencia, tokens, errores)
+  CW->>CW: Evalúa Alarmas configuradas
+  CW->>SNS: ⚠️ "Latencia > 5s durante 3 minutos"
+  SNS->>APP: Email/SMS al equipo de DevOps
+```
+
+> [!warning] CloudWatch vs CloudTrail — No confundir
+> | | **CloudWatch** | **CloudTrail** |
+> | :--- | :--- | :--- |
+> | **Para qué** | **Monitorizar rendimiento y métricas** en tiempo real | **Auditar quién hizo qué** (logs de llamadas API) |
+> | **Pregunta que responde** | "¿Cuánto tarda el modelo? ¿Cuántos tokens gasto?" | "¿Quién invocó el modelo a las 3 AM del domingo?" |
+> | **Tipo de dato** | Métricas numéricas (latencia, conteos, errores) | Registros de eventos (usuario, IP, acción, timestamp) |
+> | **Acción típica** | Crear alarmas y dashboards de rendimiento | Investigar incidentes de seguridad y compliance |
+
+> [!tip] CloudWatch + Bedrock para el examen
+> - "Monitorizar el rendimiento de las llamadas a Bedrock" → **CloudWatch**
+> - "Crear una alarma cuando el coste de tokens supere un umbral" → **CloudWatch Alarms**
+> - "Ver un dashboard con la latencia y errores de Bedrock" → **CloudWatch Dashboards**
+> - "Saber quién invocó el modelo" → **CloudTrail** (no CloudWatch)

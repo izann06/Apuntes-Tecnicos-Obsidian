@@ -97,3 +97,7 @@ La pestaña **Insights** genera gráficas automáticas:
 | **Burn up** | Cuánto trabajo se ha completado vs. el total a lo largo del tiempo |
 | **Burn down** | Cuánto trabajo queda por hacer. Detecta si el sprint está en riesgo. |
 | **Custom charts** | Gráficas personalizadas filtrando por campo, assignee, label, etc. |
+
+
+## 💡 Conceptos Avanzados de Examen
+- **Búsqueda y Filtros Temporales:** En GitHub Projects (y en la búsqueda global), puedes usar operadores temporales relativos y absolutos. Por ejemplo, para buscar elementos no actualizados en los últimos 30 días, puedes usar el filtro `updated:<@today-30` o variaciones similares.

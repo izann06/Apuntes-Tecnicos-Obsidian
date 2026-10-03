@@ -72,6 +72,43 @@ La salida es un **valor numérico continuo**. En lugar de meter algo en una "caj
 
 ---
 
+### 🔧 Feature Engineering en Aprendizaje Supervisado
+
+Antes de entrenar un modelo supervisado, necesitas preparar los datos. Esta preparación se llama **Feature Engineering** (Ingeniería de Características): transformar los datos brutos en algo que el modelo pueda procesar eficientemente.
+
+#### Datos Estructurados (Tablas, CSV, Bases de datos)
+Son datos organizados en filas y columnas con tipos definidos (números, fechas, categorías).
+
+| Técnica | Qué hace | Ejemplo |
+| :--- | :--- | :--- |
+| **Normalización** | Escalar valores a un rango común (0-1) para que ninguna variable domine | Precio (€5-€5000) y Edad (18-90) se normalizan ambos a 0-1 |
+| **One-Hot Encoding** | Convertir categorías de texto en vectores binarios | Color: `Rojo=[1,0,0]`, `Verde=[0,1,0]`, `Azul=[0,0,1]` |
+| **Imputación** | Rellenar valores nulos con la media, mediana o un valor calculado | Si falta la edad de un cliente, se rellena con la edad media del grupo |
+| **Balanceo de datos** | Igualar el número de ejemplos por clase cuando hay desequilibrio severo | Si tienes 9.500 transacciones normales y 500 fraudulentas, las técnicas de *data balancing* (sobremuestreo/submuestreo) equilibran los datos para que el modelo no ignore la clase minoritaria |
+| **Aumento de datos (Data Augmentation)** | Crear variaciones sintéticas de los datos existentes para ampliar el dataset | Rotar, recortar o espejear imágenes para tener más ejemplos de entrenamiento |
+
+> [!brain] Conceptos clave de datos para el examen
+> - **Data Quality (Calidad de datos):** Los datos deben ser precisos, completos y sin errores. "Basura entra → basura sale".
+> - **Data Enrichment (Enriquecimiento):** Añadir información de fuentes externas para dar más contexto (ej. añadir datos meteorológicos a un dataset de ventas).
+> - **Data Discoverability (Descubribilidad):** Capacidad de encontrar y acceder a los datos dentro de una organización (catálogos como **AWS Glue Data Catalog**).
+> - **Data Lineage Tracking (Seguimiento de linaje):** Rastrear el origen, transformaciones y destino de los datos a lo largo del pipeline.
+> - **Data Residency (Residencia de datos):** Requisitos legales sobre en qué región geográfica deben almacenarse los datos (GDPR, etc.).
+
+#### Datos No Estructurados (Texto, Imágenes, Audio)
+Son datos que no encajan en filas y columnas. Necesitan transformaciones especiales.
+
+| Tipo de dato | Técnica de Feature Engineering | Resultado |
+| :--- | :--- | :--- |
+| **Texto** | **Tokenización + Embeddings:** Se parte el texto en fragmentos (tokens) y se convierte cada token en un vector de números que captura su significado semántico | `"El gato duerme"` → `[0.23, -0.87, 0.45, ...]` |
+| **Imágenes** | Redimensionar a tamaño fijo, normalizar píxeles (0-255 → 0-1), aplicar augmentación (rotar, voltear, recortar) | Imagen 4000x3000 → Tensor 224x224x3 normalizado |
+| **Audio** | Convertir ondas de sonido en **espectrogramas** (representaciones visuales de frecuencias) que luego se procesan como imágenes | Archivo .wav → Matriz de frecuencias por tiempo |
+
+> [!tip] Truco de examen — Feature Engineering
+> Si la pregunta habla de "preparar datos para un modelo" o "transformar variables antes de entrenar" → **Feature Engineering**.
+> Si habla de un repositorio centralizado para almacenar y compartir features → **SageMaker Feature Store**.
+
+---
+
 ## 🔍 Aprendizaje No Supervisado (Unsupervised Learning)
 
 ### ¿Qué es?
@@ -105,6 +142,22 @@ El modelo recibe datos **sin etiquetas** (sin las respuestas correctas). Le deci
 - **En la práctica:** El modelo analiza millones de transacciones de tu tarjeta de crédito y entiende tu patrón "normal" (compras en Madrid, de 10€ a 100€, en horario de día). De repente, detecta un pago de 3.000€ en diamantes a las 4 AM en otro país. Como ese dato está aisladísimo de tu "cluster" normal, lo marca como anomalía y te bloquea la tarjeta.
 
 - **Uso típico:** Prevención de fraude, detección de fallos inminentes en maquinaria.
+
+**5. Autoencoders — El Detector de Anomalías por Reconstrucción**
+
+Los **Autoencoders** son una arquitectura de red neuronal especialmente potente para detección de anomalías no supervisada. Su principio es simple pero brillante:
+
+1. **Entrenamiento:** Le enseñas solo datos "normales". El autoencoder aprende a **comprimir** cada dato a su esencia mínima (Encoder) y luego **reconstruirlo** (Decoder).
+2. **Inferencia:** Cuando le llega un dato nuevo, intenta reconstruirlo.
+   - Si el **error de reconstrucción es bajo** → El dato es "normal" (el autoencoder sabe reconstruirlo bien).
+   - Si el **error de reconstrucción es alto** → El dato es una **anomalía** (nunca vio nada parecido, no sabe reconstruirlo).
+
+> [!example] Ejemplo práctico — Autoencoders en una fábrica
+> Una fábrica tiene sensores en sus turbinas que miden 50 variables (temperatura, vibración, presión...). Se entrena un autoencoder con meses de datos de funcionamiento normal. Un día, una turbina empieza a fallar: las lecturas cambian sutilmente. El autoencoder no puede reconstruir bien esas lecturas nuevas → el error se dispara → se genera una alerta de mantenimiento predictivo **antes** de que la turbina se rompa.
+
+> [!tip] Truco de examen — Autoencoders
+> Si la pregunta habla de **detección de anomalías sin etiquetas** (sin ejemplos previos de fraude o fallo) → **Autoencoders** (Aprendizaje No Supervisado).
+> Los autoencoders NO necesitan datos etiquetados como "fraude" o "normal". Solo necesitan datos normales para aprender qué es "lo normal".
 
 > [!example] Escenarios no supervisados para el examen
 >
@@ -193,6 +246,33 @@ Dependiendo del paradigma y la necesidad de entender el modelo (explicabilidad),
 > - **Árboles de Decisión (Decision Trees):** Algoritmo de ML tradicional muy utilizado cuando se requiere **alta interpretabilidad**. Es fácil documentar cómo el mecanismo interno afecta a la salida (modelo de "caja blanca"). Ideal para auditorías o cumplimiento normativo.
 > - **Modelos basados en BERT:** Arquitecturas de Deep Learning diseñadas para el entendimiento profundo del lenguaje. Un caso de uso clásico es la **inserción y sugerencia de palabras faltantes** en documentos basándose en el contexto bidireccional.
 > - **GANs (Generative Adversarial Networks):** Un tipo avanzado de red neuronal utilizada en IA Generativa. Se basa en dos redes (un generador y un discriminador) que compiten entre sí. Su uso más destacado es la **generación de datos sintéticos** a partir de datos existentes.
+
+---
+
+## 📊 Algoritmos y Términos ML del Examen (Tabla Maestra)
+
+Estos términos aparecen frecuentemente en el examen AIF-C01 como opciones de respuesta. No necesitas saber implementarlos, pero sí saber **qué hace cada uno y cuándo usarlo**.
+
+| Algoritmo / Término | Nombre Completo | Paradigma | Qué Hace | Caso de Uso Típico |
+| :--- | :--- | :--- | :--- | :--- |
+| **SVM** | Support Vector Machine | Supervisado | Traza un hiperplano matemático para separar clases en un espacio multidimensional | Clasificación de textos, detección de spam, diagnóstico médico con pocas features |
+| **k-NN** | K-Nearest Neighbours | Supervisado | Clasifica un dato nuevo mirando los K vecinos más cercanos y eligiendo la clase mayoritaria | Sistemas de recomendación simples, clasificación de imágenes básica |
+| **XGBoost** | Extreme Gradient Boosting | Supervisado | Implementación ultra-optimizada de Gradient Boosting (muchos árboles de decisión en cascada) | Competiciones de ML (Kaggle), predicción de ventas, scoring crediticio |
+| **K-Means** | K-Medias | **No Supervisado** | Agrupa datos en K clusters sin etiquetas previas | Segmentación de clientes, agrupación de documentos |
+| **GPT** | Generative Pre-trained Transformer | GenAI | Genera texto o código basándose en prompts de entrada | ChatGPT, Amazon Titan Text, asistentes conversacionales |
+| **BERT** | Bidirectional Encoder Representations from Transformers | DL | Similar a GPT pero lee el texto en **ambas direcciones** (bidireccional) para entender mejor el contexto | Análisis de sentimiento, NER, búsqueda semántica |
+| **RNN** | Recurrent Neural Network | DL | Procesa datos secuenciales con "memoria" del paso anterior | Reconocimiento de voz, predicción de series temporales |
+| **ResNet** | Residual Network | DL | CNN profunda con "atajos" (skip connections) que evitan el problema del gradiente desvaneciente | Reconocimiento facial, detección de objetos, ImageNet |
+| **WaveNet** | — | DL | Genera formas de onda de audio crudas de alta calidad | Síntesis de voz (Text-to-Speech), Alexa, Google Assistant |
+| **GAN** | Generative Adversarial Network | GenAI | Dos redes compiten: el generador crea datos y el discriminador los evalúa | Generación de imágenes realistas, data augmentation sintética |
+| **Autoencoders** | — | No Supervisado | Comprimen datos y los reconstruyen; detectan anomalías cuando la reconstrucción falla | Detección de fraude, mantenimiento predictivo |
+
+> [!warning] Truco de examen — Supervisado vs No Supervisado
+> La pregunta puede intentar confundirte listando algoritmos mezclados. Recuerda:
+> - **Supervisado** (con etiquetas): Árboles de decisión, SVM, k-NN, Regresión lineal/logística, XGBoost
+> - **No Supervisado** (sin etiquetas): K-Means (clustering), Autoencoders (anomalías)
+> - Si la pregunta dice *"sin etiquetas previas"* o *"descubrir patrones ocultos"* → siempre es **No Supervisado** (K-Means, Autoencoders)
+> - **K-Means es clustering (No Supervisado).** No confundir con k-NN que sí es supervisado.
 
 ---
 

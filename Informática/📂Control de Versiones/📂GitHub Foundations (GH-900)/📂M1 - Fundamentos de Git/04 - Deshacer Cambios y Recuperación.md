@@ -261,3 +261,14 @@ git push origin --tags      # Todos los tags
 
 > [!TIP] Tags y GitHub Releases
 > En [[GitHub]], cuando subes un tag, puedes crear un **Release** asociado a él. Los Releases permiten adjuntar binarios descargables (como un `.zip` con el código compilado) y notas de la versión.
+
+
+## 💡 Conceptos Avanzados de Examen
+
+- **Modificar el último commit silenciosamente:** Si olvidaste un archivo en tu último commit, añádelo con `git add <archivo>` y usa `git commit --amend --no-edit`. Esto integrará el archivo en el commit anterior sin pedirte que cambies el mensaje, manteniendo el historial limpio.
+  
+- **Diferencia entre resets:** `git reset --hard HEAD~2` no solo mueve el puntero 2 commits atrás, sino que **borra irrevocablemente** los cambios del directorio de trabajo y del área de ensayo (staging).
+  
+- **Recuperar commits perdidos:** Si usaste `git reset --hard` por error, puedes usar `git reflog` para ver el historial de movimientos de HEAD y encontrar el hash del commit "borrado" para recuperarlo.
+  
+- **Dejar de rastrear un archivo (untrack):** Si commiteaste un archivo por error (ej. `secret.ini`) y luego lo pones en el `.gitignore`, Git lo seguirá rastreando. Para solucionarlo debes sacarlo del index con `git rm --cached secret.ini` y luego hacer un nuevo commit.

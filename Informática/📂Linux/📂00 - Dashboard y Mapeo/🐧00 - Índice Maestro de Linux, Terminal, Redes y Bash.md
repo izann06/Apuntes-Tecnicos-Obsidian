@@ -70,6 +70,20 @@
 
 ---
 
+### 🟡 07 - Gestión de Paquetes y Software
+
+| # | Tema | Nota | Descripción |
+|---|------|------|-------------|
+| 07.0 | **Índice Paquetes** | [[07.0 - Índice Gestión de Paquetes]] | Índice detallado de la gestión de software en Arch/CachyOS |
+| 07.1 | **Conceptos Sudo** | [[07.1 - Conceptos Fundamentales de Paquetes y Sudo]] | Filosofía Linux, paquetes, repositorios y sudo |
+| 07.2 | **Familias Linux** | [[07.2 - Ecosistemas y Familias de Linux (APT vs DNF vs Pacman)]] | Debian vs Arch, y diferencias entre pacman, yay y curl |
+| 07.3 | **Arch y AUR** | [[07.3 - El Modelo Arch Linux y CachyOS]] | Repos oficiales, AUR y por qué NUNCA usar sudo con yay/paru |
+| 07.4 | **Comandos Pacman** | [[07.4 - Anatomía de Pacman y Comandos Básicos]] | Instalación (-S), desinstalación limpia (-Rs) y paquetes locales |
+| 07.5 | **Rolling Release** | [[07.5 - Actualizaciones y Rolling Release]] | Evitar errores 404, sincronizar BD y usar -Syyu |
+| 07.6 | **Troubleshooting** | [[07.6 - Troubleshooting y Errores Comunes de Pacman]] | Limpieza caché, solucionar descargas corruptas y mirrors |
+
+---
+
 ## 🗺️ Diagrama de Aprendizaje
 
 ```
@@ -101,10 +115,10 @@
  │    ──► Funciones ──► Cron                     │
  └───────────────────────┬─────────────────────┘
                          ▼
- TERMINALES MODERNAS
- ┌─────────────────────────────────────────────┐
- │ Warp Terminal ──► ZSH + Oh My ZSH             │
- └─────────────────────────────────────────────┘
+ TERMINALES MODERNAS                            PAQUETES Y SOFTWARE
+ ┌─────────────────────────────────────────────┐┌─────────────────────────┐
+ │ Warp Terminal ──► ZSH + Oh My ZSH           ││ pacman ──► yay/AUR      │
+ └─────────────────────────────────────────────┘└─────────────────────────┘
 ```
 
 ---

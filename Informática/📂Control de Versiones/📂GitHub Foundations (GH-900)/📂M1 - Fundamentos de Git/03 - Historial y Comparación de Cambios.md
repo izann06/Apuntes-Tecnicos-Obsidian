@@ -285,3 +285,7 @@ git diff main feature/login
 
 # Muestra todas las diferencias entre la rama main y la rama feature/login
 ```
+
+
+## 💡 Conceptos Avanzados de Examen
+- **Estado 'Ahead of origin':** Si al ejecutar `git status` ves el mensaje `Your branch is ahead of 'origin/main' by X commits`, significa que tienes commits en tu máquina local que aún no has subido (pusheado) al servidor remoto. La solución es ejecutar `git push`.

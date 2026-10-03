@@ -119,6 +119,51 @@ Comprender cómo se factura Bedrock es un tema asegurado en el examen:
 
 ---
 
+### 🚀 Amazon Nova — La Nueva Generación Nativa de AWS
+
+La familia **Amazon Nova** es la última generación de Foundation Models desarrollados nativamente por Amazon. Es la evolución de la familia Titan, diseñada para ofrecer modelos más potentes, versátiles y con capacidades multimodales avanzadas.
+
+> [!brain] Nova vs Titan para el examen
+> **Titan** fue la primera familia nativa de AWS en Bedrock (texto, embeddings, imágenes). **Nova** es la nueva generación que amplía las capacidades a video, razonamiento avanzado y multimodalidad completa. Si el examen menciona "la última familia de modelos de Amazon" → **Nova**.
+
+| Modelo | Modalidad | Fortaleza | Caso de Uso Principal |
+| :--- | :--- | :--- | :--- |
+| **Nova Micro** | Solo Texto | Ultra-rápido y ultra-barato. La latencia más baja de la familia | Clasificación, autocompletado, parseo de datos, tareas simples de alto volumen |
+| **Nova Lite** | Multimodal (Texto + Imagen + Video) | Balance perfecto entre velocidad, calidad y coste | Resumen de documentos, análisis visual básico, chatbots con imágenes |
+| **Nova Pro** | Multimodal (Texto + Imagen + Video) | Razonamiento avanzado y tareas complejas | Agentes conversacionales, generación de código, análisis profundo, escritura larga |
+| **Nova Premier** | Multimodal | *State-of-the-art* de Amazon. El más potente de la familia | Tareas empresariales de máxima complejidad, razonamiento lógico profundo, modelo "profesor" para destilación |
+| **Nova Canvas** | Generación de Imagen | Crea y edita imágenes desde texto con alta calidad | Diseño gráfico, creatividades publicitarias, in-painting (rellenar partes de una imagen), variaciones de producto |
+| **Nova Reel** | Generación de Video | Genera clips de video desde texto o imágenes estáticas | Marketing, prototipos audiovisuales, contenido para redes sociales |
+
+**¿Cuándo elegir cada Nova?**
+
+```mermaid
+graph TD
+  Q{"¿Qué necesitas?"}
+  Q -->|"Texto rápido y barato"| M["Nova Micro"]
+  Q -->|"Multimodal básico"| L["Nova Lite"]
+  Q -->|"Razonamiento complejo"| P["Nova Pro"]
+  Q -->|"Lo mejor que hay"| PR["Nova Premier"]
+  Q -->|"Crear imágenes"| C["Nova Canvas"]
+  Q -->|"Crear videos"| R["Nova Reel"]
+  
+  style M fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
+  style L fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
+  style P fill:#2d0d37,stroke:#b04aed,color:#e8b8f5
+  style PR fill:#370d0d,stroke:#ed4a4a,color:#f5b8b8
+  style C fill:#372d0d,stroke:#edba4a,color:#f5e8b8
+  style R fill:#0d2a37,stroke:#4aaeed,color:#b8e8f5
+```
+
+> [!tip] Nova para el examen
+> - **Nova Micro** → Cuando el escenario prioriza **velocidad y bajo coste** sobre todo (alto volumen, tareas simples)
+> - **Nova Lite** → Cuando necesitas **multimodalidad** (texto + imagen + video) con buen rendimiento a precio razonable
+> - **Nova Pro** → Cuando necesitas **razonamiento avanzado** o construir **agentes** complejos
+> - **Nova Canvas** → Generación de **imágenes** (competidor directo de Stable Diffusion XL en Bedrock)
+> - **Nova Reel** → Generación de **video** (capacidad única en el catálogo de Bedrock)
+
+---
+
 ### 🌪️ Mistral AI — Eficiencia Europea
 
 | Modelo | Parámetros | Característica |

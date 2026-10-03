@@ -28,6 +28,11 @@ flowchart TD
         GIT["🐙 <b>Git & GitHub</b><br><i>Control de Versiones, Ramas, Conflictos</i>"]
     end
 
+    subgraph DESARROLLO_IA["🤖 Desarrollo con IA"]
+        MCP["🔌 <b>MCP (Model Context Protocol)</b><br><i>Estándar USB-C de la IA, Servidores, Tools, SDKs</i>"]
+        OPENCODE["💻 <b>OpenCode</b><br><i>Agente CLI en Terminal, Diffs, Modelos y Control</i>"]
+    end
+
     subgraph DEV_SOFTWARE["💻 Desarrollo de Software"]
         JAVA["☕ <b>Java & Spring Boot</b><br><i>Arquitectura en Capas, Concurrencia</i>"]
         KOTLIN["📱 <b>Kotlin & Android</b><br><i>Compose, Room, Retrofit, LibGDX</i>"]
@@ -36,6 +41,7 @@ flowchart TD
 
     ROOT --> SISTEMAS_INFRA
     ROOT --> CLOUD_DEVOPS
+    ROOT --> DESARROLLO_IA
     ROOT --> DEV_SOFTWARE
 
     style ROOT fill:#1e1b4b,stroke:#818cf8,color:#fff,stroke-width:3px
@@ -48,6 +54,8 @@ flowchart TD
     style DOCKER fill:#0c4a6e,stroke:#38bdf8,color:#fff
     style SEG fill:#7f1d1d,stroke:#ef4444,color:#fff
     style GIT fill:#431407,stroke:#f97316,color:#fff
+    style MCP fill:#1a1a2e,stroke:#e94560,color:#fff
+    style OPENCODE fill:#0f172a,stroke:#38bdf8,color:#fff
     style JAVA fill:#78350f,stroke:#d97706,color:#fff
     style KOTLIN fill:#4c1d95,stroke:#a78bfa,color:#fff
     style CSHARP fill:#1e1b4b,stroke:#818cf8,color:#fff
@@ -70,6 +78,7 @@ Para consultar directamente los índices maestros, simulacros de examen o guías
 * 🧪 **Laboratorio Cisco:** [[🌐 README Proyectos Básicos|🧪 Packet Tracer: Proyectos Básicos (01 al 06)]] y [[🌐 README Proyectos Intermedios|🔀 Proyectos Intermedios (07 RoAS y VLANs)]]
 * 🐳 **Docker:** [[🐳 Índice - Guía Docker|🐳 Guía Completa y Comandos de Docker]]
 * 🐙 **Git:** [[Fundamentos Git|🐙 Fundamentos de Git y Flujos de Trabajo en GitHub]]
+* 🤖 **Desarrollo con IA:** [[📂Desarrollo con IA/📂MCP/00 - MOC MCP|🔌 MCP (Model Context Protocol)]] | [[📂Desarrollo con IA/📂OpenCode/01 - Introducción a OpenCode|💻 OpenCode (Agente CLI)]] | [[📂Desarrollo con IA/📂Curso - El Nuevo Programador/00 - MOC Curso Desarrollo con IA|🏅 Curso: El Nuevo Programador]]
 
 ---
 
@@ -238,6 +247,41 @@ Fundamentos físicos de la computación e implementación de redes en simuladore
   * [[📂Sistemas Informáticos/📂PacketTracer/📂Proyectos Intermedios/🌐 README|🔀 Proyectos Intermedios (07+):]] Segmentación de redes con VLANs (10 y 20), enlaces troncales 802.1Q y enrutamiento inter-VLAN mediante Router-on-a-Stick (RoAS).
   
 * **Virtualización y Prácticas:** Despliegue automatizado de entornos con Vagrant y VirtualBox, y memorias de servicios web con Javalin.
+
+---
+
+### 10. 🤖 Desarrollo con IA y Ecosistema de Agentes
+
+Herramientas, protocolos y entornos para potenciar el desarrollo de software y la integración de modelos de lenguaje en flujos de trabajo reales:
+
+#### 🔌 MCP (Model Context Protocol)
+El estándar abierto universal que conecta modelos de IA con herramientas, bases de datos y servicios externos:
+
+* **Índice del Módulo:** [[📂Desarrollo con IA/📂MCP/00 - MOC MCP|MOC de MCP (Mapa de Contenidos)]]
+* **Fundamentos:** [[📂Desarrollo con IA/📂MCP/01 - Qué es MCP y Problema que Resuelve|Qué es MCP y la analogía del USB-C]]: definición, historia (Anthropic → Linux Foundation) y el problema de las integraciones ad-hoc.
+* **Arquitectura:** [[📂Desarrollo con IA/📂MCP/02 - Arquitectura Host Cliente y Servidor|Host, Cliente y Servidor]]: las 3 piezas clave, transportes STDIO (local) y HTTP (remoto), y flujo completo de una petición.
+* **Primitivos:** [[📂Desarrollo con IA/📂MCP/03 - Primitivos de MCP Tools Resources y Prompts|Tools, Resources y Prompts]]: las 3 capacidades de un servidor MCP (verbos, sustantivos y recetas).
+* **Guía Práctica:** [[📂Desarrollo con IA/📂MCP/04 - Cómo Conectar y Utilizar Servidores MCP|Conexión en Claude Desktop, VS Code y Cursor]] con archivos de configuración JSON y buenas prácticas.
+* **Casos Reales:** [[📂Desarrollo con IA/📂MCP/05 - Casos de Uso Reales y Proyecto Práctico|Proyecto de dashboard con Beehiiv]], orquestación multi-MCP y ecosistema de integraciones.
+* **Desarrollo:** [[📂Desarrollo con IA/📂MCP/06 - Cómo Crear un Servidor MCP en Python|Crear tu propio servidor MCP]] en Python con FastMCP, depuración con Inspector y ejemplo de base de datos.
+* **Recursos:** [[📂Desarrollo con IA/📂MCP/07 - Recursos Enlaces y Comunidad MCP|Glosario, repositorios y comunidad oficial de MCP]].
+
+#### 💻 OpenCode
+Asistente de desarrollo de software autónomo y agéntico que opera directamente desde la terminal de comandos:
+
+* **Guía Completa y Comandos:** [[📂Desarrollo con IA/📂OpenCode/01 - Introducción a OpenCode|Introducción a OpenCode, Instalación, Modos y Comandos Esenciales]]: qué es, diferencias con copilot/cursor, comandos de sesión (`/new`, `/compact`), diffs (`/diff`), selección de modelos (`/models`, `/connect`) y atajos (`@`, `!`).
+
+#### 🏅 Curso: El Nuevo Programador
+Curso completo de desarrollo de software profesional con IA, desde los fundamentos hasta la orquestación multiagente:
+
+* **Índice del Curso (MOC):** [[📂Desarrollo con IA/📂Curso - El Nuevo Programador/00 - MOC Curso Desarrollo con IA|Las 5 Capas del Nuevo Programador]]
+* **Mod. 1 — Fundamentos:** [[📂Desarrollo con IA/📂Curso - El Nuevo Programador/01 - El Nuevo Programador y Fundamentos de LLM|El Nuevo Paradigma]]: Vibe Coding vs. Ingeniería, triángulo Potencia/Velocidad/Coste y herramientas (OpenCode, Cursor, Copilot).
+* **Mod. 2 — Harness Básico:** [[📂Desarrollo con IA/📂Curso - El Nuevo Programador/02 - Harness Engineering Contexto con AGENTS e Historias de Memoria|AGENTS.md, MEMORY.md y modos Plan/Build]]: cómo dar contexto persistente y memoria al agente.
+* **Mod. 3 — Harness Avanzado:** [[📂Desarrollo con IA/📂Curso - El Nuevo Programador/03 - Harness Avanzado Comandos Personales y Agent Skills|Custom Commands y Agent Skills]]: automatización con `/comandos` reutilizables y habilidades automáticas del agente.
+* **Mod. 4 — SDD:** [[📂Desarrollo con IA/📂Curso - El Nuevo Programador/04 - Metodologia Spec-Driven Development SDD|Spec-Driven Development]]: metodología completa con EARS, `constitution.md`, ciclo de vida y automatización de fases.
+* **Mod. 5 — Agentes Custom:** [[📂Desarrollo con IA/📂Curso - El Nuevo Programador/05 - Agentes y Subagentes Personalizados en OpenCode|Agentes y Subagentes]]: configuración YAML, principio de mínimo privilegio e invocación con `@`.
+* **Mod. 6 — Multiagentes:** [[📂Desarrollo con IA/📂Curso - El Nuevo Programador/06 - Sistemas Multiagente Orquestacion y Software Factory|Orquestación y Software Factory]]: Coordinador + Planificador + Implementador + Revisor, paralelización y transmisión de contexto.
+* **Mod. 7 — Vanguardia:** [[📂Desarrollo con IA/📂Curso - El Nuevo Programador/07 - Paradigmas Avanzados Loop Graph AgentOps y Criterio|Loop/Graph Engineering, AgentOps y Criterio Profesional]].
 
 ---
 

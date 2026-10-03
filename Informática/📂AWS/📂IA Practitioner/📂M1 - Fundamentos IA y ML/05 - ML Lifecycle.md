@@ -61,8 +61,34 @@ Limpiar datos, tratar nulos, hacer Análisis Exploratorio (EDA) y dividir el dat
 > [!tip] Exploratory Data Analysis (EDA)
 > Antes de transformar los datos, es vital visualizarlos y analizarlos estadísticamente (ej. mediante **matrices de correlación**) para entender las relaciones entre las variables y detectar outliers.
 
+### División de Datos: Training vs Validation vs Test Set
+
+La regla de oro del ML es **nunca evaluar un modelo con datos que ya ha visto**. Para garantizarlo, el dataset se divide en 3 conjuntos independientes:
+
+```mermaid
+graph LR
+  D["📊 Dataset Completo<br/>(ej. 1000 imágenes etiquetadas)"]
+  T["🏋️ Training Set<br/>60-80% (800 imgs)<br/>Para APRENDER"]
+  V["⚙️ Validation Set<br/>10-20% (100 imgs)<br/>Para AJUSTAR"]
+  TE["🎓 Test Set<br/>10-20% (100 imgs)<br/>Para EVALUAR"]
+  
+  D --> T
+  D --> V
+  D --> TE
+  
+  style T fill:#0d3721,stroke:#4aed8a,color:#b8f5d0
+  style V fill:#372d0d,stroke:#edba4a,color:#f5e8b8
+  style TE fill:#0d2137,stroke:#4a9eda,color:#b8d9f5
+```
+
+| Conjunto | % del Dataset | Para Qué Sirve | Cuándo se Usa | Ejemplo Práctico |
+| :--- | :---: | :--- | :--- | :--- |
+| **Training Set** | 60-80% | **Enseñar** al modelo. Es el "libro de texto" con el que estudia | Durante el entrenamiento | 800 imágenes de gatos/perros etiquetadas para que el modelo aprenda los patrones |
+| **Validation Set** | 10-20% | **Ajustar hiperparámetros** y validar el rendimiento durante el entrenamiento. Es el "examen de prueba" | Después de cada época de entrenamiento | 100 imágenes para hacer *hyperparameter tuning* (cambiar la tasa de aprendizaje, número de capas, etc.) y ver si mejora |
+| **Test Set** | 10-20% | **Evaluar la precisión final** del modelo. Es el "examen final" que el modelo **nunca ha visto** | Una sola vez, al final del todo | 100 imágenes nuevas para obtener la métrica definitiva de precisión (ej. "94% accuracy") |
+
 > [!warning] División de Datos y Memorización
-> La regla de oro es separar siempre los datos en **Training (80%)**, **Validation (10%)** y **Test (10%)**. Esto evita trampas: el modelo no puede memorizar las respuestas del examen final (Test).
+> **¿Por qué no usamos todo para entrenar?** Si el modelo ve las respuestas del "examen final" (Test Set) durante el entrenamiento, las memoriza y parece buenísimo... pero en producción con datos reales, falla estrepitosamente. Es como aprobar un examen porque te sabes las respuestas de memoria, no porque entiendas la materia. Esto se llama **Data Leakage** (fuga de datos) y es un antipatrón crítico.
 
 > [!brain] Sesgo y Equidad (Bias & Fairness)
 > El sesgo surge de datos iniciales desequilibrados (ej. 90% currículums de hombres). Si no se corrige, el modelo será discriminatorio. **Amazon SageMaker Clarify** se usa en esta fase para detectar y mitigar el sesgo en los datos antes de entrenar.

@@ -82,3 +82,9 @@ Tu perfil es tu carta de presentación pública:
 | **Pinned Repos** | Hasta 6 repositorios/gists fijados para destacar tu mejor trabajo. |
 | **Stars** | Repos que has marcado como favoritos. |
 | **Contribution Graph** | El famoso cuadro verde que muestra tu actividad de commits. |
+
+
+## 💡 Conceptos Avanzados de Examen
+- **Rol Triage:** Permite gestionar Issues y Pull Requests (asignar, etiquetar, cerrar, mover en proyectos), pero **no permite crear ramas** ni hacer push al código.
+- **Rol Admin de Repositorio:** Es el único rol de repositorio que puede gestionar el acceso de los equipos (Teams) a dicho repositorio. Los Maintainers pueden cambiar ajustes, pero no gestionar los accesos generales.
+- **Privilegios Globales de la Organización:** Para evitar que miembros normales cambien la visibilidad de repositorios a público o los borren, un dueño de la organización debe configurar esto en los ajustes globales bajo **"Member privileges"**.

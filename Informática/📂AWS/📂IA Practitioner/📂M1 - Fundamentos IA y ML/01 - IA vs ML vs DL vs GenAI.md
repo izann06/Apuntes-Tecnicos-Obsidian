@@ -147,6 +147,42 @@ Hay docenas, pero el examen se centra en estos tres para comprobar si sabes eleg
 
 ---
 
+## 🐱 Ejemplo Práctico: Un Mismo Problema a Través de las 4 Capas
+
+Para entender cómo se relacionan IA, ML, DL y GenAI, vamos a resolver un **único problema** ("¿Es este animal un gato?") pasándolo por las 4 fases. Así ves claramente qué aporta cada capa respecto a la anterior.
+
+### Fase 1: IA Clásica — Reglas Rígidas
+
+Un programador escribe a mano: *"Si la imagen tiene 2 triángulos puntiagudos arriba Y bigotes horizontales → es un gato"*.
+- **Problema:** Si el gato está de espaldas, durmiendo hecho una bola, o lleva un disfraz, el sistema falla. No aprende, solo obedece lo que le han escrito.
+- **Analogía humana:** Es como un turista con un diccionario de frases: solo puede decir exactamente lo que tiene escrito en el libro.
+
+### Fase 2: Machine Learning — Aprende de Datos Estructurados
+
+Le damos una tabla de Excel con datos numéricos de 10.000 animales (`Peso_kg`, `Altura_cm`, `Longitud_orejas`, `Longitud_cola`) y una columna con la etiqueta `Tipo = Gato / Perro / Pájaro`. El modelo (ej. un **SVM** o un **XGBoost**) analiza esos números y deduce por sí solo las reglas matemáticas que separan a un gato de un perro.
+- **Mejora:** Ya no dependemos de reglas manuales. Si le damos suficientes datos, generaliza bien.
+- **Problema:** Necesitamos que un humano prepare los datos (medir el peso, la altura, etc. → **Feature Engineering**). No puede procesar la foto cruda.
+
+### Fase 3: Deep Learning — Aprende de Datos No Estructurados
+
+En lugar de darle un Excel con medidas, le pasamos **la foto cruda** (píxeles). Una Red Neuronal Convolucional (**CNN/ResNet**) examina bordes, texturas y formas directamente de los píxeles, y reconoce al gato aunque esté de espaldas, borroso o en una pose extraña.
+- **Mejora:** No necesitamos Feature Engineering manual. El modelo aprende solo qué features importan.
+- **Problema:** Solo clasifica. No puede imaginar ni inventar nada nuevo.
+
+### Fase 4: IA Generativa — Crea Contenido Nuevo
+
+Le escribimos un prompt: *"Un gato con gafas de sol conduciendo un descapotable en Marte"*. Un modelo generativo (ej. un **GAN** o un modelo de **Difusión** como Titan Image Generator) crea una imagen completamente nueva que nunca existió en sus datos de entrenamiento.
+- **El salto:** Pasamos de *analizar la realidad* a *crear realidad nueva*.
+
+> [!brain] Clave para el examen
+> Los humanos hacemos las 4 cosas a la vez:
+> - A veces **seguimos reglas** (*"si el semáforo está en rojo, para"*) → **IA Clásica**
+> - A veces **clasificamos** por experiencia (*"eso parece comida en mal estado"*) → **ML**
+> - A veces **reconocemos** cosas nuevas por contexto (*"nunca vi esta raza de perro, pero sé que es un perro"*) → **DL**
+> - A veces **creamos** cosas originales (*"voy a inventar una receta nueva"*) → **GenAI**
+
+---
+
 ## 📋 Chuleta Rápida para el Examen
 
 | Si el escenario menciona... | Piensa en... |

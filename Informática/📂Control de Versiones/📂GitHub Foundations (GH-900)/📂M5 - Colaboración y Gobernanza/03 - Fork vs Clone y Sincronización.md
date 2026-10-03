@@ -113,3 +113,8 @@ GitHub muestra un banner en tu fork: **"This branch is X commits behind autor-or
 > | :--- | :---: | :---: |
 > | `git fetch` | ✅ | ❌ |
 > | `git pull` | ✅ | ✅ |
+
+
+## 💡 Conceptos Avanzados de Examen
+- **Sincronización de Forks (Sync fork):** GitHub incluye un botón en la interfaz web de los forks llamado "Sync fork". Este botón hace un fetch del repositorio base (upstream) e intenta hacer un "Update branch" (fast-forward) a tu rama local directamente desde la interfaz, sin usar la línea de comandos.
+- **Nomenclatura típica:** En un workflow de forks, `origin` es tu fork local, y `upstream` es el remoto que apunta al repositorio original del cual hiciste el fork.

@@ -108,3 +108,9 @@ is:issue is:open milestone:"Sprint 3"
 # PRs de mi compañero que ya están aprobados y listos para mergear
 is:pr is:open author:micompanero review:approved
 ```
+
+
+## 💡 Conceptos Avanzados de Examen
+- **Listas de Tareas (Task Lists):** La sintaxis en GitHub Flavored Markdown (GFM) es `- [ ] Tarea pendiente` y `- [x] Tarea completada`.
+- **Citas en Bloque (Blockquotes):** Se utiliza el signo mayor que al inicio de la línea: `> Texto de la cita`.
+- **Referencias de Issues entre repositorios:** Para enlazar o referenciar un Issue de un repositorio distinto dentro de tu misma organización, usa `owner/repo#123`. Usar solo `#123` buscará en el repositorio actual.

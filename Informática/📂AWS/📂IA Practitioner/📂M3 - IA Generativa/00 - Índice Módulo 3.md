@@ -26,3 +26,5 @@
 - [[📂M3 - IA Generativa/10 - Agentes de IA y MCP|10 - Agentes de IA y MCP]]
 
 - [[📂M3 - IA Generativa/11 - Ataques y Seguridad de Prompt Engineering|11 - Ataques y Seguridad de Prompt Engineering]]
+
+- [[📂M3 - IA Generativa/12 - Técnicas de Prompt Engineering|12 - Técnicas de Prompt Engineering]]

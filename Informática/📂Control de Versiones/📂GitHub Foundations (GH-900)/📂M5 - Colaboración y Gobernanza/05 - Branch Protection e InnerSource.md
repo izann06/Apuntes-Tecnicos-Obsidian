@@ -102,3 +102,7 @@ Para medir si la estrategia de InnerSource funciona, **NO se deben medir líneas
 
 > [!TIP] Exam Tip — InnerSource
 > El examen puede preguntar qué tipo de visibilidad de repositorio se recomienda para InnerSource. La respuesta es **Internal**, porque permite que todos los miembros de la organización vean y contribuyan sin necesidad de invitación individual. También pueden preguntar sobre métricas: recuerda medir colaboración, no cantidad de código.
+
+
+## 💡 Conceptos Avanzados de Examen
+- **Require linear history:** Esta regla de protección impide que se hagan merge commits estándar ("Create a merge commit"). Obliga a los desarrolladores a integrar los PRs usando únicamente **Squash and merge** o **Rebase and merge**, manteniendo la línea temporal completamente recta.

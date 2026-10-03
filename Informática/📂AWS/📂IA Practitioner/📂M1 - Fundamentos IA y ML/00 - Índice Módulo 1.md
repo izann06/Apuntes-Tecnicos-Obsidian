@@ -16,3 +16,5 @@
 - [[📂M1 - Fundamentos IA y ML/05 - ML Lifecycle|05 - ML Lifecycle]]
 
 - [[📂M1 - Fundamentos IA y ML/06 - Cheat Sheet Servicios AWS IA|06 - Cheat Sheet Servicios AWS IA]]
+
+- [[📂M1 - Fundamentos IA y ML/07 - Arquitecturas de Deep Learning|07 - Arquitecturas de Deep Learning]]

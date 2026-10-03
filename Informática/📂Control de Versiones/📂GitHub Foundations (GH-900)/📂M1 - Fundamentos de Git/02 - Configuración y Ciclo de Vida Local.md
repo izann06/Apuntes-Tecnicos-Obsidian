@@ -445,3 +445,7 @@ git pull origin main --allow-unrelated-histories  # Fusionar si GitHub tiene arc
 git fetch origin
 git reset --hard origin/main                    # Descartar el local y usar el de GitHub
 ```
+
+
+## 💡 Conceptos Avanzados de Examen
+- **Clonado Bare (`git clone --bare`):** Crea una copia del repositorio que **no tiene directorio de trabajo** (working tree). Es decir, solo contiene la carpeta `.git`. Se usa casi exclusivamente para configurar servidores centrales que recibirán pushes de otros desarrolladores, no para trabajar en el código.

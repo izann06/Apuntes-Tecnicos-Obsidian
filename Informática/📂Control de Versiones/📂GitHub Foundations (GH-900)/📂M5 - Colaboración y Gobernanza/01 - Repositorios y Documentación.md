@@ -147,3 +147,8 @@ En `Settings > Danger Zone` de un repositorio:
 
 > [!WARNING] Solo el Owner puede acceder a la Danger Zone
 > Estas acciones requieren permisos de **Admin** en el repositorio.
+
+
+## 💡 Conceptos Avanzados de Examen
+- **Template Repositories:** Puedes marcar cualquier repositorio en sus ajustes como "Template repository". Esto añade un botón "Use this template" que permite a otros crear un repositorio nuevo con la misma estructura y código inicial, pero **con un historial de commits completamente limpio**.
+- **Transferencia de Repositorios:** Al transferir un repo de un usuario a otro (o a una organización), GitHub transfiere los Issues, Pull Requests y URLs intactas. Además, configura redirecciones automáticas para que los clones locales antiguos sigan funcionando al hacer `git push`/`git pull`.

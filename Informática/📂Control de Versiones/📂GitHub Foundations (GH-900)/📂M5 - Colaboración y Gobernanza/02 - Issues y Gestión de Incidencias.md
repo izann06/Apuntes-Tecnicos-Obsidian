@@ -168,3 +168,9 @@ Dentro de un issue, en el panel derecho, hay la opción **"Create a branch"**. E
 ## 7. Fijar Issues (Pin)
 
 Los issues más importantes se pueden **fijar** en la parte superior de la lista. Admite hasta **3 issues fijados** por repositorio.
+
+
+## 💡 Conceptos Avanzados de Examen
+- **Palabras Clave de Cierre:** Al hacer un PR, usar palabras como `Resolves #123` cierra automáticamente el Issue 123 al fusionarse el PR. 
+- **Cierre cruzado (Cross-repo):** Si quieres cerrar un Issue en OTRO repositorio distinto, debes usar la sintaxis completa: `Resolves owner/repo#123`.
+- **Issue Forms vs Templates:** Los Issue Forms usan **YAML** y permiten campos estructurados y validaciones (ej. marcar un campo como requerido). Los Issue Templates usan **Markdown** y son solo plantillas de texto.
