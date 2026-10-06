@@ -29,6 +29,20 @@ Sin harness, el modelo trabaja en modo conversacional puro: útil pero frágil. 
 
 ---
 
+### 🗺️ El Harness en el Modelo Concéntrico (Capa 02)
+
+![[el_nuevo_programador_capas_00_02.png]]
+
+> [!abstract] 🔍 Análisis del Modelo Visual — Capa 02: Harness Engineering
+> En el diagrama concéntrico, la **Capa 02 (Harness Engineering)** envuelve directamente a los *Fundamentos de IA (01)* y a los *Fundamentos de Programación (00)*. Define los **4 pilares estructurales** que convierten un LLM pasivo en un entorno de trabajo fiable y predecible:
+>
+> 1. 🤖 **Agentes:** El modelo dotado de capacidad de acción autónoma mediante herramientas (*tool use*): leer el workspace, ejecutar comandos en terminal, inspeccionar diffs y aplicar cambios en archivos.
+> 2. 🛡️ **Guardarraíles (Guardrails):** Las fronteras innegociables. Reglas explícitas de contención que acotan el radio de acción del agente (proteger ramas principales, no alterar esquemas de BD sin aviso, exigir tests).
+> 3. 🧠 **Contexto:** La memoria y las instrucciones estables del proyecto (`AGENTS.md`, bitácoras en `MEMORY.md`, convenciones de estilo). Sin contexto, el agente actúa con amnesia y alucina.
+> 4. 📐 **Plan:** La disciplina de trabajo que separa la fase de **Diseño/Planificación** de la fase de **Ejecución/Construcción**. Ningún agente debe tocar código sin un plan validado por el desarrollador.
+
+---
+
 ### Guardarraíles (Guardrails)
 
 > [!info] 📖 Definición — Guardrails
@@ -176,12 +190,14 @@ Los agentes de código modernos tienen dos modos de operación bien diferenciado
 Para anclar los conceptos de este módulo, el proyecto práctico es una **aplicación web de diario de estudio**, construida guiando al agente con un harness correcto.
 
 ### Funcionalidades clave:
+
 - ✅ Registro diario de horas y temas estudiados
 - ✅ Persistencia con `localStorage` (sin backend)
 - ✅ Cálculo automático de **racha de días consecutivos**
 - ✅ Visualización de progreso semanal
 
 ### Stack elegido:
+
 - HTML5 semántico + CSS custom properties
 - JavaScript ES2022 puro (sin frameworks)
 - `localStorage` para persistencia

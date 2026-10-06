@@ -5,23 +5,22 @@
 
 ---
 
-# 01 — El Nuevo Programador y Fundamentos de LLM
-
 > [!abstract] 🎯 Idea central del módulo
 > El mercado no necesita a alguien que recuerde la sintaxis de `forEach`. Necesita a alguien capaz de **dirigir un modelo de IA** para que construya software robusto, mantenible y seguro. Ese es el Nuevo Programador.
 
 ---
-
 ## 1.1 La Evolución del Rol del Desarrollador
 
 El acto de programar ha cambiado más en los últimos 2 años que en los 20 anteriores.
 
 Antes, el flujo era:
+
 1. El programador piensa el problema
 2. El programador **escribe** el código a mano
 3. El programador lo prueba y depura
 
 Ahora, el flujo es:
+
 1. El programador piensa el problema y **diseña la arquitectura**
 2. El programador **dirige a la IA** para que escriba el código
 3. El programador **revisa y valida** el resultado
@@ -33,9 +32,32 @@ Ahora, el flujo es:
 
 ---
 
+### 🗺️ El Modelo Concéntrico: De Programador a Nuevo Programador
+
+![[el_nuevo_programador_capas_00_01.png]]
+
+> [!abstract] 🔍 Análisis del Modelo Visual — Capas 00 y 01
+> En este esquema concéntrico, el **PROGRAMADOR** no desaparece ni es reemplazado por la IA, sino que se sitúa en el **núcleo central**, rodeado y potenciado por capas evolutivas de conocimiento:
+>
+> 1. **Capa 00 — Fundamentos de Programación (La Base Innegociable):**
+>    - **Lo que se ve en la imagen:** Lógica, lenguajes, frameworks, datos, arquitectura, testing, depuración...
+>    - **Por qué es imprescindible:** Sin esta base, el programador cae en la trampa del *"vibe coding"*. No puedes evaluar la complejidad ciclomática, detectar vulnerabilidades ni saber si un test cubre realmente los casos límite si no dominas los fundamentos clásicos de ingeniería.
+>
+> 2. **Capa 01 — Fundamentos de IA (La Primera Capa de Expansión):**
+>    - **LLM:** Comprensión de cómo operan los modelos de lenguaje (predicción estadística de tokens, ventanas de contexto, atención, alucinaciones y límites de memoria).
+>    - **Modelos:** Conocer el abanico de modelos (modelos de razonamiento profundo como o3 / Claude 3.7 Sonnet con thinking, modelos ágiles y económicos como Haiku o GPT-4o-mini, y modelos locales/abiertos) eligiendo según el triángulo Potencia / Velocidad / Coste.
+>    - **Herramientas:** El uso de entornos y terminales de *agentic coding* (como [[📂Desarrollo con IA/📂OpenCode/01 - Introducción a OpenCode|OpenCode]]), extensiones y herramientas CLI.
+>    - **Prompting:** La habilidad de redactar directrices sin ambigüedades, estructurar entradas y salidas, delimitar contextos y usar técnicas como *Role Prompting* o *Few-Shot*.
+>
+> 3. **El Criterio (El Anillo Exterior Envolvente):**
+>    - Fíjate en cómo la etiqueta **CRITERIO** abraza todas las capas concéntricas (00 a 05). El criterio técnico es el activo más valioso del desarrollador: es lo que decide la viabilidad de una solución, impone estándares y no se puede delegar a un LLM.
+
+---
+
 ### El Valor Diferencial del Nuevo Programador
 
 Las habilidades que **aumentan de valor** en la era de la IA:
+
 - 📐 **Diseño de arquitectura** — Decidir cómo se estructura el sistema
 - 📋 **Definición de requisitos** — Saber qué problema se quiere resolver realmente
 - 🧠 **Context Engineering** — Saber cómo alimentar al modelo con la información correcta
@@ -43,6 +65,7 @@ Las habilidades que **aumentan de valor** en la era de la IA:
 - 🛡️ **Supervisión de calidad** — Asegurarse de que el resultado es seguro y mantenible
 
 Las habilidades que **pierden peso relativo**:
+
 - ❌ Memorizar sintaxis de lenguajes
 - ❌ Escribir código boilerplate a mano
 - ❌ Recordar nombres exactos de funciones de API
@@ -86,7 +109,9 @@ Todo modelo de lenguaje existe en tensión entre 3 dimensiones:
 ```
 
 - **Alta Potencia** (ej. Claude Opus, GPT-4o, Gemini Ultra): Para arquitectura, razonamiento complejo, decisiones críticas
+  
 - **Alta Velocidad** (ej. Claude Haiku, GPT-4o-mini): Para tareas repetitivas, refactorizaciones, comentarios
+  
 - **Equilibrio** (ej. Claude Sonnet, GPT-4o estándar): Para el trabajo diario de desarrollo
 
 > [!tip] 💡 Estrategia práctica de selección de modelo

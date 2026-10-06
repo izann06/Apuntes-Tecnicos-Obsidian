@@ -15,7 +15,7 @@
 flowchart TD
     A["🧱 Capa 1: Fundamentos y LLMs\n<i>Entender cómo piensan los modelos</i>"]
     B["🔧 Capa 2: Harness Básico\n<i>AGENTS.md, MEMORY.md, modos Plan/Build</i>"]
-    C["⚙️ Capa 3: Harness Avanzado\n<i>Custom Commands y Agent Skills</i>"]
+    C["⚙️ Capa 3: Harness Avanzado\n<i>Custom Commands, Agent Skills y MCP</i>"]
     D["📐 Capa 4: Spec-Driven Development\n<i>EARS, constitution.md, ciclo completo</i>"]
     E["🤖 Capa 5: Orquestación Multiagente\n<i>Coordinador, Planificador, Implementador, Revisor</i>"]
 
@@ -36,7 +36,7 @@ flowchart TD
 |---|--------|-------------|
 | [[01 - El Nuevo Programador y Fundamentos de LLM\|01]] | El Nuevo Paradigma | LLMs, Vibe Coding vs Ingeniería, Triángulo Potencia/Velocidad/Coste |
 | [[02 - Harness Engineering Contexto con AGENTS e Historias de Memoria\|02]] | Harness Básico | `AGENTS.md`, `MEMORY.md`, modos Plan y Build |
-| [[03 - Harness Avanzado Comandos Personales y Agent Skills\|03]] | Harness Avanzado | Custom Commands, Agent Skills, `.opencode/commands/` |
+| [[03 - Harness Avanzado Comandos Personales y Agent Skills\|03]] | Harness Avanzado | Custom Commands, Agent Skills, MCP, `.opencode/commands/` |
 | [[04 - Metodologia Spec-Driven Development SDD\|04]] | Spec-Driven Dev | EARS, `constitution.md`, ciclo SDD completo |
 | [[05 - Agentes y Subagentes Personalizados en OpenCode\|05]] | Agentes Custom | Configuración YAML, permisos, invocación con `@` |
 | [[06 - Sistemas Multiagente Orquestacion y Software Factory\|06]] | Multiagentes | Coordinador, Planificador, Implementador, Revisor |

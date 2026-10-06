@@ -250,7 +250,7 @@ Fundamentos físicos de la computación e implementación de redes en simuladore
 
 ---
 
-### 10. 🤖 Desarrollo con IA y Ecosistema de Agentes
+### 9. 🤖 Desarrollo con IA y Ecosistema de Agentes
 
 Herramientas, protocolos y entornos para potenciar el desarrollo de software y la integración de modelos de lenguaje en flujos de trabajo reales:
 
@@ -285,7 +285,7 @@ Curso completo de desarrollo de software profesional con IA, desde los fundament
 
 ---
 
-### 9. 🛠️ Soporte IT y Resolución de Incidencias
+### 10. 🛠️ Soporte IT y Resolución de Incidencias
 
 Experiencia práctica y resolución de problemas cotidianos de administración:
 

@@ -63,6 +63,13 @@ A medida que avanzo en mis estudios y proyectos, voy estructurando el contenido 
 - **Virtualización:** Uso de máquinas virtuales, automatización y despliegue rápido con **Vagrant** (conceptos básicos).
 - **Redes e Internet:** Fundamentos sólidos de protocolos, bases de datos y creación de APIs web (ej. Javalin).
 
+### 🤖 Desarrollo con IA y Ecosistema de Agentes
+- **MCP (Model Context Protocol):** El estándar universal que conecta modelos de IA (Host, Cliente, Servidor) con herramientas y recursos externos usando transportes STDIO/HTTP y abstracciones (Tools, Resources, Prompts). Incluye guías de integración y creación de servidores propios en Python (FastMCP).
+- **OpenCode:** Asistente de desarrollo agéntico desde la terminal. Flujos de trabajo (`/comandos`), gestión de *diffs*, control de contexto y selección de modelos.
+- **El Nuevo Programador (Curso Práctico):** 
+  - Fundamentos (Vibe Coding vs Ingeniería de Software), *Harness* Básico (`AGENTS.md`, `MEMORY.md`), *Harness* Avanzado (Custom Commands y Agent Skills a través del catálogo de Vercel `skills.sh`).
+  - Metodologías avanzadas: Spec-Driven Development (SDD), orquestación de sistemas Multiagente (Software Factory) y Loop/Graph Engineering.
+
 ---
 
 ## ⚙️ Arquitectura de Sincronización Automatizada (CI/CD)
