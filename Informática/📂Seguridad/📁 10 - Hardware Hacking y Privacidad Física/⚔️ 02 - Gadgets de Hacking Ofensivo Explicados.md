@@ -8,7 +8,7 @@
 El acceso físico a un dispositivo suele significar el **compromiso total del sistema**. En esta guía cubrimos las herramientas físicas que usan los pentesters (Red Team) para auditorías autorizadas y que los atacantes reales también emplean.
 
 > [!warning] Aviso legal
-> Todos estos dispositivos son legales para comprar en la mayoría de países. Sin embargo, utilizarlos contra sistemas sin autorización explícita es un **delito** tipificado en el Código Penal. Esta información es exclusivamente educativa y para auditorías autorizadas.
+> Todos estos dispositivos son legales para comprar en la mayoría de países, **con la excepción de los inhibidores de frecuencia**. Sin embargo, utilizarlos contra sistemas sin autorización explícita es un **delito** tipificado en el Código Penal. Esta información es exclusivamente educativa y para auditorías autorizadas.
 
 ---
 
@@ -17,13 +17,11 @@ El acceso físico a un dispositivo suele significar el **compromiso total del si
 ![[rubber_ducky.jpg]]
 
 ### Qué es exactamente
-
 El Rubber Ducky es fabricado por **Hak5** (la empresa de referencia en hardware de pentesting). Físicamente parece un pendrive USB normal. La diferencia está en sus tripas: en lugar de un controlador de almacenamiento, lleva un **microcontrolador que se presenta al ordenador como un teclado USB (HID — Human Interface Device)**.
 
 El sistema operativo no sospecha absolutamente nada. Confía en los teclados. No hay antivirus que bloquee "alguien escribiendo en el teclado". En el momento en que se conecta, empieza a ejecutar su script de comandos.
 
 ### Cómo funciona — Paso a Paso
-
 Los ataques se programan en **DuckyScript**, un lenguaje de scripting muy sencillo que cualquiera puede aprender:
 
 ```ducky
@@ -37,400 +35,252 @@ ENTER
 ```
 
 **El flujo de un ataque real:**
-1. El atacante diseña el payload en casa usando **PayloadStudio** (la IDE online de Hak5).
+1. El atacante diseña el payload en casa usando **PayloadStudio**.
 2. Graba el script en el Ducky.
 3. Lo conecta al equipo objetivo.
-4. En 2-5 segundos ejecuta todo el script (descarga, instalación, limpieza de rastros) sin que nadie lo vea.
+4. En 2-5 segundos ejecuta todo el script sin que nadie lo vea.
 5. Lo desenchufa y se va.
 
-**¿Por qué es tan rápido?** El Ducky puede escribir a velocidades de hasta 1000 palabras por minuto — imposible para un humano. El PC lo procesa como si fuera un mecanógrafo sobrehumano.
-
-### Cómo protegerse de él
-
-- **Deshabilitar puertos USB no usados** en la BIOS.
-- **Políticas de dispositivos HID** en Windows (Group Policy → solo permitir teclados registrados).
-- **No dejar el equipo desbloqueado** ni un solo momento con extraños cerca.
+**¿Por qué es tan rápido?** El Ducky puede escribir a velocidades de hasta 1000 palabras por minuto — imposible para un humano.
 
 ### Dónde comprarlo
-
 | Tienda | Precio | Link |
 |---|---|---|
-| **Hak5 Official Store** | Ver precio actual | [shop.hak5.org](https://shop.hak5.org/products/usb-rubber-ducky) |
-| **KSEC EU (distribuidor oficial UE)** | Precio similar + IVA | [ksec.co.uk](https://www.ksec.co.uk) |
-| **Lab401 (distribuidor EU)** | Precio similar | [lab401.com](https://lab401.com) |
-
-> [!tip] Cómo comprar desde España
-> Hak5 envía desde California, lo que implica gastos de aduana. Para evitarlos, compra a través de **KSEC** o **Lab401**, distribuidores oficiales autorizados dentro de la Unión Europea.
+| **Hak5 Official Store** | ~$80 USD | [shop.hak5.org](https://shop.hak5.org/products/usb-rubber-ducky) |
+| **KSEC EU (distribuidor UE)** | Precio similar + IVA | [ksec.co.uk](https://www.ksec.co.uk) |
 
 ---
 
-## 🐰 2. Bash Bunny — El Pendrive Multiherramienta
+## 🔌 2. Cable O.MG — El Espía Invisible
+
+![[omg_cable.jpg]]
+
+### Qué es exactamente
+Creado por el investigador "MG" y distribuido por Hak5, el **O.MG Cable** es una obra maestra de la miniaturización maliciosa. Por fuera, **se ve exactamente igual, se siente igual y funciona igual que un cable de carga normal** (por ejemplo, el típico cable blanco USB a Lightning de Apple).
+
+Pero oculto dentro del propio conector, incrustado en la resina, hay un microordenador que contiene un servidor web, un punto de acceso Wi-Fi y capacidades de BadUSB.
+
+### Cómo funciona — Paso a paso
+1. El atacante sustituye el cable legítimo de la víctima por el cable O.MG.
+2. La víctima lo usa. **El cable carga el móvil y sincroniza datos perfectamente**, por lo que es imposible sospechar nada.
+3. Al recibir corriente, el micro-implante se enciende y crea una **red Wi-Fi oculta**.
+4. El atacante (que puede estar aparcado en la calle o en la oficina de al lado) se conecta a esa red Wi-Fi desde su móvil.
+5. A través de una interfaz web en su navegador, el atacante inyecta comandos que viajan por Wi-Fi hasta el cable, y del cable entran al PC de la víctima como si alguien los estuviera tecleando.
+
+> [!warning] Capacidades avanzadas (Keylogger)
+> Las versiones *Elite* del O.MG Cable actúan como un registrador de pulsaciones (Keylogger). Graban todo lo que la víctima teclea en su ordenador (contraseñas, correos) y lo transmiten por Wi-Fi al atacante.
+
+### Dónde comprarlo
+| Tienda | Precio | Link |
+|---|---|---|
+| **Hak5 Official Store** | ~$150 - $200 USD | [shop.hak5.org/collections/o-mg-cable](https://shop.hak5.org/collections/o-mg-cable) |
+
+---
+
+## 🐰 3. Bash Bunny — El Pendrive Multiherramienta
 
 ![[bash_bunny.jpg]]
 
 ### Qué es exactamente
+Mientras el Ducky solo emula un teclado, el **Bash Bunny contiene un sistema operativo Linux completo**. Puede emular **múltiples dispositivos simultáneamente**: un teclado + un adaptador Ethernet + un pendrive de almacenamiento.
 
-El hermano mayor del Rubber Ducky, también de Hak5. Mientras el Ducky solo puede hacer una cosa (emular teclado), el **Bash Bunny contiene un sistema operativo Linux completo** en un formato de USB. Puede emular **múltiples dispositivos simultáneamente**: un teclado + un adaptador Ethernet + un pendrive de almacenamiento, todo al mismo tiempo.
-
-### El interruptor de 3 posiciones — Su característica clave
-
-El Bash Bunny tiene un pequeño interruptor físico en el lateral con 3 posiciones:
-
+### El interruptor de 3 posiciones
+Tiene un pequeño interruptor físico en el lateral:
 ```
-Posición 1 → Ejecuta Payload 1 (ej: ataque a Windows con Responder)
-Posición 2 → Ejecuta Payload 2 (ej: exfiltración de credenciales Mac)
-Posición 3 → Modo armado (arming mode): lo pones en modo configuración
-              para editar los payloads cómodamente desde tu PC
+Posición 1 → Ejecuta Payload 1 (ej: ataque a Windows)
+Posición 2 → Ejecuta Payload 2 (ej: ataque a Mac)
+Posición 3 → Modo armado: lo conectas a tu PC para editar los payloads.
 ```
 
-### Cómo funciona — El ataque más famoso (robo de hash NTLM)
-
-Este ataque funciona incluso con el PC **completamente bloqueado** (pantalla de bloqueo de Windows):
-
-```
-1. Conectas el Bash Bunny al puerto USB del PC bloqueado.
-2. El PC lo detecta como un adaptador de red Ethernet.
-3. Windows prioriza la red más rápida para el tráfico → elige el Bash Bunny.
-4. El Bash Bunny ejecuta "Responder": un servidor que intercepta
-   las peticiones de autenticación automáticas que hace Windows.
-5. Windows, sin que nadie lo pida, envía el hash NTLMv2 de la contraseña
-   del usuario al Bash Bunny intentando autenticarse en la "red".
-6. Hash capturado → se crackea offline con hashcat/John The Ripper.
-
-Tiempo total: 30-60 segundos. Con el PC bloqueado. Sin tocar nada.
-```
+### El ataque más famoso (robo de hash NTLM)
+Funciona incluso con el PC **completamente bloqueado**:
+1. Conectas el Bash Bunny al PC bloqueado.
+2. El PC lo detecta como un adaptador de red Ethernet ultrarrápido.
+3. Windows prioriza esta "nueva red" para el tráfico.
+4. El Bash Bunny usa `Responder` para pedir credenciales.
+5. Windows envía automáticamente el hash NTLMv2 de la contraseña del usuario.
+6. El hash se crackea luego offline.
 
 ### Dónde comprarlo
-
-| Tienda | Estado | Link |
+| Tienda | Precio | Link |
 |---|---|---|
-| **Hak5 Official Store** | Puede estar agotado (demanda alta) | [shop.hak5.org/products/bash-bunny](https://shop.hak5.org/products/bash-bunny) |
-| **KSEC EU** | Consultar stock | [ksec.co.uk](https://www.ksec.co.uk) |
-
-> [!warning] Agotado frecuentemente
-> El Bash Bunny Mark II suele tener problemas de stock. Puedes apuntarte a las notificaciones en la web oficial de Hak5 para saber cuándo vuelve.
+| **Hak5 Official Store** | ~$120 USD (suele agotarse) | [shop.hak5.org/products/bash-bunny](https://shop.hak5.org/products/bash-bunny) |
 
 ---
 
-## 🐬 3. Flipper Zero — La Navaja Suiza del Hacking RF
+## 🐬 4. Flipper Zero — La Navaja Suiza del Hacking RF
 
 ![[flipper_zero.jpg]]
 
 ### Qué es exactamente
+Con aspecto de juguete noventero (un delfín pixelado), es una potente multiherramienta de radiofrecuencia (RF), NFC, RFID e infrarrojos.
 
-El Flipper Zero es el dispositivo de hacking más popular de los últimos años entre la comunidad de ciberseguridad. Tiene un aspecto de juguete de los años 90 (con su delfín pixelado en la pantalla) pero esconde capacidades multiprotocolo reales. Fue financiado en Kickstarter en 2020 y superó su objetivo en más de 2000%.
-
-**Web oficial (importante):** [flipper.net](https://flipper.net) — el antiguo `flipperzero.one` ya no es oficial.
-
-### Sus protocolos — Qué puede hacer de verdad
-
-**Sub-GHz (300-928 MHz):**
-Puede leer, grabar y repetir señales de radio de baja frecuencia. Funciona con mandos de garaje **antiguos** (sin rolling code), barreras de parking, mandos de puertas. Los coches y garajes modernos usan rolling codes (cambian con cada uso) y NO son vulnerables al simple replay.
-
-**NFC (13.56 MHz):**
-Lee tarjetas NFC, las guarda en memoria y puede emularlas. Sirve para auditar tarjetas de acceso de hotel, pases de transporte público (abono), tarjetas de empresa con protocolo NFC básico.
-
-**RFID (125 kHz):**
-Lee y clona tarjetas de acceso RFID de baja frecuencia. Son las tarjetas de empresa de los años 90-2000, sin ninguna criptografía. Muchas oficinas todavía las usan.
-
-**Infrarrojo:**
-Base de datos de comandos IR de miles de dispositivos. Puede apagar televisores, controlar aires acondicionados, proyectores.
-
-**BadUSB:**
-Conectado por cable a un PC, puede actuar como Rubber Ducky básico inyectando scripts HID.
-
-**GPIO y protocolos digitales:**
-Interfaz de pines para comunicarse con hardware electrónico usando UART, SPI, I2C — para desarrollo y hardware hacking avanzado.
-
-### Cómo se usa — Ejemplo real paso a paso
-
-```
-Escenario: Leer y emular una tarjeta RFID 125 kHz de empresa
-
-1. En el menú del Flipper: 125 kHz RFID → Read
-2. Acercas el Flipper a la tarjeta de acceso objetivo (a <5 cm)
-3. El Flipper lee los datos de la tarjeta y los muestra en pantalla
-4. Guardas la tarjeta con un nombre: "Tarjeta_Oficina"
-5. Para emularla: 125 kHz RFID → Saved → Tarjeta_Oficina → Emulate
-6. Acercas el Flipper al lector de acceso en lugar de la tarjeta
-7. La puerta se abre como si fuera la tarjeta original
-```
+### Sus protocolos
+- **Sub-GHz (300-928 MHz):** Lee y repite señales de mandos de garaje antiguos (sin rolling code), timbres inalámbricos, barreras de parking.
+- **NFC (13.56 MHz):** Lee, guarda y emula tarjetas de acceso de hotel o empresa.
+- **RFID (125 kHz):** Clona tarjetas de acceso RFID antiguas.
+- **Infrarrojo:** Apaga TVs, proyectores o aires acondicionados.
 
 ### Mito vs Realidad
-
 > [!note] Lo que los medios exageraron
-> En 2022, varios medios publicaron titulares como "El Flipper Zero puede robar coches y vaciar tu tarjeta bancaria". Esto es **falso**:
-> - Los coches modernos usan rolling codes → inmunes al replay del Flipper.
-> - Las tarjetas bancarias (Visa/MasterCard) usan EMV con criptografía fuerte → el Flipper no puede clonarlas.
-> - Lo que SÍ puede afectar: sistemas RFID legacy sin cifrado (muchas oficinas, hoteles viejos, transporte público en algunos países).
+> Titulares como "El Flipper Zero roba coches y vacía tarjetas" son **falsos**:
+> - Los coches modernos usan *rolling codes* (el código cambia cada vez). El Flipper no puede abrir un coche moderno con solo grabarlo una vez.
+> - Las tarjetas bancarias usan criptografía EMV. El Flipper no puede clonarlas ni hacer pagos.
 
 ### Dónde comprarlo
-
 | Tienda | Precio | Link |
 |---|---|---|
 | **Flipper Devices (oficial)** | **$169 USD** | [flipper.net/flipperzero](https://flipper.net/flipperzero) |
-| **Amazon ES** | ~180-200€ | Buscar "Flipper Zero" (verificar vendedor oficial) |
-
-> [!warning] Cuidado con falsificaciones
-> Han aparecido clones del Flipper Zero en AliExpress. Solo compra en **flipper.net** o distribuidores oficiales listados en su web. Un clon puede tener firmware malicioso.
 
 ---
 
-## 🍍 4. WiFi Pineapple — El Router del Mal
+## 🍍 5. WiFi Pineapple — El Router del Mal
 
 ![[wifi_pineapple.jpg]]
 
 ### Qué es exactamente
-
-El WiFi Pineapple de Hak5 es un router especializado diseñado para realizar **ataques Man-in-the-Middle (MitM) vía Wi-Fi** de forma automatizada. Lo que en un router normal requeriría configuración compleja y conocimientos avanzados, aquí se hace con un par de clics desde una interfaz web.
+Un router especializado de Hak5 diseñado para realizar **ataques Man-in-the-Middle (MitM) vía Wi-Fi** de forma automatizada.
 
 ### El ataque Karma — Cómo funciona
+Los móviles están continuamente preguntando al aire: *"¿Hay por aquí alguna red llamada 'Mi_Casa'?"*.
+El Pineapple escucha esas preguntas y responde: *"¡Sí, soy yo, conéctate!"*. Los dispositivos se conectan a él creyendo que es su red de confianza.
 
-Los dispositivos (móviles, portátiles) guardan listas de redes Wi-Fi a las que se han conectado antes. Y están continuamente preguntando al aire: *"¿Hay por aquí alguna red llamada 'Casa_de_Izan'? ¿Y la red del trabajo? ¿Y la del aeropuerto?"*
-
-El Pineapple escucha esas preguntas y responde a todas ellas: *"¡Sí, soy yo, conéctate!"*. Los dispositivos se conectan automáticamente creyendo que están en su red de confianza.
-
-### Cómo funciona — Paso a paso de un ataque en campo
-
-```
-Escenario: Auditoría en un café (autorizada)
-
-1. El auditor enciende el Pineapple en su mochila (batería externa).
-2. Abre la interfaz web del Pineapple desde su móvil (192.168.0.1).
-3. Activa el módulo "PineAP" (karma attack) → el Pineapple empieza
-   a responder a todas las sondas Wi-Fi que detecta.
-4. Los dispositivos del entorno se conectan automáticamente al Pineapple.
-5. El auditor puede:
-   a) Ver todo el tráfico HTTP no cifrado (contraseñas sin HTTPS).
-   b) Activar el "Evil Portal": redirigir a los usuarios a una página
-      de login falsa idéntica a la de la cafetería para capturar emails.
-   c) Lanzar módulos adicionales (SSLstrip, DNS spoofing, etc.).
-6. Al finalizar, genera un informe de todo lo capturado.
-```
-
-### Por qué HTTPS te protege de esto
-
-Aunque estés conectado al Pineapple, si la web que visitas usa **HTTPS** (TLS), el tráfico va cifrado de extremo a extremo. El Pineapple solo ve tráfico cifrado incomprensible. La defensa contra este ataque es tan simple como verificar siempre el candado verde y no ignorar advertencias de certificados.
-
-### Dónde comprarlo
-
-| Tienda | Precio | Link |
-|---|---|---|
-| **Hak5 Official Store** | Ver precio actual | [shop.hak5.org](https://shop.hak5.org/products/wifi-pineapple) |
-| **KSEC EU (distribuidor oficial)** | Precio + envío EU | [ksec.co.uk](https://www.ksec.co.uk) |
-| **Lab401** | Distribuidor oficial EU | [lab401.com](https://lab401.com) |
+### Flujo de un ataque en campo
+1. El auditor enciende el Pineapple (con batería externa) en un área pública.
+2. Activa el ataque Karma ("PineAP").
+3. Los dispositivos del entorno se conectan a él de forma transparente.
+4. Lanza un "Evil Portal" (una web de login falsa idéntica a la legítima) para capturar contraseñas.
 
 ---
 
-## 💳 5. Proxmark3 RDV4 — El Bisturí del RFID
+## 💳 6. Proxmark3 RDV4 — El Bisturí del RFID
 
 ![[proxmark3.jpg]]
 
 ### Qué es exactamente
+Es la herramienta profesional y estándar de la industria para **análisis avanzado y pentesting de RFID/NFC**. 
 
-El Proxmark3 es la herramienta profesional de referencia para **análisis, investigación y pentesting de sistemas RFID y NFC**. No es un gadget de consumo — es un instrumento de laboratorio. La diferencia con el Flipper Zero es como comparar un bisturí de cirujano con un cuchillo de cocina.
-
-El firmware oficial que se usa es el **Iceman/RRG Firmware**, mantenido activamente por la comunidad y mucho más potente que el firmware original.
-
-### Qué puede hacer que el Flipper no puede
-
-- Leer tarjetas **MIFARE Classic** y realizar el ataque **MFOC/MFCUK** para recuperar las claves criptográficas por fuerza bruta o ataque de claves conocidas.
-- Leer y analizar tarjetas **DESFire** (las más comunes en accesos corporativos modernos).
-- Realizar **ataques de relay** en tarjetas NFC (el atacante acerca una antena a la tarjeta original y la otra al lector objetivo a distancia).
-- Sniffing pasivo de comunicaciones RFID entre tarjeta y lector en tiempo real.
-
-### Cómo funciona — Ejemplo de lectura y análisis
-
-```bash
-# Conectar el Proxmark3 por USB al PC y abrir el cliente:
-./pm3
-
-# Detectar qué tipo de tarjeta hay cerca:
-pm3 --> auto
-
-# Si detecta MIFARE Classic, intentar recuperar las claves:
-pm3 --> hf mf autopwn
-# Ejecuta una batería completa de ataques automáticamente.
-# Si tiene éxito, vuelca todo el contenido de la tarjeta.
-
-# Clonar la tarjeta a una tarjeta en blanco:
-pm3 --> hf mf restore --1k --uid <uid_leido>
-
-# Emular la tarjeta sin necesidad de clonarla:
-pm3 --> hf mf sim --1k --uid <uid>
-```
+### Por qué complementa (y supera) al Flipper
+Mientras el Flipper Zero te sirve para un escaneo rápido y emulación básica, el Proxmark3 es para hackear la criptografía subyacente de las tarjetas seguras:
+- Revienta claves criptográficas de tarjetas **MIFARE Classic** usando ataques como MFOC/MFCUK.
+- Analiza protocolos corporativos complejos como **DESFire** o iCLASS.
+- Permite hacer **ataques de relay** (puentear la señal de la tarjeta original hasta un lector lejano).
 
 ### Dónde comprarlo
-
-| Tienda | Precio | Link |
-|---|---|---|
-| **Hacker Warehouse** | ~$300-350 USD (kit) | [hackerwarehouse.com](https://hackerwarehouse.com) |
-| **KSEC EU (distribuidor oficial)** | Precio similar + IVA EU | [ksec.co.uk](https://www.ksec.co.uk) |
-| **MTools Tec** | ~$300-350 USD | [mtoolstec.com](https://www.mtoolstec.com) |
-
-> [!warning] Evita AliExpress y eBay
-> Existen muchísimos clones del Proxmark3 baratos (~$40-60). Funcionan parcialmente pero son incompatibles con el firmware oficial Iceman y no sirven para ataques avanzados. Un Proxmark3 auténtico RDV4 cuesta ~$300 por una razón.
+Cuesta entre **$300 y $350 USD**. Se recomienda comprar en distribuidores como **KSEC** o **Hacker Warehouse**.
 
 ---
 
-## 📻 6. HackRF One — La Radio que Todo lo Ve
+## 📻 7. HackRF One — La Radio que Todo lo Ve
 
 ![[hackrf_one.jpg]]
 
 ### Qué es exactamente
+El **HackRF One** es un SDR (Radio Definida por Software). Físicamente es una placa y una antena que captura ondas brutas entre **1 MHz y 6 GHz** y se las pasa a tu ordenador. Todo el "cerebro" (descodificar la onda, entenderla) se hace por software.
 
-El **HackRF One** de Great Scott Gadgets es un **SDR (Software Defined Radio)**: una radio cuyo hardware solo captura y emite señales, y todo el procesamiento de esas señales se hace en software en tu PC. Cubre de **1 MHz a 6 GHz**, abarcando prácticamente cualquier señal de radio de uso civil.
+### Para qué sirve y por qué complementa a los demás
+- **El Flipper Zero** trae "recetas" hechas para protocolos muy específicos (NFC, mandos de garaje).
+- **El Proxmark3** es exclusivo para sistemas de proximidad (RFID/NFC).
+- **El HackRF One** es un lienzo en blanco absoluto. Literalmente te permite **"ver la Matrix del mundo invisible de las ondas"**. 
 
-Una radio convencional solo puede sintonizar frecuencias de FM/AM. El HackRF puede procesar **cualquier señal** en ese rango descomunal.
+Puedes interceptar y visualizar en pantalla cualquier señal que flote en el aire: radares de aviones (ADS-B), comunicaciones de satélites meteorológicos, señales de llaves de coches, redes de telefonía GSM, telemetría de drones, etc. 
 
-### Qué puede hacer — El espectro a tu disposición
+### Curva de Aprendizaje y Temario (Primeros Pasos)
+> [!warning] Curva de aprendizaje MUY alta
+> El HackRF no es "enchufar y hackear". Si no programas el software, el aparato no hace nada. Requiere comprender conceptos físicos de telecomunicaciones y procesado de señales.
 
-| Frecuencia | Qué hay ahí |
-|---|---|
-| 87-108 MHz | Radio FM comercial |
-| 433 / 868 MHz | Mandos de garaje, sensores IoT, alarmas |
-| 315 / 433 MHz | Mandos de coche antiguos |
-| 1090 MHz | ADS-B: posición de todos los aviones en vuelo |
-| 1575 MHz | Señal GPS |
-| 2.4 GHz | Wi-Fi, Bluetooth, drones |
-| 5.8 GHz | Wi-Fi 5 GHz, vídeo FPV de drones |
-
-### Cómo empezar — Software necesario
-
-```bash
-# Linux (instalación básica):
-sudo apt install gqrx-sdr     # Receptor visual de espectro (el más fácil para empezar)
-sudo apt install gnuradio      # Suite completa de procesado de señal
-sudo apt install hackrf        # Drivers y utilidades de línea de comandos
-
-# Primer uso con GQRX (ver el espectro de radio):
-gqrx
-# 1. Selecciona "HackRF One" como dispositivo de entrada.
-# 2. Ajusta la frecuencia a 100.0 MHz (radio FM).
-# 3. Verás las emisoras como picos en el espectro.
-# 4. Haz clic en un pico → escuchas la radio en tiempo real.
-```
-
-**Escuchar aviones (ADS-B) — Ejemplo práctico para empezar:**
-
-```bash
-# Instala dump1090 (decodificador ADS-B):
-sudo apt install dump1090-mutability
-
-# Ejecuta y abre el navegador en localhost:8080
-dump1090 --interactive --net
-
-# Verás en tiempo real todos los aviones cercanos con:
-# - Vuelo, altitud, velocidad, posición GPS
-# - Se muestra en un mapa interactivo
-```
-
-### Marco legal — Muy importante
-
-> [!warning] Transmitir es ilegal sin licencia
-> Usar el HackRF **solo para recibir y analizar señales** es completamente legal en España y la UE.
->
-> **Transmitir** señales en frecuencias sin licencia es ilegal según la Ley General de Telecomunicaciones y puede acarrear multas de hasta 500.000€ y responsabilidad penal.
->
-> Los radioaficionados con licencia (examen HAREC/CEPT) pueden transmitir en las bandas autorizadas.
+**Plan de estudio recomendado si compras un HackRF:**
+1. **Fundamentos de Radio:** Aprender qué es frecuencia, amplitud, modulación (AM/FM/FSK/QAM) y el espectro electromagnético.
+2. **Exploración visual (GQRX):** Usar el programa `GQRX` para moverte por el espectro, ver las ondas como picos y escuchar emisoras de radio FM, walkie-talkies o servicios analógicos sin cifrar.
+3. **Decodificación digital:** Aprender a usar software puente como `dump1090` para cazar transpondedores de aviones comerciales y pintarlos en un mapa.
+4. **Ingeniería Inversa (GNU Radio):** El paso final. Usar *GNU Radio Companion* para grabar la señal digital de un sensor IoT, aislar los "unos y ceros" de la onda, y construir un diagrama de bloques para enviar de vuelta la misma señal modificada (*Replay Attack*).
 
 ### Dónde comprarlo
-
-| Tienda | Precio | Link |
-|---|---|---|
-| **Great Scott Gadgets (resellers oficiales)** | ~$300-350 USD | [greatscottgadgets.com/where-to-buy](https://greatscottgadgets.com/where-to-buy/) |
-| **Astroradio (España, distribuidor oficial)** | ~310€ | [astroradio.com](https://www.astroradio.com) |
-| **Nooelec (con bundle de antenas)** | ~$350+ USD | [nooelec.com](https://www.nooelec.com) |
-
-> [!tip] HackRF Pro — El sucesor
-> Great Scott Gadgets ha lanzado el **HackRF Pro**, con rango de frecuencias extendido, USB-C y mayor precisión. Si vas a comprar uno nuevo, infórmate en su web sobre disponibilidad del Pro.
+Su precio ronda los **$300-$350 USD** en **Astroradio** (España) o **Great Scott Gadgets**.
 
 ---
 
-## 🔐 7. LAN Turtle, Shark Jack y Packet Squirrel — Los Espías de Red
+## 🔐 8. Herramientas de Infiltración de Red (Hak5)
 
-Estos tres dispositivos de Hak5 comparten el mismo propósito: **infiltrarse silenciosamente en una red local** desde dentro. Se compran todos en [shop.hak5.org](https://shop.hak5.org).
+Estos dispositivos buscan establecer *backdoors* en redes LAN con acceso físico.
 
 ### 🐢 LAN Turtle
-
-Un adaptador USB-a-Ethernet con un sistema Linux completo dentro. Se conecta entre el cable de red y el PC de la víctima.
-
-**Qué hace:**
-- Establece un **túnel SSH inverso** permanente hacia el servidor del atacante.
-- Ejecuta scripts de reconocimiento de red de forma autónoma.
-- El PC de la víctima funciona con total normalidad.
-
-**Caso real:**
-```
-El auditor entra a la oficina con excusa de "técnico de mantenimiento".
-Conecta la Turtle detrás de una torre de PC junto a la pared.
-Sale de la oficina.
-Desde su casa, abre el túnel SSH → tiene acceso a toda la red interna
-de la empresa de forma continua hasta que alguien encuentre el dispositivo.
-```
+![[lan_turtle.jpg]]
+Un adaptador USB-a-Ethernet con un sistema Linux dentro.
+- **Uso:** El atacante lo enchufa detrás de la torre del PC de la oficina.
+- **Acción:** Crea un **túnel SSH inverso** permanente hacia el servidor del atacante, dándole acceso remoto total a la red interna desde su casa.
 
 ### 🦈 Shark Jack
-
-Un pincho Ethernet autónomo de bolsillo. Se conecta a un puerto de red libre (en un switch, toma de pared) y ejecuta automáticamente herramientas de reconocimiento.
-
-**En 60 segundos puede:**
-- Escanear toda la subred con `nmap`
-- Capturar hashes NTLMv2 con `Responder`
-- Guardar todo en memoria interna
-
-**Lo recoges 5 minutos después y te vas.** Los datos están en el dispositivo.
+![[shark_jack.jpg]]
+Un pincho Ethernet autónomo de bolsillo.
+- **Uso:** Se conecta directamente a una toma de red en la pared o a un router.
+- **Acción:** En 60 segundos escanea silenciosamente la subred con `nmap`, captura hashes y guarda todo en su interior. Te lo llevas un minuto después.
 
 ### 🐿️ Packet Squirrel
-
-Un interceptor pasivo (Network Tap) que se conecta en línea entre dos puntos de red.
-
-**Captura silenciosamente:**
-- Todo el tráfico que pasa por él (pcaps completos)
-- Puede exfiltrar por túnel VPN a un servidor externo en tiempo real
-- La víctima no percibe ninguna degradación del rendimiento
+![[packet_squirrel.jpg]]
+Un interceptor pasivo (Network Tap).
+- **Uso:** Se conecta "en medio" del cable de red entre un PC y la toma de pared.
+- **Acción:** Copia silenciosamente todo el tráfico de red (archivos pcap) hacia un USB o por VPN sin interrumpir la conexión de la víctima.
 
 ---
 
-## 🔓 8. Ganzúas y Lockpicking — El Hacking Más Antiguo
+## 📇 9. Hardware Histórico: RFIDler
+El **RFIDler** (creado por Aperture Labs) fue una herramienta pionera en la investigación y manipulación de señales RFID de baja frecuencia (125kHz).
+
+Actualmente es un proyecto **descatalogado**. Si bien fue vital para la comunidad hacker hace una década, a día de hoy ha sido completamente reemplazado por dispositivos modernos y con soporte activo como el **Proxmark3 RDV4** y el **Flipper Zero**. Es un componente histórico de esta disciplina.
+
+---
+
+## 🚫 10. Inhibidores de Frecuencia (Signal Jammers)
+
+Pediste buscar esto en la sección 01 (defensa), pero **no pertenece allí**. Un inhibidor no es un dispositivo de privacidad ni de defensa, es un arma de ataque electrónico puro.
+
+### Qué son exactamente
+Un inhibidor de frecuencia es un dispositivo que emite "ruido blanco" de radio a una potencia extremadamente alta en bandas específicas (Wi-Fi, 3G/4G/5G, GPS, Bluetooth).
+
+Al emitir tanto ruido de forma caótica, "grita" más fuerte que los dispositivos legítimos. Resultado: los móviles se quedan sin cobertura, el Wi-Fi se satura por completo, el GPS se "ciega" y **las alarmas de seguridad de las casas dejan de comunicar con las centrales**. Es un ataque de Denegación de Servicio (DoS) en el mundo físico.
+
+### Marco Legal: Totalmente Ilegales en España y Europa
+
+> [!CAUTION] Riesgo Penal Gravísimo
+> En España, el uso, tenencia, venta, importación o instalación de inhibidores de frecuencia por parte de civiles **es estrictamente ilegal** bajo la Ley 11/2022 General de Telecomunicaciones. Solo las fuerzas y cuerpos de seguridad del Estado pueden usarlos.
+>
+> **¿Por qué?** Porque su uso bloquea redes críticas como el **112**, interfiere con ambulancias, radares aéreos, servicios de policía y redes pacíficas.
+>
+> - **Sanciones:** Consideradas infracciones muy graves, las multas por encender uno de estos dispositivos pueden llegar hasta **los 20 millones de euros** y conllevar penas de prisión, especialmente si se asocian a actividades delictivas (como robar coches o asaltar casas bloqueando la alarma).
+
+---
+
+## 🔓 11. Ganzúas y Lockpicking
+
+![[lockpicks.jpg]]
 
 ### Por qué forma parte del pentesting de IT
+La seguridad digital no existe sin seguridad física. Un servidor blindado lógicamente queda comprometido si alguien abre la puerta del CPD con una ganzúa en 15 segundos. Las auditorías *Red Team* maduras incluyen una fase de intrusión física con:
+- **Set de ganzúas básico:** Raking y *single pin picking*.
+- **Bump Keys:** Llaves maestras percutidas que abren cerraduras de pines por impacto.
+- **Pick Guns:** Pistolas eléctricas o mecánicas que hacen saltar los pines a altísima velocidad.
+- **Under-the-Door Tool:** Cable articulado para abrir manivelas desde debajo de la puerta.
 
-La seguridad digital no existe sin seguridad física. Un servidor con cifrado AES-256 y firewall de última generación queda comprometido si alguien abre la puerta del CPD en 15 segundos con una ganzúa.
-
-Las **auditorías Red Team completas** siempre incluyen una fase de intrusión física:
-- Intentar abrir cerraduras de armarios rack.
-- Abrir puertas de salas de servidores.
-- Acceder a zonas restringidas mediante bump keys o pick guns.
-
-### Herramientas básicas de lockpicking
-
-| Herramienta | Uso | Precio |
-|---|---|---|
-| **Set de ganzúas básico** | Raking y single pin picking | ~20-40€ |
-| **Bump Keys** | Abre la mayoría de cerraduras de pines con golpeo | ~15-30€ |
-| **Pick Gun eléctrica** | Abre cerraduras en segundos, muy efectiva | ~40-80€ |
-| **Under-the-Door Tool** | Abre puertas con manivela desde el exterior | ~60-100€ |
-
-**Dónde comprar (España):**
-- [multipick.com](https://www.multipick.com) — fabricante alemán de referencia
-- [lockpickworld.com](https://www.lockpickworld.com)
-
-> [!warning] Legalidad en España
-> Poseer ganzúas en España **no es ilegal por sí mismo** (no están en la lista de útiles especialmente aptos para robo si no hay intención delictiva probada). Sin embargo, llevarlas encima en situación sospechosa puede considerarse tenencia de útiles para robo. Úsalas solo en entrenamientos propios o con autorización escrita del propietario.
+> [!info] Legalidad en España
+> Poseer ganzúas en casa como herramienta de cerrajería deportiva (Lockpicking) no es ilegal per se. Sin embargo, llevarlas encima en la vía pública puede acarrear problemas legales graves si las fuerzas del orden interpretan (según las circunstancias) que son útiles portados para cometer un robo.
 
 ---
 
 ## 📊 Tabla Resumen Completa
 
-| Dispositivo | Vector | Nivel | Precio aprox. | Dónde comprar |
+| Dispositivo | Vector Principal | Nivel | Precio aprox. | Dónde comprar |
 |---|---|---|---|---|
-| 🦆 USB Rubber Ducky | BadUSB / HID | Principiante | ~$80 USD | [shop.hak5.org](https://shop.hak5.org) |
-| 🐰 Bash Bunny Mark II | BadUSB + Red | Intermedio | ~$120 USD | [shop.hak5.org](https://shop.hak5.org) |
-| 🐬 Flipper Zero | RF / NFC / RFID / BadUSB | Principiante/Medio | **$169 USD** | [flipper.net](https://flipper.net) |
-| 🍍 WiFi Pineapple | MitM Wi-Fi | Intermedio | Ver en web | [shop.hak5.org](https://shop.hak5.org) |
-| 💳 Proxmark3 RDV4 | RFID/NFC avanzado | Avanzado | ~$300-350 USD | [ksec.co.uk](https://www.ksec.co.uk) |
-| 📻 HackRF One | SDR / Radiofrecuencia | Avanzado | ~$300-350 USD | [astroradio.com](https://www.astroradio.com) |
-| 🐢 LAN Turtle | Backdoor de red | Intermedio | ~$80 USD | [shop.hak5.org](https://shop.hak5.org) |
-| 🦈 Shark Jack | Reconocimiento LAN | Intermedio | ~$100 USD | [shop.hak5.org](https://shop.hak5.org) |
-| 🐿️ Packet Squirrel | Network Tap pasivo | Intermedio | ~$60 USD | [shop.hak5.org](https://shop.hak5.org) |
-| 🔓 Ganzúas / Kit | Seguridad física | Principiante | ~20-80€ | [multipick.com](https://www.multipick.com) |
+| 🦆 USB Rubber Ducky | BadUSB / Inyección HID | Principiante | ~$80 USD | Hak5 / KSEC |
+| 🔌 O.MG Cable | BadUSB invisible por Wi-Fi | Intermedio | ~$150 USD | Hak5 |
+| 🐰 Bash Bunny | BadUSB + Adaptador de Red | Intermedio | ~$120 USD | Hak5 / KSEC |
+| 🐬 Flipper Zero | RF / NFC / IR básico | Principiante | $169 USD | flipper.net |
+| 🍍 WiFi Pineapple | MitM Wi-Fi / Phishing | Intermedio | ~$120 USD | Hak5 / KSEC |
+| 💳 Proxmark3 RDV4 | RFID/NFC criptografía avanzada | Avanzado | ~$300 USD | KSEC / Hacker Warehouse |
+| 📻 HackRF One | SDR (Análisis de ondas en bruto) | Avanzado | ~$350 USD | Astroradio / Great Scott |
+| 🐢 LAN Turtle | Backdoor de red (SSH) | Intermedio | ~$80 USD | Hak5 |
+| 🦈 Shark Jack | Escaneo rápido LAN (Nmap) | Intermedio | ~$100 USD | Hak5 |
+| 🐿️ Packet Squirrel | Network Tap pasivo (Sniffing) | Intermedio | ~$60 USD | Hak5 |
+| 📇 RFIDler | LF RFID (Legacy) | Obsoleto | Descatalogado | N/A |
+| 🚫 Inhibidor (Jammer) | Bloqueo RF / DoS físico | N/A | **ILEGAL** | N/A |
+| 🔓 Ganzúas / Kit | Seguridad física (Cerraduras) | Principiante | ~30€ | multipick.com |
