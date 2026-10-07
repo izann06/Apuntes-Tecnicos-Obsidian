@@ -186,7 +186,7 @@ El WiFi Pineapple de Hak5 es un router especializado diseñado para realizar **a
 
 ### El ataque Karma — Cómo funciona
 
-Los dispositivos (móviles, portátiles) guardan listas de redes Wi-Fi a las que se han conectado antes. Y están continuamente preguntando al aire: *"¿Hay por aquí alguna red llamada 'Casa_de_Izar'? ¿Y la red del trabajo? ¿Y la del aeropuerto?"*
+Los dispositivos (móviles, portátiles) guardan listas de redes Wi-Fi a las que se han conectado antes. Y están continuamente preguntando al aire: *"¿Hay por aquí alguna red llamada 'Casa_de_Izan'? ¿Y la red del trabajo? ¿Y la del aeropuerto?"*
 
 El Pineapple escucha esas preguntas y responde a todas ellas: *"¡Sí, soy yo, conéctate!"*. Los dispositivos se conectan automáticamente creyendo que están en su red de confianza.
 
