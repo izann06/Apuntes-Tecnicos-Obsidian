@@ -51,64 +51,39 @@ ENTER
 
 ---
 
-## 🔌 2. Cable O.MG — El Espía Invisible
+## 💾 2. Bash Bunny y O.MG Cable: Robo y Transferencia de Datos
 
-![[omg_cable.jpg]]
+Ambos son dispositivos de inyección física (actúan como un teclado superrápido) orientados a **extraer datos** de un ordenador y llevártelos. 
 
-### Qué es exactamente
-Creado por el investigador "MG" y distribuido por Hak5, el **O.MG Cable** es una obra maestra de la miniaturización maliciosa. Por fuera, **se ve exactamente igual, se siente igual y funciona igual que un cable de carga normal** (por ejemplo, el típico cable blanco USB a Lightning de Apple).
+> [!warning] Requisito indispensable
+> El ordenador objetivo debe estar encendido y con la sesión de usuario desbloqueada.
 
-Pero oculto dentro del propio conector, incrustado en la resina, hay un microordenador que contiene un servidor web, un punto de acceso Wi-Fi y capacidades de BadUSB.
-
-### Cómo funciona — Paso a paso
-1. El atacante sustituye el cable legítimo de la víctima por el cable O.MG.
-2. La víctima lo usa. **El cable carga el móvil y sincroniza datos perfectamente**, por lo que es imposible sospechar nada.
-3. Al recibir corriente, el micro-implante se enciende y crea una **red Wi-Fi oculta**.
-4. El atacante (que puede estar aparcado en la calle o en la oficina de al lado) se conecta a esa red Wi-Fi desde su móvil.
-5. A través de una interfaz web en su navegador, el atacante inyecta comandos que viajan por Wi-Fi hasta el cable, y del cable entran al PC de la víctima como si alguien los estuviera tecleando.
-
-> [!warning] Capacidades avanzadas (Keylogger)
-> Las versiones *Elite* del O.MG Cable actúan como un registrador de pulsaciones (Keylogger). Graban todo lo que la víctima teclea en su ordenador (contraseñas, correos) y lo transmiten por Wi-Fi al atacante.
-
-### Dónde comprarlo
-| Tienda | Precio | Link |
-|---|---|---|
-| **Hak5 Official Store** | ~$150 - $200 USD | [shop.hak5.org/collections/o-mg-cable](https://shop.hak5.org/collections/o-mg-cable) |
-
----
-
-## 🐰 3. Bash Bunny — El Pendrive Multiherramienta
-
+### Bash Bunny
 ![[bash_bunny.jpg]]
 
-### Qué es exactamente
-Mientras el Ducky solo emula un teclado, el **Bash Bunny contiene un sistema operativo Linux completo**. Puede emular **múltiples dispositivos simultáneamente**: un teclado + un adaptador Ethernet + un pendrive de almacenamiento.
+Es un microordenador Linux con forma de pendrive que emula teclado, almacenamiento masivo y tarjeta de red a la vez.
 
-### El interruptor de 3 posiciones
-Tiene un pequeño interruptor físico en el lateral:
-```
-Posición 1 → Ejecuta Payload 1 (ej: ataque a Windows)
-Posición 2 → Ejecuta Payload 2 (ej: ataque a Mac)
-Posición 3 → Modo armado: lo conectas a tu PC para editar los payloads.
-```
+- **Cómo extrae datos:** Al conectarlo, abre una terminal oculta (como [[PowerShell]]), busca archivos específicos (ej. fotos, PDFs, contraseñas de Chrome) y los copia directamente a la memoria interna del propio Bash Bunny.
+- **Precio:** ~200 €.
 
-### El ataque más famoso (robo de hash NTLM)
-Funciona incluso con el PC **completamente bloqueado**:
-1. Conectas el Bash Bunny al PC bloqueado.
-2. El PC lo detecta como un adaptador de red Ethernet ultrarrápido.
-3. Windows prioriza esta "nueva red" para el tráfico.
-4. El Bash Bunny usa `Responder` para pedir credenciales.
-5. Windows envía automáticamente el hash NTLMv2 de la contraseña del usuario.
-6. El hash se crackea luego offline.
+> [!EXAMPLE]
+> Un payload típico de [[Bash Bunny]] tarda menos de 4 segundos en abrir la consola, volcar las credenciales cacheadas de Windows en un archivo de texto, guardarlo en su memoria USB particionada y cerrar la ventana sin que la víctima tenga tiempo de reaccionar.
 
-### Dónde comprarlo
-| Tienda | Precio | Link |
-|---|---|---|
-| **Hak5 Official Store** | ~$120 USD (suele agotarse) | [shop.hak5.org/products/bash-bunny](https://shop.hak5.org/products/bash-bunny) |
+### O.MG Cable
+![[omg_cable.jpg]]
+
+Es un cable aparentemente normal (USB a USB-C/Lightning) que esconde un chip [[Wi-Fi]] diminuto.
+
+- **Cómo extrae datos:** Alguien conecta su móvil al PC con este cable. Tú, desde otra habitación, te conectas a la red Wi-Fi oculta del cable con tu móvil. Le ordenas abrir una terminal oculta en el PC, buscar los archivos y te los envía a tu pantalla a través del aire.
+- **Precio:** ~200 € - 295 € (Versiones Elite).
+
+### Curva de aprendizaje y Utilidad
+- **Curva Baja-Media:** Utilizan [[DuckyScript]], un lenguaje muy fácil de aprender que simplemente simula teclas pulsadas, combinado con scripts básicos de [[Bash]] o PowerShell.
+- **Utilidad:** Muy alta para intrusiones físicas rápidas o para demostrar a empresas el peligro de dejar sesiones desbloqueadas.
 
 ---
 
-## 🐬 4. Flipper Zero — La Navaja Suiza del Hacking RF
+## 🐬 3. Flipper Zero — La Navaja Suiza del Hacking RF
 
 ![[flipper_zero.jpg]]
 
@@ -134,7 +109,7 @@ Con aspecto de juguete noventero (un delfín pixelado), es una potente multiherr
 
 ---
 
-## 🍍 5. WiFi Pineapple — El Router del Mal
+## 🍍 4. WiFi Pineapple — El Router del Mal
 
 ![[wifi_pineapple.jpg]]
 
@@ -153,54 +128,67 @@ El Pineapple escucha esas preguntas y responde: *"¡Sí, soy yo, conéctate!"*. 
 
 ---
 
-## 💳 6. Proxmark3 RDV4 — El Bisturí del RFID
+## 💳 5. Proxmark3: El Rey del Control de Accesos
 
 ![[proxmark3.jpg]]
 
-### Qué es exactamente
-Es la herramienta profesional y estándar de la industria para **análisis avanzado y pentesting de RFID/NFC**. 
+Es la herramienta definitiva para clonar e investigar tarjetas físicas, llaves de proximidad y abonos de transporte.
 
-### Por qué complementa (y supera) al Flipper
-Mientras el Flipper Zero te sirve para un escaneo rápido y emulación básica, el Proxmark3 es para hackear la criptografía subyacente de las tarjetas seguras:
-- Revienta claves criptográficas de tarjetas **MIFARE Classic** usando ataques como MFOC/MFCUK.
-- Analiza protocolos corporativos complejos como **DESFire** o iCLASS.
-- Permite hacer **ataques de relay** (puentear la señal de la tarjeta original hasta un lector lejano).
+### Usos
+- **Clonar y emular tarjetas antiguas [[RFID]]** (125 kHz) como garajes, gimnasios o portales comunes.
+- **Auditar y descifrar tarjetas inteligentes modernas [[NFC]]** (13.56 MHz) mediante ataques criptográficos (ej. tarjetas de fichar en oficinas de alta seguridad).
 
-### Dónde comprarlo
-Cuesta entre **$300 y $350 USD**. Se recomienda comprar en distribuidores como **KSEC** o **Hacker Warehouse**.
+### Precios
+- **Versión Proxmark3 Easy (Clon funcional):** ~50 € - 80 €.
+- **Versión Proxmark3 RDV4 (Oficial para profesionales):** ~350 € - 400 €.
+
+### Curva de aprendizaje y Utilidad
+- **Curva Media-Alta:** Funciona puramente por línea de comandos (CLI) y requiere entender formatos de bloques de memoria.
+- **Utilidad:** Máxima. Es indispensable si auditas seguridad física de edificios o sistemas de identificación personal.
+
+> [!TIP]
+> Si solo quieres clonar tu llave del portal rápidamente sin aprender criptografía, el [[Flipper Zero]] es más amigable. El [[Proxmark3]] es para auditorías profesionales profundas.
 
 ---
 
-## 📻 7. HackRF One — La Radio que Todo lo Ve
+## 📻 6. HackRF One: El Dominio de la Radiofrecuencia
 
 ![[hackrf_one.jpg]]
 
-### Qué es exactamente
-El **HackRF One** es un SDR (Radio Definida por Software). Físicamente es una placa y una antena que captura ondas brutas entre **1 MHz y 6 GHz** y se las pasa a tu ordenador. Todo el "cerebro" (descodificar la onda, entenderla) se hace por software.
+Es un transceptor [[SDR]] (Radio Definida por Software) que abarca desde 1 MHz hasta 6 GHz. Se utiliza para interactuar con señales que viajan por el aire a larga distancia.
 
-### Para qué sirve y por qué complementa a los demás
-- **El Flipper Zero** trae "recetas" hechas para protocolos muy específicos (NFC, mandos de garaje).
-- **El Proxmark3** es exclusivo para sistemas de proximidad (RFID/NFC).
-- **El HackRF One** es un lienzo en blanco absoluto. Literalmente te permite **"ver la Matrix del mundo invisible de las ondas"**. 
+### 1. Usos del HackRF (Versión Base conectada al PC)
+Por sí solo (conectado por USB a un portátil con software como [[SDRSharp]] o [[GNU Radio]]), estos son todos sus usos reales:
 
-Puedes interceptar y visualizar en pantalla cualquier señal que flote en el aire: radares de aviones (ADS-B), comunicaciones de satélites meteorológicos, señales de llaves de coches, redes de telefonía GSM, telemetría de drones, etc. 
+- **Ataques de Replay (Captura y Reproducción):** Grabar la señal de un mando de garaje, grúa industrial o alarma, y volver a emitirla para abrir la puerta sin tener el mando original.
+- **Intercepción de Aviación y Marina:** Escuchar comunicaciones de voz no cifradas entre pilotos y torres de control, o decodificar telemetría [[ADS-B]] para ver la posición de aviones en tiempo real.
+- **Ingeniería Inversa IoT:** Analizar cómo se comunican estaciones meteorológicas inalámbricas, monitores de presión de neumáticos (TPMS) o timbres inteligentes.
+- **Spoofing (Falsificación):** Emitir coordenadas [[GPS]] falsas para engañar a la navegación de drones, móviles o vehículos cercanos (altamente ilegal).
 
-### Curva de Aprendizaje y Temario (Primeros Pasos)
-> [!warning] Curva de aprendizaje MUY alta
-> El HackRF no es "enchufar y hackear". Si no programas el software, el aparato no hace nada. Requiere comprender conceptos físicos de telecomunicaciones y procesado de señales.
+### 2. Mod Portátil (El PortaPack)
+Le añade una carcasa, batería interna, pantalla táctil y ranura MicroSD.
+- **Uso:** Transforma el HackRF de una placa de laboratorio atada a un PC a un dispositivo táctico independiente. Permite hacer ataques de Replay o grabar espectro en la calle, llevándolo en la mano.
 
-**Plan de estudio recomendado si compras un HackRF:**
-1. **Fundamentos de Radio:** Aprender qué es frecuencia, amplitud, modulación (AM/FM/FSK/QAM) y el espectro electromagnético.
-2. **Exploración visual (GQRX):** Usar el programa `GQRX` para moverte por el espectro, ver las ondas como picos y escuchar emisoras de radio FM, walkie-talkies o servicios analógicos sin cifrar.
-3. **Decodificación digital:** Aprender a usar software puente como `dump1090` para cazar transpondedores de aviones comerciales y pintarlos en un mapa.
-4. **Ingeniería Inversa (GNU Radio):** El paso final. Usar *GNU Radio Companion* para grabar la señal digital de un sensor IoT, aislar los "unos y ceros" de la onda, y construir un diagrama de bloques para enviar de vuelta la misma señal modificada (*Replay Attack*).
+### 3. Amplificadores (LNA y PA)
+- **Amplificador LNA (Recepción):** Se enrosca en la antena para "escuchar mejor". Limpia el ruido y permite captar señales débiles que vengan de muy lejos.
+- **Amplificador PA (Emisión):** Aumenta radicalmente la potencia en vatios con la que gritas al aire.
+- **Uso real del PA:** Sirve para emitir el GPS falso a kilómetros o para hacer [[Jamming]] (emitir ruido bruto en 2.4 GHz para tirar abajo conexiones [[Wi-Fi]] y [[Bluetooth]] por fuerza bruta). No sirve para descifrar ni leer datos de esas redes, solo para anularlas.
 
-### Dónde comprarlo
-Su precio ronda los **$300-$350 USD** en **Astroradio** (España) o **Great Scott Gadgets**.
+### Precios
+- **HackRF Original + PortaPack:** ~500 €.
+- **HackRF Clon preensamblado + PortaPack (AliExpress):** ~150 € - 200 €.
+- **Amplificadores:** ~20 € - 40 € cada uno.
+
+### Curva de aprendizaje y Utilidad
+- **Curva Alta:** Entender el procesamiento de señales digitales (DSP) y el espectro electromagnético es complejo.
+- **Utilidad:** Indispensable para auditar telecomunicaciones, sensores inalámbricos y protocolos de radio no estándar. Inútil para protocolos rápidos con salto de canal como el Bluetooth moderno.
+
+> [!WARNING]
+> Emitir interferencias (Jamming) o falsificar señales GPS con un HackRF amplificado constituye un delito federal en la mayoría de países, ya que interrumpe infraestructuras críticas y de emergencia.
 
 ---
 
-## 🔐 8. Herramientas de Infiltración de Red (Hak5)
+## 🔐 7. Herramientas de Infiltración de Red (Hak5)
 
 Estos dispositivos buscan establecer *backdoors* en redes LAN con acceso físico.
 
@@ -224,16 +212,14 @@ Un interceptor pasivo (Network Tap).
 
 ---
 
-## 📇 9. Hardware Histórico: RFIDler
+## 📇 8. Hardware Histórico: RFIDler
 El **RFIDler** (creado por Aperture Labs) fue una herramienta pionera en la investigación y manipulación de señales RFID de baja frecuencia (125kHz).
 
 Actualmente es un proyecto **descatalogado**. Si bien fue vital para la comunidad hacker hace una década, a día de hoy ha sido completamente reemplazado por dispositivos modernos y con soporte activo como el **Proxmark3 RDV4** y el **Flipper Zero**. Es un componente histórico de esta disciplina.
 
 ---
 
-## 🚫 10. Inhibidores de Frecuencia (Signal Jammers)
-
-Pediste buscar esto en la sección 01 (defensa), pero **no pertenece allí**. Un inhibidor no es un dispositivo de privacidad ni de defensa, es un arma de ataque electrónico puro.
+## 🚫 9. Inhibidores de Frecuencia (Signal Jammers)
 
 ### Qué son exactamente
 Un inhibidor de frecuencia es un dispositivo que emite "ruido blanco" de radio a una potencia extremadamente alta en bandas específicas (Wi-Fi, 3G/4G/5G, GPS, Bluetooth).
@@ -251,7 +237,7 @@ Al emitir tanto ruido de forma caótica, "grita" más fuerte que los dispositivo
 
 ---
 
-## 🔓 11. Ganzúas y Lockpicking
+## 🔓 10. Ganzúas y Lockpicking
 
 ![[lockpicks.jpg]]
 
@@ -272,12 +258,12 @@ La seguridad digital no existe sin seguridad física. Un servidor blindado lógi
 | Dispositivo | Vector Principal | Nivel | Precio aprox. | Dónde comprar |
 |---|---|---|---|---|
 | 🦆 USB Rubber Ducky | BadUSB / Inyección HID | Principiante | ~$80 USD | Hak5 / KSEC |
-| 🔌 O.MG Cable | BadUSB invisible por Wi-Fi | Intermedio | ~$150 USD | Hak5 |
-| 🐰 Bash Bunny | BadUSB + Adaptador de Red | Intermedio | ~$120 USD | Hak5 / KSEC |
+| 💾 Bash Bunny | BadUSB + Adaptador de Red | Intermedio | ~200 € | Hak5 / KSEC |
+| 🔌 O.MG Cable | BadUSB invisible por Wi-Fi | Intermedio | ~200 € | Hak5 |
 | 🐬 Flipper Zero | RF / NFC / IR básico | Principiante | $169 USD | flipper.net |
 | 🍍 WiFi Pineapple | MitM Wi-Fi / Phishing | Intermedio | ~$120 USD | Hak5 / KSEC |
-| 💳 Proxmark3 RDV4 | RFID/NFC criptografía avanzada | Avanzado | ~$300 USD | KSEC / Hacker Warehouse |
-| 📻 HackRF One | SDR (Análisis de ondas en bruto) | Avanzado | ~$350 USD | Astroradio / Great Scott |
+| 💳 Proxmark3 | RFID/NFC criptografía avanzada | Avanzado | ~350 € | KSEC / Hacker Warehouse |
+| 📻 HackRF One | SDR (Análisis de ondas en bruto) | Avanzado | ~500 € | Astroradio / Great Scott |
 | 🐢 LAN Turtle | Backdoor de red (SSH) | Intermedio | ~$80 USD | Hak5 |
 | 🦈 Shark Jack | Escaneo rápido LAN (Nmap) | Intermedio | ~$100 USD | Hak5 |
 | 🐿️ Packet Squirrel | Network Tap pasivo (Sniffing) | Intermedio | ~$60 USD | Hak5 |
