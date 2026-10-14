@@ -91,4 +91,46 @@ Es la palabra que en la Biblia suele traducirse como "infierno". Literalmente er
 
 No eran simples "adivinos" o magos que predecían el futuro. Eran los mensajeros y portavoces oficiales de Dios. Su trabajo principal era dar toques de atención al pueblo y a los reyes de Israel: les advertían cuando se estaban portando mal, denunciaban la corrupción y les daban esperanza anunciando los planes de Dios para salvarlos.
 
-pontifices, simon el leproso,alabastro,acimos,eucaristia,vid
+**Pontífices (Sumos Sacerdotes)**
+
+Eran los jefes máximos del sistema religioso judío. El Sumo Sacerdote era el único que podía entrar una vez al año al lugar más sagrado del templo para hablar con Dios en nombre del pueblo. En tiempos de Jesús, estos cargos estaban completamente corrompidos: los controlaba Roma y los vendía al mejor postor. Caifás, el que juzgó a Jesús, era uno de ellos.
+
+
+**Simón el Leproso**
+
+Era un hombre de Betania que había sufrido la enfermedad de la lepra (probablemente curado ya por Jesús) en cuya casa se celebró una cena importante. La lepra en aquella época era devastadora no solo físicamente, sino socialmente: te declaraban "impuro" y te obligaban a vivir aislado, lejos de todo el mundo. Que Jesús fuera a su casa era un escándalo para los religiosos de la época.
+
+
+**Alabastro**
+
+Era un tipo de piedra blanca y translúcida, parecida al mármol, con la que se fabricaban frascos o jarras muy finos y caros para guardar perfumes y ungüentos. En la Biblia, el frasco de alabastro que una mujer rompió para verter su contenido sobre Jesús representaba algo de enorme valor económico, equivalente al salario de casi un año de trabajo.
+
+
+**Ácimos (Pan sin levadura)**
+
+Era un pan plano elaborado sin levadura (sin el agente que hace fermentar y crecer la masa). Los judíos lo comían durante la Pascua como recordatorio de la huida apresurada de Egipto: no hubo tiempo de esperar a que el pan fermentara. La "Fiesta de los Ácimos" duraba siete días y era inseparable de la celebración de la Pascua.
+
+
+**Eucaristía**
+
+Viene del griego y significa "acción de gracias". Es el nombre que se le da al momento en que Jesús, en la Última Cena, tomó el pan y el vino, dio gracias a Dios, y los repartió entre sus discípulos diciéndoles que eran su cuerpo y su sangre. Desde entonces, los cristianos repiten ese gesto como un memorial vivo del sacrificio de Jesús.
+
+
+**Vid**
+
+Es la planta de la uva, es decir, la parra. Jesús la usó como una de sus metáforas más importantes: "Yo soy la vid verdadera y vosotros los pámpanos (ramas)". Una rama separada de la vid se seca y no da fruto. La imagen explica que sin una conexión real y constante con Jesús, es imposible dar fruto espiritual en la vida.
+
+
+**Getsemaní**
+
+Era un huerto o jardín de olivos situado al pie del Monte de los Olivos, justo al otro lado del valle que separaba Jerusalén del monte. Su nombre en arameo significa "prensa de aceite", ya que allí se prensaban las aceitunas. Fue el lugar donde Jesús fue a orar la noche antes de ser arrestado, sudando gotas como de sangre por la angustia de lo que se avecinaba.
+
+
+**Atrio**
+
+Era un patio o espacio abierto interior, rodeado de muros o columnas, que formaba parte de un edificio grande como el templo o la casa del sumo sacerdote. En el Evangelio, el atrio es el lugar donde Pedro esperaba mientras juzgaban a Jesús dentro, y donde tuvo lugar su triple negación alrededor de una hoguera.
+
+
+**Sanedrín**
+
+Era el tribunal supremo de los judíos, formado por 71 miembros: sumos sacerdotes, ancianos y escribas. Funcionaba como el Tribunal Constitucional, el parlamento y el Consejo de Estado a la vez. Tenía autoridad sobre todos los asuntos religiosos y legales del pueblo judío, aunque bajo la supervisión de Roma. Fue este consejo el que juzgó y condenó a Jesús por blasfemia antes de entregarlo a Pilato.
