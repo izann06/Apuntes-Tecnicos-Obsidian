@@ -3,6 +3,28 @@
 > ◀ [[🐳 Índice - Guía Docker]] · ▶ [[🔒 Namespaces (Aislamiento. Lo que el contenedor puede ver)]]
 
 ---
+
+> [!NOTE] 🗺️ Referencia Rápida — Cómo Funciona Docker de un Vistazo
+> **El flujo básico:**
+> `Dockerfile` → (build) → **Imagen** → (run) → **Contenedor** ← Docker Engine lo administra
+>
+> **Comandos básicos que usarás desde el día 1:**
+> ```bash
+> docker pull nginx          # Descarga la imagen de Nginx desde Docker Hub
+> docker images              # Lista todas las imágenes descargadas localmente
+> docker run -d -p 8080:80 nginx  # Crea y arranca un contenedor (modo background, puerto 8080→80)
+> docker ps                  # Lista los contenedores en ejecución
+> docker ps -a               # Lista TODOS los contenedores (incluyendo parados)
+> docker stop <id>           # Para un contenedor (puede reiniciarse)
+> docker rm <id>             # Borra un contenedor parado
+> docker logs <id>           # Ver los logs del contenedor
+> docker exec -it <id> bash  # Entrar dentro del contenedor con una shell
+> ```
+>
+> Los conceptos clave: [[🖼️ Imágenes en Docker|Imagen]] = plantilla inmutable. [[📦 Contenedores en Docker|Contenedor]] = instancia en ejecución de una imagen.
+
+---
+
 ## ¿Qué son los contenedores y por qué los necesitamos?
 
 ### El problema: "En mi máquina sí funciona" 🤷‍♂️
