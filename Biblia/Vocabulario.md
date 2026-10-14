@@ -134,3 +134,5 @@ Era un patio o espacio abierto interior, rodeado de muros o columnas, que formab
 **Sanedrín**
 
 Era el tribunal supremo de los judíos, formado por 71 miembros: sumos sacerdotes, ancianos y escribas. Funcionaba como el Tribunal Constitucional, el parlamento y el Consejo de Estado a la vez. Tenía autoridad sobre todos los asuntos religiosos y legales del pueblo judío, aunque bajo la supervisión de Roma. Fue este consejo el que juzgó y condenó a Jesús por blasfemia antes de entregarlo a Pilato.
+
+pretorio
